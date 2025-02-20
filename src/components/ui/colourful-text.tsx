@@ -4,16 +4,28 @@ import { motion } from "motion/react";
 
 export default function ColourfulText({ text }: { text: string }) {
   const colors = [
-    "rgb(131, 179, 32)",
-    "rgb(47, 195, 106)",
-    "rgb(42, 169, 210)",
-    "rgb(4, 112, 202)",
-    "rgb(107, 10, 255)",
-    "rgb(183, 0, 218)",
-    "rgb(218, 0, 171)",
-    "rgb(230, 64, 92)",
-    "rgb(232, 98, 63)",
-    "rgb(249, 129, 47)",
+    // Basis Blau (Euer Corporate-Blau)
+    "rgb(0, 82, 204)",      
+
+    // Warme, harmonische Farben
+    "rgb(255, 126, 0)",     // Leuchtendes Orange
+    "rgb(255, 190, 0)",     // Sonnengelb
+    "rgb(255, 149, 0)",     // Goldorange
+    
+    // Kühle, ergänzende Farben
+    "rgb(0, 179, 179)",     // Türkis
+    "rgb(72, 191, 146)",    // Mintgrün
+    "rgb(0, 166, 133)",     // Smaragd
+    
+    // Lebendige Akzente
+    "rgb(241, 90, 35)",     // Korallenrot
+    "rgb(255, 105, 97)",    // Lachs
+    "rgb(251, 176, 64)",    // Bernstein
+
+    // Elegante Töne
+    "rgb(86, 90, 207)",     // Königsblau
+    "rgb(144, 19, 254)",    // Violett
+    "rgb(0, 158, 253)",     // Himmelblau
   ];
 
   const [currentColors, setCurrentColors] = React.useState(colors);
@@ -24,7 +36,7 @@ export default function ColourfulText({ text }: { text: string }) {
       const shuffled = [...colors].sort(() => Math.random() - 0.5);
       setCurrentColors(shuffled);
       setCount((prev) => prev + 1);
-    }, 5000);
+    }, 3500); // Schnellerer Farbwechsel für mehr Dynamik
 
     return () => clearInterval(interval);
   }, []);
@@ -38,15 +50,16 @@ export default function ColourfulText({ text }: { text: string }) {
       animate={{
         color: currentColors[index % currentColors.length],
         y: [0, -3, 0],
-        scale: [1, 1.01, 1],
-        filter: ["blur(0px)", `blur(5px)`, "blur(0px)"],
-        opacity: [1, 0.8, 1],
+        scale: [1, 1.03, 1],
+        filter: ["blur(0px)", `blur(1.5px)`, "blur(0px)"],
+        opacity: [1, 0.92, 1],
       }}
       transition={{
-        duration: 0.5,
-        delay: index * 0.05,
+        duration: 0.8,
+        delay: index * 0.02,
+        ease: "easeInOut"
       }}
-      className="inline-block whitespace-pre font-sans tracking-tight"
+      className="inline-block whitespace-pre font-bold tracking-tight"
     >
       {char}
     </motion.span>

@@ -299,10 +299,36 @@
       }
     ]
   },
-  "contact": {
-    "title": "Contact and Request a Quote",
-    "description": "Free initial consultation – We create your individual cleaning concept within 24 hours!",
-    "callToAction": "Contact us today for a personalized building cleaning quote. Our team is always available to answer your questions and provide you with the best solution."
+  "kontakt": {
+    "title": "Contact and Quote Request",
+    "subtitle": "Free Initial Consultation - We'll create your individual cleaning concept within 24 hours!",
+    "contact_features": [
+      "Highest Hygiene Standards",
+      "Environmentally Friendly Methods",
+      "24/7 Availability Guaranteed",
+      "Fast Response Times",
+      "State-of-the-art Cleaning Technology"
+    ],
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "service": {
+        "label": "Desired Service",
+        "placeholder": "Please select...",
+        "options": [
+          "Basic Cleaning",
+          "Maintenance Cleaning",
+          "Special Cleaning",
+          "Other Service"
+        ]
+      },
+      "message": {
+        "label": "Your Message",
+        "placeholder": "Describe your request..."
+      },
+      "submit": "Submit Request"
+    }
   },
   "issuesAndSolutions": {
     "floorsAndSurfaces": {

@@ -301,8 +301,34 @@
   },
   "kontakt": {
     "title": "Kontakt und Angebotseinholung",
-    "description": "Kostenlose Erstberatung – Wir erstellen Ihr individuelles Reinigungskonzept innerhalb von 24 Stunden!",
-    "callToAction": "Kontaktieren Sie uns noch heute für ein individuelles Angebot zur Gebäudereinigung. Unser Team steht Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten und Ihnen die bestmögliche Lösung zu bieten."
+    "subtitle": "Kostenlose Erstberatung - Wir erstellen Ihr individuelles Reinigungskonzept innerhalb von 24 Stunden!",
+    "contact_features": [
+      "Höchste Hygienestandards",
+      "Umweltfreundliche Methoden",
+      "24/7 Erreichbarkeit garantiert",
+      "Schnelle Reaktionszeiten",
+      "Modernste Reinigungstechnik"
+    ],
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "service": {
+        "label": "Gewünschte Leistung",
+        "placeholder": "Bitte wählen Sie...",
+        "options": [
+          "Grundreinigung",
+          "Unterhaltsreinigung",
+          "Sonderreinigung",
+          "Andere Leistung"
+        ]
+      },
+      "message": {
+        "label": "Ihre Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen..."
+      },
+      "submit": "Anfrage absenden"
+    }
   },
   "problemeUndLoesungen": {
     "bodenUndOberflaechen": {

@@ -8,6 +8,8 @@ import { Separator } from "@/components/ui/separator"
 import ColourfulText from "@/components/ui/colourful-text"
 import ExpandableCleaningCards from "@/components/ui/ExpandableCleaningCards"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
+import ContactButton from '@/components/ui/contact-button';
+
 import { InView } from "@/components/ui/in-view"
 import { cn } from "@/lib/utils"
 import {
@@ -377,70 +379,90 @@ export default function CleaningPage() {
                 </div>
               </div>
               
-              {/* Right Side - Contact Form */}
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-accent/10">
-                <form className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">{cleaningData.kontakt.form.name}</Label>
-                    <Input 
-                      id="name"
-                      placeholder={cleaningData.kontakt.form.name}
-                      className="w-full"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email">{cleaningData.kontakt.form.email}</Label>
-                    <Input 
-                      id="email"
-                      type="email"
-                      placeholder={cleaningData.kontakt.form.email}
-                      className="w-full"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">{cleaningData.kontakt.form.phone}</Label>
-                    <Input 
-                      id="phone"
-                      type="tel"
-                      placeholder={cleaningData.kontakt.form.phone}
-                      className="w-full"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="service">{cleaningData.kontakt.form.service.label}</Label>
-                    <select 
-                      id="service"
-                      className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
-                    >
-                      <option value="">{cleaningData.kontakt.form.service.placeholder}</option>
-                      {cleaningData.kontakt.form.service.options.map((option) => (
-                        <option key={option} value={option.toLowerCase()}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="message">{cleaningData.kontakt.form.message.label}</Label>
-                    <Textarea 
-                      id="message"
-                      placeholder={cleaningData.kontakt.form.message.placeholder}
-                      className="w-full min-h-[100px]"
-                    />
-                  </div>
-                  
-                  <button 
-                    type="submit"
-                    className="w-full bg-accent hover:bg-accent/90 text-white py-4 rounded-lg text-lg font-medium transform transition-all hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    {cleaningData.kontakt.form.submit}
-                  </button>
-                </form>
-              </div>
+{/* Right Side - Contact Form */}
+<div className="bg-white p-8 rounded-xl shadow-lg border border-accent/10">
+  <form className="space-y-6" onSubmit={(e) => {
+    e.preventDefault();
+    // Handle form submission
+  }}>
+    <div className="space-y-2">
+      <Label htmlFor="name">
+        {cleaningData.kontakt.form.name}
+      </Label>
+      <Input 
+        id="name"
+        name="name"
+        type="text"
+        placeholder={cleaningData.kontakt.form.name}
+        className="w-full"
+        required
+      />
+    </div>
+    
+    <div className="space-y-2">
+      <Label htmlFor="email">
+        {cleaningData.kontakt.form.email}
+      </Label>
+      <Input 
+        id="email"
+        name="email"
+        type="email"
+        placeholder={cleaningData.kontakt.form.email}
+        className="w-full"
+        required
+      />
+    </div>
+    
+    <div className="space-y-2">
+      <Label htmlFor="phone">
+        {cleaningData.kontakt.form.phone}
+      </Label>
+      <Input 
+        id="phone"
+        name="phone"
+        type="tel"
+        placeholder={cleaningData.kontakt.form.phone}
+        className="w-full"
+      />
+    </div>
+    
+    <div className="space-y-2">
+      <Label htmlFor="service">
+        {cleaningData.kontakt.form.service.label}
+      </Label>
+      <select 
+        id="service"
+        name="service"
+        className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+        required
+      >
+        <option value="">
+          {cleaningData.kontakt.form.service.placeholder}
+        </option>
+        {cleaningData.kontakt.form.service.options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </div>
+    
+    <div className="space-y-2">
+      <Label htmlFor="message">
+        {cleaningData.kontakt.form.message.label}
+      </Label>
+      <Textarea 
+        id="message"
+        name="message"
+        placeholder={cleaningData.kontakt.form.message.placeholder}
+        className="w-full min-h-[100px]"
+        required
+      />
+    </div>
+    
+    <ContactButton text={cleaningData.kontakt.form.submit} />
+  </form>
+</div>
             </div>
           </InView>
         </Container>

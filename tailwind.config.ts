@@ -99,7 +99,10 @@ const config = {
         'fade-in': 'fadeIn 400ms ease-in',
         'slide-up': 'slideUp 300ms ease-out',
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'fly': 'fly 0.6s ease-in-out infinite alternate',
+        'paper-plane-takeoff': 'paper-plane-takeoff 0.5s ease forwards',
+        'text-slide': 'text-slide 0.5s ease forwards'
       },
       keyframes: {
         fadeIn: {
@@ -117,6 +120,26 @@ const config = {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' }
+        },
+        fly: {
+          '0%': { transform: 'translateY(0.1em)' },
+          '100%': { transform: 'translateY(-0.1em)' }
+        },
+        'paper-plane-takeoff': {
+          '0%': { 
+            transform: 'translateX(0) rotate(0deg) scale(1)'
+          },
+          '100%': { 
+            transform: 'translateX(1.2em) rotate(45deg) scale(1.1)'
+          }
+        },
+        'text-slide': {
+          '0%': { 
+            transform: 'translateX(0)'
+          },
+          '100%': { 
+            transform: 'translateX(5em)'
+          }
         }
       }
     }

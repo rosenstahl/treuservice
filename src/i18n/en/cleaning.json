@@ -317,10 +317,20 @@
         "label": "Desired Service",
         "placeholder": "Please select...",
         "options": [
+          "General Cleaning",
           "Basic Cleaning",
-          "Maintenance Cleaning",
+          "Glass and Facade Cleaning",
+          "Industrial Cleaning",
+          "Outdoor Facility Maintenance",
           "Special Cleaning",
-          "Other Service"
+          "Transport Cleaning",
+          "Hotel Cleaning",
+          "Event Cleaning",
+          "Construction Cleaning",
+          "Stone Cleaning",
+          "Roof Cleaning",
+          "Solar Panel Cleaning",
+          "Other Services"
         ]
       },
       "message": {

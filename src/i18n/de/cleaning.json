@@ -317,11 +317,21 @@
         "label": "Gewünschte Leistung",
         "placeholder": "Bitte wählen Sie...",
         "options": [
-          "Grundreinigung",
           "Unterhaltsreinigung",
+          "Grundreinigung",
+          "Glas- und Fassadenreinigung",
+          "Industriereinigung",
+          "Außenanlagenpflege",
           "Sonderreinigung",
+          "Verkehrsmittelreinigung",
+          "Hotelreinigung",
+          "Veranstaltungsreinigung",
+          "Baureinigung",
+          "Steinreinigung",
+          "Dachreinigung",
+          "Solaranlagen-Reinigung",
           "Andere Leistung"
-        ]
+            ]
       },
       "message": {
         "label": "Ihre Nachricht",

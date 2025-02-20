@@ -14,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className={`${inter.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased bg-background text-foreground">
+        {children}
+      </body>
     </html>
   )
 }

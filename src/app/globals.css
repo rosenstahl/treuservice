@@ -21,6 +21,7 @@
   --ring: 222.2 84% 4.9%;
   --radius: 0.5rem;
 
+  /* Basisfarben */
   --color-primary: #F2F2F2;
   --color-primary-light: #FFFFFF;
   --color-primary-dark: #E5E5E5;
@@ -34,6 +35,12 @@
   --color-accent-dark: #0089BC;
   --color-accent-hover: #007CAB;
 
+  /* Testimonial-spezifische Farben */
+  --testimonial-text: #333333;
+  --testimonial-name: #222425;
+  --testimonial-designation: #666666;
+
+  /* Abstände */
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
   --spacing-3: 1rem;
@@ -41,6 +48,7 @@
   --spacing-5: 2rem;
   --spacing-6: 3rem;
   
+  /* Typografie */
   --font-h1-size: 3rem;
   --font-h1-line-height: 3.5rem;
   --font-h1-weight: 700;

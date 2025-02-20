@@ -1,0 +1,139 @@
+{
+  "navigation": {
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "AGB"
+  },
+  "imprint": {
+    "title": "Impressum",
+    "company": {
+      "title": "Unternehmensinformationen",
+      "name": "TREU Service GmbH",
+      "address": "Rheinische Straße 220",
+      "city": "44147 Dortmund",
+      "register": "Handelsregister: HRB 20627",
+      "court": "Registergericht: Dortmund"
+    },
+    "management": {
+      "title": "Vertreten durch",
+      "name": "Hasan Hüseyin Yilmaz"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "phone": "Telefon: 0231 15044352",
+      "email": "E-Mail: info@treuservice.com"
+    },
+    "tax": {
+      "title": "Umsatzsteuer-ID",
+      "content": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE362838091"
+    },
+    "qualifications": {
+      "title": "Berufsbezeichnung und berufsrechtliche Regelungen",
+      "profession": "Berufsbezeichnung: Handwerker",
+      "chamber": "Zuständige Kammer: Industrie-und Handelskammer zu Dortmund",
+      "chamberAddress": "Märkische Str. 120, 44141 Dortmund",
+      "country": "Verliehen in: Deutschland"
+    },
+    "authority": {
+      "title": "Aufsichtsbehörde",
+      "name": "Stadt Dortmund",
+      "address": "Olpe 1, 44135 Dortmund"
+    },
+    "dispute": {
+      "title": "Verbraucherstreitbeilegung/Universalschlichtungsstelle",
+      "content": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+    }
+  },
+  "about": {
+    "title": "Über uns",
+    "history": {
+      "title": "Unsere Geschichte",
+      "content": "TREU Service GmbH ist ein Unternehmen, das auf harter Arbeit, Hingabe und einem unermüdlichen Streben nach Exzellenz aufgebaut wurde. Im Zentrum unseres Geschäfts stehen die Menschen, die alles möglich machen. Unser Team besteht aus hochqualifizierten Fachleuten, die leidenschaftlich daran arbeiten, unseren Kunden den bestmöglichen Service zu bieten."
+    },
+    "team": {
+      "title": "Unser Team",
+      "content": "Von unserem Gründer Hasan Yilmaz bis zu unserem engagierten Personal ist jedes Mitglied des TREU-Teams darauf ausgerichtet, außergewöhnlichen Service zu liefern. Wir sind davon überzeugt, dass unser Erfolg auf den Beziehungen basiert, die wir zu unseren Kunden aufbauen, und wir arbeiten unermüdlich daran, sicherzustellen, dass jede Interaktion positiv und produktiv ist."
+    },
+    "vision": {
+      "title": "Unsere Vision",
+      "content": "Unsere Vision bei TREU Service ist es, die erste Wahl für unsere Kunden in allen Bereichen zu sein, in denen wir tätig sind. Wir wollen nicht nur ein Dienstleistungsunternehmen sein, sondern auch ein zuverlässiger Partner, wenn es um Sicherheit, Sauberkeit und Nachhaltigkeit geht."
+    },
+    "challenge": {
+      "title": "Die Herausforderung",
+      "content": "In Deutschland herrscht derzeit ein erheblicher Mangel an Fachkräften in verschiedenen Branchen, einschließlich der Dienstleistungsbranche. Dies stellt Unternehmen vor die Herausforderung, geeignete Mitarbeiter zu finden und ihre Dienstleistungen auf einem hohen Niveau zu erbringen."
+    },
+    "future": {
+      "title": "Unsere Zukunft",
+      "content": "In 25 Jahren sehen wir uns als führendes Unternehmen in unseren Tätigkeitsbereichen, das sich durch Innovation und Nachhaltigkeit auszeichnet. Die Bedürfnisse unserer Kunden werden dabei immer an oberster Stelle stehen."
+    },
+    "testimonials": {
+      "title": "Stimmen unserer Kunden",
+      "items": [
+        {
+          "content": "Das Team von TREU Service ist einfach spitze! Immer pünktlich, zuverlässig und die Qualität der Arbeit ist hervorragend.",
+          "author": "Markus Löwe"
+        },
+        {
+          "content": "Wir sind sehr zufrieden mit dem Service. Die Mitarbeiter von TREU Service sind immer freundlich und flexibel, egal welche Herausforderungen wir haben.",
+          "author": "Anna König"
+        },
+        {
+          "content": "Bei TREU Service merkt man einfach, dass das Team mit Leidenschaft dabei ist. Sie sind immer engagiert und bringen frische Ideen mit.",
+          "author": "Thomas Weber"
+        },
+        {
+          "content": "Mit TREU Service haben wir einen Partner gefunden, der uns unterstützt, als wären wir ein Team. Die Zusammenarbeit ist immer unkompliziert und professionell.",
+          "author": "Julia Schneider"
+        }
+      ]
+    },
+    "location": {
+      "title": "Standort",
+      "content": "Unser Unternehmen hat seinen Sitz in Dortmund und bietet Dienstleistungen in ganz Nordrhein-Westfalen an. Je nach Projektumfang sind wir auch deutschlandweit tätig und setzen uns dafür ein, die Bedürfnisse unserer Kunden vollständig zu erfüllen."
+    }
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "responsible": {
+      "title": "Verantwortliche Stelle",
+      "content": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
+      "info": [
+        "TREU Service GmbH",
+        "Hasan Yilmaz",
+        "Rheinische Straße 220, 44147 Dortmund"
+      ]
+    },
+    "consent": {
+      "title": "Widerruf der Einwilligung",
+      "content": "Nur mit Ihrer ausdrücklichen Einwilligung sind einige Vorgänge der Datenverarbeitung möglich. Ein Widerruf Ihrer bereits erteilten Einwilligung ist jederzeit möglich. Für den Widerruf genügt eine formlose Mitteilung per E-Mail. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt."
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "items": [
+        {
+          "title": "Recht auf Beschwerde",
+          "content": "Als Betroffener steht Ihnen im Falle eines datenschutzrechtlichen Verstoßes ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu."
+        },
+        {
+          "title": "Recht auf Datenübertragbarkeit",
+          "content": "Ihnen steht das Recht zu, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an Dritte aushändigen zu lassen."
+        },
+        {
+          "title": "Recht auf Auskunft, Berichtigung, Sperrung, Löschung",
+          "content": "Sie haben jederzeit im Rahmen der geltenden gesetzlichen Bestimmungen das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, Herkunft der Daten, deren Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten."
+        }
+      ]
+    },
+    "security": {
+      "title": "SSL- bzw. TLS-Verschlüsselung",
+      "content": "Aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte nutzt unsere Website eine SSL-bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von http:// auf https:// wechselt und an dem Schloss-Symbol in Ihrer Browserzeile."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Webbrowser auf Ihrem Endgerät speichert. Cookies helfen uns dabei, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen."
+    }
+  }
+}

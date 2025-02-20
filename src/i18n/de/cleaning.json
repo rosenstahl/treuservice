@@ -1,0 +1,477 @@
+{
+  "hero": {
+    "title": "Gebäudereinigung",
+    "subtitle": "Wir sorgen für Sauberkeit und Hygiene, damit Sie sich in Ihrer Umgebung wohl fühlen",
+    "description": "Bei TREU Service definieren wir neue Maßstäbe in der professionellen Gebäudereinigung. Mit deutscher Präzision und innovativer Technologie erschaffen wir makellose Räume, die begeistern. Als Ihr strategischer Partner für Reinigungsexzellenz garantieren wir nicht nur Sauberkeit, sondern ein ganzheitliches Wohlbefinden in Ihren Räumlichkeiten."
+  },
+  "basisleistungen": {
+    "title": "Unsere Basisleistungen", 
+    "subtitle":"Das Fundament für Sauberkeit in jedem Bereich",
+    "items": [
+      "Bedarfsanalyse & Reinigungskonzept",
+      "Unterhaltsreinigung & Pflege",
+      "Hygiene & Desinfektion",
+      "Qualitätskontrolle & Dokumentation",
+      "Nachhaltiges Reinigungskonzept"
+    ],
+    "note": "Diese Grundleistungen bilden das Herzstück all unserer Reinigungsservices – egal, welche spezifische Reinigung Sie benötigen."
+  },
+  "spezialisierteLoesungen": {
+    "title": "Entdecken Sie unsere spezialisierten Reinigungslösungen",
+    "services": [
+      {
+        "icon": "Reinigungstuch",
+        "title": "Unterhaltsreinigung",
+        "tileText": "Einsatzgebiete: Bürogebäude, Verwaltungen, Schulen, Universitäten, Einkaufszentren, Einzelhandel, Banken, Versicherungen, Arztpraxen, Kliniken, Pflegeeinrichtungen, Hotels, Restaurants, Produktionsstätten, Logistikzentren, Sportstätten und öffentliche Einrichtungen",
+        "linkText": "[Zur Leistung >]",
+        "description": "Unterhaltsreinigung: Das Fundament professioneller Gebäudepflege. Ein sauberes Arbeitsumfeld steigert nachweislich die Produktivität und das Wohlbefinden der Mitarbeiter um bis zu 30%. Unsere systematische Unterhaltsreinigung gewährleistet durch modernste Reinigungstechnologien und geschultes Fachpersonal dauerhaft perfekte Hygiene und Sauberkeit in Ihren Räumlichkeiten.",
+        " ": [
+          "Gründliche Reinigung aller Oberflächen",
+          "Sanitäranlagen-Pflege und Desinfektion",
+          "Professionelle Büroreinigung",
+          "Küchenreinigung nach HACCP",
+          "Komplettes Abfallmanagement",
+          "Versorgung mit Hygienematerialien",
+          "Spüldienste",
+          "Auffüllen von Verbrauchsmaterialien"
+        ]
+      },
+      {
+        "icon": "Reinigungsmaschine",
+        "title": "Grundreinigung",
+        "tileText": "Einsatzgebiete: Produktionshallen, Lagerhäuser, Bürokomplexe, Bildungseinrichtungen, Gesundheitseinrichtungen, Einkaufszentren, Hotels, Gastronomie, Sportstätten, Veranstaltungszentren, Verkehrszentren, Parkhäuser und öffentliche Gebäude",
+        "linkText": "[Zur Leistung >]",
+        "description": "Grundreinigung: Professionelle Tiefenreinigung für nachhaltige Wertsicherung. Intensive Nutzung hinterlässt Spuren – unsere Grundreinigung entfernt auch hartnäckigste Verschmutzungen und verlängert die Lebensdauer Ihrer Oberflächen um bis zu 40%.",
+        "leistungen": [
+          "Intensivreinigung: Beseitigung hartnäckiger Verschmutzungen",
+          "Spezielle Bodenbehandlungen",
+          "Möbel- und Inventarreinigung",
+          "Behandlung schwer zugänglicher Bereiche"
+        ]
+      },
+      {
+        "icon": "Glaswischer",
+        "title": "Glas- und Fassadenreinigung",
+        "tileText": "Einsatzgebiete: Bürotürme, Geschäftsgebäude, Hotels, Einkaufszentren, Banken, Versicherungen, Behörden, Bildungseinrichtungen, Kliniken, Produktionsgebäude, Ausstellungsräume, Schaufenster, Wintergärten und Glasdächer",
+        "linkText": "[Zur Leistung >]",
+        "description": "Glas- und Fassadenreinigung: Brillante Aussichten für Ihr Gebäude. Eine saubere Fassade steigert den Immobilienwert um bis zu 20%. Unsere hochqualifizierten Fassadenreiniger sorgen mit modernster Technik und umweltschonenden Verfahren für strahlende Transparenz und repräsentative Außenwirkung.",
+        "leistungen": [
+          "Streifenfreie Fensterreinigung (inklusive Rahmen und Falzen)",
+          "Reinigung von Glasflächen, Glasfassaden und -dächern",
+          "Umweltschonendes Osmoseverfahren",
+          "Denkmalpflege und Baufeinreinigungen",
+          "Graffiti-Entfernung und Fassadenpflege"
+        ]
+      },
+      {
+        "icon": "Industrieanlage",
+        "title": "Industriereinigung",
+        "tileText": "Einsatzgebiete: Produktionshallen, Lagerhäuser, Kraftwerke, Chemieanlagen, Lebensmittelbetriebe, Pharmaunternehmen, Automotive-Industrie, Maschinenbau, Elektronikfertigung, Druckereien, Metallverarbeitung und Logistikzentren",
+        "linkText": "[Zur Leistung >]",
+        "description": "Industriereinigung: Maximale Effizienz durch professionelle Reinigung. Produktionsunterbrechungen kosten bis zu 5.000€ pro Stunde – unsere spezialisierten Industriereinigungsteams arbeiten hocheffizient und garantieren minimale Stillstandzeiten.",
+        "leistungen": [
+          "Reinigung von Industriehallen",
+          "Reinigung von Produktionsanlagen",
+          "Beseitigung von Ablagerungen und Verschmutzungen",
+          "Einhaltung aller Sicherheitsstandards"
+        ]
+      },
+      {
+        "icon": "Gartenwerkzeuge",
+        "title": "Außenanlagenpflege",
+        "tileText": "Einsatzgebiete: Unternehmensstandorte, Bürokomplexe, Einkaufszentren, Hotels, Kliniken, Seniorenresidenzen, Bildungseinrichtungen, Wohnanlagen, Parkhäuser, Tiefgaragen, Logistikzentren, Industrieareale und öffentliche Einrichtungen",
+        "linkText": "[Zur Leistung >]",
+        "description": "Außenanlagenpflege: Ihr professioneller Partner für gepflegte Außenbereiche. Die Außenanlage ist Ihre Visitenkarte – erste Eindrücke entstehen bereits vor dem Gebäude.",
+        "leistungen": [
+          "Reinigung von Gehwegen und Zufahrten",
+          "Grünanlagenpflege: Rasen, Hecken, Sträuchern, Bepflanzungen, Unkrautbekämpfung",
+          "Winterdienst: Räum- und Streudienste",
+          "Beseitigung von Laub und saisonalen Verschmutzungen",
+          "Parkhaus- und Tiefgaragenreinigung (inklusive Entfernung von Öl- und Gummirückständen)",
+          "Regelmäßige Pflege aller Außenbereiche"
+        ]
+      },
+      {
+        "icon": "Spezialwerkzeuge",
+        "title": "Sonderreinigung",
+        "tileText": "Einsatzgebiete: Schwimmbäder, Wellness-Anlagen, Großküchen, Kantinen, Rechenzentren, Bürokomplexe, Produktionsstätten, Veranstaltungszentren, Einkaufszentren, Hotels, Kliniken, Schulen und öffentliche Einrichtungen",
+        "linkText": "[Zur Leistung >]",
+        "description": "Sonderreinigung: Speziallösungen für besondere Anforderungen. Unsere zertifizierten Spezialisten beherrschen auch komplexeste Reinigungsherausforderungen – mit modernster Technik und innovativen Verfahren.",
+        "leistungen": [
+          "Schwimmbad- & Wellnessbereichreinigung",
+          "Großküchenreinigung nach HACCP",
+          "PC- und EDV-Reinigung",
+          "Klimaanlagenreinigung",
+          "Beleuchtungsanlagenreinigung",
+          "Rolltreppen- und Fahrtreppenreinigung",
+          "Maschinenreinigung",
+          "Baureinigung (inklusive Bauschutt- und Staubmanagement)"
+        ]
+      },
+      {
+        "icon": "Transportmittel",
+        "title": "Verkehrsmittelreinigung",
+        "tileText": "Einsatzgebiete: Busse, Bahnen, Straßenbahnen, U-Bahnen, Flugzeuge, Kreuzfahrtschiffe, Fähren, Yachten, Bahnhöfe, Flughäfen, Terminals, Wartehallen und Serviceeinrichtungen",
+        "linkText": "[Zur Leistung >]",
+        "description": "Verkehrsmittelreinigung: Hygiene und Sauberkeit für Ihre Flotte. Unsere spezialisierten Teams gewährleisten effiziente Reinigung auch bei den kürzesten Standzeiten.",
+        "leistungen": [
+          "Busreinigung (Tägliche Unterhalts- und Grundreinigung)",
+          "Bahnreinigung",
+          "Flugzeugreinigung (Innen- und Außenreinigung sowie Desinfektion)",
+          "Schiffsreinigung"
+        ]
+      },
+      {
+        "icon": "Hotelbett",
+        "title": "Hotelreinigung",
+        "tileText": "Einsatzgebiete: Hotels, Resorts, Pensionen, Ferienwohnungen, Hostels, Boardinghäuser, Wellness-Hotels, Tagungshotels, Stadthotels, Flughafenhotels, Kongress-Hotels und Boutique-Hotels",
+        "linkText": "[Zur Leistung >]",
+        "description": "Hotelreinigung: Erstklassiger Service für höchste Ansprüche. Unsere spezialisierten Housekeeping-Teams garantieren 5-Sterne-Qualität in allen Bereichen und schaffen eine Wohlfühlatmosphäre für Ihre Gäste.",
+        "leistungen": [
+          "Zimmerreinigung",
+          "Reinigung öffentlicher Bereiche (Lobbys, Restaurants etc.)",
+          "Wellness- und Spa-Reinigung",
+          "Küchenreinigung nach HACCP",
+          "Housekeeping (inklusive Wäscheservice und Qualitätskontrolle)",
+          "Hotel- und Personalservice",
+          "Fußbodenpflege (Schleifen, Polieren, Ölen, Versiegeln)"
+        ]
+      },
+      {
+        "icon": "Event",
+        "title": "Veranstaltungsreinigung",
+        "tileText": "Einsatzgebiete: Messen, Konzerte, Festivals, Sportveranstaltungen, Konferenzen, Kongresse, Firmenevents, Hochzeiten, Stadtfeste, Open-Air-Events, Ausstellungen und Tagungen",
+        "linkText": "[Zur Leistung >]",
+        "description": "Veranstaltungsreinigung: Professioneller Service rund um die Uhr. Unsere flexiblen Teams sichern den Erfolg Ihrer Veranstaltung durch einwandfreie Sauberkeit.",
+        "leistungen": [
+          "Vor- und Nachveranstaltungsreinigung",
+          "Mobile Reinigungsteams",
+          "Sanitär-Container-Service und -wartung",
+          "Professionelle Abfallentsorgung",
+          "Baubegleitende Reinigung"
+        ]
+      },
+      {
+        "icon": "Bau",
+        "title": "Baureinigung",
+        "tileText": "Einsatzgebiete: Neubauten, Sanierungsprojekte, Bürogebäude, Wohnanlagen, Industriebauten, Einkaufszentren, Krankenhäuser, Hotels, Schulen, öffentliche Gebäude, Lagerhallen und Produktionsstätten",
+        "linkText": "[Zur Leistung >]",
+        "description": "Baureinigung: Professioneller Start für Ihr Bauprojekt. Unsere spezialisierten Teams garantieren termingerechte Fertigstellung und makellose Übergabe.",
+        "leistungen": [
+          "Baubegleitereinigung",
+          "Zwischenreinigung",
+          "Bauentreinigung",
+          "Feinreinigung zur Abnahme",
+          "Industrielle Staubentfernung",
+          "Bauschutt-Management"
+        ]
+      },
+      {
+        "icon": "Naturstein",
+        "title": "Steinreinigung",
+        "tileText": "Einsatzgebiete: Geschäftsgebäude, Hotels, Einkaufszentren, historische Gebäude, Museen, Kirchen, Denkmäler, Privathäuser, Außenanlagen, Terrassen, Gehwege, Einfahrten, Fassaden, Treppen und Natursteinböden",
+        "linkText": "[Zur Leistung >]",
+        "description": "Steinreinigung: Expertise für wertvolle Natursteinoberflächen. Unsere zertifizierten Spezialisten garantieren fachgerechte Pflege und steigern den Wert Ihrer Steinflächen um bis zu 25%.",
+        "leistungen": [
+          "Naturstein-Aufbereitung und Versiegelung",
+          "Terrassen- und Wegereinigung",
+          "Fassadensteinreinigung",
+          "Denkmalpflegerische Reinigung",
+          "Graffiti-Entfernung",
+          "Pflasterreinigung",
+          "Imprägnierung und Langzeitschutz",
+          "Steinrestaurierung und -konservierung",
+          "Algen- und Moosentfernung",
+          "pH-neutrale Spezialreiniger",
+          "Oberflächenveredelung",
+          "Präventive Pflegekonzepte"
+        ]
+      },
+      {
+        "icon": "Dach",
+        "title": "Dachreinigung",
+        "tileText": "Einsatzgebiete: Wohngebäude, Geschäftshäuser, Industriegebäude, Hotels, Einkaufszentren, öffentliche Gebäude, Verwaltungsgebäude, historische Bauten, Schulen, Sportstätten, Lagerhallen und Produktionsstätten",
+        "linkText": "[Zur Leistung >]",
+        "description": "Dachreinigung: Professioneller Schutz von oben. Unsere spezialisierten Teams garantieren einwandfreie Funktionalität und maximale Langlebigkeit.",
+        "leistungen": [
+          "Professionelle Dachreinigung",
+          "Dachrinnenreinigung",
+          "Moosentfernung",
+          "Dachbeschichtung und -versiegelung",
+          "Wartung von Dachrinnen",
+          "Fallrohrspülung"
+        ]
+      },
+      {
+        "icon": "Solarpanel",
+        "title": "Solaranlagen-Reinigung",
+        "tileText": "Einsatzgebiete: Privatgebäude, Gewerbeimmobilien, Industrieanlagen, Solarparks, Agrarbetriebe, öffentliche Gebäude, Schulen, Sportstätten, Parkhäuser, Logistikzentren, Produktionshallen und Bürokomplexe",
+        "linkText": "[Zur Leistung >]",
+        "description": "Solaranlagen-Reinigung: Optimale Effizienz für Ihre Energiegewinnung. Unsere spezialisierten Teams maximieren Ihren Energieertrag durch professionelle Pflege, da verschmutzte Solarmodule bis zu 30% ihrer Leistung verlieren können.",
+        "leistungen": [
+          "Modulreinigung mit Osmosewasser",
+          "Leistungsoptimierung",
+          "Anlageninspektion",
+          "Präventive Reinigungsplanung",
+          "Effizienzprüfung",
+          "Verschattungsbeseitigung"
+        ]
+      }
+    ]
+  },
+  "haeufigeProbleme": {
+    "title": "Häufige Probleme - Unsere Lösungen",
+    "subtitle": "Qualität duldet keine Kompromisse – Unsere Lösungen für Ihre Herausforderungen",
+    "items": [
+      {
+        "problem": "Personalkontinuität?",
+        "issue": "Häufig wechselndes Reinigungspersonal",
+        "solution": "Feste Teams für gleichbleibende Qualität"
+      },
+      {
+        "problem": "Qualitätssicherung?",
+        "issue": "Schwankende Reinigungsstandards",
+        "solution": "Digitales Qualitätsmanagement und Kontrollen"
+      },
+      {
+        "problem": "Erreichbarkeit?",
+        "issue": "Keine Ansprechpartner bei Problemen",
+        "solution": "24/7 Kundenservice und Objektleitung"
+      },
+      {
+        "problem": "Kostentransparenz?",
+        "issue": "Versteckte Zusatzkosten",
+        "solution": "Faire Festpreise ohne Überraschungen"
+      },
+      {
+        "problem": "Flexibilität?",
+        "issue": "Starre Reinigungszeiten",
+        "solution": "Anpassung an Ihre Betriebszeiten"
+      }
+    ]
+  },
+  "qualitaetsversprechen": {
+    "title": "Unser Qualitätsversprechen",
+    "items": [
+      "Höchste Hygienestandards",
+      "Umweltfreundliche Methoden",
+      "24/7 Erreichbarkeit garantiert",
+      "Schnelle Reaktionszeiten",
+      "Modernste Reinigungstechnik"
+    ]
+  },
+  "warumTreuService": {
+    "title": "Warum TREU Service?",
+    "items": [
+      "Expertise: Umfassendes Know-how in allen Reinigungsbereichen",
+      "Nachhaltigkeit: Umweltschonende Reinigungsmethoden",
+      "Flexibilität: Anpassung an Ihre Betriebszeiten",
+      "Maßgeschneidert: Individuelle Reinigungskonzepte",
+      "Service: 24/7-Verfügbarkeit bei Problemen",
+      "Qualifiziert: Geschultes Fachpersonal",
+      "Innovativ: Modernste Reinigungstechnik",
+      "Zuverlässig: Garantierte Leistungserbringung",
+      "Kundenorientiert: Persönliche Objektbetreuung"
+    ]
+  },
+  "kundenstimmen": {
+    "title": "Die Stimmen unserer Kunden",
+    "testimonials": [
+      {
+        "sector": "Bürogebäude",
+        "quote": "Die Reinigungsqualität von TREU Service ist erstklassig. Unsere Mitarbeiter fühlen sich in den sauberen Räumen sichtlich wohl.",
+        "author": "Michael S., Facility Manager"
+      },
+      {
+        "sector": "Einzelhandel",
+        "quote": "Endlich ein Reinigungsunternehmen, das versteht, worauf es im Handel ankommt. Zuverlässig und flexibel!",
+        "author": "Julia K., Filialleitung"
+      },
+      {
+        "sector": "Hotel",
+        "quote": "TREU Service sorgt dafür, dass unsere Gäste sich rundum wohlfühlen. Die Reinigungsleistung ist einfach perfekt.",
+        "author": "Andreas M., Hoteldirektor"
+      },
+      {
+        "sector": "Industrie",
+        "quote": "Professionelle Industriereinigung mit Verständnis für unsere speziellen Anforderungen. Genau das, was wir gesucht haben.",
+        "author": "Stefan B., Produktionsleiter"
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Kontakt und Angebotseinholung",
+    "description": "Kostenlose Erstberatung – Wir erstellen Ihr individuelles Reinigungskonzept innerhalb von 24 Stunden!",
+    "callToAction": "Kontaktieren Sie uns noch heute für ein individuelles Angebot zur Gebäudereinigung. Unser Team steht Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten und Ihnen die bestmögliche Lösung zu bieten."
+  },
+  "problemeUndLoesungen": {
+    "bodenUndOberflaechen": {
+      "title": "Bodenbeläge und Oberflächen",
+      "problems": [
+        {
+          "problem": "Hartnäckige Kalkablagerungen in Sanitärbereichen",
+          "ursache": "Hartes Wasser und unzureichende Nachbehandlung",
+          "loesung": [
+            "Einsatz spezieller Kalkentferner mit der richtigen Einwirkzeit",
+            "Installation von Wasserenthärtungsanlagen",
+            "Regelmäßige Versiegelung der Oberflächen",
+            "Sofortiges Trocknen nach der Reinigung"
+          ],
+          "praeventiv": [
+            "Tägliche Schnellreinigung mit mikroaktiven Tüchern",
+            "Regelmäßige Tiefenreinigung im 4-Wochen-Rhythmus"
+          ]
+        },
+        {
+          "problem": "Streifenbildung auf Glasflächen",
+          "ursache": "Falsche Reinigungstechnik oder ungeeignete Reinigungsmittel",
+          "loesung": [
+            "Verwendung von osmotisch gereinigtem Wasser",
+            "Zweistufige Reinigung: Erst Grundreinigung, dann Nachpolieren",
+            "Einsatz hochwertiger Mikrofasertücher",
+            "Reinigung bei optimalen Lichtverhältnissen"
+          ],
+          "praeventiv": [
+            "Regelmäßige Schulung des Reinigungspersonals",
+            "Qualitätskontrolle durch Vorarbeiter"
+          ]
+        }
+      ]
+    },
+    "spezielleReinigungssituationen": {
+      "title": "Spezielle Reinigungssituationen",
+      "problems": [
+        {
+          "problem": "Schimmelbildung in Feuchträumen",
+          "ursache": "Mangelhafte Lüftung und stehendes Wasser",
+          "loesung": [
+            "Professionelle Schimmelentfernung mit Spezialreinigern",
+            "Installation von Entfeuchtungsgeräten",
+            "Verbesserung der Luftzirkulation",
+            "Antimikrobielle Beschichtung der Wände"
+          ],
+          "praeventiv": [
+            "Regelmäßige Feuchtigkeitsmessungen",
+            "Installation von Lüftungssystemen",
+            "Tägliche Kontrolle kritischer Bereiche"
+          ]
+        },
+        {
+          "problem": "Statische Aufladung von Teppichböden",
+          "ursache": "Trockene Luft und synthetische Fasern",
+          "loesung": [
+            "Einsatz antistatischer Reinigungsmittel",
+            "Sprühextraktion mit speziellen Zusätzen",
+            "Luftbefeuchtung in kritischen Bereichen"
+          ],
+          "praeventiv": [
+            "Regelmäßige Grundreinigung",
+            "Anpassung der Luftfeuchtigkeit"
+          ]
+        }
+      ]
+    },
+    "aussenbereicheUndFassaden": {
+      "title": "Außenbereiche und Fassaden",
+      "problems": [
+        {
+          "problem": "Algen- und Moosbildung auf Steinflächen",
+          "ursache": "Feuchtigkeit und schattige Lage",
+          "loesung": [
+            "Hochdruckreinigung mit angepasstem Druck",
+            "Spezielle Algen- und Moosvernichter",
+            "Nachhaltige Imprägnierung",
+            "Verbesserung der Wasserableitung"
+          ],
+          "praeventiv": [
+            "Halbjährliche Inspektion",
+            "Präventive Behandlung gefährdeter Bereiche"
+          ]
+        },
+        {
+          "problem": "Verschmutzte Solaranlagen mit Leistungsverlust",
+          "ursache": "Umwelteinflüsse und mangelnde Wartung",
+          "loesung": [
+            "Professionelle Reinigung mit entmineralisiertem Wasser",
+            "Spezielle Reinigungswerkzeuge für Solarmodule",
+            "Leistungsmessung vor und nach der Reinigung"
+          ],
+          "praeventiv": [
+            "Vierteljährliche Sichtprüfung",
+            "Automatische Leistungsüberwachung"
+          ]
+        }
+      ]
+    },
+    "hygieneUndDesinfektion": {
+      "title": "Hygiene und Desinfektion",
+      "problems": [
+        {
+          "problem": "Keimbelastung in Sanitärbereichen",
+          "ursache": "Hohe Nutzungsfrequenz und unzureichende Reinigung",
+          "loesung": [
+            "Professionelle Desinfektion aller Kontaktflächen",
+            "Einsatz von Dampfreinigern",
+            "Dokumentierte Reinigungsintervalle",
+            "Regelmäßige Oberflächentests"
+          ],
+          "praeventiv": [
+            "Tägliche Desinfektion",
+            "Schulung des Personals in Hygienemaßnahmen"
+          ]
+        },
+        {
+          "problem": "Geruchsbildung in Müllräumen",
+          "ursache": "Organische Abfälle und mangelnde Lüftung",
+          "loesung": [
+            "Intensive Grundreinigung",
+            "Installation von Geruchsneutralisatoren",
+            "Optimierung der Lüftungssituation",
+            "Einsatz von Spezialreinigern"
+          ],
+          "praeventiv": [
+            "Tägliche Kontrolle und Reinigung",
+            "Regelmäßiger Austausch von Filtern"
+          ]
+        }
+      ]
+    },
+    "qualitaetssicherungUndDokumentation": {
+      "title": "Qualitätssicherung und Dokumentation",
+      "problems": [
+        {
+          "problem": "Schwankende Reinigungsqualität",
+          "ursache": "Uneinheitliche Standards und mangelnde Kontrolle",
+          "loesung": [
+            "Implementierung eines QM-Systems",
+            "Regelmäßige Mitarbeiterschulungen",
+            "Digitale Dokumentation aller Reinigungsarbeiten",
+            "Feedback-System für Kunden"
+          ],
+          "praeventiv": [
+            "Wöchentliche Qualitätskontrollen",
+            "Standardisierte Arbeitsanweisungen"
+          ]
+        }
+      ]
+    },
+    "nachhaltigkeitUndUmweltschutz": {
+      "title": "Nachhaltigkeit und Umweltschutz",
+      "problems": [
+        {
+          "problem": "Hoher Wasserverbrauch",
+          "ursache": "Ineffiziente Reinigungsmethoden",
+          "loesung": [
+            "Einsatz wassersparender Reinigungstechniken",
+            "Verwendung von Hochkonzentraten",
+            "Wasseraufbereitung und -wiederverwendung"
+          ],
+          "praeventiv": [
+            "Regelmäßige Wartung der Reinigungsgeräte",
+            "Schulung in ressourcenschonenden Methoden"
+          ]
+        }
+      ]
+    }
+  }
+}

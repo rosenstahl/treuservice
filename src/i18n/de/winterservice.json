@@ -1,0 +1,289 @@
+{
+  "winterservice": {
+    "meta": {
+      "title": "Winterdienst",
+      "subtitle": "Effizienter Winterdienst für Sicherheit und Mobilität"
+    },
+    "hero": {
+      "title": "Effizienter Winterdienst für Sicherheit und Mobilität",
+      "description": "Unser Winterdienst umfasst alle wesentlichen Leistungen, um Ihre Wege und Flächen sicher und begehbar zu halten. Ob an Privathaushalte, Unternehmen und öffentliche Einrichtungen, wir bieten umfassende Dienstleistungen rund um die Räum- und Streupflicht, damit Sie sich keine Sorgen mehr um Schnee und Eis machen müssen."
+    },
+    "mainServices": {
+      "title": "Unsere Winterdienstleistungen im Überblick",
+      "services": [
+        {
+          "title": "Schneeräumung und Streuen",
+          "description": "Wir räumen Schnee und streuen Splitt, Granulat und Sand, um Ihre Flächen vor Rutschgefahr zu schützen."
+        },
+        {
+          "title": "Eisbeseitigung und Schwarzräumung",
+          "description": "Mit geeigneten Streumitteln entfernen wir Eis und Schnee vollständig, sodass nur noch schwarzer Asphalt sichtbar ist."
+        },
+        {
+          "title": "Streugutentfernung",
+          "description": "Nach dem Wintereinbruch sorgen wir für die fachgerechte Entsorgung der Streustoffe, um die Umwelt zu schonen."
+        },
+        {
+          "title": "Schneeabtransport und Verlagerung",
+          "description": "Wir transportieren überschüssige Schneemassen ab oder verlagern sie an vereinbarte Orte, um Platz auf Ihrem Betriebsgelände zu schaffen."
+        }
+      ]
+    },
+    "serviceFeatures": {
+      "title": "Unser Service – Zuverlässig und flexibel",
+      "features": [
+        {
+          "title": "Tag- und Nachtservice",
+          "description": "Wir arbeiten rund um die Uhr, um Ihre Flächen jederzeit sicher und begehbar zu halten."
+        },
+        {
+          "title": "Einhaltung gesetzlicher Vorschriften",
+          "description": "Wir sorgen dafür, dass Sie Ihren gesetzlichen Pflichten zur Schneeräumung und Verkehrssicherung nachkommen."
+        },
+        {
+          "title": "Maßgeschneiderte Räum- und Streupläne",
+          "description": "Nach einer detaillierten Analyse Ihrer Flächen erstellen wir gemeinsam mit Ihnen ein passgenaues Konzept."
+        },
+        {
+          "title": "Notfallplan für extreme Winterbedingungen",
+          "description": "Wir entwickeln maßgeschneiderte Notfallpläne, um Ihre Flächen auch bei extremem Winterwetter sicher und einsatzbereit zu halten."
+        }
+      ]
+    },
+    "additionalServices": {
+      "title": "Weitere Dienstleistungen für den Winterdienst",
+      "services": [
+        {
+          "title": "Streumittelbehälter",
+          "description": "Wir liefern, befüllen und reinigen Ihre Streustoffboxen, sodass Sie stets ausreichend Materialien zur Hand haben."
+        },
+        {
+          "title": "Beratung zur Streumittelauswahl",
+          "description": "Wir helfen Ihnen bei der Auswahl der richtigen Streumittel, um die Rutschgefahr effektiv zu bannen und Ihre Flächen sicher zu machen."
+        }
+      ]
+    },
+    "commonProblems": {
+      "title": "Häufige Probleme – Unsere Lösungen",
+      "intro": "Viele Kunden kennen diese Herausforderungen, wenn es um Winterdienste geht. Wir bei der TREU Service GmbH haben darauf geachtet, genau die Lösungen zu bieten, die Sie brauchen:",
+      "problems": [
+        {
+          "question": "Warum kommt niemand pünktlich?",
+          "problem": "Oft sind Winterdienste überbucht und schaffen es nicht rechtzeitig zu Ihnen.",
+          "solution": "Wir nehmen nur so viele Aufträge an, dass wir bei jedem Wetter pünktlich bei Ihnen sind."
+        },
+        {
+          "question": "Wann wird endlich geräumt?",
+          "problem": "Manche Anbieter sitzen zu weit entfernt und brauchen zu lange, um loszulegen.",
+          "solution": "Wir sind immer in Ihrer Nähe, sodass wir sofort reagieren können, sobald Schnee oder Eis auftritt."
+        },
+        {
+          "question": "Was, wenn es extrem schneit?",
+          "problem": "Viele Winterdienste haben bei starkem Schneefall Probleme und brechen unter der Last zusammen.",
+          "solution": "Mit unseren Notfallplänen bleiben Ihre Wege und Flächen auch bei extremen Wetterbedingungen sicher und begehbar."
+        },
+        {
+          "question": "Wieso habe ich Schäden an meinen Flächen?",
+          "problem": "Aggressive Streumittel können Oberflächen beschädigen und langfristige Schäden verursachen.",
+          "solution": "Wir verwenden nur schonende und umweltfreundliche Streumittel, die Ihre Flächen schützen und trotzdem effektiv sind."
+        },
+        {
+          "question": "Wie hoch sind die Kosten wirklich?",
+          "problem": "Unklare Abrechnungen oder versteckte Kosten sind oft der Grund für Frust.",
+          "solution": "Bei uns gibt es keine Überraschungen. Wir bieten Ihnen transparente Abrechnungen mit einem klaren Pauschalpreis, der alles abdeckt."
+        }
+      ]
+    },
+    "advantages": {
+      "title": "Warum TREU Service?",
+      "items": [
+        {
+          "title": "Erfahrenes Team",
+          "description": "Unsere Mitarbeiter sind hochqualifiziert und wissen, wie man auch schwierige Wetterlagen meistert."
+        },
+        {
+          "title": "Schnelle Reaktionszeiten",
+          "description": "Da wir in Ihrer Nähe sind, können wir schnell auf jede Wetterlage reagieren."
+        },
+        {
+          "title": "24/7-Service",
+          "description": "Der Winter kennt keine Öffnungszeiten, und das tun wir auch nicht. Tag und Nacht, auch an Feiertagen, kümmern wir uns um Ihre Flächen."
+        },
+        {
+          "title": "Individuelle Lösungen",
+          "description": "Maßgeschneiderte Pläne für große Gewerbeflächen oder viel genutzte Kundenbereiche."
+        },
+        {
+          "title": "Umweltfreundliche Methoden",
+          "description": "Wir setzen auf umweltschonende Streumittel."
+        },
+        {
+          "title": "Transparenz und Rechtssicherheit",
+          "description": "Alle unsere Dienstleistungen sind transparent und rechtssicher dokumentiert."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Kundenreferenzen und Testimonials",
+      "items": [
+        {
+          "text": "Seit wir TREU Service für unseren Winterdienst beauftragen, sind unsere Kundenparkplätze immer sicher und begehbar. Ein zuverlässiger Partner, den wir nicht mehr missen möchten.",
+          "author": "Max M.",
+          "position": "Geschäftskunde"
+        },
+        {
+          "text": "Das Team von TREU Service ist stets pünktlich und räumt unsere Firmenparkplätze schnell und effizient. Wir sind sehr zufrieden mit der Zusammenarbeit.",
+          "author": "Sabine K.",
+          "position": "Betriebsleiterin"
+        }
+      ]
+    },
+    "streuMittelVergleich": {
+      "title": "Streugut-Vergleich",
+      "subtitle": "Vergleich von Streumitteln für den Winterdienst: Vor- und Nachteile",
+      "intro": "Im Winterdienst stehen verschiedene Streumittel zur Verfügung, um Eis und Schnee auf Straßen und Gehwegen zu bekämpfen. Jedes Mittel hat spezifische Vor- und Nachteile, die je nach Einsatzbereich berücksichtigt werden sollten.",
+      "mittel": {
+        "natriumchlorid": {
+          "name": "Natriumchlorid (Steinsalz)",
+          "wirkung": "Auftauend bis etwa -8°C",
+          "vorteile": ["Kostengünstig", "effektiv bei Eis"],
+          "nachteile": ["Kann die Umwelt belasten", "zu Rostbildung führen"]
+        },
+        "feuchtsalz": {
+          "name": "Feuchtsalz (Sole FS30)",
+          "wirkung": "Auftauend bis etwa -6°C",
+          "vorteile": ["Gute Haftung auf Straßen", "hohe Ergiebigkeit", "schnelle Wirkung"],
+          "nachteile": ["Belasten ebenfalls die Umwelt", "fördern Korrosion"]
+        },
+        "calciumchlorid": {
+          "name": "Calciumchlorid/Magnesiumchlorid",
+          "wirkung": "Auftauend bis etwa -30°C",
+          "vorteile": ["Sehr effektiv bei sehr niedrigen Temperaturen", "reagiert gut mit Luftfeuchtigkeit"],
+          "nachteile": ["Hohe Kosten", "Umweltbelastung durch Chloride", "fördern Korrosion"]
+        },
+        "technischerHarnstoff": {
+          "name": "Technischer Harnstoff (Urea)",
+          "wirkung": "Auftauend bis etwa -8°C",
+          "vorteile": ["Alternative zu Streusalz"],
+          "nachteile": ["Teuer", "kann das Grundwasser belasten"]
+        },
+        "lavagranulat": {
+          "name": "Lavagranulat, Blähton, andere Granulate",
+          "wirkung": "Abstumpfend (nicht schmelzend)",
+          "vorteile": ["Natürliche Mineralien", "können Wasser speichern"],
+          "nachteile": ["Erzeugt Feinstaub", "erfordert Entsorgung"]
+        },
+        "splitt": {
+          "name": "Splitt",
+          "wirkung": "Abstumpfend (nicht schmelzend)",
+          "vorteile": ["Sehr gute rutschhemmende Wirkung", "natürliches Material"],
+          "nachteile": ["Kann Oberflächen wie Fliesen und Parkett durch Kratzer beschädigen"]
+        }
+      },
+      "conclusion": "Die Wahl des richtigen Streumittels hängt von verschiedenen Faktoren ab, wie zum Beispiel der Umgebungstemperatur, der Umweltbelastung und den Kosten. Für extrem kalte Bedingungen sind Calcium- oder Magnesiumchlorid sehr effektiv, allerdings auch teurer und umweltschädlicher. Natürliche Streumittel wie Lavagranulat oder Splitt sind umweltschonender, aber sie bieten keine schmelzende Wirkung und müssen nach dem Winter entfernt werden."
+    },
+  "diyTips": {
+    "steps": [
+      {
+        "title": "Werkzeuge",
+        "intro": "Die richtigen Werkzeuge sind entscheidend für effektiven Winterdienst:",
+        "items": [
+          {
+            "title": "Schaufel",
+            "description": "Eine robuste Schneeschaufel aus Metall. Für den nächtlichen Einsatz eine robuste Holzschaufel ohne Metalleiste um Lärm zu minimieren."
+          },
+          {
+            "title": "Schneeschieber",
+            "description": "Stabil und effizient, besonders für größere Schneemengen auf Gehwegen und Einfahrten. Varianten aus Metall sind ideal für härteren Schnee."
+          },
+          {
+            "title": "Schneeade",
+            "description": "Ein speziell für schmale Gehwege entwickelter Schneeschieber, der enge Flächen schnell und präzise freiräumt."
+          },
+          {
+            "title": "Streuwagen",
+            "description": "Ein Streuwagen hilft, Salz und Streugut gleichmäßig zu verteilen, was besonders auf größeren Flächen wie Parkplätzen wichtig ist."
+          },
+          {
+            "title": "Schneekehrmaschine",
+            "description": "Benzinbetriebene Modelle sind ideal für lange Flächen, die schwer zugänglich sind. Sie halten länger durch als akkubetriebene Maschinen, die schnell an Leistung verlieren."
+          },
+          {
+            "title": "Kehrbesen",
+            "description": "Perfekt, um nach der Wintersaison den Streusplitt aufzufegen und Flächen zu reinigen."
+          },
+          {
+            "title": "Pkw im Winterdienst",
+            "description": "Wenn Sie einen Pkw für den Winterdienst nutzen, können Sie einen Schneepflug vorne und einen Streuwagen hinten anbringen. Achten Sie darauf, dass das Fahrzeug und die Anbaugeräte sicher und für den Winterdienst geeignet sind."
+          }
+        ]
+      },
+      {
+        "title": "Auswahl des Streuguts",
+        "intro": "Die Wahl des Streuguts hängt von den örtlichen Gegebenheiten und den Wetterbedingungen ab:",
+        "items": [
+          {
+            "title": "Salz",
+            "description": "Ideal für die schnelle und effektive Eisbeseitigung. Beachten Sie jedoch, dass Salz Schäden an Pflanzen und Fahrzeugen verursachen kann und auch die Umwelt belastet."
+          },
+          {
+            "title": "Sand und Splitt",
+            "description": "Diese Streumittel sind umweltfreundlicher und bieten guten Grip auf eisigen Flächen. Sie sind ideal, wenn Sie eine Alternative zu Salz suchen oder in Gebieten mit strengen Umweltschutzauflagen leben."
+          },
+          {
+            "title": "Kombinationen",
+            "description": "Oft ist es sinnvoll, verschiedene Streumittel zu kombinieren, um die besten Ergebnisse zu erzielen."
+          }
+        ]
+      },
+      {
+        "title": "Schneeräumung und Streuung",
+        "intro": "Effektive Schneeräumung und Streuung erfordert systematisches Vorgehen:",
+        "items": [
+          {
+            "title": "Frühzeitiges streuen",
+            "description": "Verfolgen Sie die Wetterverhältnisse aufmerksam und streuen Sie bereits kurz vor dem Schneefall. Dadurch kann der Schnee sofort schmelzen, anstatt sich festzusetzen. Ab Temperaturen um 0 Grad und darunter bleibt der Schnee liegen, daher ist eine frühzeitige Reaktion entscheidend."
+          },
+          {
+            "title": "Schnee räumen",
+            "description": "Beginnen Sie immer damit, die größten Mengen Schnee zu entfernen. Schieben Sie den Schnee zur Seite und achten Sie darauf, dass er nicht auf Straßen oder Gehwege gelangt."
+          },
+          {
+            "title": "Streuen",
+            "description": "Nach dem Räumen streuen Sie die Flächen gleichmäßig, um Rutschgefahr zu vermeiden. Verwenden Sie einen Streuwagen für große Flächen oder einen Eimer und eine Schaufel für kleinere Bereiche."
+          },
+          {
+            "title": "Überwachung",
+            "description": "Kontrollieren Sie regelmäßig die geräumten und gestreuten Flächen, besonders bei anhaltendem Schneefall oder starkem Frost. Stellen Sie sicher, dass ausreichend Streugut vorhanden ist und bei Bedarf nachgestreut wird."
+          }
+        ]
+      },
+      {
+        "title": "Nach dem Winterdienst – Aufräumen und Pflege",
+        "intro": "Nachdem der Schnee geräumt und die Flächen gestreut sind, sollten Sie die benutzten Werkzeuge und Materialien reinigen und pflegen:",
+        "items": [
+          {
+            "title": "Werkzeuge reinigen",
+            "description": "Entfernen Sie restliches Streugut von den Werkzeugen, um Rostbildung zu vermeiden. Schaufeln und Schneeräumer sollten sauber und trocken gelagert werden."
+          },
+          {
+            "title": "Streugut entfernen",
+            "description": "Nach dem Wintereinbruch entfernen Sie überschüssiges Streugut, um die Umwelt zu schonen. Dies verhindert auch Schäden an Pflanzen und Tieren im Frühjahr."
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "title": "Abschließend",
+      "text": "Mit der richtigen Planung und den passenden Werkzeugen können Sie Ihren Winterdienst zu Hause effizient und sicher durchführen. Sollten Sie dennoch Unterstützung benötigen oder Fragen haben, stehen wir von TREU Service GmbH Ihnen jederzeit zur Verfügung.",
+      "motto": "Bleiben Sie sicher und genießen Sie den Winter!"
+    }
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns für Ihren Winterdienst",
+    "subtitle": "Wollen Sie die Arbeit den Profis überlassen?",
+    "description": "Wir erstellen für Sie ein maßgeschneidertes Angebot! Teilen Sie uns einfach die Größe Ihrer zu betreuenden Flächen mit – Skizzen, Raumpläne oder Flächenmaße sind hilfreich. Gemeinsam entwickeln wir ein individuelles Konzept, übernehmen die Haftung und dokumentieren alles transparent und rechtssicher.",
+    "cta": "Rufen Sie uns an oder nutzen Sie unser Kontaktformular – wir freuen uns auf Ihre Anfrage!"
+  }
+}
+}

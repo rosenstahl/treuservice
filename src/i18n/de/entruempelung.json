@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "title": "Entrümpelung",
+    "subtitle": "Professionelle Entrümpelung mit Herz und Verstand",
+    "description": "Wenn Räume neue Perspektiven brauchen, sind wir Ihr verlässlicher Partner für professionelle Entrümpelung. Mit jahrelanger Erfahrung und einem eingespielten Team verwandeln wir überfüllte Räume in neue Möglichkeiten – effizient, diskret und nachhaltig."
+  },
+  "intro": {
+    "title": "Ihr Vertrauen ist unser Antrieb",
+    "description": "Eine Entrümpelung bedeutet oft mehr als nur das Beseitigen von Gegenständen. Wir verstehen die emotionale Komponente und begleiten Sie einfühlsam durch diesen Prozess. Ob Haushaltsauflösung, Nachlassregulierung oder gewerbliche Räumung – wir sind der Partner an Ihrer Seite, der Professionalität mit Fingerspitzengefühl verbindet."
+  },
+  "versprechen": {
+    "title": "Unser Versprechen an Sie",
+    "items": [
+      {
+        "title": "Kostenlose Erstberatung vor Ort",
+        "description": "Transparente Preisgestaltung ohne versteckte Kosten"
+      },
+      {
+        "title": "Maßgeschneiderte Lösungen",
+        "description": "Vom Einzelzimmer bis zur kompletten Gewerbeimmobilie"
+      },
+      {
+        "title": "Nachhaltiges Konzept",
+        "description": "Fachgerechte Sortierung und umweltbewusste Entsorgung"
+      },
+      {
+        "title": "Zeitersparnis",
+        "description": "Schnelle und effiziente Durchführung dank erfahrenem Team"
+      },
+      {
+        "title": "Rundum-Service",
+        "description": "Von der ersten Beratung bis zur besenreinen Übergabe"
+      }
+    ]
+  },
+  "leistungen": {
+    "title": "Unser Leistungsspektrum im Detail",
+    "services": [
+      {
+        "category": "Professionelle Entrümpelung",
+        "items": [
+          "Komplette Haushaltsauflösungen",
+          "Gewerberäumungen",
+          "Kellerentrümpelungen",
+          "Dachbodenräumungen",
+          "Garagenentrümpelungen",
+          "Grundstücksberäumungen"
+        ]
+      },
+      {
+        "category": "Zusätzliche Services",
+        "items": [
+          "Fachmännische Demontage von Möbeln und Einrichtungen",
+          "Zertifizierte Aktenvernichtung",
+          "Verwertung von Antiquitäten und Wertgegenständen",
+          "Container-Bereitstellung aller Größen",
+          "Professionelle Endreinigung",
+          "Malerarbeiten und Renovierung"
+        ]
+      }
+    ]
+  },
+  "arbeitsweise": {
+    "title": "Unsere Arbeitsweise",
+    "steps": [
+      {
+        "title": "Persönliche Beratung",
+        "description": "Kostenlose Erstbesichtigung und detaillierte Bestandsaufnahme"
+      },
+      {
+        "title": "Individuelles Konzept",
+        "description": "Maßgeschneiderter Entrümpelungsplan nach Ihren Bedürfnissen"
+      },
+      {
+        "title": "Professionelle Durchführung",
+        "description": "Schnelle und sorgfältige Ausführung durch geschultes Personal"
+      },
+      {
+        "title": "Nachhaltige Entsorgung",
+        "description": "Umweltgerechte Verwertung und Entsorgung aller Materialien"
+      },
+      {
+        "title": "Qualitätssicherung",
+        "description": "Besenreine Übergabe und Abnahmeprotokoll"
+      }
+    ]
+  },
+  "vorteile": {
+    "title": "Warum Sie uns vertrauen können",
+    "items": [
+      "Über 15 Jahre Branchenerfahrung",
+      "Geschultes und vertrauenswürdiges Personal",
+      "Modernste Ausrüstung und Transportfahrzeuge",
+      "Alle erforderlichen Versicherungen und Zertifizierungen",
+      "Garantierte Termintreue und Festpreise",
+      "Durchgehende Ansprechpartner"
+    ]
+  },
+  "kontakt": {
+    "title": "Kontakt",
+    "description": "Vertrauen Sie auf unsere Expertise für Ihre Entrümpelung.",
+    "cta": "Kontaktieren Sie uns noch heute für ein unverbindliches Beratungsgespräch."
+  }
+}

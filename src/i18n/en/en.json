@@ -1,0 +1,158 @@
+{
+  "navigation": {
+    "about": "About",
+    "contact": "Contact",
+    "legal": "Legal",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "footer": {
+    "copyright": "© 2024 TREU Service GmbH. All rights reserved."
+  },
+  "imprint": {
+    "title": "Legal Notice",
+    "subtitle": "Information according to § 5 TMG",
+    "company": {
+      "title": "Company Information",
+      "name": "TREU Service GmbH",
+      "address": "Rheinische Strasse 220",
+      "city": "44147 Dortmund",
+      "register": "Commercial Register: HRB 20627",
+      "court": "Registration Court: Dortmund"
+    },
+    "management": {
+      "title": "Represented by",
+      "name": "Hasan Hüseyin Yilmaz"
+    },
+    "contact": {
+      "title": "Contact Information",
+      "phone": "Phone: +49 231 15044352",
+      "email": "Email: info@treuservice.com"
+    },
+    "vat": {
+      "title": "VAT Registration Number",
+      "content": "VAT ID according to § 27a Value Added Tax Act: DE362838091"
+    },
+    "profession": {
+      "title": "Professional Information",
+      "occupation": "Professional Title: Craftsman",
+      "chamber": "Responsible Chamber: Chamber of Industry and Commerce Dortmund",
+      "address": "Märkische Str. 120, 44141 Dortmund",
+      "awarded": "Title awarded in: Germany"
+    },
+    "supervisory": {
+      "title": "Supervisory Authority",
+      "name": "City of Dortmund",
+      "address": "Olpe 1, 44135 Dortmund"
+    },
+    "dispute": {
+      "title": "Consumer Dispute Resolution",
+      "content": "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "introduction": {
+      "title": "General Information and Mandatory Disclosures",
+      "content": "The protection of your personal data is important to us. This privacy policy explains how we collect, use, process, and protect your personal information."
+    },
+    "responsible": {
+      "title": "Data Controller",
+      "content": "The entity responsible for data processing on this website is:",
+      "company": {
+        "name": "TREU Service GmbH",
+        "manager": "Hasan Yilmaz",
+        "address": "Rheinische Strasse 220, 44147 Dortmund"
+      }
+    },
+    "consent": {
+      "title": "Withdrawal of Consent",
+      "content": "Some data processing operations are only possible with your express consent. You can revoke your previously given consent at any time. An informal email notification is sufficient for the revocation. The legality of the data processing carried out until the revocation remains unaffected by the revocation."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "complaint": {
+        "title": "Right to Complain",
+        "content": "In the event of violations of data protection law, you have the right to file a complaint with the competent supervisory authority."
+      },
+      "dataPortability": {
+        "title": "Right to Data Portability",
+        "content": "You have the right to have data that we process automatically based on your consent or in fulfillment of a contract handed over to you or to third parties."
+      },
+      "access": {
+        "title": "Right to Access, Rectification, and Deletion",
+        "content": "You have the right to free information about your stored personal data, its origin and recipient, and the purpose of data processing, as well as a right to correction, blocking, or deletion of this data at any time."
+      }
+    },
+    "security": {
+      "title": "SSL/TLS Encryption",
+      "content": "For security reasons and to protect the transmission of confidential content that you send to us as the site operator, our website uses SSL or TLS encryption. This means that data you transmit via this website cannot be read by third parties. You can recognize an encrypted connection by the 'https://' address line of your browser and the lock symbol in the browser line."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Our website uses cookies. These are small text files that your web browser stores on your device. Cookies help us make our offering more user-friendly, effective, and secure.",
+      "session": {
+        "title": "Session Cookies",
+        "content": "Some cookies are 'session cookies.' Such cookies are deleted automatically at the end of your browser session. Other cookies remain on your device until you delete them yourself."
+      },
+      "control": {
+        "title": "Cookie Control",
+        "content": "With a modern web browser, you can monitor, restrict, or prevent the setting of cookies. Many web browsers can be configured to automatically delete cookies when the program is closed. Disabling cookies may result in limited functionality of our website."
+      }
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "history": {
+      "title": "Our History",
+      "content": "TREU Service GmbH is a company built on hard work, dedication, and a relentless pursuit of excellence. At the core of our business are the people who make everything possible. Our team consists of highly qualified professionals who are passionate about providing the best possible service to our customers."
+    },
+    "team": {
+      "title": "Our Team",
+      "content": "From our founder Hasan Yilmaz to our dedicated staff, every member of the TREU team is committed to delivering exceptional service. We believe our success is built on the relationships we forge with our customers, and we work tirelessly to ensure that every interaction is positive and productive."
+    },
+    "services": {
+      "title": "Our Services",
+      "content": "Our team is diverse and possesses a wide range of skills and expertise. Whether you need security services, building cleaning, or winter services – you can rely on the TREU Service team to get the job done right."
+    },
+    "challenge": {
+      "title": "The Challenge",
+      "content": "Germany is currently experiencing a significant shortage of skilled workers across various industries, including the service sector. This presents companies with the challenge of finding qualified employees while maintaining high-quality services. Another challenge lies in meeting individual customer needs and expectations to achieve high customer satisfaction. Transparency, human empathy, and tailored services are crucial in this regard."
+    },
+    "technology": {
+      "title": "Technology & Innovation",
+      "content": "We invest in research and development to introduce innovations in our industry through the use of artificial intelligence. We strive to use modern technologies to improve our services and increase the efficiency of our processes, without losing sight of the human component."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "Our vision at TREU Service is to be the first choice for our customers in all areas where we operate. We aim to be not just a service provider, but a reliable partner when it comes to security, cleanliness, and sustainability.",
+      "future": "In 25 years, we see ourselves as a leading company in our fields of activity, distinguished by innovation and sustainability. Our customers' needs will always remain our top priority."
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "items": [
+        {
+          "quote": "The TREU Service team is simply outstanding! Always punctual, reliable, and the quality of work is excellent.",
+          "author": "Markus Löwe"
+        },
+        {
+          "quote": "We are very satisfied with the service. The TREU Service staff are always friendly and flexible, regardless of the challenges we face.",
+          "author": "Anna König"
+        },
+        {
+          "quote": "With TREU Service, you can really tell that the team is passionate about what they do. They are always committed and bring fresh ideas.",
+          "author": "Thomas Weber"
+        },
+        {
+          "quote": "With TREU Service, we have found a partner who supports us as if we were one team. The collaboration is always uncomplicated and professional.",
+          "author": "Julia Schneider"
+        }
+      ]
+    },
+    "location": {
+      "title": "Location",
+      "content": "Our company is headquartered in Dortmund and provides services throughout North Rhine-Westphalia. Depending on the project scope, we also operate nationwide and are committed to fully meeting our customers' needs. We look forward to working with you and providing you with the best possible service you deserve."
+    }
+  }
+}

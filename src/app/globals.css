@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+:root {
+  --color-primary: #F2F2F2;
+  --color-primary-light: #FFFFFF;
+  --color-primary-dark: #E5E5E5;
+  
+  --color-secondary: #222425;
+  --color-secondary-light: #404244;
+  --color-secondary-dark: #1A1B1C;
+  
+  --color-accent: #009FD8;
+  --color-accent-light: #00B3F4;
+  --color-accent-dark: #0089BC;
+  --color-accent-hover: #007CAB;
+
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 1rem;
+  --spacing-4: 1.5rem;
+  --spacing-5: 2rem;
+  --spacing-6: 3rem;
+  
+  --font-h1-size: 3rem;
+  --font-h1-line-height: 3.5rem;
+  --font-h1-weight: 700;
+  
+  --font-h2-size: 2.25rem;
+  --font-h2-line-height: 2.75rem;
+  --font-h2-weight: 600;
+  
+  --font-h3-size: 1.5rem;
+  --font-h3-line-height: 2rem;
+  --font-h3-weight: 500;
+  
+  --font-body-size: 1rem;
+  --font-body-line-height: 1.5rem;
+  --font-body-weight: 400;
+  
+  --font-small-size: 0.875rem;
+  --font-small-line-height: 1.25rem;
+  --font-small-weight: 400;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.02em;
+
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 10px 15px rgba(0, 0, 0, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}

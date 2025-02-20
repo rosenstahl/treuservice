@@ -354,29 +354,32 @@ export default function CleaningPage() {
                 
 {/* Features List */}
 <div className="grid grid-cols-1 gap-8">
-                  {[
-                    { title: "Kostenlose Erstberatung", icon: <Handshake className="w-6 h-6" /> },
-                    { title: "24/7 Erreichbarkeit garantiert", icon: <Clock className="w-6 h-6" /> },
-                    { title: "Schnelle Reaktionszeiten", icon: <Zap className="w-6 h-6" /> },
-                    { title: "Höchste Hygienestandards", icon: <StarIcon className="w-6 h-6" /> },
-                    { title: "Umweltfreundliche Methoden", icon: <LeafIcon className="w-6 h-6" /> },
-                    { title: "Modernste Reinigungstechnik", icon: <Cog className="w-6 h-6" /> }
-                  ].map(({ title, icon }, i) => (
-                    <div 
-                      key={i}
-                      className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
-                    >
-                      <div className="text-accent mt-1">
-                        {icon}
-                      </div>
-                      <div>
-                        <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
-                          {title}
-                        </H3>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+  {cleaningData.qualitaetsversprechen.items.map((title, i) => {
+    const icons = [
+      { id: 'handshake', icon: <Handshake key="handshake" className="w-6 h-6" /> },
+      { id: 'star', icon: <StarIcon key="star" className="w-6 h-6" /> },
+      { id: 'leaf', icon: <LeafIcon key="leaf" className="w-6 h-6" /> },
+      { id: 'clock', icon: <Clock key="clock" className="w-6 h-6" /> },
+      { id: 'zap', icon: <Zap key="zap" className="w-6 h-6" /> },
+      { id: 'cog', icon: <Cog key="cog" className="w-6 h-6" /> }
+    ];
+    return (
+      <div 
+        key={i}
+        className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
+      >
+        <div className="text-accent mt-1">
+          {icons[i].icon}
+        </div>
+        <div>
+          <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
+            {title}
+          </H3>
+        </div>
+      </div>
+    );
+  })}
+</div>
               </div>
               
 {/* Right Side - Contact Form */}

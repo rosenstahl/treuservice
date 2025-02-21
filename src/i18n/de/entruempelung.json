@@ -2,7 +2,8 @@
   "hero": {
     "title": "Entrümpelung",
     "subtitle": "Professionelle Entrümpelung mit Herz und Verstand",
-    "description": "Wenn Räume neue Perspektiven brauchen, sind wir Ihr verlässlicher Partner für professionelle Entrümpelung. Mit jahrelanger Erfahrung und einem eingespielten Team verwandeln wir überfüllte Räume in neue Möglichkeiten – effizient, diskret und nachhaltig."
+    "description": "Wenn Räume neue Perspektiven brauchen, sind wir Ihr verlässlicher Partner für professionelle Entrümpelung. Mit jahrelanger Erfahrung und einem eingespielten Team verwandeln wir überfüllte Räume in neue Möglichkeiten – effizient, diskret und nachhaltig.",
+    "cta": "Jetzt Angebot anfordern"
   },
   "intro": {
     "title": "Ihr Vertrauen ist unser Antrieb",
@@ -35,6 +36,7 @@
   },
   "leistungen": {
     "title": "Unser Leistungsspektrum im Detail",
+    "description": "Von der klassischen Entrümpelung bis hin zu Spezialaufgaben - wir bieten Ihnen das komplette Spektrum professioneller Räumungsservices.",
     "services": [
       {
         "category": "Professionelle Entrümpelung",

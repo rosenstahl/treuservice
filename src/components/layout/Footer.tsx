@@ -32,20 +32,22 @@ export function Footer() {
   return (
     <footer className="border-t bg-white py-8">
       <Container>
-        <div className="flex items-center justify-between gap-4">
-          {/* Logo - jetzt kleiner */}
-          <Link href={`/${locale}`} className="relative h-6 w-20 flex-shrink-0">
-            <Image
-              src="/images/treu-logo.svg"
-              alt="Treu Service Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </Link>
+        <div className="grid grid-cols-3 items-center">
+          {/* Logo Block */}
+          <div className="-ml-7">
+            <Link href={`/${locale}`} className="relative h-6 w-20 block">
+              <Image
+                src="/images/treu-logo.svg"
+                alt="Treu Service Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </Link>
+          </div>
 
-          {/* Navigation Links - jetzt zentriert */}
-          <div className="flex-grow flex justify-center gap-6">
+          {/* Zentrierte Navigation Links */}
+          <div className="flex justify-center gap-6">
             {currentLinks.map((link) => (
               <Link 
                 key={link.label} 
@@ -59,16 +61,16 @@ export function Footer() {
             ))}
           </div>
 
-          {/* Social Media & Copyright - kompakter */}
-          <div className="flex items-center gap-2 flex-shrink-0">
+          {/* Copyright & Social Media Block */}
+          <div className="flex items-center gap-2 justify-end">
             <small className="text-xs text-secondary-light">
-              © {new Date().getFullYear()}
+              © {new Date().getFullYear()} TREU Service GmbH
             </small>
             <a
-              href="https://instagram.com/treu.service"
+              href="https://instagram.com/treuservice"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 text-secondary-light hover:text-secondary transition-colors"
+              className="p-1.5 text-secondary-light hover:text-secondary transition-all duration-300 transform hover:scale-110 hover:rotate-6"
               aria-label="Instagram"
             >
               <Instagram className="h-4 w-4" />

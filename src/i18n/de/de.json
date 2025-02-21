@@ -47,53 +47,118 @@
       "content": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
     }
   },
-  "about": {
-    "title": "Über uns",
-    "history": {
-      "title": "Unsere Geschichte",
-      "content": "TREU Service GmbH ist ein Unternehmen, das auf harter Arbeit, Hingabe und einem unermüdlichen Streben nach Exzellenz aufgebaut wurde. Im Zentrum unseres Geschäfts stehen die Menschen, die alles möglich machen. Unser Team besteht aus hochqualifizierten Fachleuten, die leidenschaftlich daran arbeiten, unseren Kunden den bestmöglichen Service zu bieten."
-    },
-    "team": {
-      "title": "Unser Team",
-      "content": "Von unserem Gründer Hasan Yilmaz bis zu unserem engagierten Personal ist jedes Mitglied des TREU-Teams darauf ausgerichtet, außergewöhnlichen Service zu liefern. Wir sind davon überzeugt, dass unser Erfolg auf den Beziehungen basiert, die wir zu unseren Kunden aufbauen, und wir arbeiten unermüdlich daran, sicherzustellen, dass jede Interaktion positiv und produktiv ist."
-    },
-    "vision": {
-      "title": "Unsere Vision",
-      "content": "Unsere Vision bei TREU Service ist es, die erste Wahl für unsere Kunden in allen Bereichen zu sein, in denen wir tätig sind. Wir wollen nicht nur ein Dienstleistungsunternehmen sein, sondern auch ein zuverlässiger Partner, wenn es um Sicherheit, Sauberkeit und Nachhaltigkeit geht."
-    },
-    "challenge": {
-      "title": "Die Herausforderung",
-      "content": "In Deutschland herrscht derzeit ein erheblicher Mangel an Fachkräften in verschiedenen Branchen, einschließlich der Dienstleistungsbranche. Dies stellt Unternehmen vor die Herausforderung, geeignete Mitarbeiter zu finden und ihre Dienstleistungen auf einem hohen Niveau zu erbringen."
-    },
-    "future": {
-      "title": "Unsere Zukunft",
-      "content": "In 25 Jahren sehen wir uns als führendes Unternehmen in unseren Tätigkeitsbereichen, das sich durch Innovation und Nachhaltigkeit auszeichnet. Die Bedürfnisse unserer Kunden werden dabei immer an oberster Stelle stehen."
-    },
-    "testimonials": {
-      "title": "Stimmen unserer Kunden",
-      "items": [
+    "about": {
+      "title": "Über uns",
+      "sections": [
         {
-          "content": "Das Team von TREU Service ist einfach spitze! Immer pünktlich, zuverlässig und die Qualität der Arbeit ist hervorragend.",
-          "author": "Markus Löwe"
+          "title": "Unsere Geschichte",
+          "content": [
+            "TREU Service GmbH ist ein Unternehmen, das auf harter Arbeit, Hingabe und einem unermüdlichen Streben nach Exzellenz aufgebaut wurde. Im Zentrum unseres Geschäfts stehen die Menschen, die alles möglich machen. Unser Team besteht aus hochqualifizierten Fachleuten, die leidenschaftlich daran arbeiten, unseren Kunden den bestmöglichen Service zu bieten.",
+            "Von unserem Gründer Hasan Yilmaz bis zu unserem engagierten Personal ist jedes Mitglied des TREU-Teams darauf ausgerichtet, außergewöhnlichen Service zu liefern. Wir sind davon überzeugt, dass unser Erfolg auf den Beziehungen basiert, die wir zu unseren Kunden aufbauen, und wir arbeiten unermüdlich daran, sicherzustellen, dass jede Interaktion positiv und produktiv ist.",
+            "Unser Team ist vielfältig und verfügt über ein breites Spektrum an Fähigkeiten und Fachwissen. Wir sind stolz auf unsere Fähigkeit, nahtlos zusammenzuarbeiten und die Stärken jedes Einzelnen zu nutzen, um herausragende Ergebnisse zu erzielen. Ob Sie Sicherheitsdienstleistungen, Gebäudereinigung oder Winterdienst benötigen – Sie können sich darauf verlassen, dass das TREU Service-Team die Arbeit richtig macht.",
+            "Wir sind stolz auf das Team, das wir bei TREU Service aufgebaut haben, und sind überzeugt, dass auch Sie davon begeistert sein werden. Unser Engagement für Exzellenz und unsere Leidenschaft für das, was wir tun, sind in all unseren Handlungen sichtbar. Wir freuen uns darauf, mit Ihnen zusammenzuarbeiten und den außergewöhnlichen Service zu liefern, der mit dem Namen TREU verbunden ist."
+          ]
         },
         {
-          "content": "Wir sind sehr zufrieden mit dem Service. Die Mitarbeiter von TREU Service sind immer freundlich und flexibel, egal welche Herausforderungen wir haben.",
-          "author": "Anna König"
+          "title": "Die Herausforderung",
+          "content": [
+            "In Deutschland herrscht derzeit ein erheblicher Mangel an Fachkräften in verschiedenen Branchen, einschließlich der Dienstleistungsbranche. Dies stellt Unternehmen vor die Herausforderung, geeignete Mitarbeiter zu finden und ihre Dienstleistungen auf einem hohen Niveau zu erbringen.",
+            "Eine weitere Herausforderung besteht darin, die individuellen Bedürfnisse und Erwartungen der Kunden zu erfüllen, um eine hohe Kundenzufriedenheit zu erreichen. Transparenz, menschliche Empathie und maßgeschneiderte Dienstleistungen sind hierbei von entscheidender Bedeutung.",
+            "Zudem bringt die technologische Weiterentwicklung und der Einsatz künstlicher Intelligenz Risiken für Arbeitsplätze in der Dienstleistungsbranche mit sich. Automatisierung könnte in naher Zukunft einige Arbeitsplätze ersetzen. Wir sind jedoch fest davon überzeugt, dass unsere Branche essenziell für die Gesellschaft ist, und setzen uns dafür ein, neue Arbeitsplätze zu schaffen.",
+            "Darüber hinaus investieren wir in Forschung und Entwicklung, um durch den Einsatz von künstlicher Intelligenz Innovationen in unserer Branche einzuführen. Wir sind bestrebt, moderne Technologien zu nutzen, um unsere Dienstleistungen zu verbessern und die Effizienz unserer Prozesse zu steigern, ohne die menschliche Komponente aus den Augen zu verlieren."
+          ]
         },
         {
-          "content": "Bei TREU Service merkt man einfach, dass das Team mit Leidenschaft dabei ist. Sie sind immer engagiert und bringen frische Ideen mit.",
-          "author": "Thomas Weber"
-        },
-        {
-          "content": "Mit TREU Service haben wir einen Partner gefunden, der uns unterstützt, als wären wir ein Team. Die Zusammenarbeit ist immer unkompliziert und professionell.",
-          "author": "Julia Schneider"
+          "title": "Unsere Vision",
+          "content": [
+            "Unsere Vision bei TREU Service ist es, die erste Wahl für unsere Kunden in allen Bereichen zu sein, in denen wir tätig sind. Wir wollen nicht nur ein Dienstleistungsunternehmen sein, sondern auch ein zuverlässiger Partner, wenn es um Sicherheit, Sauberkeit und Nachhaltigkeit geht.",
+            "Wir streben danach, uns kontinuierlich weiterzuentwickeln und unser Angebot zu erweitern, um unseren Kunden stets die besten und neuesten Lösungen zu bieten. Dabei legen wir großen Wert auf die Auswirkungen unserer Arbeit auf die Umwelt und setzen auf nachhaltige Lösungen, um unseren ökologischen Fußabdruck zu minimieren, während wir gleichzeitig qualitativ hochwertige Dienstleistungen anbieten.",
+            "In 25 Jahren sehen wir uns als führendes Unternehmen in unseren Tätigkeitsbereichen, das sich durch Innovation und Nachhaltigkeit auszeichnet. Die Bedürfnisse unserer Kunden werden dabei immer an oberster Stelle stehen.",
+            "Unsere Vision und unsere Werte stehen im Einklang mit den Bedürfnissen unserer Kunden und unserer Mitarbeiter. Wir sind stolz darauf, Teil einer Branche zu sein, die einen wichtigen Beitrag zur Sicherheit und Sauberkeit unserer Gemeinschaften leistet."
+          ]
         }
-      ]
+      ],
+      "testimonials": {
+        "title": "Stimmen unserer Kunden",
+        "items": [
+          {
+            "quote": "Das Team von TREU Service ist einfach spitze! Immer pünktlich, zuverlässig und die Qualität der Arbeit ist hervorragend.",
+            "author": "Markus Löwe"
+          },
+          {
+            "quote": "Wir sind sehr zufrieden mit dem Service. Die Mitarbeiter von TREU Service sind immer freundlich und flexibel, egal welche Herausforderungen wir haben.",
+            "author": "Anna König"
+          },
+          {
+            "quote": "Bei TREU Service merkt man einfach, dass das Team mit Leidenschaft dabei ist. Sie sind immer engagiert und bringen frische Ideen mit.",
+            "author": "Thomas Weber"
+          },
+          {
+            "quote": "Mit TREU Service haben wir einen Partner gefunden, der uns unterstützt, als wären wir ein Team. Die Zusammenarbeit ist immer unkompliziert und professionell.",
+            "author": "Julia Schneider"
+          }
+        ]
+      },
+      "location": {
+        "title": "Standort",
+        "content": "Unser Unternehmen hat seinen Sitz in Dortmund und bietet Dienstleistungen in ganz Nordrhein-Westfalen an. Je nach Projektumfang sind wir auch deutschlandweit tätig und setzen uns dafür ein, die Bedürfnisse unserer Kunden vollständig zu erfüllen. Wir freuen uns darauf, mit Ihnen zusammenzuarbeiten und Ihnen den bestmöglichen Service zu bieten, den Sie verdienen."
+      }
     },
-    "location": {
-      "title": "Standort",
-      "content": "Unser Unternehmen hat seinen Sitz in Dortmund und bietet Dienstleistungen in ganz Nordrhein-Westfalen an. Je nach Projektumfang sind wir auch deutschlandweit tätig und setzen uns dafür ein, die Bedürfnisse unserer Kunden vollständig zu erfüllen."
-    }
+  "terms": {
+    "title": "Allgemeine Geschäftsbedingungen",
+    "lastUpdated": "Stand: Februar 2024",
+    "sections": [
+      {
+        "title": "1. Geltungsbereich",
+        "content": "Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Geschäftsbeziehungen zwischen der TREU Service GmbH (nachfolgend 'TREU Service') und ihren Kunden. Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, TREU Service stimmt ihrer Geltung ausdrücklich schriftlich zu."
+      },
+      {
+        "title": "2. Vertragsschluss",
+        "content": "Der Vertrag kommt durch schriftliche Auftragsbestätigung oder Beginn der Leistungserbringung durch TREU Service zustande. Angebote von TREU Service sind freibleibend und unverbindlich, sofern sie nicht ausdrücklich als verbindlich gekennzeichnet sind."
+      },
+      {
+        "title": "3. Leistungsumfang",
+        "content": "Der Umfang der Leistungen ergibt sich aus der schriftlichen Auftragsbestätigung oder dem Vertrag. TREU Service ist berechtigt, die Leistungen durch qualifizierte Mitarbeiter oder Subunternehmer erbringen zu lassen.",
+        "subsections": [
+          {
+            "title": "3.1 Reinigungsleistungen",
+            "content": "Die Reinigungsleistungen werden gemäß den vereinbarten Spezifikationen und Qualitätsstandards durchgeführt. Besondere Anforderungen müssen schriftlich vereinbart werden."
+          },
+          {
+            "title": "3.2 Sicherheitsdienstleistungen",
+            "content": "Sicherheitsdienstleistungen werden nach den geltenden gesetzlichen Bestimmungen und Branchenstandards erbracht."
+          }
+        ]
+      },
+      {
+        "title": "4. Preise und Zahlungsbedingungen",
+        "content": "Es gelten die vereinbarten Preise. Rechnungen sind innerhalb von 14 Tagen nach Rechnungsdatum ohne Abzug zahlbar. Bei Zahlungsverzug ist TREU Service berechtigt, Verzugszinsen in gesetzlicher Höhe zu berechnen."
+      },
+      {
+        "title": "5. Pflichten des Kunden",
+        "content": "Der Kunde gewährleistet den ungehinderten Zugang zu den zu reinigenden bzw. zu sichernden Bereichen. Er stellt kostenlos Wasser, Strom und geeignete Räumlichkeiten für das Personal zur Verfügung."
+      },
+      {
+        "title": "6. Haftung",
+        "content": "TREU Service haftet für Schäden, die durch vorsätzliches oder grob fahrlässiges Verhalten verursacht wurden. Bei leichter Fahrlässigkeit haftet TREU Service nur bei Verletzung wesentlicher Vertragspflichten und beschränkt auf den typischerweise vorhersehbaren Schaden."
+      },
+      {
+        "title": "7. Vertragsdauer und Kündigung",
+        "content": "Der Vertrag wird für die vereinbarte Dauer geschlossen. Bei unbefristeten Verträgen gilt eine Kündigungsfrist von 3 Monaten zum Monatsende, sofern nicht anders vereinbart."
+      },
+      {
+        "title": "8. Datenschutz",
+        "content": "TREU Service verarbeitet personenbezogene Daten unter Beachtung der geltenden Datenschutzbestimmungen. Nähere Informationen sind der Datenschutzerklärung zu entnehmen."
+      },
+      {
+        "title": "9. Gerichtsstand und anwendbares Recht",
+        "content": "Gerichtsstand ist Dortmund. Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts."
+      },
+      {
+        "title": "10. Salvatorische Klausel",
+        "content": "Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."
+      }
+    ]
   },
   "privacy": {
     "title": "Datenschutzerklärung",

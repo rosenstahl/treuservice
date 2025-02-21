@@ -1,242 +1,291 @@
 "use client"
 
+import React from 'react'
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
-import { H1, H2, H3, Paragraph } from "@/components/ui/typography"
-import { Button } from "@/components/ui/button"
+import { H2, H3, Paragraph } from "@/components/ui/typography"
 import { Separator } from "@/components/ui/separator"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+import { TextEffect } from "@/components/ui/text-effect"
+import { InView } from "@/components/ui/in-view"
 import { Card, CardContent } from "@/components/ui/card"
-
-const entruempelungData = {
-  hero: {
-    title: "Professionelle Entrümpelung mit Herz und Verstand",
-    description: "Wenn Räume neue Perspektiven brauchen, sind wir Ihr verlässlicher Partner für professionelle Entrümpelung. Mit jahrelanger Erfahrung und einem eingespielten Team verwandeln wir überfüllte Räume in neue Möglichkeiten – effizient, diskret und nachhaltig."
-  },
-  intro: {
-    title: "Ihr Vertrauen ist unser Antrieb",
-    description: "Eine Entrümpelung bedeutet oft mehr als nur das Beseitigen von Gegenständen. Wir verstehen die emotionale Komponente und begleiten Sie einfühlsam durch diesen Prozess. Ob Haushaltsauflösung, Nachlassregulierung oder gewerbliche Räumung – wir sind der Partner an Ihrer Seite, der Professionalität mit Fingerspitzengefühl verbindet."
-  },
-  versprechen: {
-    title: "Unser Versprechen an Sie",
-    items: [
-      {
-        title: "Kostenlose Erstberatung vor Ort",
-        description: "Transparente Preisgestaltung ohne versteckte Kosten"
-      },
-      {
-        title: "Maßgeschneiderte Lösungen",
-        description: "Vom Einzelzimmer bis zur kompletten Gewerbeimmobilie"
-      },
-      {
-        title: "Nachhaltiges Konzept",
-        description: "Fachgerechte Sortierung und umweltbewusste Entsorgung"
-      },
-      {
-        title: "Zeitersparnis",
-        description: "Schnelle und effiziente Durchführung dank erfahrenem Team"
-      },
-      {
-        title: "Rundum-Service",
-        description: "Von der ersten Beratung bis zur besenreinen Übergabe"
-      }
-    ]
-  },
-  leistungen: {
-    title: "Unser Leistungsspektrum im Detail",
-    services: [
-      {
-        category: "Professionelle Entrümpelung",
-        items: [
-          "Komplette Haushaltsauflösungen",
-          "Gewerberäumungen",
-          "Kellerentrümpelungen",
-          "Dachbodenräumungen",
-          "Garagenentrümpelungen",
-          "Grundstücksberäumungen"
-        ]
-      },
-      {
-        category: "Zusätzliche Services",
-        items: [
-          "Fachmännische Demontage von Möbeln und Einrichtungen",
-          "Zertifizierte Aktenvernichtung",
-          "Verwertung von Antiquitäten und Wertgegenständen",
-          "Container-Bereitstellung aller Größen",
-          "Professionelle Endreinigung",
-          "Malerarbeiten und Renovierung"
-        ]
-      }
-    ]
-  },
-  arbeitsweise: {
-    title: "Unsere Arbeitsweise",
-    steps: [
-      {
-        title: "Persönliche Beratung",
-        description: "Kostenlose Erstbesichtigung und detaillierte Bestandsaufnahme"
-      },
-      {
-        title: "Individuelles Konzept",
-        description: "Maßgeschneiderter Entrümpelungsplan nach Ihren Bedürfnissen"
-      },
-      {
-        title: "Professionelle Durchführung",
-        description: "Schnelle und sorgfältige Ausführung durch geschultes Personal"
-      },
-      {
-        title: "Nachhaltige Entsorgung",
-        description: "Umweltgerechte Verwertung und Entsorgung aller Materialien"
-      },
-      {
-        title: "Qualitätssicherung",
-        description: "Besenreine Übergabe und Abnahmeprotokoll"
-      }
-    ]
-  },
-  vorteile: {
-    title: "Warum Sie uns vertrauen können",
-    items: [
-      "Über 15 Jahre Branchenerfahrung",
-      "Geschultes und vertrauenswürdiges Personal",
-      "Modernste Ausrüstung und Transportfahrzeuge",
-      "Alle erforderlichen Versicherungen und Zertifizierungen",
-      "Garantierte Termintreue und Festpreise",
-      "Durchgehende Ansprechpartner"
-    ]
-  }
-}
+import Image from "next/image"
+import entruempelungData from "@/i18n/de/entruempelung.json"
+import {
+  ArrowRight,
+  Truck,
+  Recycle,
+  Star,
+  Award,
+  Timer,
+  Users,
+  PhoneCall,
+  Shield,
+  Handshake,
+  Settings,
+  Wrench
+} from "lucide-react"
 
 export default function EntruempelungPage() {
-  const data = entruempelungData
-
   return (
-    <main className="flex min-h-screen flex-col">
+    <div className="flex-1">
       {/* Hero Section */}
-      <Section className="relative bg-gradient-to-b from-primary/20 to-primary-light pt-24">
+      <Section className="relative bg-gradient-to-b from-primary/20 to-primary-light pt-28">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <H1>{data.hero.title}</H1>
-            <Paragraph className="mt-6 text-lg">{data.hero.description}</Paragraph>
-            <Button size="lg" className="mt-8">
-              Jetzt Angebot anfordern
-            </Button>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <InView
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              <div>
+                <h1 className="text-6xl lg:text-7xl font-extrabold tracking-tight mb-8">
+                  {entruempelungData.hero.title}
+                </h1>
+                <div className="mt-8 text-3xl lg:text-4xl mb-12">
+                  <TextEffect 
+                    preset="fade-in-blur"
+                    per="word"
+                  >
+                    {entruempelungData.hero.subtitle}
+                  </TextEffect>
+                </div>
+                <Paragraph className="mt-6 text-xl text-foreground/90">
+                  {entruempelungData.hero.description}
+                </Paragraph>
+                <button className="mt-12 bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-lg text-lg font-medium transform transition-all hover:scale-105">
+                  {entruempelungData.hero.cta}
+                </button>
+              </div>
+            </InView>
+            <div className="relative h-[600px] rounded-3xl overflow-hidden">
+              <Image
+                src="/images/entruempelung/hero.jpg"
+                fill
+                className="object-cover"
+                alt="Professionelle Entrümpelung"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
+            </div>
           </div>
         </Container>
       </Section>
 
       <Separator className="bg-accent/10" />
 
-      {/* Intro */}
-      <Section>
-        <Container size="small">
-          <div className="text-center">
-            <H2>{data.intro.title}</H2>
-            <Paragraph className="mt-6">{data.intro.description}</Paragraph>
+      {/* Vertrauen Section */}
+      <Section className="bg-background pt-16">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <InView
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                transition={{ duration: 0.5 }}
+              >
+                <H2 className="mb-6">{entruempelungData.intro.title}</H2>
+                <div className="prose prose-lg">
+                  <Paragraph className="text-lg leading-relaxed text-muted-foreground mb-8">
+                    {entruempelungData.intro.description}
+                  </Paragraph>
+                </div>
+              </InView>
+            </div>
+            <div className="relative h-[500px] rounded-3xl overflow-hidden">
+              <Image
+                src="/images/entruempelung/trust.jpg"
+                fill
+                className="object-cover"
+                alt="Vertrauensvolle Entrümpelung"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent" />
+            </div>
           </div>
         </Container>
       </Section>
 
       <Separator className="bg-accent/10" />
 
-      {/* Versprechen */}
-      <Section className="bg-primary-light">
+{/* Versprechen Section */}
+      <Section className="bg-primary/5">
         <Container>
-          <H2 className="text-center mb-12">{data.versprechen.title}</H2>
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible>
-              {data.versprechen.items.map((item, index) => (
-                <AccordionItem key={index} value={`versprechen-${index}`}>
-                  <AccordionTrigger className="text-lg font-medium">
-                    {item.title}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <Paragraph>{item.description}</Paragraph>
-                  </AccordionContent>
-                </AccordionItem>
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="text-center mb-12">
+              <H2>{entruempelungData.versprechen.title}</H2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {entruempelungData.versprechen.items.map((item, index) => (
+                <Card key={index} className="group hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="mb-4">
+                      {index === 0 && <Handshake className="w-12 h-12 text-accent" />}
+                      {index === 1 && <Settings className="w-12 h-12 text-accent" />}
+                      {index === 2 && <Recycle className="w-12 h-12 text-accent" />}
+                      {index === 3 && <Timer className="w-12 h-12 text-accent" />}
+                      {index === 4 && <Shield className="w-12 h-12 text-accent" />}
+                    </div>
+                    <H3 className="mb-2 group-hover:text-accent transition-colors">
+                      {item.title}
+                    </H3>
+                    <Paragraph className="text-muted-foreground">
+                      {item.description}
+                    </Paragraph>
+                  </CardContent>
+                </Card>
               ))}
-            </Accordion>
+            </div>
+          </InView>
+        </Container>
+      </Section>
+
+      <Separator className="bg-accent/10" />
+
+      {/* Leistungsspektrum Section */}
+      <Section className="bg-background">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <InView
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="sticky top-8">
+                <H2 className="mb-6">{entruempelungData.leistungen.title}</H2>
+                <Paragraph className="text-lg text-muted-foreground mb-8">
+                  {entruempelungData.leistungen.description}
+                </Paragraph>
+                <div className="relative h-[400px] rounded-3xl overflow-hidden">
+                  <Image
+                    src="/images/entruempelung/services.jpg"
+                    fill
+                    className="object-cover"
+                    alt="Professionelle Entrümpelung"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </InView>
+            
+            <div className="space-y-6">
+            {entruempelungData.leistungen.services.map((service, index) => (
+                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 mb-6">
+                      {index === 0 ? (
+                        <Truck className="w-8 h-8 text-accent" />
+                      ) : (
+                        <Wrench className="w-8 h-8 text-accent" />
+                      )}
+                      <H3>{service.category}</H3>
+                    </div>
+                    <ul className="space-y-4">
+                      {service.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <ArrowRight className="w-5 h-5 text-accent mr-3 mt-1 flex-shrink-0" />
+                          <span className="text-muted-foreground">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+
+            </div>
           </div>
         </Container>
       </Section>
 
       <Separator className="bg-accent/10" />
 
-      {/* Leistungen */}
-      <Section>
+      {/* Arbeitsweise Section */}
+      <Section className="bg-primary/5">
         <Container>
-          <H2 className="text-center mb-12">{data.leistungen.title}</H2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {data.leistungen.services.map((service, index) => (
-              <Card key={index} className="bg-white">
-                <CardContent className="pt-6">
-                  <H3 className="mb-4">{service.category}</H3>
-                  <ul className="space-y-2">
-                    {service.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <span className="mr-2 text-accent">✓</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Separator className="bg-accent/10" />
-
-      {/* Arbeitsweise */}
-      <Section className="bg-primary-light">
-        <Container>
-          <H2 className="text-center mb-12">{data.arbeitsweise.title}</H2>
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible>
-              {data.arbeitsweise.steps.map((step, index) => (
-                <AccordionItem key={index} value={`step-${index}`}>
-                  <AccordionTrigger className="text-lg font-medium">
-                    <span className="flex items-center">
-                      <span className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-4">
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="text-center mb-12">
+              <H2>{entruempelungData.arbeitsweise.title}</H2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              {entruempelungData.arbeitsweise.steps.map((step, index) => (
+                <Card key={index} className="relative group hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center mb-4 text-xl font-bold">
                         {index + 1}
-                      </span>
-                      {step.title}
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <Paragraph>{step.description}</Paragraph>
-                  </AccordionContent>
-                </AccordionItem>
+                      </div>
+                      <H3 className="mb-2 group-hover:text-accent transition-colors">
+                        {step.title}
+                      </H3>
+                      <Paragraph className="text-sm text-muted-foreground">
+                        {step.description}
+                      </Paragraph>
+                    </div>
+                  </CardContent>
+                  {index < entruempelungData.arbeitsweise.steps.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-accent/30" />
+                  )}
+                </Card>
               ))}
-            </Accordion>
-          </div>
+            </div>
+          </InView>
         </Container>
       </Section>
 
       <Separator className="bg-accent/10" />
 
-      {/* Vorteile */}
-      <Section>
+      {/* Vertrauen Section */}
+      <Section className="bg-background">
         <Container size="small">
-          <H2 className="text-center mb-12">{data.vorteile.title}</H2>
-          <div className="space-y-4">
-            {data.vorteile.items.map((item, index) => (
-              <Card key={index} className="bg-white">
-                <CardContent className="p-4">
-                  <div className="flex items-start">
-                    <span className="mr-2 text-accent">✓</span>
-                    <span>{item}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <H2 className="text-center mb-12">{entruempelungData.vorteile.title}</H2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {entruempelungData.vorteile.items.map((item, index) => (
+                <Card 
+                  key={index} 
+                  className="bg-white hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <CardContent className="p-6 min-h-[100px] flex items-center">
+                    <div className="flex items-center gap-4">
+                      <div className="rounded-full bg-accent/10 p-3">
+                        {index === 0 && <Award className="w-6 h-6 text-accent" />}
+                        {index === 1 && <Users className="w-6 h-6 text-accent" />}
+                        {index === 2 && <Truck className="w-6 h-6 text-accent" />}
+                        {index === 3 && <Star className="w-6 h-6 text-accent" />}
+                        {index === 4 && <Timer className="w-6 h-6 text-accent" />}
+                        {index === 5 && <PhoneCall className="w-6 h-6 text-accent" />}
+                      </div>
+                      <Paragraph className="text-lg font-medium">{item}</Paragraph>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </InView>
         </Container>
       </Section>
 
@@ -244,19 +293,16 @@ export default function EntruempelungPage() {
       <Section className="bg-accent text-white">
         <Container size="small">
           <div className="text-center">
-            <H2 className="text-white">Vertrauen Sie auf unsere Expertise</H2>
+            <H2 className="text-white">{entruempelungData.kontakt.description}</H2>
             <Paragraph className="mt-4 text-white/90">
-              Kontaktieren Sie uns noch heute für ein unverbindliches Beratungsgespräch.
+              {entruempelungData.kontakt.cta}
             </Paragraph>
-            <Button 
-              size="lg" 
-              className="mt-8 bg-white text-accent hover:bg-white/90"
-            >
-              Jetzt Kontakt aufnehmen
-            </Button>
+            <button className="mt-8 bg-white text-accent hover:bg-white/90 px-10 py-4 rounded-lg text-lg font-medium transform transition-all hover:scale-105">
+              {entruempelungData.hero.cta}
+            </button>
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   )
 }

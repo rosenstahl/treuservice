@@ -2,7 +2,8 @@
   "hero": {
     "title": "Clearance Services",
     "subtitle": "Professional Clearance with Heart and Understanding",
-    "description": "When spaces need new perspectives, we are your reliable partner for professional clearance services. With years of experience and a well-coordinated team, we transform cluttered spaces into new possibilities - efficiently, discreetly, and sustainably."
+    "description": "When spaces need new perspectives, we are your reliable partner for professional clearance services. With years of experience and a well-coordinated team, we transform cluttered spaces into new possibilities - efficiently, discreetly, and sustainably.",
+    "cta": "Request Quote Now"
   },
   "intro": {
     "title": "Your Trust Drives Us",
@@ -12,7 +13,7 @@
     "title": "Our Promise to You",
     "items": [
       {
-        "title": "Free Initial On-Site Consultation",
+        "title": "Free On-Site Initial Consultation",
         "description": "Transparent pricing without hidden costs"
       },
       {
@@ -35,6 +36,7 @@
   },
   "leistungen": {
     "title": "Our Range of Services in Detail",
+    "description": "From classic clearance to specialized tasks - we offer you the complete spectrum of professional clearance services.",
     "services": [
       {
         "category": "Professional Clearance",

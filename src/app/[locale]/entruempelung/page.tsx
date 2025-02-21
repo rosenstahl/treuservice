@@ -76,43 +76,43 @@ export default function EntruempelungPage() {
 
       <Separator className="bg-accent/10" />
 
-      {/* Vertrauen Section */}
-      <Section className="bg-background pt-16">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <InView
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ duration: 0.5 }}
-              >
-                <H2 className="mb-6">{entruempelungData.intro.title}</H2>
-                <div className="prose prose-lg">
-                  <Paragraph className="text-lg leading-relaxed text-muted-foreground mb-8">
-                    {entruempelungData.intro.description}
-                  </Paragraph>
-                </div>
-              </InView>
-            </div>
-            <div className="relative h-[500px] rounded-3xl overflow-hidden">
-              <Image
-                src="/images/entruempelung/trust.jpg"
-                fill
-                className="object-cover"
-                alt="Vertrauensvolle Entrümpelung"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent" />
-            </div>
+{/* Vertrauen Section */}
+<Section className="bg-background pt-16">
+  <Container>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative h-[500px] rounded-3xl overflow-hidden">
+        <Image
+          src="/images/entruempelung/trust.jpg"
+          fill
+          className="object-cover"
+          alt="Vertrauensvolle Entrümpelung"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent" />
+      </div>
+      <div>
+        <InView
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <H2 className="mb-6">{entruempelungData.intro.title}</H2>
+          <div className="prose prose-lg">
+            <Paragraph className="text-lg leading-relaxed text-muted-foreground mb-8">
+              {entruempelungData.intro.description}
+            </Paragraph>
           </div>
-        </Container>
-      </Section>
+        </InView>
+      </div>
+    </div>
+  </Container>
+</Section>
 
       <Separator className="bg-accent/10" />
 
-{/* Versprechen Section */}
+      {/* Versprechen Section */}
       <Section className="bg-primary/5">
         <Container>
           <InView
@@ -168,7 +168,7 @@ export default function EntruempelungPage() {
                 <Paragraph className="text-lg text-muted-foreground mb-8">
                   {entruempelungData.leistungen.description}
                 </Paragraph>
-                <div className="relative h-[400px] rounded-3xl overflow-hidden">
+                <div className="relative h-[527px] rounded-3xl overflow-hidden">
                   <Image
                     src="/images/entruempelung/services.jpg"
                     fill
@@ -181,7 +181,7 @@ export default function EntruempelungPage() {
             </InView>
             
             <div className="space-y-6">
-            {entruempelungData.leistungen.services.map((service, index) => (
+              {entruempelungData.leistungen.services.map((service, index) => (
                 <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4 mb-6">
@@ -203,7 +203,6 @@ export default function EntruempelungPage() {
                   </CardContent>
                 </Card>
               ))}
-
             </div>
           </div>
         </Container>
@@ -252,42 +251,42 @@ export default function EntruempelungPage() {
 
       <Separator className="bg-accent/10" />
 
-      {/* Vertrauen Section */}
-      <Section className="bg-background">
-        <Container size="small">
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
+ {/* Vertrauen Section */}
+<Section className="bg-background">
+  <Container size="small">
+    <InView
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 }
+      }}
+      transition={{ duration: 0.5 }}
+    >
+      <H2 className="text-center mb-12">{entruempelungData.vorteile.title}</H2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {entruempelungData.vorteile.items.map((item, index) => (
+          <Card 
+            key={index} 
+            className="bg-white hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
           >
-            <H2 className="text-center mb-12">{entruempelungData.vorteile.title}</H2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {entruempelungData.vorteile.items.map((item, index) => (
-                <Card 
-                  key={index} 
-                  className="bg-white hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
-                >
-                  <CardContent className="p-6 min-h-[100px] flex items-center">
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-accent/10 p-3">
-                        {index === 0 && <Award className="w-6 h-6 text-accent" />}
-                        {index === 1 && <Users className="w-6 h-6 text-accent" />}
-                        {index === 2 && <Truck className="w-6 h-6 text-accent" />}
-                        {index === 3 && <Star className="w-6 h-6 text-accent" />}
-                        {index === 4 && <Timer className="w-6 h-6 text-accent" />}
-                        {index === 5 && <PhoneCall className="w-6 h-6 text-accent" />}
-                      </div>
-                      <Paragraph className="text-lg font-medium">{item}</Paragraph>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </InView>
-        </Container>
-      </Section>
+            <CardContent className="p-6">
+              <div className="flex items-center gap-6">
+                <div className="flex items-center justify-center rounded-full bg-accent/10 p-4 flex-shrink-0">
+                  {index === 0 && <Award className="w-8 h-8 text-accent" />}
+                  {index === 1 && <Users className="w-8 h-8 text-accent" />}
+                  {index === 2 && <Truck className="w-8 h-8 text-accent" />}
+                  {index === 3 && <Star className="w-8 h-8 text-accent" />}
+                  {index === 4 && <Timer className="w-8 h-8 text-accent" />}
+                  {index === 5 && <PhoneCall className="w-8 h-8 text-accent" />}
+                </div>
+                <span className="text-lg font-medium">{item}</span>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </InView>
+  </Container>
+</Section>
 
       {/* Contact CTA */}
       <Section className="bg-accent text-white">

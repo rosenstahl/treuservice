@@ -1,44 +1,92 @@
 "use client"
 
+import React, { useState, useEffect } from 'react'
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { H1, H2, H3, Paragraph } from "@/components/ui/typography"
-import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { FlipCard } from "@/components/ui/flip-card"
+import { TextEffect } from "@/components/ui/text-effect"
+import ExpandableSecurityCards from '@/components/ui/ExpandableSecurityCards'
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
+import ContactButton from '@/components/ui/contact-button';
+
+import { InView } from "@/components/ui/in-view"
+import { cn } from "@/lib/utils"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-import { Card, CardContent } from "@/components/ui/card"
-import { useParams } from "next/navigation"
+import Image from "next/image"
 import securityData from "@/i18n/de/security.json"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import {
+  StarIcon,
+  Shield,
+  Clock,
+  Zap,
+  CheckCircle2,
+  FileCheck,
+  Lock,
+  BadgeCheck,
+  Eye,
+  XCircle,
+  Handshake
+} from "lucide-react"
 
 export default function SecurityPage() {
-  const params = useParams()
-  const locale = params.locale as string
-  const data = securityData
+  const [imageLoaded, setImageLoaded] = useState(false)
+
+  useEffect(() => {
+    setImageLoaded(true)
+  }, [])
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <div className="flex-1">
       {/* Hero Section */}
-      <Section className="relative bg-gradient-to-b from-primary/20 to-primary-light pt-24">
+      <Section className="relative bg-gradient-to-b from-primary/20 to-primary-light pt-28">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <H1>{data.hero.title}</H1>
-            <Paragraph className="mt-6 text-lg">{data.hero.description}</Paragraph>
-            <Button size="lg" className="mt-8">
-              Jetzt Angebot anfordern
-            </Button>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <InView
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              <div>
+                <H1 className="text-6xl lg:text-7xl font-extrabold tracking-tight mb-8">
+                  {securityData.hero.title}
+                </H1>
+                <div className="mt-4 min-h-[80px] text-3xl lg:text-4xl mb-8">
+                  <TextEffect>{securityData.hero.subtitle}</TextEffect>
+                </div>
+                <Paragraph className="mt-6 text-xl text-foreground/90">
+                  {securityData.hero.description}
+                </Paragraph>
+                <button className="mt-12 bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-lg text-lg font-medium transform transition-all hover:scale-105">
+                  Jetzt Angebot anfordern
+                </button>
+              </div>
+            </InView>
+            <div className={cn(
+              "relative h-[600px] rounded-3xl overflow-hidden transition-all duration-1000",
+              imageLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            )}>
+              <Image
+                src="/images/security/hero.jpg"
+                fill
+                className="object-cover"
+                alt="Professionelle Security"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                onLoad={() => setImageLoaded(true)}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
+            </div>
           </div>
         </Container>
       </Section>
@@ -46,154 +94,374 @@ export default function SecurityPage() {
       <Separator className="bg-accent/10" />
 
       {/* Basisleistungen */}
-      <Section>
+      <Section className="bg-background">
         <Container>
-          <H2 className="text-center mb-8">{data.basisleistungen.title}</H2>
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible>
-              {data.basisleistungen.items.map((item, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-lg font-medium">
-                    {item}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <Paragraph>
-                      {data.basisleistungen.note}
-                    </Paragraph>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <InView
+              variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="relative h-[600px] rounded-3xl overflow-hidden">
+                <Image
+                  src="/images/security/basis.jpg"
+                  fill
+                  className="object-cover"
+                  alt="Professionelle Security"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
+              </div>
+            </InView>
+            <div>
+              <InView
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                transition={{ duration: 0.5 }}
+              >
+                <H2 className="mb-4">{securityData.basisleistungen.title}</H2>
+                <Paragraph className="mb-8">{securityData.basisleistungen.note}</Paragraph>
+              </InView>
+              <div className="grid grid-cols-1 gap-8">
+                {securityData.basisleistungen.items.map((item, i) => (
+                  <InView
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, x: -50 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    <div
+                      className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
+                    >
+                      <div className="text-accent mt-1">
+                        {i === 0 && <FileCheck className="w-6 h-6" />}
+                        {i === 1 && <Eye className="w-6 h-6" />}
+                        {i === 2 && <Lock className="w-6 h-6" />}
+                        {i === 3 && <BadgeCheck className="w-6 h-6" />}
+                        {i === 4 && <Shield className="w-6 h-6" />}
+                        {i === 5 && <FileCheck className="w-6 h-6" />}
+                      </div>
+                      <div>
+                        <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
+                          {item}
+                        </H3>
+                      </div>
+                    </div>
+                  </InView>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
-
-      <Separator className="bg-accent/10" />
 
       {/* Spezialisierte Lösungen */}
-      <Section className="bg-primary-light">
+      <Section className="bg-primary/5">
         <Container>
-          <H2 className="text-center mb-12">{data.specializedLoesungen.title}</H2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.specializedLoesungen.services.map((service, index) => (
-              <FlipCard
-                key={index}
-                title={service.title}
-                description={service.tileText}
-                features={service.leistungen}
-              />
-            ))}
-          </div>
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <H2 className="text-center mb-12">{securityData.specializedLoesungen.title}</H2>
+            <ExpandableSecurityCards
+              services={securityData.specializedLoesungen.services.map(service => ({
+                ...service,
+                image: `/images/security/${service.title.toLowerCase().replace(/\s+/g, '-')}.jpg`
+              }))}
+              labels={{
+                einsatzgebiete: "Einsatzgebiete",
+                leistungen: "Leistungen",
+                details: "Details",
+                angebotAnfordern: "Angebot anfordern"
+              }}
+            />
+          </InView>
         </Container>
       </Section>
-
-      <Separator className="bg-accent/10" />
-
-      {/* Häufige Probleme */}
-      <Section>
-        <Container size="small">
-          <H2 className="text-center mb-4">{data.commonIssues.title}</H2>
-          <Paragraph className="text-center mb-8">{data.commonIssues.subtitle}</Paragraph>
-          <Accordion type="single" collapsible>
-            {data.commonIssues.items.map((item, index) => (
-              <AccordionItem key={index} value={`problem-${index}`}>
-                <AccordionTrigger className="text-lg font-medium">
-                  {item.problem}
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="space-y-2">
-                    <p className="text-red-500/80 text-sm">{item.issue}</p>
-                    <p className="text-green-600 font-medium">{item.solution}</p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </Container>
-      </Section>
-
-      <Separator className="bg-accent/10" />
 
       {/* Warum TREU Service */}
-      <Section className="bg-primary-light">
+      <Section className="bg-background">
         <Container>
-          <H2 className="text-center mb-12">{data.warumTreuService.title}</H2>
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible>
-              {data.warumTreuService.items.map((item, index) => (
-                <AccordionItem key={index} value={`vorteil-${index}`}>
-                  <AccordionTrigger className="text-lg font-medium">
-                    {item}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <Paragraph>
-                      Professionelle Sicherheitslösungen mit höchsten Standards
-                    </Paragraph>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <InView
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="relative h-[600px] rounded-3xl overflow-hidden">
+                <Image
+                  src="/images/security/expertise.jpg"
+                  fill
+                  className="object-cover"
+                  alt="TREU Service Expertise"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
+              </div>
+            </InView>
+            <InView
+              variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              <div>
+                <H2 className="mb-8">{securityData.warumTreuService.title}</H2>
+                <Accordion type="single" collapsible className="w-full">
+                  {securityData.warumTreuService.items.map((item, i) => {
+                    const [title, description] = item.split(": ")
+                    return (
+                      <AccordionItem
+                        key={i}
+                        value={`item-${i}`}
+                        className="border-b border-primary/10"
+                      >
+                        <AccordionTrigger className="hover:no-underline hover:bg-accent/5 rounded-lg transition-colors">
+                          <span className="font-bold">{title}</span>
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="p-4 bg-accent/5 rounded-lg">
+                            {description}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    )
+                  })}
+                </Accordion>
+              </div>
+            </InView>
           </div>
         </Container>
       </Section>
 
-      <Separator className="bg-accent/10" />
+      {/* Häufige Probleme */}
+      <Section className="bg-background">
+        <Container>
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="text-center mb-12">
+              <H2>{securityData.commonIssues.title}</H2>
+              <Paragraph className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                {securityData.commonIssues.subtitle}
+              </Paragraph>
+            </div>
+          </InView>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {securityData.commonIssues.items.map((item, i) => (
+              <InView
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  visible: { opacity: 1, scale: 1 }
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  delay: i * 0.1
+                }}
+              >
+                <div
+                  className="group relative overflow-hidden rounded-2xl bg-white/50 hover:bg-white/80 transition-all duration-300 shadow-lg hover:shadow-xl border border-accent/10"
+                >
+                  <div className="px-6 py-8">
+                    <div className="flex items-start gap-4">
+                      <div className="shrink-0 rounded-full bg-red-100/80 p-3">
+                        <XCircle className="w-6 h-6 text-red-600" />
+                      </div>
+                      <div>
+                        <H3 className="text-lg font-semibold mb-2">{item.problem}</H3>
+                        <Paragraph className="text-red-500 mb-6">
+                          {item.issue}
+                        </Paragraph>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-accent/10">
+                      <div className="flex items-start gap-4">
+                        <div className="shrink-0 rounded-full bg-green-100/80 p-3">
+                          <CheckCircle2 className="w-6 h-6 text-green-600" />
+                        </div>
+                        <Paragraph className="text-green-600 font-medium py-2">
+                          {item.solution}
+                        </Paragraph>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300"
+                    style={{
+                      background: 'radial-gradient(circle at center, transparent 0%, rgba(255,255,255,0.2) 100%)',
+                    }}
+                  />
+                </div>
+              </InView>
+            ))}
+          </div>
+        </Container>
+      </Section>
 
       {/* Kundenstimmen */}
-      <Section>
+      <Section className="bg-primary/5">
         <Container>
-          <H2 className="text-center mb-12">{data.kundenstimmen.title}</H2>
-          <Carousel
-            opts={{
-              align: "start",
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
             }}
-            className="w-full max-w-5xl mx-auto"
+            transition={{ duration: 0.5 }}
           >
-            <CarouselContent>
-              {data.kundenstimmen.testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <Card>
-                    <CardContent className="p-6">
-                      <blockquote className="border-l-4 border-accent pl-4">
-                        <p className="italic text-base">{testimonial.quote}</p>
-                        <footer className="mt-4">
-                          <strong className="text-secondary">{testimonial.author}</strong>
-                          <span className="text-secondary/60"> - {testimonial.sector}</span>
-                        </footer>
-                      </blockquote>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="mt-4 flex justify-center gap-2">
-              <CarouselPrevious />
-              <CarouselNext />
-            </div>
-          </Carousel>
+            <H2 className="text-center mb-12">{securityData.kundenstimmen.title}</H2>
+            <AnimatedTestimonials
+              testimonials={securityData.kundenstimmen.testimonials.map(t => ({
+                quote: t.quote,
+                name: t.author,
+                designation: t.sector,
+                src: "/images/testimonials/placeholder.jpg"
+              }))}
+            />
+          </InView>
         </Container>
       </Section>
 
       {/* Contact CTA */}
-      <Section className="bg-accent text-white">
-        <Container size="small">
-          <div className="text-center">
-            <H2 className="text-white">{data.kontakt.title}</H2>
-            <Paragraph className="mt-4 text-white/90">
-              {data.kontakt.description}
-            </Paragraph>
-            <Paragraph className="mt-4 text-white/90">
-              {data.kontakt.callToAction}
-            </Paragraph>
-            <Button 
-              size="lg" 
-              className="mt-8 bg-white text-accent hover:bg-white/90"
-            >
-              Jetzt Kontakt aufnehmen
-            </Button>
-          </div>
+      <Section className="bg-accent/5">
+        <Container>
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              {/* Left Side - Contact Info & Features */}
+              <div>
+                <H2 className="mb-4">{securityData.kontakt.title}</H2>
+                <H3 className="mb-8">{securityData.kontakt.description}</H3>
+                
+                {/* Features List */}
+                <div className="grid grid-cols-1 gap-8">
+                  {securityData.qualitaetsversprechen.items.map((title, i) => {
+                    const icons = [
+                      { id: 'handshake', icon: <Handshake key="handshake" className="w-6 h-6" /> },
+                      { id: 'star', icon: <StarIcon key="star" className="w-6 h-6" /> },
+                      { id: 'clock', icon: <Clock key="clock" className="w-6 h-6" /> },
+                      { id: 'shield', icon: <Shield key="shield" className="w-6 h-6" /> },
+                      { id: 'zap', icon: <Zap key="zap" className="w-6 h-6" /> }
+                    ];
+                    return (
+                      <div 
+                        key={i}
+                        className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
+                      >
+                        <div className="text-accent mt-1">
+                          {icons[i].icon}
+                        </div>
+                        <div>
+                          <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
+                            {title}
+                          </H3>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              
+              {/* Right Side - Contact Form */}
+              <div className="bg-white p-8 rounded-xl shadow-lg border border-accent/10">
+                <form className="space-y-6" onSubmit={(e) => {
+                  e.preventDefault();
+                  // Handle form submission
+                }}>
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input 
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Ihr Name"
+                      className="w-full"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input 
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Ihre Email"
+                      className="w-full"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Telefon</Label>
+                    <Input 
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="Ihre Telefonnummer"
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="service">Gewünschte Leistung</Label>
+                    <select 
+                      id="service"
+                      name="service"
+                      className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                      required
+                    >
+                      <option value="">Bitte wählen Sie eine Leistung</option>
+                      {securityData.specializedLoesungen.services.map((service) => (
+                        <option key={service.title} value={service.title}>
+                          {service.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Nachricht</Label>
+                    <Textarea 
+                      id="message"
+                      name="message"
+                      placeholder="Ihre Nachricht an uns"
+                      className="w-full min-h-[100px]"
+                      required
+                    />
+                  </div>
+                  
+                  <ContactButton text="Jetzt anfragen" />
+                </form>
+              </div>
+            </div>
+          </InView>
         </Container>
       </Section>
-    </main>
+    </div>
   )
 }

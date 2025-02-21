@@ -5,7 +5,7 @@
     "description": "Willkommen bei TREU Security – Ihrem vertrauenswürdigen Partner für umfassende Sicherheitslösungen. Ihre Sicherheit ist unser Auftrag, damit Sie sich voll und ganz auf Ihre Aufgaben konzentrieren können. Unser erfahrenes Team steht Ihnen rund um die Uhr, verlässlich und diskret, zur Seite."
   },
   "basisleistungen": {
-    "title": "Unsere Basisleistungen – Das Fundament für Ihren Schutz in jedem Bereich:",
+    "title": "Unsere Basisleistungen",
     "items": [
       "Risikoanalyse & Konzepterstellung",
       "Kontrollgänge & Überwachung",
@@ -14,17 +14,22 @@
       "Alarmierung & Intervention",
       "Dokumentation & Berichtswesen"
     ],
-    "note": "Diese Grundleistungen bilden das Herzstück all unserer Sicherheitsdienste – egal, welchen spezifischen Schutz Sie benötigen."
+    "note": "Diese Grundleistungen bilden das Herzstück all unserer Sicherheitsdienste."
   },
   "specializedLoesungen": {
     "title": "Entdecken Sie unsere spezialisierten Sicherheitslösungen:",
+    "labels": {
+      "einsatzgebiete": "Einsatzgebiete",
+      "leistungen": "Leistungen",
+      "angebotAnfordern": "Angebot anfordern",
+      "details": "Details"
+    },
     "services": [
       {
         "icon": "Gebäude",
         "title": "Objektschutz",
-        "tileText": "Einsatzgebiete: Industrieunternehmen, Produktionsstätten, Logistikzentren, Speditionen, Einkaufszentren, Supermärkte, Einzelhandelsketten, Banken, Behörden, staatliche Verwaltungen, Krankenhäuser, Seniorenheime, Pflegeheime, Museen, Kunstgalerien, Großveranstaltungen, Flughäfen, Bahnhöfe, Bürogebäude und Wohnanlagen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Objektschutz: Ihr Gebäude, unsere Verantwortung. Tägliche Einbrüche und Vandalismus verursachen Millionenschäden – mit modernster Technik und Elite-Personal sichern wir Ihre Immobilien rund um die Uhr, damit Sie sich voll auf Ihr Kerngeschäft konzentrieren können.",
+        "tileText": "Industrieunternehmen, Produktionsstätten, Logistikzentren, Speditionen, Einkaufszentren, Supermärkte, Einzelhandelsketten, Banken, Behörden, staatliche Verwaltungen, Krankenhäuser, Seniorenheime, Pflegeheime, Museen, Kunstgalerien, Großveranstaltungen, Flughäfen, Bahnhöfe, Bürogebäude und Wohnanlagen",
+        "description": "Ihr Gebäude, unsere Verantwortung. Tägliche Einbrüche und Vandalismus verursachen Millionenschäden – mit modernster Technik und Elite-Personal sichern wir Ihre Immobilien rund um die Uhr, damit Sie sich voll auf Ihr Kerngeschäft konzentrieren können.",
         "leistungen": [
           "Rundum-Überwachung von Gebäuden und Außenanlagen",
           "Überprüfung von Personen und Fahrzeugen",
@@ -42,9 +47,8 @@
       {
         "icon": "Fabrik",
         "title": "Werkschutz",
-        "tileText": "Einsatzgebiete: Industrieunternehmen, Produktionsstätten, Gewerbegebiete, Logistikzentren, Forschungseinrichtungen, Atomkraftwerke, Chemiewerke, Energieversorgungsbetriebe, Verwaltungsgebäude, Lagerhallen und Distributionseinrichtungen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Werkschutz: Sicherheit für Ihre Wertschöpfung. Der Diebstahl von Maschinen und Betriebsgeheimnissen kann jahrelange Arbeit in Stunden zunichtemachen. Unser spezialisierter Werkschutz sichert Ihre Produktionsabläufe durch hochqualifiziertes Personal und modernste Technik.",
+        "tileText": "Industrieunternehmen, Produktionsstätten, Gewerbegebiete, Logistikzentren, Forschungseinrichtungen, Atomkraftwerke, Chemiewerke, Energieversorgungsbetriebe, Verwaltungsgebäude, Lagerhallen und Distributionseinrichtungen",
+        "description": "Sicherheit für Ihre Wertschöpfung. Der Diebstahl von Maschinen und Betriebsgeheimnissen kann jahrelange Arbeit in Stunden zunichtemachen. Unser spezialisierter Werkschutz sichert Ihre Produktionsabläufe durch hochqualifiziertes Personal und modernste Technik.",
         "leistungen": [
           "Überprüfung von Personen und Fahrzeugen",
           "Zutrittskontrollen",
@@ -63,9 +67,8 @@
       {
         "icon": "Bauhelm",
         "title": "Baustellenbewachung",
-        "tileText": "Einsatzgebiete: Großbaustellen, Infrastrukturprojekte, Wohn- und Gewerbebau, Neubauten und Renovierungsprojekte, öffentliche Baustellen in Städten",
-        "linkText": "[Zur Leistung >]",
-        "description": "Baustellenbewachung: Damit Ihr Projekt sicher wächst. Bereits eine Nacht ohne Bewachung kann durch Diebstahl und Vandalismus zu massiven Verzögerungen führen. Unser hochmobiles Team schützt Ihre wertvollen Maschinen und Materialien rund um die Uhr.",
+        "tileText": "Großbaustellen, Infrastrukturprojekte, Wohn- und Gewerbebau, Neubauten und Renovierungsprojekte, öffentliche Baustellen in Städten",
+        "description": "Damit Ihr Projekt sicher wächst. Bereits eine Nacht ohne Bewachung kann durch Diebstahl und Vandalismus zu massiven Verzögerungen führen. Unser hochmobiles Team schützt Ihre wertvollen Maschinen und Materialien rund um die Uhr.",
         "leistungen": [
           "Überprüfung von Personen und Fahrzeugen",
           "Zutrittskontrollen",
@@ -83,9 +86,8 @@
       {
         "icon": "Haus",
         "title": "Sicherheit für Asylunterkünfte",
-        "tileText": "Einsatzgebiete: Flüchtlingsheime, Gemeinschaftsunterkünfte, Sozialeinrichtungen, Sozialwohnanlagen, Betreuungseinrichtungen, Wohngruppen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Asylunterkünfte: Sicherheit durch interkulturelle Kompetenz. Unser mehrsprachiges und interkulturell geschultes Team garantiert ein sicheres Umfeld durch Expertise und Sensibilität im Umgang mit Bewohnern.",
+        "tileText": "Flüchtlingsheime, Gemeinschaftsunterkünfte, Sozialeinrichtungen, Sozialwohnanlagen, Betreuungseinrichtungen, Wohngruppen",
+        "description": "Sicherheit durch interkulturelle Kompetenz. Unser mehrsprachiges und interkulturell geschultes Team garantiert ein sicheres Umfeld durch Expertise und Sensibilität im Umgang mit Bewohnern.",
         "leistungen": [
           "Überprüfung von Personen und Fahrzeugen",
           "Zutrittskontrollen",
@@ -104,9 +106,8 @@
       {
         "icon": "Stadt",
         "title": "City-Streife",
-        "tileText": "Einsatzgebiete: Stadtzentren, Einkaufsstraßen, Parks, öffentliche Plätze, Bahnhöfe",
-        "linkText": "[Zur Leistung >]",
-        "description": "City-Streife: Ihr Garant für sichere Innenstädte. Unsere permanenten Streifen schaffen durch unmittelbare Intervention sichere öffentliche Räume.",
+        "tileText": "Stadtzentren, Einkaufsstraßen, Parks, öffentliche Plätze, Bahnhöfe",
+        "description": "Ihr Garant für sichere Innenstädte. Unsere permanenten Streifen schaffen durch unmittelbare Intervention sichere öffentliche Räume.",
         "leistungen": [
           "Prävention von Diebstählen, Überfällen und Sachbeschädigungen",
           "Regelmäßige Kontrollgänge",
@@ -121,9 +122,8 @@
       {
         "icon": "Fußabdruck",
         "title": "Revier- und Streifendienst",
-        "tileText": "Einsatzgebiete: Wohnanlagen, Industriegebiete, Parkhäuser, Einkaufszentren",
-        "linkText": "[Zur Leistung >]",
-        "description": "Revier- und Streifendienst: Mobile Sicherheit rund um die Uhr. Durch GPS-gestützte, unregelmäßige Kontrollen bieten wir maximale Sicherheit für weitläufige Objekte bei optimaler Kosteneffizienz.",
+        "tileText": "Wohnanlagen, Industriegebiete, Parkhäuser, Einkaufszentren",
+        "description": "Mobile Sicherheit rund um die Uhr. Durch GPS-gestützte, unregelmäßige Kontrollen bieten wir maximale Sicherheit für weitläufige Objekte bei optimaler Kosteneffizienz.",
         "leistungen": [
           "Prävention von Vandalismus und Sachbeschädigung",
           "Überwachung verdächtiger Personen",
@@ -137,9 +137,8 @@
       {
         "icon": "Tür",
         "title": "Doorman",
-        "tileText": "Einsatzgebiete: Luxushotels, Banken, Einkaufszentren, Juweliergeschäfte, Apartmentanlagen, Luxusläden",
-        "linkText": "[Zur Leistung >]",
-        "description": "Doorman: Ihr erster Eindruck in besten Händen. Unsere Elite-Doormen vereinen höchste Sicherheitsstandards mit exzellentem Service und repräsentieren Ihr Unternehmen auf Premiumlevel.",
+        "tileText": "Luxushotels, Banken, Einkaufszentren, Juweliergeschäfte, Apartmentanlagen, Luxusläden",
+        "description": "Ihr erster Eindruck in besten Händen. Unsere Elite-Doormen vereinen höchste Sicherheitsstandards mit exzellentem Service und repräsentieren Ihr Unternehmen auf Premiumlevel.",
         "leistungen": [
           "Freundlicher Empfang und Verabschiedung von Gästen",
           "Einlass- und Taschenkontrollen",
@@ -157,9 +156,8 @@
       {
         "icon": "Detektiv",
         "title": "Laden- & Kaufhausdetektiv",
-        "tileText": "Einsatzgebiete: Einkaufszentren, Supermärkte, Einzelhandelsketten, Apotheken, Luxusgeschäfte, Fachmärkte, Juwelierläden",
-        "linkText": "[Zur Leistung >]",
-        "description": "Ladendetektiv: Professioneller Schutz gegen Inventurverluste. Unsere Spezialdetektive reduzieren Verluste durch modernste Präventionstechniken und rechtssichere Täterüberführung.",
+        "tileText": "Einkaufszentren, Supermärkte, Einzelhandelsketten, Apotheken, Luxusgeschäfte, Fachmärkte, Juwelierläden",
+        "description": "Professioneller Schutz gegen Inventurverluste. Unsere Spezialdetektive reduzieren Verluste durch modernste Präventionstechniken und rechtssichere Täterüberführung.",
         "leistungen": [
           "Überprüfung von Personen und Fahrzeugen",
           "Zutrittskontrollen",
@@ -177,9 +175,8 @@
       {
         "icon": "Rezeption",
         "title": "Empfangs- & Pfortendienst",
-        "tileText": "Einsatzgebiete: Bürogebäude, Finanzinstitute, Banken, Krankenhäuser, Universitäten, öffentliche und staatliche Einrichtungen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Empfang & Pforte: Sicherheit beginnt am Eingang. Unser qualifiziertes Empfangspersonal kombiniert lückenlose Zugangskontrolle mit erstklassigem Besucherservice.",
+        "tileText": "Bürogebäude, Finanzinstitute, Banken, Krankenhäuser, Universitäten, öffentliche und staatliche Einrichtungen",
+        "description": "Sicherheit beginnt am Eingang. Unser qualifiziertes Empfangspersonal kombiniert lückenlose Zugangskontrolle mit erstklassigem Besucherservice.",
         "leistungen": [
           "Begrüßung und Registrierung von Besuchern und Mitarbeitern",
           "Kontrolle von Personen-, Fahrzeug-, Waren- und Lieferverkehr",
@@ -197,9 +194,8 @@
       {
         "icon": "Hotel",
         "title": "Night-Audit, Empfang & Sicherheit für Hotels",
-        "tileText": "Einsatzgebiete: Hotels, Resorts, Ferienanlagen, Seniorenresidenzen, Flughafenlounges",
-        "linkText": "[Zur Leistung >]",
-        "description": "Night-Audit: Ihre Hotelsicherheit in der Nacht. Unser spezialisiertes Team vereint Sicherheits- und Empfangsdienste, um auch in den kritischsten Stunden optimalen Schutz und Service zu gewährleisten.",
+        "tileText": "Hotels, Resorts, Ferienanlagen, Seniorenresidenzen, Flughafenlounges",
+        "description": "Ihre Hotelsicherheit in der Nacht. Unser spezialisiertes Team vereint Sicherheits- und Empfangsdienste, um auch in den kritischsten Stunden optimalen Schutz und Service zu gewährleisten.",
         "leistungen": [
           "Check-In und Check-Out (auch bei Late Arrivals)",
           "Erstellung des Tagesabschlusses und Übergabe an die Frühschicht",
@@ -217,9 +213,8 @@
       {
         "icon": "Lautsprecher",
         "title": "Event- & Veranstaltungsschutz",
-        "tileText": "Einsatzgebiete: Großveranstaltungen, Messen, Konzerte, Stadien, Sportevents, Festivals, Freiluftbühnen, Gemeindefeste, Marktplätze",
-        "linkText": "[Zur Leistung >]",
-        "description": "Eventschutz: Damit Ihre Veranstaltung in Erinnerung bleibt. Unser Expertenteam sorgt mit modernster Crowd-Control-Technologie und deeskalierender Kommunikation für perfekte Sicherheit Ihrer Events.",
+        "tileText": "Großveranstaltungen, Messen, Konzerte, Stadien, Sportevents, Festivals, Freiluftbühnen, Gemeindefeste, Marktplätze",
+        "description": "Damit Ihre Veranstaltung in Erinnerung bleibt. Unser Expertenteam sorgt mit modernster Crowd-Control-Technologie und deeskalierender Kommunikation für perfekte Sicherheit Ihrer Events.",
         "leistungen": [
           "Überprüfung von Personen und Fahrzeugen",
           "Zutrittskontrollen",
@@ -237,9 +232,8 @@
       {
         "icon": "Messehalle",
         "title": "Standwache / Messeschutz",
-        "tileText": "Einsatzgebiete: Messen, Ausstellungshallen, Fachmessen, Autohäuser, Showrooms, Verkaufsstände, Hotels bei Businessevents, Kreativ- und Kunstmessen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Standwache: Ihr Messeerfolg in sicheren Händen. Unsere spezialisierten Standwachen schützen Ihre wertvollen Exponate und sensiblen Informationen durch permanente Präsenz und modernste Überwachungstechnik.",
+        "tileText": "Messen, Ausstellungshallen, Fachmessen, Autohäuser, Showrooms, Verkaufsstände, Hotels bei Businessevents, Kreativ- und Kunstmessen",
+        "description": "Ihr Messeerfolg in sicheren Händen. Unsere spezialisierten Standwachen schützen Ihre wertvollen Exponate und sensiblen Informationen durch permanente Präsenz und modernste Überwachungstechnik.",
         "leistungen": [
           "Zugangskontrollen am Stand",
           "Verhinderung unerlaubten Zutritts",
@@ -258,9 +252,8 @@
       {
         "icon": "Kontrollarmband",
         "title": "Ordnerdienst",
-        "tileText": "Einsatzgebiete: Großveranstaltungen, Festivals, Stadien, Open-Air-Kinos, Konzerte, Club-Events, Gemeindeveranstaltungen, Stadtfeste, Freizeitparks",
-        "linkText": "[Zur Leistung >]",
-        "description": "Ordnerdienst: Professionelles Crowd-Management. Unser hochqualifiziertes Ordnungspersonal garantiert durch Expertise und Deeskalationskompetenz den sicheren Ablauf jeder Großveranstaltung.",
+        "tileText": "Großveranstaltungen, Festivals, Stadien, Open-Air-Kinos, Konzerte, Club-Events, Gemeindeveranstaltungen, Stadtfeste, Freizeitparks",
+        "description": "Professionelles Crowd-Management. Unser hochqualifiziertes Ordnungspersonal garantiert durch Expertise und Deeskalationskompetenz den sicheren Ablauf jeder Großveranstaltung.",
         "leistungen": [
           "Überprüfung von Personen und Fahrzeugen",
           "Zutrittskontrollen",
@@ -279,9 +272,8 @@
       {
         "icon": "Parkplatz",
         "title": "Parkraummanagement",
-        "tileText": "Einsatzgebiete: Parkhäuser, Tiefgaragen, Einkaufszentren, Veranstaltungsorte, Festivals, Stadien, Flughäfen, Hotels, Krankenhäuser, Bürogebäude",
-        "linkText": "[Zur Leistung >]",
-        "description": "Parkraummanagement: Optimierte Sicherheit für Ihre Parkflächen. Unser digitalisiertes Konzept maximiert Ihre Erträge durch intelligente Steuerung und professionelle Kontrolle.",
+        "tileText": "Parkhäuser, Tiefgaragen, Einkaufszentren, Veranstaltungsorte, Festivals, Stadien, Flughäfen, Hotels, Krankenhäuser, Bürogebäude",
+        "description": "Optimierte Sicherheit für Ihre Parkflächen. Unser digitalisiertes Konzept maximiert Ihre Erträge durch intelligente Steuerung und professionelle Kontrolle.",
         "leistungen": [
           "Parkplatzeinweisung und Verkehrsmanagement",
           "Pförtnerdienst in Parkhäusern",
@@ -299,9 +291,8 @@
       {
         "icon": "Lenkrad",
         "title": "Fahr- & Chauffeurservice",
-        "tileText": "Einsatzgebiete: VIP-Transfers, Flughafentransfers, Shuttle-Services, diplomatische Einrichtungen, Botschaften",
-        "linkText": "[Zur Leistung >]",
-        "description": "Chauffeurservice: Sicherer Transfer auf höchstem Niveau. Unsere Sicherheitsfahrer, alle mit Personenschutz-Qualifikation, garantieren maximale Sicherheit und höchste Diskretion.",
+        "tileText": "VIP-Transfers, Flughafentransfers, Shuttle-Services, diplomatische Einrichtungen, Botschaften",
+        "description": "Sicherer Transfer auf höchstem Niveau. Unsere Sicherheitsfahrer, alle mit Personenschutz-Qualifikation, garantieren maximale Sicherheit und höchste Diskretion.",
         "leistungen": [
           "Personenbeförderung",
           "Bereitstellung von Sicherheitsfahrern und -begleitung",
@@ -323,28 +314,28 @@
     "items": [
       {
         "problem": "Zuverlässigkeit?",
-        "issue": "❌ Viele Dienstleister sind überlastet",
-        "solution": "✅ Wir begrenzen unsere Aufträge für garantierte Verfügbarkeit"
+        "issue": "Viele Dienstleister sind überlastet",
+        "solution": "Wir begrenzen unsere Aufträge für garantierte Verfügbarkeit"
       },
       {
         "problem": "Reaktionszeit?",
-        "issue": "❌ Zu lange Anfahrtswege bei Vorfällen",
-        "solution": "✅ Immer in Ihrer Nähe für sofortige Intervention"
+        "issue": "Zu lange Anfahrtswege bei Vorfällen",
+        "solution": "Immer in Ihrer Nähe für sofortige Intervention"
       },
       {
         "problem": "Krisenmanagement?",
-        "issue": "❌ Unsicherheit bei außergewöhnlichen Situationen",
-        "solution": "✅ Maßgeschneiderte Notfallpläne für jeden Fall"
+        "issue": "Unsicherheit bei außergewöhnlichen Situationen",
+        "solution": "Maßgeschneiderte Notfallpläne für jeden Fall"
       },
       {
         "problem": "Kostentransparenz?",
-        "issue": "❌ Versteckte Gebühren und unklare Abrechnungen",
-        "solution": "✅ Transparente Preise ohne Überraschungen"
+        "issue": "Versteckte Gebühren und unklare Abrechnungen",
+        "solution": "Transparente Preise ohne Überraschungen"
       },
       {
         "problem": "Qualitätsstandards?",
-        "issue": "❌ Unzureichend qualifiziertes Personal und veraltete Technik",
-        "solution": "✅ Regelmäßig geschulte Fachkräfte und modernste Technik"
+        "issue": "Unzureichend qualifiziertes Personal und veraltete Technik",
+        "solution": "Regelmäßig geschulte Fachkräfte und modernste Technik"
       }
     ]
   },

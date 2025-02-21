@@ -5,7 +5,7 @@
     "description": "Welcome to TREU Security – your trusted partner for comprehensive security solutions. Your safety is our mission, enabling you to concentrate fully on your core tasks. Our experienced team is by your side 24/7, reliable and discreet."
   },
   "coreServices": {
-    "title": "Our Core Services – The Foundation for Your Protection:",
+    "title": "Our Core Services",
     "items": [
       "Risk Analysis & Concept Development",
       "Patrols & Monitoring",
@@ -14,7 +14,7 @@
       "Alarm & Intervention",
       "Documentation & Reporting"
     ],
-    "note": "These core services form the heart of all our security offerings – regardless of the specific protection you require."
+    "note": "These core services form the heart of all our security offerings."
   },
   "specializedSolutions": {
     "title": "Discover Our Specialized Security Solutions:",
@@ -322,29 +322,28 @@
     "subtitle": "Security accepts no compromises – Our solutions for your challenges",
     "items": [
       {
-        "problem": "Reliability?",
-        "issue": "❌ Many service providers are overloaded",
-        "solution": "✅ We limit our contracts to ensure guaranteed availability"
+        "problem": "Many service providers are overloaded",
+        "solution": "We limit our contracts to ensure guaranteed availability"
       },
       {
         "problem": "Response Time?",
-        "issue": "❌ Long travel times in case of incidents",
-        "solution": "✅ Always nearby for immediate intervention"
+        "issue": "Long travel times in case of incidents",
+        "solution": "Always nearby for immediate intervention"
       },
       {
         "problem": "Crisis Management?",
-        "issue": "❌ Uncertainty in extraordinary situations",
-        "solution": "✅ Tailor-made emergency plans for every case"
+        "issue": "Uncertainty in extraordinary situations",
+        "solution": "Tailor-made emergency plans for every case"
       },
       {
         "problem": "Cost Transparency?",
-        "issue": "❌ Hidden fees and unclear billing",
-        "solution": "✅ Transparent pricing with no surprises"
+        "issue": "Hidden fees and unclear billing",
+        "solution": "Transparent pricing with no surprises"
       },
       {
         "problem": "Quality Standards?",
-        "issue": "❌ Insufficiently qualified personnel and outdated technology",
-        "solution": "✅ Regularly trained experts and state-of-the-art equipment"
+        "issue": "Insufficiently qualified personnel and outdated technology",
+        "solution": "Regularly trained experts and state-of-the-art equipment"
       }
     ]
   },

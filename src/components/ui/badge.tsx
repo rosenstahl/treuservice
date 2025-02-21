@@ -13,10 +13,10 @@ export function Badge({
   className,
 }: BadgeProps) {
   const variants = {
-    default: "bg-primary text-primary-foreground hover:bg-primary/80",
-    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-    outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-    primary: "bg-primary/10 text-primary hover:bg-primary/20"
+    default: "bg-accent text-primary-light hover:bg-accent-hover",
+    secondary: "bg-primary text-secondary hover:bg-primary-dark",
+    outline: "border border-accent bg-primary-light hover:bg-accent hover:text-primary-light",
+    primary: "bg-accent/10 text-accent hover:bg-accent/20"
   };
 
   return (

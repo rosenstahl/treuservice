@@ -18,14 +18,19 @@
   },
   "spezialisierteLoesungen": {
     "title": "Entdecken Sie unsere spezialisierten Reinigungslösungen",
+    "labels": {
+      "einsatzgebiete": "Einsatzgebiete",
+      "leistungen": "Leistungen",
+      "angebotAnfordern": "Angebot anfordern",
+      "details": "Details"
+    },
     "services": [
       {
         "icon": "Reinigungstuch",
         "title": "Unterhaltsreinigung",
-        "tileText": "Einsatzgebiete: Bürogebäude, Verwaltungen, Schulen, Universitäten, Einkaufszentren, Einzelhandel, Banken, Versicherungen, Arztpraxen, Kliniken, Pflegeeinrichtungen, Hotels, Restaurants, Produktionsstätten, Logistikzentren, Sportstätten und öffentliche Einrichtungen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Unterhaltsreinigung: Das Fundament professioneller Gebäudepflege. Ein sauberes Arbeitsumfeld steigert nachweislich die Produktivität und das Wohlbefinden der Mitarbeiter um bis zu 30%. Unsere systematische Unterhaltsreinigung gewährleistet durch modernste Reinigungstechnologien und geschultes Fachpersonal dauerhaft perfekte Hygiene und Sauberkeit in Ihren Räumlichkeiten.",
-        " ": [
+        "tileText": "Bürogebäude, Verwaltungen, Schulen, Universitäten, Einkaufszentren, Einzelhandel, Banken, Versicherungen, Arztpraxen, Kliniken, Pflegeeinrichtungen, Hotels, Restaurants, Produktionsstätten, Logistikzentren, Sportstätten und öffentliche Einrichtungen",
+        "description": "Das Fundament professioneller Gebäudepflege. Ein sauberes Arbeitsumfeld steigert nachweislich die Produktivität und das Wohlbefinden der Mitarbeiter um bis zu 30%. Unsere systematische Unterhaltsreinigung gewährleistet durch modernste Reinigungstechnologien und geschultes Fachpersonal dauerhaft perfekte Hygiene und Sauberkeit in Ihren Räumlichkeiten.",
+        "leistungen": [
           "Gründliche Reinigung aller Oberflächen",
           "Sanitäranlagen-Pflege und Desinfektion",
           "Professionelle Büroreinigung",
@@ -39,9 +44,8 @@
       {
         "icon": "Reinigungsmaschine",
         "title": "Grundreinigung",
-        "tileText": "Einsatzgebiete: Produktionshallen, Lagerhäuser, Bürokomplexe, Bildungseinrichtungen, Gesundheitseinrichtungen, Einkaufszentren, Hotels, Gastronomie, Sportstätten, Veranstaltungszentren, Verkehrszentren, Parkhäuser und öffentliche Gebäude",
-        "linkText": "[Zur Leistung >]",
-        "description": "Grundreinigung: Professionelle Tiefenreinigung für nachhaltige Wertsicherung. Intensive Nutzung hinterlässt Spuren – unsere Grundreinigung entfernt auch hartnäckigste Verschmutzungen und verlängert die Lebensdauer Ihrer Oberflächen um bis zu 40%.",
+        "tileText": "Produktionshallen, Lagerhäuser, Bürokomplexe, Bildungseinrichtungen, Gesundheitseinrichtungen, Einkaufszentren, Hotels, Gastronomie, Sportstätten, Veranstaltungszentren, Verkehrszentren, Parkhäuser und öffentliche Gebäude",
+        "description": "Professionelle Tiefenreinigung für nachhaltige Wertsicherung. Intensive Nutzung hinterlässt Spuren – unsere Grundreinigung entfernt auch hartnäckigste Verschmutzungen und verlängert die Lebensdauer Ihrer Oberflächen um bis zu 40%.",
         "leistungen": [
           "Intensivreinigung: Beseitigung hartnäckiger Verschmutzungen",
           "Spezielle Bodenbehandlungen",
@@ -52,9 +56,8 @@
       {
         "icon": "Glaswischer",
         "title": "Glas- und Fassadenreinigung",
-        "tileText": "Einsatzgebiete: Bürotürme, Geschäftsgebäude, Hotels, Einkaufszentren, Banken, Versicherungen, Behörden, Bildungseinrichtungen, Kliniken, Produktionsgebäude, Ausstellungsräume, Schaufenster, Wintergärten und Glasdächer",
-        "linkText": "[Zur Leistung >]",
-        "description": "Glas- und Fassadenreinigung: Brillante Aussichten für Ihr Gebäude. Eine saubere Fassade steigert den Immobilienwert um bis zu 20%. Unsere hochqualifizierten Fassadenreiniger sorgen mit modernster Technik und umweltschonenden Verfahren für strahlende Transparenz und repräsentative Außenwirkung.",
+        "tileText": "Bürotürme, Geschäftsgebäude, Hotels, Einkaufszentren, Banken, Versicherungen, Behörden, Bildungseinrichtungen, Kliniken, Produktionsgebäude, Ausstellungsräume, Schaufenster, Wintergärten und Glasdächer",
+        "description": "Brillante Aussichten für Ihr Gebäude. Eine saubere Fassade steigert den Immobilienwert um bis zu 20%. Unsere hochqualifizierten Fassadenreiniger sorgen mit modernster Technik und umweltschonenden Verfahren für strahlende Transparenz und repräsentative Außenwirkung.",
         "leistungen": [
           "Streifenfreie Fensterreinigung (inklusive Rahmen und Falzen)",
           "Reinigung von Glasflächen, Glasfassaden und -dächern",
@@ -66,9 +69,8 @@
       {
         "icon": "Industrieanlage",
         "title": "Industriereinigung",
-        "tileText": "Einsatzgebiete: Produktionshallen, Lagerhäuser, Kraftwerke, Chemieanlagen, Lebensmittelbetriebe, Pharmaunternehmen, Automotive-Industrie, Maschinenbau, Elektronikfertigung, Druckereien, Metallverarbeitung und Logistikzentren",
-        "linkText": "[Zur Leistung >]",
-        "description": "Industriereinigung: Maximale Effizienz durch professionelle Reinigung. Produktionsunterbrechungen kosten bis zu 5.000€ pro Stunde – unsere spezialisierten Industriereinigungsteams arbeiten hocheffizient und garantieren minimale Stillstandzeiten.",
+        "tileText": "Produktionshallen, Lagerhäuser, Kraftwerke, Chemieanlagen, Lebensmittelbetriebe, Pharmaunternehmen, Automotive-Industrie, Maschinenbau, Elektronikfertigung, Druckereien, Metallverarbeitung und Logistikzentren",
+        "description": "Maximale Effizienz durch professionelle Reinigung. Produktionsunterbrechungen kosten bis zu 5.000€ pro Stunde – unsere spezialisierten Industriereinigungsteams arbeiten hocheffizient und garantieren minimale Stillstandzeiten.",
         "leistungen": [
           "Reinigung von Industriehallen",
           "Reinigung von Produktionsanlagen",
@@ -77,11 +79,23 @@
         ]
       },
       {
+        "icon": "Reinraum",
+        "title": "Reinraumreinigung",
+        "tileText": "Pharmaindustrie, Biotechnologie, Elektronikfertigung, Raumfahrt, Forschungslabore, Halbleiterindustrie, Medizintechnik, Mikrotechnologie, Optische Industrie",
+        "description": "Staub- und keimfreie Umgebungen für hochsensible Bereiche. Unsere speziell geschulten Teams arbeiten nach strengsten Hygienestandards und ISO-Klassen, um Kontaminationen zu vermeiden und die Produktqualität zu sichern.",
+        "leistungen": [
+          "ISO-konforme Partikel- und Keimkontrolle",
+          "Spezielle Antistatik- und Desinfektionsverfahren",
+          "Luftfiltersystempflege und -überwachung",
+          "Reinigung und Dekontamination von Reinraumbekleidung",
+          "Dokumentierte Reinraumprotokolle"
+        ]
+      },
+      {
         "icon": "Gartenwerkzeuge",
         "title": "Außenanlagenpflege",
-        "tileText": "Einsatzgebiete: Unternehmensstandorte, Bürokomplexe, Einkaufszentren, Hotels, Kliniken, Seniorenresidenzen, Bildungseinrichtungen, Wohnanlagen, Parkhäuser, Tiefgaragen, Logistikzentren, Industrieareale und öffentliche Einrichtungen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Außenanlagenpflege: Ihr professioneller Partner für gepflegte Außenbereiche. Die Außenanlage ist Ihre Visitenkarte – erste Eindrücke entstehen bereits vor dem Gebäude.",
+        "tileText": "Unternehmensstandorte, Bürokomplexe, Einkaufszentren, Hotels, Kliniken, Seniorenresidenzen, Bildungseinrichtungen, Wohnanlagen, Parkhäuser, Tiefgaragen, Logistikzentren, Industrieareale und öffentliche Einrichtungen",
+        "description": "Ihr professioneller Partner für gepflegte Außenbereiche. Die Außenanlage ist Ihre Visitenkarte – erste Eindrücke entstehen bereits vor dem Gebäude.",
         "leistungen": [
           "Reinigung von Gehwegen und Zufahrten",
           "Grünanlagenpflege: Rasen, Hecken, Sträuchern, Bepflanzungen, Unkrautbekämpfung",
@@ -94,9 +108,8 @@
       {
         "icon": "Spezialwerkzeuge",
         "title": "Sonderreinigung",
-        "tileText": "Einsatzgebiete: Schwimmbäder, Wellness-Anlagen, Großküchen, Kantinen, Rechenzentren, Bürokomplexe, Produktionsstätten, Veranstaltungszentren, Einkaufszentren, Hotels, Kliniken, Schulen und öffentliche Einrichtungen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Sonderreinigung: Speziallösungen für besondere Anforderungen. Unsere zertifizierten Spezialisten beherrschen auch komplexeste Reinigungsherausforderungen – mit modernster Technik und innovativen Verfahren.",
+        "tileText": "Schwimmbäder, Wellness-Anlagen, Großküchen, Kantinen, Rechenzentren, Bürokomplexe, Produktionsstätten, Veranstaltungszentren, Einkaufszentren, Hotels, Kliniken, Schulen und öffentliche Einrichtungen",
+        "description": "Speziallösungen für besondere Anforderungen. Unsere zertifizierten Spezialisten beherrschen auch komplexeste Reinigungsherausforderungen – mit modernster Technik und innovativen Verfahren.",
         "leistungen": [
           "Schwimmbad- & Wellnessbereichreinigung",
           "Großküchenreinigung nach HACCP",
@@ -111,9 +124,8 @@
       {
         "icon": "Transportmittel",
         "title": "Verkehrsmittelreinigung",
-        "tileText": "Einsatzgebiete: Busse, Bahnen, Straßenbahnen, U-Bahnen, Flugzeuge, Kreuzfahrtschiffe, Fähren, Yachten, Bahnhöfe, Flughäfen, Terminals, Wartehallen und Serviceeinrichtungen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Verkehrsmittelreinigung: Hygiene und Sauberkeit für Ihre Flotte. Unsere spezialisierten Teams gewährleisten effiziente Reinigung auch bei den kürzesten Standzeiten.",
+        "tileText": "Busse, Bahnen, Straßenbahnen, U-Bahnen, Flugzeuge, Kreuzfahrtschiffe, Fähren, Yachten, Bahnhöfe, Flughäfen, Terminals, Wartehallen und Serviceeinrichtungen",
+        "description": "Hygiene und Sauberkeit für Ihre Flotte. Unsere spezialisierten Teams gewährleisten effiziente Reinigung auch bei den kürzesten Standzeiten.",
         "leistungen": [
           "Busreinigung (Tägliche Unterhalts- und Grundreinigung)",
           "Bahnreinigung",
@@ -124,9 +136,8 @@
       {
         "icon": "Hotelbett",
         "title": "Hotelreinigung",
-        "tileText": "Einsatzgebiete: Hotels, Resorts, Pensionen, Ferienwohnungen, Hostels, Boardinghäuser, Wellness-Hotels, Tagungshotels, Stadthotels, Flughafenhotels, Kongress-Hotels und Boutique-Hotels",
-        "linkText": "[Zur Leistung >]",
-        "description": "Hotelreinigung: Erstklassiger Service für höchste Ansprüche. Unsere spezialisierten Housekeeping-Teams garantieren 5-Sterne-Qualität in allen Bereichen und schaffen eine Wohlfühlatmosphäre für Ihre Gäste.",
+        "tileText": "Hotels, Resorts, Pensionen, Ferienwohnungen, Hostels, Boardinghäuser, Wellness-Hotels, Tagungshotels, Stadthotels, Flughafenhotels, Kongress-Hotels und Boutique-Hotels",
+        "description": "Erstklassiger Service für höchste Ansprüche. Unsere spezialisierten Housekeeping-Teams garantieren 5-Sterne-Qualität in allen Bereichen und schaffen eine Wohlfühlatmosphäre für Ihre Gäste.",
         "leistungen": [
           "Zimmerreinigung",
           "Reinigung öffentlicher Bereiche (Lobbys, Restaurants etc.)",
@@ -140,9 +151,8 @@
       {
         "icon": "Event",
         "title": "Veranstaltungsreinigung",
-        "tileText": "Einsatzgebiete: Messen, Konzerte, Festivals, Sportveranstaltungen, Konferenzen, Kongresse, Firmenevents, Hochzeiten, Stadtfeste, Open-Air-Events, Ausstellungen und Tagungen",
-        "linkText": "[Zur Leistung >]",
-        "description": "Veranstaltungsreinigung: Professioneller Service rund um die Uhr. Unsere flexiblen Teams sichern den Erfolg Ihrer Veranstaltung durch einwandfreie Sauberkeit.",
+        "tileText": "Messen, Konzerte, Festivals, Sportveranstaltungen, Konferenzen, Kongresse, Firmenevents, Hochzeiten, Stadtfeste, Open-Air-Events, Ausstellungen und Tagungen",
+        "description": "Professioneller Service rund um die Uhr. Unsere flexiblen Teams sichern den Erfolg Ihrer Veranstaltung durch einwandfreie Sauberkeit.",
         "leistungen": [
           "Vor- und Nachveranstaltungsreinigung",
           "Mobile Reinigungsteams",
@@ -154,9 +164,8 @@
       {
         "icon": "Bau",
         "title": "Baureinigung",
-        "tileText": "Einsatzgebiete: Neubauten, Sanierungsprojekte, Bürogebäude, Wohnanlagen, Industriebauten, Einkaufszentren, Krankenhäuser, Hotels, Schulen, öffentliche Gebäude, Lagerhallen und Produktionsstätten",
-        "linkText": "[Zur Leistung >]",
-        "description": "Baureinigung: Professioneller Start für Ihr Bauprojekt. Unsere spezialisierten Teams garantieren termingerechte Fertigstellung und makellose Übergabe.",
+        "tileText": "Neubauten, Sanierungsprojekte, Bürogebäude, Wohnanlagen, Industriebauten, Einkaufszentren, Krankenhäuser, Hotels, Schulen, öffentliche Gebäude, Lagerhallen und Produktionsstätten",
+        "description": "Professioneller Start für Ihr Bauprojekt. Unsere spezialisierten Teams garantieren termingerechte Fertigstellung und makellose Übergabe.",
         "leistungen": [
           "Baubegleitereinigung",
           "Zwischenreinigung",
@@ -169,9 +178,8 @@
       {
         "icon": "Naturstein",
         "title": "Steinreinigung",
-        "tileText": "Einsatzgebiete: Geschäftsgebäude, Hotels, Einkaufszentren, historische Gebäude, Museen, Kirchen, Denkmäler, Privathäuser, Außenanlagen, Terrassen, Gehwege, Einfahrten, Fassaden, Treppen und Natursteinböden",
-        "linkText": "[Zur Leistung >]",
-        "description": "Steinreinigung: Expertise für wertvolle Natursteinoberflächen. Unsere zertifizierten Spezialisten garantieren fachgerechte Pflege und steigern den Wert Ihrer Steinflächen um bis zu 25%.",
+        "tileText": "Geschäftsgebäude, Hotels, Einkaufszentren, historische Gebäude, Museen, Kirchen, Denkmäler, Privathäuser, Außenanlagen, Terrassen, Gehwege, Einfahrten, Fassaden, Treppen und Natursteinböden",
+        "description": "Expertise für wertvolle Natursteinoberflächen. Unsere zertifizierten Spezialisten garantieren fachgerechte Pflege und steigern den Wert Ihrer Steinflächen um bis zu 25%.",
         "leistungen": [
           "Naturstein-Aufbereitung und Versiegelung",
           "Terrassen- und Wegereinigung",
@@ -190,9 +198,8 @@
       {
         "icon": "Dach",
         "title": "Dachreinigung",
-        "tileText": "Einsatzgebiete: Wohngebäude, Geschäftshäuser, Industriegebäude, Hotels, Einkaufszentren, öffentliche Gebäude, Verwaltungsgebäude, historische Bauten, Schulen, Sportstätten, Lagerhallen und Produktionsstätten",
-        "linkText": "[Zur Leistung >]",
-        "description": "Dachreinigung: Professioneller Schutz von oben. Unsere spezialisierten Teams garantieren einwandfreie Funktionalität und maximale Langlebigkeit.",
+        "tileText": "Wohngebäude, Geschäftshäuser, Industriegebäude, Hotels, Einkaufszentren, öffentliche Gebäude, Verwaltungsgebäude, historische Bauten, Schulen, Sportstätten, Lagerhallen und Produktionsstätten",
+        "description": "Professioneller Schutz von oben. Unsere spezialisierten Teams garantieren einwandfreie Funktionalität und maximale Langlebigkeit.",
         "leistungen": [
           "Professionelle Dachreinigung",
           "Dachrinnenreinigung",
@@ -205,17 +212,15 @@
       {
         "icon": "Solarpanel",
         "title": "Solaranlagen-Reinigung",
-        "tileText": "Einsatzgebiete: Privatgebäude, Gewerbeimmobilien, Industrieanlagen, Solarparks, Agrarbetriebe, öffentliche Gebäude, Schulen, Sportstätten, Parkhäuser, Logistikzentren, Produktionshallen und Bürokomplexe",
-        "linkText": "[Zur Leistung >]",
-        "description": "Solaranlagen-Reinigung: Optimale Effizienz für Ihre Energiegewinnung. Unsere spezialisierten Teams maximieren Ihren Energieertrag durch professionelle Pflege, da verschmutzte Solarmodule bis zu 30% ihrer Leistung verlieren können.",
+        "tileText": "Privatgebäude, Gewerbeimmobilien, Industrieanlagen, Solarparks, Agrarbetriebe, öffentliche Gebäude, Schulen, Sportstätten, Parkhäuser, Logistikzentren, Produktionshallen und Bürokomplexe",
+        "description": "Optimale Effizienz für Ihre Energiegewinnung. Unsere spezialisierten Teams maximieren Ihren Energieertrag durch professionelle Pflege, da verschmutzte Solarmodule bis zu 30% ihrer Leistung verlieren können.",
         "leistungen": [
           "Modulreinigung mit Osmosewasser",
           "Leistungsoptimierung",
           "Anlageninspektion",
           "Präventive Reinigungsplanung",
           "Effizienzprüfung",
-          "Verschattungsbeseitigung"
-        ]
+          "Verschattungsbeseitigung"        ]
       }
     ]
   },

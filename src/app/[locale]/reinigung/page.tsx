@@ -94,74 +94,74 @@ export default function CleaningPage() {
 
       <Separator className="bg-accent/10" />
 
-      {/* Basisleistungen */}
-      <Section className="bg-background">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <InView
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ duration: 0.5 }}
-              >
-                <H2 className="mb-4">{cleaningData.basisleistungen.title}</H2>
-                <H3 className="mb-12">{cleaningData.basisleistungen.subtitle}</H3>
-                <Paragraph className="mb-8">{cleaningData.basisleistungen.note}</Paragraph>
-              </InView>
-              <div className="grid grid-cols-1 gap-8">
-                {cleaningData.basisleistungen.items.map((item, i) => (
-                  <InView
-                    key={i}
-                    variants={{
-                      hidden: { opacity: 0, x: -50 },
-                      visible: { opacity: 1, x: 0 }
-                    }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <div
-                      className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
-                    >
-                      <div className="text-accent mt-1">
-                        {i === 0 && <ClipboardCheck className="w-6 h-6" />}
-                        {i === 1 && <Sparkles className="w-6 h-6" />}
-                        {i === 2 && <Droplets className="w-6 h-6" />}
-                        {i === 3 && <BadgeCheck className="w-6 h-6" />}
-                        {i === 4 && <LeafIcon className="w-6 h-6" />}
-                      </div>
-                      <div>
-                        <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
-                          {item}
-                        </H3>
-                      </div>
-                    </div>
-                  </InView>
-                ))}
-              </div>
-            </div>
+{/* Basisleistungen */}
+<Section className="bg-background">
+  <Container>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <InView
+        variants={{
+          hidden: { opacity: 0, x: 50 },
+          visible: { opacity: 1, x: 0 }
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="relative h-[600px] rounded-3xl overflow-hidden">
+          <Image
+            src="/images/reinigung/basis.jpg"
+            fill
+            className="object-cover"
+            alt="Professionelle Reinigung"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
+        </div>
+      </InView>
+      <div>
+        <InView
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <H2 className="mb-4">{cleaningData.basisleistungen.title}</H2>
+          <H3 className="mb-12">{cleaningData.basisleistungen.subtitle}</H3>
+          <Paragraph className="mb-8">{cleaningData.basisleistungen.note}</Paragraph>
+        </InView>
+        <div className="grid grid-cols-1 gap-8">
+          {cleaningData.basisleistungen.items.map((item, i) => (
             <InView
+              key={i}
               variants={{
-                hidden: { opacity: 0, x: 50 },
+                hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 }
               }}
-              transition={{ duration: 0.5 }}
+              transition={{ delay: i * 0.1 }}
             >
-              <div className="relative h-[600px] rounded-3xl overflow-hidden">
-                <Image
-                  src="/images/reinigung/basis.jpg"
-                  fill
-                  className="object-cover"
-                  alt="Professionelle Reinigung"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
+              <div
+                className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
+              >
+                <div className="text-accent mt-1">
+                  {i === 0 && <ClipboardCheck className="w-6 h-6" />}
+                  {i === 1 && <Sparkles className="w-6 h-6" />}
+                  {i === 2 && <Droplets className="w-6 h-6" />}
+                  {i === 3 && <BadgeCheck className="w-6 h-6" />}
+                  {i === 4 && <LeafIcon className="w-6 h-6" />}
+                </div>
+                <div>
+                  <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
+                    {item}
+                  </H3>
+                </div>
               </div>
             </InView>
-          </div>
-        </Container>
-      </Section>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>
 
       {/* Spezialisierte Lösungen */}
       <Section className="bg-primary/5">

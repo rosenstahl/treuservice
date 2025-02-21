@@ -67,6 +67,7 @@ const navigation: Record<"de" | "en", NavigationContent> = {
           "Industriereinigung",
           "Außenanlagenpflege",
           "Sonderreinigung",
+          "Reinraumreinigung",
           "Verkehrsmittelreinigung",
           "Hotelreinigung",
           "Veranstaltungsreinigung",

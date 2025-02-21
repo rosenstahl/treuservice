@@ -393,6 +393,15 @@
     "description": "Kostenlose Erstberatung – Wir erstellen Ihr individuelles Sicherheitskonzept innerhalb von 24 Stunden!",
     "callToAction": "Kontaktieren Sie uns noch heute für ein maßgeschneidertes Angebot zu Ihren Sicherheitsbedürfnissen. Unser Team steht Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten und die optimale Lösung für Sie zu finden."
   },
+  "form": {
+    "message": "Nachricht",
+    "serviceSelect": "Bitte wählen Sie eine Leistung",
+    "desiredService": "Gewünschte Leistung",
+    "phone": "Telefon",
+    "email": "Email",
+    "name": "Name",
+    "requestOffer": "Jetzt Angebot anfordern"
+  },
   "problemeUndLoesungen": {
     "tabs": {
       "title": "Probleme & Lösungen",

@@ -8,8 +8,7 @@ import { Separator } from "@/components/ui/separator"
 import { TextEffect } from "@/components/ui/text-effect"
 import ExpandableSecurityCards from '@/components/ui/ExpandableSecurityCards'
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
-import ContactButton from '@/components/ui/contact-button';
-
+import ContactButton from '@/components/ui/contact-button'
 import { InView } from "@/components/ui/in-view"
 import { cn } from "@/lib/utils"
 import {
@@ -24,17 +23,18 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import {
-  StarIcon,
-  Shield,
-  Clock,
-  Zap,
+  PlusCircle,  
+  Bell,       
+  Clock,     
+  Zap,       
+  Network,    
+  Settings,    
   CheckCircle2,
   FileCheck,
   Lock,
   BadgeCheck,
   Eye,
   XCircle,
-  Handshake
 } from "lucide-react"
 
 export default function SecurityPage() {
@@ -68,7 +68,7 @@ export default function SecurityPage() {
                   {securityData.hero.description}
                 </Paragraph>
                 <button className="mt-12 bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-lg text-lg font-medium transform transition-all hover:scale-105">
-                  Jetzt Angebot anfordern
+                  {securityData.form.requestOffer}
                 </button>
               </div>
             </InView>
@@ -104,7 +104,7 @@ export default function SecurityPage() {
               }}
               transition={{ duration: 0.5 }}
             >
-              <div className="relative h-[600px] rounded-3xl overflow-hidden">
+              <div className="relative h-[610px] rounded-3xl overflow-hidden">
                 <Image
                   src="/images/security/basis.jpg"
                   fill
@@ -144,8 +144,8 @@ export default function SecurityPage() {
                         {i === 0 && <FileCheck className="w-6 h-6" />}
                         {i === 1 && <Eye className="w-6 h-6" />}
                         {i === 2 && <Lock className="w-6 h-6" />}
-                        {i === 3 && <BadgeCheck className="w-6 h-6" />}
-                        {i === 4 && <Shield className="w-6 h-6" />}
+                        {i === 3 && <PlusCircle className="w-6 h-6 text-red-600" />}
+                        {i === 4 && <Bell className="w-6 h-6" />}
                         {i === 5 && <FileCheck className="w-6 h-6" />}
                       </div>
                       <div>
@@ -162,7 +162,7 @@ export default function SecurityPage() {
         </Container>
       </Section>
 
-      {/* Spezialisierte Lösungen */}
+      {/* Specialized Solutions */}
       <Section className="bg-primary/5">
         <Container>
           <InView
@@ -179,10 +179,10 @@ export default function SecurityPage() {
                 image: `/images/security/${service.title.toLowerCase().replace(/\s+/g, '-')}.jpg`
               }))}
               labels={{
-                einsatzgebiete: "Einsatzgebiete",
-                leistungen: "Leistungen",
-                details: "Details",
-                angebotAnfordern: "Angebot anfordern"
+                einsatzgebiete: securityData.specializedLoesungen.labels.einsatzgebiete,
+                leistungen: securityData.specializedLoesungen.labels.leistungen,
+                details: securityData.specializedLoesungen.labels.details,
+                angebotAnfordern: securityData.specializedLoesungen.labels.angebotAnfordern
               }}
             />
           </InView>
@@ -248,7 +248,7 @@ export default function SecurityPage() {
         </Container>
       </Section>
 
-      {/* Häufige Probleme */}
+      {/* Common Issues */}
       <Section className="bg-background">
         <Container>
           <InView
@@ -341,7 +341,7 @@ export default function SecurityPage() {
         </Container>
       </Section>
 
-      {/* Contact CTA */}
+      {/* Contact CTA - Final Section */}
       <Section className="bg-accent/5">
         <Container>
           <InView
@@ -357,111 +357,111 @@ export default function SecurityPage() {
                 <H2 className="mb-4">{securityData.kontakt.title}</H2>
                 <H3 className="mb-8">{securityData.kontakt.description}</H3>
                 
-                {/* Features List */}
+               {/* Quality Promise List */}
                 <div className="grid grid-cols-1 gap-8">
-                  {securityData.qualitaetsversprechen.items.map((title, i) => {
-                    const icons = [
-                      { id: 'handshake', icon: <Handshake key="handshake" className="w-6 h-6" /> },
-                      { id: 'star', icon: <StarIcon key="star" className="w-6 h-6" /> },
-                      { id: 'clock', icon: <Clock key="clock" className="w-6 h-6" /> },
-                      { id: 'shield', icon: <Shield key="shield" className="w-6 h-6" /> },
-                      { id: 'zap', icon: <Zap key="zap" className="w-6 h-6" /> }
-                    ];
-                    return (
-                      <div 
-                        key={i}
-                        className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
-                      >
-                        <div className="text-accent mt-1">
-                          {icons[i].icon}
-                        </div>
-                        <div>
-                          <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
-                            {title}
-                          </H3>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              
-              {/* Right Side - Contact Form */}
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-accent/10">
-                <form className="space-y-6" onSubmit={(e) => {
-                  e.preventDefault();
-                  // Handle form submission
-                }}>
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input 
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Ihr Name"
-                      className="w-full"
-                      required
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input 
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="Ihre Email"
-                      className="w-full"
-                      required
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Telefon</Label>
-                    <Input 
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="Ihre Telefonnummer"
-                      className="w-full"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="service">Gewünschte Leistung</Label>
-                    <select 
-                      id="service"
-                      name="service"
-                      className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
-                      required
-                    >
-                      <option value="">Bitte wählen Sie eine Leistung</option>
-                      {securityData.specializedLoesungen.services.map((service) => (
-                        <option key={service.title} value={service.title}>
-                          {service.title}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Nachricht</Label>
-                    <Textarea 
-                      id="message"
-                      name="message"
-                      placeholder="Ihre Nachricht an uns"
-                      className="w-full min-h-[100px]"
-                      required
-                    />
-                  </div>
-                  
-                  <ContactButton text="Jetzt anfragen" />
-                </form>
-              </div>
-            </div>
-          </InView>
-        </Container>
-      </Section>
-    </div>
-  )
+                 {securityData.qualitaetsversprechen.items.map((title, i) => {
+                   const icons = [
+                     { id: '34a GewO', icon: <BadgeCheck className="w-6 h-6" /> },
+                     { id: '24/7', icon: <Clock className="w-6 h-6" /> },
+                     { id: 'fast', icon: <Zap className="w-6 h-6" /> },
+                     { id: 'network', icon: <Network className="w-6 h-6" /> },
+                     { id: 'settings', icon: <Settings className="w-6 h-6" /> },
+                   ];
+                   return (
+                     <div 
+                       key={i}
+                       className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
+                     >
+                       <div className="text-accent mt-1">
+                         {icons[i].icon}
+                       </div>
+                       <div>
+                         <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
+                           {title}
+                         </H3>
+                       </div>
+                     </div>
+                   );
+                 })}
+               </div>
+             </div>
+             
+             {/* Right Side - Contact Form */}
+             <div className="bg-white p-8 rounded-xl shadow-lg border border-accent/10">
+               <form className="space-y-6" onSubmit={(e) => {
+                 e.preventDefault();
+                 // Handle form submission
+               }}>
+                 <div className="space-y-2">
+                   <Label htmlFor="name">{securityData.form.name}</Label>
+                   <Input 
+                     id="name"
+                     name="name"
+                     type="text"
+                     placeholder={securityData.form.name}
+                     className="w-full"
+                     required
+                   />
+                 </div>
+                 
+                 <div className="space-y-2">
+                   <Label htmlFor="email">{securityData.form.email}</Label>
+                   <Input 
+                     id="email"
+                     name="email"
+                     type="email"
+                     placeholder={securityData.form.email}
+                     className="w-full"
+                     required
+                   />
+                 </div>
+                 
+                 <div className="space-y-2">
+                   <Label htmlFor="phone">{securityData.form.phone}</Label>
+                   <Input 
+                     id="phone"
+                     name="phone"
+                     type="tel"
+                     placeholder={securityData.form.phone}
+                     className="w-full"
+                   />
+                 </div>
+                 
+                 <div className="space-y-2">
+                   <Label htmlFor="service">{securityData.form.desiredService}</Label>
+                   <select 
+                     id="service"
+                     name="service"
+                     className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                     required
+                   >
+                     <option value="">{securityData.form.serviceSelect}</option>
+                     {securityData.specializedLoesungen.services.map((service) => (
+                       <option key={service.title} value={service.title}>
+                         {service.title}
+                       </option>
+                     ))}
+                   </select>
+                 </div>
+                 
+                 <div className="space-y-2">
+                   <Label htmlFor="message">{securityData.form.message}</Label>
+                   <Textarea 
+                     id="message"
+                     name="message"
+                     placeholder={securityData.form.message}
+                     className="w-full min-h-[100px]"
+                     required
+                   />
+                 </div>
+                 
+                 <ContactButton text={securityData.form.requestOffer} />
+               </form>
+             </div>
+           </div>
+         </InView>
+       </Container>
+     </Section>
+   </div>
+ )
 }

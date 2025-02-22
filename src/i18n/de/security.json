@@ -401,49 +401,7 @@
     "email": "Email",
     "name": "Name",
     "requestOffer": "Jetzt Angebot anfordern"
-  },
-  "problemeUndLoesungen": {
-    "tabs": {
-      "title": "Probleme & Lösungen",
-      "note": "Lassen Sie uns über Ihre Herausforderungen sprechen",
-      "problems": [
-        {
-          "problem": "Zuverlässigkeit",
-          "details": {
-            "issue": "❌ Viele Dienstleister sind überlastet",
-            "solution": "✅ Wir begrenzen unsere Aufträge für garantierte Verfügbarkeit"
-          }
-        },
-        {
-          "problem": "Reaktionszeit",
-          "details": {
-            "issue": "❌ Zu lange Anfahrtswege bei Vorfällen",
-            "solution": "✅ Immer in Ihrer Nähe für sofortige Intervention"
-          }
-        },
-        {
-          "problem": "Krisenmanagement",
-          "details": {
-            "issue": "❌ Unsicherheit bei außergewöhnlichen Situationen",
-            "solution": "✅ Maßgeschneiderte Notfallpläne für jeden Fall"
-          }
-        },
-        {
-          "problem": "Kostentransparenz",
-          "details": {
-            "issue": "❌ Versteckte Gebühren und unklare Abrechnungen",
-            "solution": "✅ Transparente Preise ohne Überraschungen"
-          }
-        },
-        {
-          "problem": "Qualitätsstandards",
-          "details": {
-            "issue": "❌ Unzureichend qualifiziertes Personal und veraltete Technik",
-            "solution": "✅ Regelmäßig geschulte Fachkräfte und modernste Technik"
-          }
-        }
-      ],
-      "cta": "Lassen Sie uns über Ihre Herausforderungen sprechen"
-    }
   }
-}
+    }
+  
+

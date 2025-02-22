@@ -11,6 +11,8 @@ import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 import ContactButton from '@/components/ui/contact-button'
 import { InView } from "@/components/ui/in-view"
 import { cn } from "@/lib/utils"
+import { useSearchParams } from 'next/navigation';
+
 import {
   Accordion,
   AccordionContent,
@@ -39,10 +41,24 @@ import {
 
 export default function SecurityPage() {
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [expandedCard, setExpandedCard] = useState<string | null>(null)
+  const searchParams = useSearchParams()
 
   useEffect(() => {
     setImageLoaded(true)
-  }, [])
+
+    // Service aus URL Parameter holen
+    const service = searchParams.get('service')
+    if (service) {
+      setTimeout(() => {
+        const card = document.querySelector(`[data-service-name="${service}"]`)
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          setExpandedCard(service)
+        }
+      }, 500)
+    }
+  }, [searchParams])
 
   return (
     <div className="flex-1">
@@ -162,33 +178,34 @@ export default function SecurityPage() {
         </Container>
       </Section>
 
-      {/* Specialized Solutions */}
-      <Section className="bg-primary/5">
-        <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <H2 className="text-center mb-12">{securityData.specializedLoesungen.title}</H2>
-            <ExpandableSecurityCards
-              services={securityData.specializedLoesungen.services.map(service => ({
-                ...service,
-                image: `/images/security/${service.title.toLowerCase().replace(/\s+/g, '-')}.jpg`
-              }))}
-              labels={{
-                einsatzgebiete: securityData.specializedLoesungen.labels.einsatzgebiete,
-                leistungen: securityData.specializedLoesungen.labels.leistungen,
-                details: securityData.specializedLoesungen.labels.details,
-                angebotAnfordern: securityData.specializedLoesungen.labels.angebotAnfordern
-              }}
-            />
-          </InView>
-        </Container>
-      </Section>
-
+{/* Specialized Solutions */}
+<Section className="bg-primary/5" id="services">
+  <Container>
+    <InView
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 }
+      }}
+      transition={{ duration: 0.5 }}
+    >
+      <H2 className="text-center mb-12">{securityData.specializedLoesungen.title}</H2>
+      <ExpandableSecurityCards
+        services={securityData.specializedLoesungen.services.map(service => ({
+          ...service,
+          image: `/images/security/${service.title.toLowerCase().replace(/\s+/g, '-')}.jpg`
+        }))}
+        labels={{
+          einsatzgebiete: securityData.specializedLoesungen.labels.einsatzgebiete,
+          leistungen: securityData.specializedLoesungen.labels.leistungen,
+          details: securityData.specializedLoesungen.labels.details,
+          angebotAnfordern: securityData.specializedLoesungen.labels.angebotAnfordern
+        }}
+        expandedCard={expandedCard}
+        setExpandedCard={setExpandedCard}
+      />
+    </InView>
+  </Container>
+</Section>
       {/* Warum TREU Service */}
       <Section className="bg-background">
         <Container>

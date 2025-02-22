@@ -9,6 +9,7 @@ import ColourfulText from "@/components/ui/colourful-text"
 import ExpandableCleaningCards from "@/components/ui/ExpandableCleaningCards"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 import ContactButton from '@/components/ui/contact-button';
+import { useSearchParams } from 'next/navigation' // Korrekter Import für Next.js
 
 import { InView } from "@/components/ui/in-view"
 import { cn } from "@/lib/utils"
@@ -40,10 +41,28 @@ import {
 
 export default function CleaningPage() {
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [expandedCard, setExpandedCard] = useState<string | null>(null)
+  const searchParams = useSearchParams() // Next.js Version
 
   useEffect(() => {
     setImageLoaded(true)
-  }, [])
+    
+    // Service aus der URL holen
+    const service = searchParams.get('service')
+    if (service) {
+      // Kurz warten bis die Seite geladen ist
+      setTimeout(() => {
+        // Die spezifische Card finden
+        const card = document.querySelector(`[data-service-name="${service}"]`)
+        if (card) {
+          // Zur Card scrollen
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          // Card öffnen
+          setExpandedCard(service)
+        }
+      }, 500)
+    }
+  }, [searchParams])
 
   return (
     <div className="flex-1">

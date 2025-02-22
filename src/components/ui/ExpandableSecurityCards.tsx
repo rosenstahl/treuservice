@@ -4,8 +4,10 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { useSearchParams } from 'next/navigation';
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { H3, Paragraph } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
 
 interface SecurityService {
   title: string;
@@ -24,17 +26,43 @@ interface SecurityCardsProps {
     details: string;
     angebotAnfordern: string;
   };
+  expandedCard?: string | null;
+  setExpandedCard?: (service: string | null) => void;
 }
 
-const ExpandableSecurityCards = ({ services, labels }: SecurityCardsProps) => {
+const ExpandableSecurityCards = ({ 
+  services, 
+  labels,
+  expandedCard,
+  setExpandedCard 
+}: SecurityCardsProps) => {
   const [active, setActive] = useState<SecurityService | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    // Wenn eine URL mit service Parameter aufgerufen wird
+    const serviceParam = searchParams.get('service');
+    if (serviceParam) {
+      const serviceToActivate = services.find(
+        service => service.title.toLowerCase().replace(/\s+/g, '-') === serviceParam
+      );
+      if (serviceToActivate) {
+        setActive(serviceToActivate);
+        setExpandedCard?.(serviceParam);
+      }
+    }
+  }, [searchParams, services, setExpandedCard]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setActive(null);
+        setExpandedCard?.(null);
+        // URL Parameter entfernen ohne Neuladen
+        const newUrl = window.location.pathname;
+        window.history.pushState({}, '', newUrl);
       }
     };
 
@@ -42,11 +70,27 @@ const ExpandableSecurityCards = ({ services, labels }: SecurityCardsProps) => {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [active]);
+  }, [active, setExpandedCard]);
 
-  useOutsideClick(ref, () => setActive(null));
+  useOutsideClick(ref, () => {
+    setActive(null);
+    setExpandedCard?.(null);
+    // URL Parameter entfernen ohne Neuladen
+    const newUrl = window.location.pathname;
+    window.history.pushState({}, '', newUrl);
+  });
 
   const getLeistungen = (service: SecurityService) => service.leistungen || [];
+
+  const handleCardClick = (service: SecurityService) => {
+    const serviceId = service.title.toLowerCase().replace(/\s+/g, '-');
+    setActive(service);
+    setExpandedCard?.(serviceId);
+    
+    // URL aktualisieren ohne Neuladen
+    const newUrl = `${window.location.pathname}?service=${serviceId}#services`;
+    window.history.pushState({}, '', newUrl);
+  };
 
   return (
     <>
@@ -73,7 +117,13 @@ const ExpandableSecurityCards = ({ services, labels }: SecurityCardsProps) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.05 } }}
               className="flex absolute top-4 right-4 items-center justify-center bg-primary-light rounded-full h-8 w-8 shadow-lg"
-              onClick={() => setActive(null)}
+              onClick={() => {
+                setActive(null);
+                setExpandedCard?.(null);
+                // URL Parameter entfernen ohne Neuladen
+                const newUrl = window.location.pathname;
+                window.history.pushState({}, '', newUrl);
+              }}
             >
               <CloseIcon />
             </motion.button>
@@ -153,49 +203,56 @@ const ExpandableSecurityCards = ({ services, labels }: SecurityCardsProps) => {
 
       {/* Frontseite – Kartenliste */}
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-        {services.map((service) => (
-          <motion.div
-            layoutId={`card-${service.title}-${id}`}
-            key={service.title}
-            onClick={() => setActive(service)}
-            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 rounded-xl cursor-pointer"
-          >
-            <div className="flex gap-4 flex-col md:flex-row">
-              <motion.div layoutId={`image-${service.title}-${id}`}>
-                <Image
-                  width={100}
-                  height={100}
-                  src={
-                    service.image ||
-                    `/images/security/${service.title.toLowerCase().replace(/\s+/g, "-")}.jpg`
-                  }
-                  alt={service.title}
-                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
-                />
-              </motion.div>
-              <div>
-                <motion.h3
-                  layoutId={`title-${service.title}-${id}`}
-                  className="font-medium text-neutral-800 text-center md:text-left"
-                >
-                  {service.title}
-                </motion.h3>
-                <motion.p
-                  layoutId={`description-${service.title}-${id}`}
-                  className="text-neutral-600 text-center md:text-left line-clamp-2"
-                >
-                  {service.description.split(".")[0]}.
-                </motion.p>
-              </div>
-            </div>
-            <motion.button
-              layoutId={`button-${service.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-accent hover:text-white text-black mt-4 md:mt-0"
+        {services.map((service) => {
+          const serviceId = service.title.toLowerCase().replace(/\s+/g, '-');
+          return (
+            <motion.div
+              layoutId={`card-${service.title}-${id}`}
+              key={service.title}
+              data-service-name={serviceId}
+              onClick={() => handleCardClick(service)}
+              className={cn(
+                "p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 rounded-xl cursor-pointer",
+                expandedCard === serviceId && "ring-2 ring-primary"
+              )}
             >
-              {labels.details}
-            </motion.button>
-          </motion.div>
-        ))}
+              <div className="flex gap-4 flex-col md:flex-row">
+                <motion.div layoutId={`image-${service.title}-${id}`}>
+                  <Image
+                    width={100}
+                    height={100}
+                    src={
+                      service.image ||
+                      `/images/security/${service.title.toLowerCase().replace(/\s+/g, "-")}.jpg`
+                    }
+                    alt={service.title}
+                    className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                  />
+                </motion.div>
+                <div>
+                  <motion.h3
+                    layoutId={`title-${service.title}-${id}`}
+                    className="font-medium text-neutral-800 text-center md:text-left"
+                  >
+                    {service.title}
+                  </motion.h3>
+                  <motion.p
+                    layoutId={`description-${service.title}-${id}`}
+                    className="text-neutral-600 text-center md:text-left line-clamp-2"
+                  >
+                    {service.description.split(".")[0]}.
+                  </motion.p>
+                </div>
+              </div>
+              <motion.button
+                layoutId={`button-${service.title}-${id}`}
+                className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-accent hover:text-white text-black mt-4 md:mt-0"
+              >
+                {labels.details}
+              </motion.button>
+            </motion.div>
+          );
+        })}
       </div>
     </>
   );

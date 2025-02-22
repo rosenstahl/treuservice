@@ -16,230 +16,75 @@ import {
 import { Container } from "./Container"
 import { cn } from "@/lib/utils"
 
-type ServiceItem = {
+interface Category {
   title: string
-  href: string
-  description: string
-  items: string[]
+  slug: string
 }
 
-type WinterServiceItem = {
+interface BlogSection {
   title: string
-  content: string[] | {
-    diy: string[]
-    pro: string[]
-  }
+  categories: Category[]
 }
 
-type NavigationContent = {
+interface Navigation {
   services: {
-    reinigung: ServiceItem
-    security: ServiceItem
+    reinigung: {
+      title: string
+      href: string
+      items: string[]
+    }
+    security: {
+      title: string
+      href: string
+      items: string[]
+    }
     winterdienst: {
       title: string
       href: string
-      description: string
-      items: WinterServiceItem[]
     }
     entruempelung: {
       title: string
       href: string
-      description: string
     }
   }
   menu: {
     about: string
     contact: string
+    blog: string
   }
 }
 
-const navigation: Record<"de" | "en", NavigationContent> = {
-  de: {
-    services: {
-      reinigung: {
-        title: "Reinigung",
-        href: "/de/reinigung",
-        description: "Professionelle Reinigungsservices für Ihre Immobilie",
-        items: [
-          "Unterhaltsreinigung",
-          "Grundreinigung",
-          "Glas- und Fassadenreinigung",
-          "Industriereinigung",
-          "Außenanlagenpflege",
-          "Sonderreinigung",
-          "Reinraumreinigung",
-          "Verkehrsmittelreinigung",
-          "Hotelreinigung",
-          "Veranstaltungsreinigung",
-          "Baureinigung",
-          "Steinreinigung",
-          "Dachreinigung",
-          "Solarreinigung",
-        ],
-      },
-      security: {
-        title: "Security",
-        href: "/de/security",
-        description: "Umfassende Sicherheitslösungen für Ihr Eigentum",
-        items: [
-          "Objektschutz",
-          "Werkschutz",
-          "Baustellenbewachung",
-          "Sicherheit für Asylunterkünfte",
-          "City-Streife",
-          "Revier- und Streifendienst",
-          "Doorman",
-          "Laden- und Kaufhausdetektiv",
-          "Empfangs- und Pfortendienst",
-          "Night-Audit",
-          "Empfang und Sicherheit für Hotels",
-          "Event- und Veranstaltungsschutz",
-          "Standwache / Messeschutz",
-          "Ordnerdienst",
-          "Parkraummanagement",
-        ],
-      },
-      winterdienst: {
-        title: "Winterdienst",
-        href: "/de/winterdienst",
-        description: "Zuverlässiger Winterservice für Ihre Sicherheit",
-        items: [
-          {
-            title: "Streugut-Vergleich",
-            content: {
-              diy: ["Haushaltssalz", "Split", "Sand"],
-              pro: [
-                "Umweltfreundliches Granulat",
-                "Professionelles Streusalz",
-                "Spezial-Mineralgemisch",
-              ],
-            },
-          },
-          {
-            title: "DIY-Winterdienst Tipps",
-            content: [
-              "Richtige Streumittelauswahl",
-              "Effiziente Streutechnik",
-              "Umweltschonendes Vorgehen",
-            ],
-          },
-        ],
-      },
-      entruempelung: {
-        title: "Entrümpelung",
-        href: "/de/entruempelung",
-        description: "Professionelle Entrümpelung mit Herz und Verstand",
-      },
-    },
-    menu: {
-      about: "Über uns",
-      contact: "Kontakt",
-    },
-  },
-  en: {
-    services: {
-      reinigung: {
-        title: "Cleaning",
-        href: "/en/cleaning",
-        description: "Professional cleaning services for your property",
-        items: [
-          "Maintenance Cleaning",
-          "Deep Cleaning",
-          "Glass & Facade Cleaning",
-          "Industrial Cleaning",
-          "Exterior Maintenance",
-          "Special Cleaning",
-          "Transport Cleaning",
-          "Hotel Cleaning",
-          "Event Cleaning",
-          "Construction Cleaning",
-          "Stone Cleaning",
-          "Roof Cleaning",
-          "Solar Panel Cleaning",
-        ],
-      },
-      security: {
-        title: "Security",
-        href: "/en/security",
-        description: "Comprehensive security solutions for your property",
-        items: [
-          "Property Protection",
-          "Industrial Protection",
-          "Construction Site Surveillance",
-          "Security for Refugee Accommodations",
-          "City Patrol",
-          "Area Patrol",
-          "Doorman",
-          "Retail Detective",
-          "Reception & Concierge",
-          "Night Audit",
-          "Hotel Security",
-          "Event Security",
-          "Stand Guard / Trade Fair Security",
-          "Bouncer Service",
-          "Parking Management",
-        ],
-      },
-      winterdienst: {
-        title: "Winter Service",
-        href: "/en/winter-service",
-        description: "Reliable winter service for your safety",
-        items: [
-          {
-            title: "De-icing Comparison",
-            content: {
-              diy: ["Household Salt", "Grit", "Sand"],
-              pro: [
-                "Eco-friendly Granulate",
-                "Professional De-icing Salt",
-                "Special Mineral Mix",
-              ],
-            },
-          },
-          {
-            title: "DIY Winter Service Tips",
-            content: [
-              "Proper De-icing Selection",
-              "Efficient Spreading Technique",
-              "Environmentally Friendly Approach",
-            ],
-          },
-        ],
-      },
-      entruempelung: {
-        title: "Clearance",
-        href: "/en/clearance",
-        description: "Professional clearance with heart and understanding",
-      },
-    },
-    menu: {
-      about: "About",
-      contact: "Contact",
-    },
-  },
+interface Blog {
+  winterdienst: BlogSection
+  reinigung: BlogSection
+  security: BlogSection
 }
+
+import deNavigation from "@/i18n/de/de.json"
+import enNavigation from "@/i18n/en/en.json"
+
+const navigations = {
+  de: deNavigation,
+  en: enNavigation
+} as const
 
 export function Header() {
   const params = useParams()
   const pathname = usePathname()
-  const locale = (params.locale as "de" | "en") || "de"
-  const nav = navigation[locale]
-
+  const locale = (params.locale as keyof typeof navigations) || "de"
+  
+  const nav = navigations[locale].navigation as Navigation
+  const blogData = navigations[locale].blog as Blog
+  
   const currentPath = pathname.replace(/^\/[a-z]{2}/, "")
-
-  const isComparisonContent = (
-    content: WinterServiceItem["content"]
-  ): content is { diy: string[]; pro: string[] } => {
-    return typeof content === "object" && "diy" in content && "pro" in content
-  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <Container>
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-16 items-center">
           {/* Logo */}
-          <div className="flex-1">
-            <Link href={`/${locale}`} className="flex items-center space-x-2">
+          <div className="w-32 mr-8">
+            <Link href={`/${locale}`}>
               <div className="relative h-10 w-32">
                 <Image
                   src="/images/treu-logo.svg"
@@ -252,110 +97,68 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Navigation */}
-          <div className="flex-1 flex justify-center">
+          {/* Hauptnavigation */}
+          <div className="flex items-center space-x-1">
             <NavigationMenu>
               <NavigationMenuList>
-                {/* Reinigung */}
-                <NavigationMenuItem>
-                  <Link href={nav.services.reinigung.href}>
-                    <NavigationMenuTrigger 
-                      className="hover:bg-gray-200 data-[state=open]:bg-gray-200"
-                    >
-                      {nav.services.reinigung.title}
-                    </NavigationMenuTrigger>
-                  </Link>
-                  <NavigationMenuContent>
-                    <div className="w-[600px] p-4 bg-white">
-                      <div className="grid grid-cols-2 gap-4">
-                        {nav.services.reinigung.items.map((item: string, index: number) => (
-                          <div 
-                            key={index} 
-                            className="p-3 rounded-md hover:bg-gray-200"
-                          >
-                            <span className="text-sm">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+{/* Reinigung */}
+<NavigationMenuItem>
+  <Link href={nav.services.reinigung.href}>
+    <NavigationMenuTrigger className="px-3 hover:bg-slate-100">
+      {nav.services.reinigung.title}
+    </NavigationMenuTrigger>
+  </Link>
+  <NavigationMenuContent>
+    <div className="w-[500px] p-4 bg-white">
+      <div className="grid grid-cols-2 gap-3">
+        {nav.services.reinigung.items.map((item: string, index: number) => (
+          <Link 
+            key={index}
+            href={`${nav.services.reinigung.href}?service=${item.toLowerCase().replace(/\s+/g, '-')}#services`}
+            className="p-2 rounded-md hover:bg-slate-100 transition-colors"
+          >
+            <span className="text-sm">{item}</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  </NavigationMenuContent>
+</NavigationMenuItem>
 
-                {/* Security */}
-                <NavigationMenuItem>
-                  <Link href={nav.services.security.href}>
-                    <NavigationMenuTrigger 
-                      className="hover:bg-gray-200 data-[state=open]:bg-gray-200"
-                    >
-                      {nav.services.security.title}
-                    </NavigationMenuTrigger>
-                  </Link>
-                  <NavigationMenuContent>
-                    <div className="w-[600px] p-4 bg-white">
-                      <div className="grid grid-cols-2 gap-4">
-                        {nav.services.security.items.map((item: string, index: number) => (
-                          <div 
-                            key={index} 
-                            className="p-3 rounded-md hover:bg-gray-200"
-                          >
-                            <span className="text-sm">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
+{/* Security */}
+<NavigationMenuItem>
+  <Link href={nav.services.security.href}>
+    <NavigationMenuTrigger className="px-3 hover:bg-slate-100">
+      {nav.services.security.title}
+    </NavigationMenuTrigger>
+  </Link>
+  <NavigationMenuContent>
+    <div className="w-[500px] p-4 bg-white">
+      <div className="grid grid-cols-2 gap-3">
+        {nav.services.security.items.map((item: string, index: number) => (
+          <Link 
+            key={index}
+            href={`${nav.services.security.href}?service=${item.toLowerCase().replace(/\s+/g, '-')}#services`}
+            className="p-2 rounded-md hover:bg-slate-100 transition-colors"
+          >
+            <span className="text-sm">{item}</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  </NavigationMenuContent>
+</NavigationMenuItem>
                 {/* Winterdienst */}
                 <NavigationMenuItem>
-                  <Link href={nav.services.winterdienst.href}>
-                    <NavigationMenuTrigger 
-                      className="hover:bg-gray-200 data-[state=open]:bg-gray-200"
-                    >
-                      {nav.services.winterdienst.title}
-                    </NavigationMenuTrigger>
+                  <Link 
+                    href={nav.services.winterdienst.href}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "px-3 hover:bg-slate-100"
+                    )}
+                  >
+                    {nav.services.winterdienst.title}
                   </Link>
-                  <NavigationMenuContent>
-                    <div className="w-[600px] p-4 bg-white">
-                      <div className="grid gap-4">
-                        {nav.services.winterdienst.items.map((item, index: number) => (
-                          <div key={index} className="p-4 rounded-lg bg-gray-50 hover:bg-gray-200">
-                            <h3 className="font-medium mb-3">{item.title}</h3>
-                            {isComparisonContent(item.content) ? (
-                              <div className="grid grid-cols-2 gap-8">
-                                <div>
-                                  <h4 className="text-sm font-medium mb-2 text-muted-foreground">
-                                    DIY-Lösungen
-                                  </h4>
-                                  <ul className="space-y-2">
-                                    {item.content.diy.map((tip: string, idx: number) => (
-                                      <li key={idx} className="text-sm">{tip}</li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                <div>
-                                  <h4 className="text-sm font-medium mb-2 text-muted-foreground">
-                                    Professionelle Lösungen
-                                  </h4>
-                                  <ul className="space-y-2">
-                                    {item.content.pro.map((tip: string, idx: number) => (
-                                      <li key={idx} className="text-sm">{tip}</li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </div>
-                            ) : (
-                              <ul className="space-y-2">
-                                {item.content.map((tip: string, idx: number) => (
-                                  <li key={idx} className="text-sm">{tip}</li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 {/* Entrümpelung */}
@@ -364,7 +167,7 @@ export function Header() {
                     href={nav.services.entruempelung.href}
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "hover:bg-gray-200"
+                      "px-3 hover:bg-slate-100"
                     )}
                   >
                     {nav.services.entruempelung.title}
@@ -374,35 +177,111 @@ export function Header() {
             </NavigationMenu>
           </div>
 
-          {/* Rechts: Über uns, Kontakt und Sprach-Switcher */}
-          <div className="flex-1 flex justify-end items-center space-x-4">
+          {/* Spacer */}
+          <div className="flex-1" />
+
+          {/* Rechte Navigation */}
+          <div className="flex items-center space-x-2">
+            {/* Blog Dropdown */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="px-3 hover:bg-slate-100">
+                    {nav.menu.blog}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="w-[400px] p-4 bg-white">
+                      {/* Winterdienst Blog */}
+                      <div className="mb-4">
+                        <h3 className="font-medium text-base p-2">
+                          {blogData.winterdienst.title}
+                        </h3>
+                        <div className="ml-4 mt-1 space-y-1">
+                          {blogData.winterdienst.categories.map((category: Category) => (
+                            <Link
+                              key={category.slug}
+                              href={`/${locale}/blog/winterdienst/${category.slug}`}
+                              className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
+                            >
+                              {category.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Reinigung Blog */}
+                      <div className="mb-4">
+                        <h3 className="font-medium text-base p-2">
+                          {blogData.reinigung.title}
+                        </h3>
+                        <div className="ml-4 mt-1">
+                          {blogData.reinigung.categories.map((category: Category) => (
+                            <Link
+                              key={category.slug}
+                              href={`/${locale}/blog/reinigung/${category.slug}`}
+                              className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
+                            >
+                              {category.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Security Blog */}
+                      <div>
+                        <h3 className="font-medium text-base p-2">
+                          {blogData.security.title}
+                        </h3>
+                        <div className="ml-4 mt-1">
+                          {blogData.security.categories.map((category: Category) => (
+                            <Link
+                              key={category.slug}
+                              href={`/${locale}/blog/security/${category.slug}`}
+                              className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
+                            >
+                              {category.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            {/* Über uns */}
             <Link 
               href={`/${locale}/about`}
               className={cn(
                 navigationMenuTriggerStyle(),
-                "hover:bg-gray-200"
+                "px-3 hover:bg-slate-100"
               )}
             >
               {nav.menu.about}
             </Link>
+
+            {/* Kontakt */}
             <Link 
               href={`/${locale}/contact`}
               className={cn(
                 navigationMenuTriggerStyle(),
-                "hover:bg-gray-200"
+                "px-3 hover:bg-slate-100"
               )}
             >
               {nav.menu.contact}
             </Link>
+
+            {/* Sprache */}
             <Link
               href={locale === "de" ? `/en${currentPath}` : `/de${currentPath}`}
               className={cn(
                 navigationMenuTriggerStyle(),
-                "flex items-center gap-2 hover:bg-gray-200"
+                "flex items-center gap-2 px-3 hover:bg-slate-100"
               )}
             >
-              <Globe size={16} className="text-muted-foreground" />
-              {locale === "de" ? "Deutsch" : "English"}
+              <Globe className="w-4 h-4" />
+              {locale === "de" ? "DE" : "EN"}
             </Link>
           </div>
         </div>

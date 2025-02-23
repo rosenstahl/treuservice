@@ -61,35 +61,24 @@
       "terms": "AGB"
     }
   },
-  "blog": {
-    "winterdienst": {
-      "title": "Winterdienst Blog",
-      "categories": [
-        {
-          "title": "Streugut-Vergleich",
-          "slug": "streugut-vergleich"
-        },
-        {
-          "title": "DIY Winterdienst",
-          "slug": "diy-winterdienst"
-        }
-      ]
-    },
-    "reinigung": {
-      "title": "Reinigung Blog",
-      "categories": [
-        {
-          "title": "Reinigungsprobleme",
-          "slug": "reinigungsprobleme"
-        }
-      ]
-    },
-    "security": {
-      "title": "Security Blog",
-      "categories": [
-        {
-          "title": "Notfallpläne",
-          "slug": "notfallplaene"
+"blog": {
+  "winterdienst": {
+    "title": "Winterdienst",
+    "categories": [
+      { "title": "Streumittel-Vergleich", "slug": "streumittel" },
+      { "title": "DIY-Tipps", "slug": "diy" }
+    ]
+  },
+  "reinigung": {
+    "title": "Reinigung",
+    "categories": [
+      { "title": "Häufige Probleme", "slug": "probleme" }
+    ]
+  },
+  "security": {
+    "title": "Security",
+    "categories": [
+      { "title": "Notfallpläne", "slug": "notfallplaene"
         }
       ]
     }

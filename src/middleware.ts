@@ -15,7 +15,11 @@ const validPaths = [
   'reinigung',
   'security',
   'winterdienst',
-  'entruempelung'
+  'entruempelung',
+  'blog',
+  'blog/reinigung',
+  'blog/security',
+  'blog/winterdienst'
 ] 
 function getLocale(request: NextRequest) {
   const { pathname } = request.nextUrl

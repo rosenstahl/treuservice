@@ -190,54 +190,38 @@ export function Header() {
                     {nav.menu.blog}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[400px] p-4 bg-white">
-                      {/* Winterdienst Blog */}
-                      <div className="mb-4">
-                        <div className="ml-4 mt-1 ">
-                          {blogData.winterdienst.categories.map((category: Category) => (
-                            <Link
-                              key={category.slug}
-                              href={`/${locale}/blog/winterdienst/${category.slug}`}
-                              className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
-                            >
-                              {category.title}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Reinigung Blog */}
-                      <div className="mb-4">
-                        <div className="ml-4 mt-1">
-                          {blogData.reinigung.categories.map((category: Category) => (
-                            <Link
-                              key={category.slug}
-                              href={`/${locale}/blog/reinigung/${category.slug}`}
-                              className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
-                            >
-                              {category.title}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Security Blog */}
-                      <div>
-                        <div className="ml-4 mt-1 space-y-1">
-                          {blogData.security.categories.map((category: Category) => (
-                            <Link
-                              key={category.slug}
-                              href={`/${locale}/blog/security/${category.slug}`}
-                              className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
-                            >
-                              {category.title}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+  <div className="w-[400px] p-4 bg-white">
+    <div className="flex flex-col">
+      {blogData.winterdienst.categories.map((category: Category) => (
+        <Link
+  key={category.slug}
+  href={`/${locale}/blog/winterdienst${category.slug === 'streumittel' ? '#streumittel' : '#diy'}`}
+  className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
+>
+  {category.title}
+</Link>
+      ))}
+      {blogData.reinigung.categories.map((category: Category) => (
+        <Link
+  key={category.slug}
+  href={`/${locale}/blog/reinigung`}
+  className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
+>
+  {category.title}
+</Link>
+      ))}
+      {blogData.security.categories.map((category: Category) => (
+        <Link
+  key={category.slug}
+  href={`/${locale}/blog/security`}
+  className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
+>
+  {category.title}
+</Link>
+      ))}
+    </div>
+  </div>
+</NavigationMenuContent>                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
 

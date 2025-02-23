@@ -34,10 +34,10 @@ export default function WinterdienstBlogPage() {
             >
               <div>
                 <H1 className="text-6xl lg:text-7xl font-extrabold tracking-tight mb-8">
-                  {blogData.blog.streumittel.title}
+                  {blogData.blog.diy_winterservice.title}
                 </H1>
                 <Paragraph className="mt-6 text-xl text-foreground/90">
-                  {blogData.blog.streumittel.intro}
+                  {blogData.blog.diy_winterservice.intro}
                 </Paragraph>
               </div>
             </InView>
@@ -57,8 +57,53 @@ export default function WinterdienstBlogPage() {
 
       <Separator className="bg-accent/10" />
 
+      {/* DIY Winterdienst Tips */}
+      <Section id="diy">
+        <Container>
+          <H2 className="text-center mb-12">{blogData.blog.diy_winterservice.title}</H2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {blogData.blog.diy_winterservice.steps.map((step, index) => (
+              <InView
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-accent text-white w-8 h-8 rounded-full flex items-center justify-center">
+                      {step.number}
+                    </div>
+                    <H3>{step.title}</H3>
+                  </div>
+                  {step.intro && (
+                    <Paragraph className="mb-4">{step.intro}</Paragraph>
+                  )}
+                  <div className="space-y-4">
+                    {step.items.map((item, i) => (
+                      <div key={i} className="border-l-4 border-accent pl-4">
+                        <H3 className="text-lg font-medium">{item.title}</H3>
+                        <Paragraph>{item.description}</Paragraph>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </InView>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Paragraph className="italic">{blogData.blog.diy_winterservice.conclusion.text}</Paragraph>
+            <Paragraph className="mt-4 font-medium">{blogData.blog.diy_winterservice.conclusion.closing}</Paragraph>
+          </div>
+        </Container>
+      </Section>
+
+      <Separator className="bg-accent/10" />
+
       {/* Streumittel Vergleich */}
-      <Section>
+      <Section id="streumittel" className="bg-primary/5">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
@@ -113,51 +158,6 @@ export default function WinterdienstBlogPage() {
                 />
               </div>
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Separator className="bg-accent/10" />
-
-      {/* DIY Winterdienst Tips */}
-      <Section className="bg-primary/5">
-        <Container>
-          <H2 className="text-center mb-12">{blogData.blog.diy_winterservice.title}</H2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {blogData.blog.diy_winterservice.steps.map((step, index) => (
-              <InView
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="bg-accent text-white w-8 h-8 rounded-full flex items-center justify-center">
-                      {step.number}
-                    </div>
-                    <H3>{step.title}</H3>
-                  </div>
-                  {step.intro && (
-                    <Paragraph className="mb-4">{step.intro}</Paragraph>
-                  )}
-                  <div className="space-y-4">
-                    {step.items.map((item, i) => (
-                      <div key={i} className="border-l-4 border-accent pl-4">
-                        <H3 className="text-lg font-medium">{item.title}</H3>
-                        <Paragraph>{item.description}</Paragraph>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </InView>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Paragraph className="italic">{blogData.blog.diy_winterservice.conclusion.text}</Paragraph>
-            <Paragraph className="mt-4 font-medium">{blogData.blog.diy_winterservice.conclusion.closing}</Paragraph>
           </div>
         </Container>
       </Section>

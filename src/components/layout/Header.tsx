@@ -193,10 +193,7 @@ export function Header() {
                     <div className="w-[400px] p-4 bg-white">
                       {/* Winterdienst Blog */}
                       <div className="mb-4">
-                        <h3 className="font-medium text-base p-2">
-                          {blogData.winterdienst.title}
-                        </h3>
-                        <div className="ml-4 mt-1 space-y-1">
+                        <div className="ml-4 mt-1 ">
                           {blogData.winterdienst.categories.map((category: Category) => (
                             <Link
                               key={category.slug}
@@ -211,9 +208,6 @@ export function Header() {
 
                       {/* Reinigung Blog */}
                       <div className="mb-4">
-                        <h3 className="font-medium text-base p-2">
-                          {blogData.reinigung.title}
-                        </h3>
                         <div className="ml-4 mt-1">
                           {blogData.reinigung.categories.map((category: Category) => (
                             <Link
@@ -229,10 +223,7 @@ export function Header() {
 
                       {/* Security Blog */}
                       <div>
-                        <h3 className="font-medium text-base p-2">
-                          {blogData.security.title}
-                        </h3>
-                        <div className="ml-4 mt-1">
+                        <div className="ml-4 mt-1 space-y-1">
                           {blogData.security.categories.map((category: Category) => (
                             <Link
                               key={category.slug}

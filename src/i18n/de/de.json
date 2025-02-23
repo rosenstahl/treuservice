@@ -63,20 +63,17 @@
   },
 "blog": {
   "winterdienst": {
-    "title": "Winterdienst",
     "categories": [
       { "title": "Streumittel-Vergleich", "slug": "streumittel" },
-      { "title": "DIY-Tipps", "slug": "diy" }
+      { "title": "Winterdienst selbst gemacht", "slug": "diy" }
     ]
   },
   "reinigung": {
-    "title": "Reinigung",
     "categories": [
-      { "title": "Häufige Probleme", "slug": "probleme" }
+      { "title": "Reinigung: Probleme & Lösungen", "slug": "probleme" }
     ]
   },
   "security": {
-    "title": "Security",
     "categories": [
       { "title": "Notfallpläne", "slug": "notfallplaene"
         }

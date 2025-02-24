@@ -61,9 +61,11 @@ export function middleware(request: NextRequest) {
   return NextResponse.next()
 }
  
+// In middleware.ts
+
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.svg).*)',
+    // Skip all internal paths and static files
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.svg|pdfs/.*\\.pdf).*)',
   ],
 }

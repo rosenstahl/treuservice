@@ -110,7 +110,6 @@ interface BlogPageProps {
   author?: Author;
 }
 
-// UI-Komponenten
 const Badge: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => (
   <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold text-accent bg-accent/10 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${className}`}>
     {children}
@@ -128,7 +127,6 @@ const Avatar: React.FC<{ src: string; alt: string; }> = ({ src, alt }) => (
   </div>
 );
 
-// Teilen-Funktion
 const ShareContent = (title: string, url: string) => {
   if (navigator.share) {
     navigator.share({
@@ -145,7 +143,6 @@ const ShareContent = (title: string, url: string) => {
   }
 };
 
-// Hauptkomponente
 export default function BlogPage({ 
   category = "reinigung",
   data, 
@@ -158,7 +155,6 @@ export default function BlogPage({
 }: BlogPageProps) {
   return (
     <div className="flex-1">
-      {/* Hero Section mit Breadcrumb - reduziertes Padding oben */}
       <Section className="pt-0 pb-6 bg-gradient-to-b from-primary/5 to-background">
         <Container>
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
@@ -206,14 +202,11 @@ export default function BlogPage({
       </Section>
 
       <Separator />
-      {/* Hauptinhalt */}
       <Section className="py-6">
         <Container>
-          {/* Streumittel-Spezialfall: keine Sidebar, volle Breite */}
           {category === "winterdienst" && data.materials ? (
             <div>
               <div className="prose prose-base max-w-none">
-                {/* Streumittel-Tabelle für diesen speziellen Fall */}
                 <div className="mb-8 mt-4">
                   <H2 className="mb-4 text-2xl">Übersicht der Streumittel</H2>
                   <div className="overflow-x-auto">
@@ -261,7 +254,6 @@ export default function BlogPage({
                 </div>
               </div>
               
-              {/* Share Button - auch für Streumittel */}
               <div className="flex items-center gap-4 mt-6">
                 <Button 
                   variant="outline" 
@@ -275,10 +267,8 @@ export default function BlogPage({
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              {/* Artikel-Inhalt */}
               <div className="lg:col-span-8">
                 <div className="prose prose-base max-w-none">
-                  {/* Feature Image - außer für Streumittel */}
                   {category !== "security" && (
                     <div className="relative aspect-video rounded-lg overflow-hidden mb-6">
                       <Image
@@ -291,7 +281,6 @@ export default function BlogPage({
                     </div>
                   )}
 
-                  {/* PDF für Notfallpläne */}
                   {category === "security" && (
                     <div className="mb-8" id="notfallplan-pdf">
                       <H2 className="mb-4 text-2xl">Notfallplan-Muster</H2>

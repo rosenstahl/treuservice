@@ -180,51 +180,53 @@ export function Header() {
           {/* Spacer */}
           <div className="flex-1" />
 
-          {/* Rechte Navigation */}
-          <div className="flex items-center space-x-2">
-            {/* Blog Dropdown */}
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="px-3 hover:bg-slate-100">
-                    {nav.menu.blog}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-  <div className="w-[400px] p-4 bg-white">
-    <div className="flex flex-col">
-      {blogData.winterdienst.categories.map((category: Category) => (
-        <Link
-  key={category.slug}
-  href={`/${locale}/blog/winterdienst${category.slug === 'streumittel' ? '#streumittel' : '#diy'}`}
-  className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
->
-  {category.title}
-</Link>
-      ))}
-      {blogData.reinigung.categories.map((category: Category) => (
-        <Link
-  key={category.slug}
-  href={`/${locale}/blog/reinigung`}
-  className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
->
-  {category.title}
-</Link>
-      ))}
-      {blogData.security.categories.map((category: Category) => (
-        <Link
-  key={category.slug}
-  href={`/${locale}/blog/security`}
-  className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
->
-  {category.title}
-</Link>
-      ))}
-    </div>
-  </div>
-</NavigationMenuContent>                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-
+{/* Rechte Navigation */}
+<div className="flex items-center space-x-2">
+  {/* Blog Dropdown */}
+  <NavigationMenu>
+    <NavigationMenuList>
+      <NavigationMenuItem>
+        <Link href={`/${locale}/blog`}>
+          <NavigationMenuTrigger className="px-3 hover:bg-slate-100">
+            {nav.menu.blog}
+          </NavigationMenuTrigger>
+        </Link>
+        <NavigationMenuContent>
+          <div className="w-[400px] p-4 bg-white">
+            <div className="flex flex-col">
+              {blogData.winterdienst.categories.map((category: Category) => (
+                <Link
+                  key={category.slug}
+                  href={`/${locale}/blog/${category.slug === 'streumittel' ? 'streumittel' : 'winterdienst'}`}
+                  className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
+                >
+                  {category.title}
+                </Link>
+              ))}
+              {blogData.reinigung.categories.map((category: Category) => (
+                <Link
+                  key={category.slug}
+                  href={`/${locale}/blog/reinigung`}
+                  className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
+                >
+                  {category.title}
+                </Link>
+              ))}
+              {blogData.security.categories.map((category: Category) => (
+                <Link
+                  key={category.slug}
+                  href={`/${locale}/blog/security`}
+                  className="block p-2 text-sm hover:bg-slate-100 rounded-md transition-colors"
+                >
+                  {category.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+    </NavigationMenuList>
+  </NavigationMenu>
             {/* Über uns */}
             <Link 
               href={`/${locale}/about`}

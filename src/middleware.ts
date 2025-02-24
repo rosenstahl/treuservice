@@ -3,7 +3,6 @@ import type { NextRequest } from 'next/server'
  
 const locales = ['de', 'en']
  
-// Define valid paths
 const validPaths = [
   '',  // homepage
   'about',
@@ -19,8 +18,9 @@ const validPaths = [
   'blog',
   'blog/reinigung',
   'blog/security',
-  'blog/winterdienst'
-] 
+  'blog/winterdienst',
+  'blog/streumittel'
+]
 function getLocale(request: NextRequest) {
   const { pathname } = request.nextUrl
   

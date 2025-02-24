@@ -4,16 +4,16 @@ import React from 'react'
 import BlogPage from '@/app/[locale]/blog/index'
 import blogData from "@/i18n/de/blog.json"
 
-export default function ReinigungBlogPage() {
+export default function SecurityBlogPage() {
   return (
     <BlogPage
-      category="reinigung"
-      data={blogData.blog.cleaning}
-      date={new Date('2024-02-23')}
-      readingTime="8 min"
+      category="security"
+      data={blogData.blog.emergency_plan}
+      date={new Date('2024-02-20')}
+      readingTime="10 min"
       author={{
-        name: "TREU Service Team",
-        image: "/images/team/cleaning-expert.jpg"
+        name: "TREU Security Team",
+        image: "/images/team/security-expert.jpg"
       }}
     />
   )

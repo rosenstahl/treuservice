@@ -9,10 +9,10 @@ export default function SecurityBlogPage() {
     <BlogPage
       category="security"
       data={blogData.blog.emergency_plan}
-      date={new Date('2024-02-23')}
-      readingTime="12 min"
+      date={new Date('2024-02-20')}
+      readingTime="10 min"
       author={{
-        name: "TREU Service Team",
+        name: "TREU Security Team",
         image: "/images/team/security-expert.jpg"
       }}
     />

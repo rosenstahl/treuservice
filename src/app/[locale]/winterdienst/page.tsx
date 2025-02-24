@@ -35,9 +35,12 @@ import {
   ShieldCheck
 } from "lucide-react"
 
+// Neue Wetter-Komponenten importieren
+import { WeatherDetails } from '@/components/weather/WeatherDetails'
+import { WeatherWidget } from '@/components/weather/WeatherWidget'
+import { SnowfallMapWidget } from '@/components/weather/SnowfallMapWidget'
 export default function WinterservicePage() {
   const [imageLoaded, setImageLoaded] = useState(false)
-
 
   useEffect(() => {
     setImageLoaded(true)
@@ -87,6 +90,39 @@ export default function WinterservicePage() {
               <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
             </div>
           </div>
+        </Container>
+      </Section>
+
+      <Separator className="bg-accent/10" />
+
+      {/* Neue Weather Widget Section */}
+      <Section className="bg-white">
+        <Container>
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <H2 className="text-center mb-8">Intelligente Wettervorhersage für Ihren Winterdienst</H2>
+            <Paragraph className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+              Unser intelligentes System basiert auf präzisen Wetterdaten des Deutschen Wetterdienstes (DWD) und liefert Ihnen alle wichtigen Informationen für einen effizienten Winterdienst.
+            </Paragraph>
+            
+            {/* Weather Widget einbinden */}
+            <WeatherWidget />
+            
+            {/* Weather Details einbinden */}
+            <div className="mt-8">
+              <WeatherDetails />
+            </div>
+            
+            {/* Snowfall Map Widget einbinden */}
+            <div className="mt-8">
+              <SnowfallMapWidget />
+            </div>
+          </InView>
         </Container>
       </Section>
 

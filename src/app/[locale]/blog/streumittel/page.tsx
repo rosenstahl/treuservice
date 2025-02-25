@@ -1,20 +1,18 @@
 "use client"
 
 import React from 'react'
-import BlogPage from '@/app/[locale]/blog/index'
+import BlogPage from '../index'
 import blogData from "@/i18n/de/blog.json"
 
-export default function StreumittelBlogPage() {
+export default function StreumittelPage() {
+  const date = new Date('2025-02-24')
+  
   return (
-    <BlogPage
+    <BlogPage 
       category="winterdienst"
       data={blogData.blog.streumittel}
-      date={new Date('2024-02-24')}
+      date={date}
       readingTime="8 min"
-      author={{
-        name: "TREU Service Team",
-        image: "/images/team/winter-expert.jpg"
-      }}
     />
   )
 }

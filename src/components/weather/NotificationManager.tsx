@@ -7,6 +7,13 @@ import { H3, Paragraph } from "@/components/ui/typography";
 import { BellRing, BellOff, AlertTriangle, CloudSnow, X } from "lucide-react";
 import { getCurrentWeather, getWeatherForecast, predictSnowfall } from './brightsky';
 
+// Neu: Import des intelligenten Wetter-Services
+import { 
+  getWeatherData as getIntelligentWeatherData, 
+  loadApiStatus, 
+  saveApiStatus 
+} from './weather-service';
+
 // Benachrichtigungstypen
 type NotificationType = 'info' | 'warning' | 'alert';
 
@@ -32,6 +39,11 @@ export const NotificationManager = ({ location, coordinates }: NotificationManag
   const [notificationPermission, setNotificationPermission] = useState<NotificationPermission>('default');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [lastCheck, setLastCheck] = useState<Date | null>(null);
+
+  // Beim ersten Laden den API-Status laden
+  useEffect(() => {
+    loadApiStatus();
+  }, []);
 
   // Überprüfung des Benachrichtigungsstatus
   useEffect(() => {
@@ -199,6 +211,26 @@ export const NotificationManager = ({ location, coordinates }: NotificationManag
     
     try {
       setLastCheck(new Date());
+      
+      // Neu: Zuerst den intelligenten Weather-Service versuchen
+      try {
+        console.log("Prüfe Wetterwarnungen mit intelligenten Service...");
+        const intelligentData = await getIntelligentWeatherData(
+          coordinates.lat, 
+          coordinates.lon
+        );
+        
+        // API-Status speichern nach erfolgreicher Anfrage
+        saveApiStatus();
+        
+        console.log("Intelligenter Weather-Service erfolgreich:", intelligentData);
+        
+        // Wenn wir hier sind, war der intelligente Service erfolgreich
+        // In einem echten Implementierungsszenario könnten wir die Daten hier direkt verarbeiten
+      } catch (intelligentError) {
+        console.warn("Intelligenter Wetter-Service fehlgeschlagen:", intelligentError);
+        // Kein Problem, wir fallen auf die Original-Implementierung zurück
+      }
       
       // Aktuelle Wetterdaten mit der aktualisierten API-Methode abrufen
       const currentWeather = await getCurrentWeather({

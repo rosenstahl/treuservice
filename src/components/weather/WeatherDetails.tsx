@@ -16,6 +16,13 @@ import {
 } from "lucide-react";
 import { getWeatherForecast, predictSnowfall, WeatherObservation } from './brightsky';
 
+// Neu: Import des intelligenten Wetter-Services
+import { 
+  getWeatherData as getIntelligentWeatherData, 
+  loadApiStatus, 
+  saveApiStatus 
+} from './weather-service';
+
 interface WeatherDetailsProps {
   location: string;
   coordinates?: { lat: number; lon: number };
@@ -55,6 +62,11 @@ export const WeatherDetails = ({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Beim ersten Laden den API-Status laden
+  useEffect(() => {
+    loadApiStatus();
+  }, []);
+
   // Wetterdaten laden, wenn Koordinaten verfügbar sind
   useEffect(() => {
     if (coordinates) {
@@ -79,6 +91,25 @@ export const WeatherDetails = ({
       const nextWeek = new Date(today);
       nextWeek.setDate(nextWeek.getDate() + 7);
       const formattedNextWeek = nextWeek.toISOString().split('T')[0];
+      
+      // Neu: Zuerst versuchen wir den intelligenten Wetter-Service
+      try {
+        console.log("Versuche Wetterdaten über intelligenten Service zu laden...");
+        const intelligentData = await getIntelligentWeatherData(
+          coordinates.lat, 
+          coordinates.lon
+        );
+        
+        // API-Status speichern nach erfolgreicher Anfrage
+        saveApiStatus();
+        
+        console.log("Wetterdaten vom intelligenten Service erhalten:", intelligentData);
+        
+        // Wenn wir erfolgreich Daten bekommen haben, können wir fortfahren
+        // Ansonsten fällt es auf die Standard-Methode zurück
+      } catch (intelligentError) {
+        console.warn("Intelligenter Wetter-Service fehlgeschlagen:", intelligentError);
+      }
       
       // Vorhersage abrufen - verwende die aktualisierte API
       const forecast = await getWeatherForecast({

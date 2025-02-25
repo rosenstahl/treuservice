@@ -21,7 +21,15 @@ import {
 } from "@/components/ui/tooltip"
 import { Container } from "./Container"
 import { cn } from "@/lib/utils"
-import { getCurrentWeather, calculateIceRisk } from "@/components/weather/brightsky"
+import { getCurrentWeather, calculateIceRisk, getUserLocation } from "@/components/weather/brightsky"
+
+// Neu: Import des intelligenten Weather-Service
+import { 
+  getWeatherData as getIntelligentWeatherData, 
+  loadApiStatus, 
+  saveApiStatus 
+} from '@/components/weather/weather-service'
+
 import { Badge } from "@/components/ui/badge"
 
 interface Category {
@@ -114,17 +122,67 @@ const WeatherWidget = () => {
     precipitation: number;
     status: 'required' | 'standby' | 'not-required';
     riskDescription: string;
+    cityName?: string; // Neu: Stadtname hinzugefügt
   } | null>(null);
   const [isLoading, setIsLoading] = React.useState(true);
+
+  // Beim ersten Laden den API-Status laden
+  React.useEffect(() => {
+    loadApiStatus();
+  }, []);
 
   React.useEffect(() => {
     const fetchWeather = async () => {
       try {
-        // Koordinaten für Mittel-Deutschland
-        const data = await getCurrentWeather({
-          lat: 51.1657,
-          lon: 10.4515
-        });
+        // Zuerst versuchen wir den Standort des Benutzers zu ermitteln
+        let lat = 51.1657; // Fallback: Mittel-Deutschland
+        let lon = 10.4515;
+        let cityName = "";
+        
+        try {
+          // Versuche, den tatsächlichen Standort zu ermitteln
+          const position = await getUserLocation();
+          lat = position.lat;
+          lon = position.lon;
+          console.log("Standort für Wetter-Header erkannt:", lat, lon);
+          
+          // Versuche, den Ortsnamen zu ermitteln
+          try {
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10&accept-language=${locale}`
+            );
+            
+            if (response.ok) {
+              const data = await response.json();
+              if (data && data.address) {
+                cityName = data.address.city || 
+                           data.address.town || 
+                           data.address.village || 
+                           data.address.suburb ||
+                           data.address.county ||
+                           "";
+                console.log("Erkannter Ort für Wetter-Header:", cityName);
+              }
+            }
+          } catch (error) {
+            console.error("Fehler bei der Ortsnamensermittlung:", error);
+          }
+        } catch (error) {
+          console.warn("Konnte den Standort nicht ermitteln, nutze Standardwerte:", error);
+        }
+        
+        // Neu: Verwende den intelligenten Weather-Service
+        const weatherData = await getIntelligentWeatherData(lat, lon);
+        console.log("Wetter-Daten für Header erhalten:", weatherData);
+        
+        // Speichere den API-Status nach erfolgreichem Abruf
+        saveApiStatus();
+        
+        // Wandle die Daten in das Format um, das wir im Header verwenden
+        // Hier gehen wir davon aus, dass der intelligente Service ähnliche Daten zurückgibt
+        const data = weatherData.weather 
+          ? weatherData.weather[Math.floor(weatherData.weather.length / 2)] // Mittlerer Eintrag (um die Mitte des Tages zu bekommen)
+          : null;
         
         if (data) {
           // Status basierend auf Temperatur und Niederschlag berechnen
@@ -150,7 +208,8 @@ const WeatherWidget = () => {
             humidity: humidity,
             precipitation: precip,
             status: status,
-            riskDescription: iceRisk.description
+            riskDescription: iceRisk.description,
+            cityName: cityName // Setze den ermittelten Ortsnamen
           });
         }
       } catch (error) {
@@ -161,7 +220,7 @@ const WeatherWidget = () => {
     };
 
     fetchWeather();
-  }, []);
+  }, [locale]);
 
   // Wetter-Icon auswählen
   const getWeatherIcon = () => {
@@ -255,6 +314,14 @@ const WeatherWidget = () => {
               <div className="text-xs">
                 {weather.riskDescription}
               </div>
+              
+              {/* Neu: Zeige den Ortsnamen an, wenn verfügbar */}
+              {weather.cityName && (
+                <div className="text-xs font-medium text-blue-600">
+                  {locale === 'de' ? 'Standort' : 'Location'}: {weather.cityName}
+                </div>
+              )}
+              
               <div className="text-xs pt-1 border-t border-gray-200 mt-1">
                 <div className="grid grid-cols-2 gap-x-4 gap-y-1">
                   <span>Temperatur:</span>

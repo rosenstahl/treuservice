@@ -416,7 +416,7 @@ export default function StreumittelRechnerBlog() {
       <Card className="bg-white shadow-lg">
         <CardHeader className="border-b">
           <div className="flex items-center gap-2">
-            <Calculator className="h-6 w-6 text-primary" />
+            <Calculator className="h-6 w-6 text-blue-600" />
             <CardTitle>Professioneller Streumittelrechner</CardTitle>
           </div>
           <CardDescription>
@@ -429,7 +429,7 @@ export default function StreumittelRechnerBlog() {
           <div className="space-y-4 mb-6">
             <div className="flex justify-between items-center">
               <H3 className="text-lg font-semibold flex items-center gap-2">
-                <SquareSlash className="h-5 w-5 text-primary" />
+                <SquareSlash className="h-5 w-5 text-blue-600" />
                 Streumitteltyp
               </H3>
               
@@ -614,7 +614,7 @@ export default function StreumittelRechnerBlog() {
           {/* Flächenauswahl */}
           <div className="space-y-4 mb-6">
             <H3 className="text-lg font-semibold flex items-center gap-2">
-              <Snowflake className="h-5 w-5 text-primary" />
+              <Snowflake className="h-5 w-5 text-blue-600" />
               Fläche & Bedingungen
             </H3>
             
@@ -681,7 +681,7 @@ export default function StreumittelRechnerBlog() {
                 <div>
                   <Label>Temperatur</Label>
                   <div className="flex items-center mt-2">
-                    <Thermometer className="w-5 h-5 text-primary" />
+                    <Thermometer className="w-5 h-5 text-blue-600" />
                     <Slider
                       value={[temperatur]}
                       min={-20}
@@ -731,7 +731,7 @@ export default function StreumittelRechnerBlog() {
             <div className="mb-4">
               {ergebnisse.hinweise.map((hinweis, index) => (
                 <div key={index} className="bg-blue-50 border border-blue-200 p-3 rounded-md flex items-start mb-2">
-                  <BadgeInfo className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <BadgeInfo className="h-5 w-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-blue-800">{hinweis}</span>
                 </div>
               ))}
@@ -766,7 +766,7 @@ export default function StreumittelRechnerBlog() {
                   {/* Kosten */}
                   <div className="flex items-center justify-between">
                     <div className="text-sm text-slate-600 flex items-center">
-                      <Euro className="h-4 w-4 mr-1" /> Kosten:
+                      <Euro className="h-4 w-4 mr-1 text-blue-600" /> Kosten:
                     </div>
                     <div className="font-semibold text-xl">{ergebnisse.kosten.toFixed(2)} €</div>
                   </div>
@@ -788,7 +788,7 @@ export default function StreumittelRechnerBlog() {
                   {/* Umweltauswirkung */}
                   <div>
                     <div className="text-sm text-slate-600 flex items-center mb-1">
-                      <Leaf className="h-4 w-4 mr-1" /> Umweltauswirkung:
+                      <Leaf className="h-4 w-4 mr-1 text-green-600" /> Umweltauswirkung:
                     </div>
                     <div className="flex items-center">
                       <div className="flex-1 h-2 bg-gray-200 rounded-full">
@@ -810,7 +810,7 @@ export default function StreumittelRechnerBlog() {
                   {/* Wirksamkeit */}
                   <div>
                     <div className="text-sm text-slate-600 flex items-center mb-1">
-                      <Droplets className="h-4 w-4 mr-1" /> Tauwirkung:
+                      <Droplets className="h-4 w-4 mr-1 text-blue-600" /> Tauwirkung:
                     </div>
                     <div className="flex items-center">
                       <div className="flex-1 h-2 bg-gray-200 rounded-full">
@@ -835,7 +835,7 @@ export default function StreumittelRechnerBlog() {
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <div className="flex items-center text-sm text-slate-600 cursor-help">
-                            <CloudSnow className="h-4 w-4 mr-1 text-primary" /> Temperatureinsatzbereich
+                            <CloudSnow className="h-4 w-4 mr-1 text-blue-600" /> Temperatureinsatzbereich
                             <BadgeInfo className="h-3 w-3 ml-1 text-slate-400" />
                           </div>
                         </TooltipTrigger>

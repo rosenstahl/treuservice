@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Button } from "@/components/ui/button"
-import { CalendarDays, Clock, Share2, ChevronRight, Download } from "lucide-react"
+import { CalendarDays, Clock, Share2, ChevronRight, Download, Calculator } from "lucide-react"
 import Image from "next/image"
 import { format } from 'date-fns'
 import { de } from 'date-fns/locale'
@@ -252,6 +252,37 @@ export default function BlogPage({
                     </div>
                   )}
                 </div>
+                
+                {/* Call-to-Action für den Streumittel-Rechner */}
+                <div className="mb-8 mt-8">
+                  <Card className="bg-blue-50 border-blue-200">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <Calculator className="h-5 w-5 text-primary" />
+                        Interaktiver Streumittel-Rechner
+                      </CardTitle>
+                      <CardDescription>
+                        Berechnen Sie Ihren individuellen Streumittelbedarf und erhalten Sie maßgeschneiderte Empfehlungen
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="mb-4 text-sm">
+                        Mit unserem neuen Streumittelrechner können Sie ganz einfach:
+                      </p>
+                      <ul className="list-disc pl-5 space-y-1 mb-6">
+                        <li className="text-sm">Die benötigte Streumittelmenge für Ihre Fläche berechnen</li>
+                        <li className="text-sm">Kosten kalkulieren und Vergleichen</li>
+                        <li className="text-sm">Umweltauswirkungen verschiedener Produkte bewerten</li>
+                        <li className="text-sm">Nachhaltige Alternativen entdecken</li>
+                      </ul>
+                      <Link href="/blog/StreumittelCalculator">
+                        <Button size="lg" className="w-full sm:w-auto">
+                          Zum Streumittel-Rechner
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
               
               <div className="flex items-center gap-4 mt-6">
@@ -419,28 +450,63 @@ export default function BlogPage({
                     ))
                   ) : data.steps ? (
                     // Render steps (für Winterdienst)
-                    data.steps.map((step, index) => (
-                      <div key={index} id={`step-${step.number}`} className="mb-8">
-                        <H2 className="mb-4 text-2xl">
-                          {step.number}. {step.title}
-                        </H2>
-                        {step.intro && (
-                          <Paragraph className="text-base mb-4">{step.intro}</Paragraph>
-                        )}
-                        <div className="space-y-4">
-                          {step.items.map((item, i) => (
-                            <Card key={i} className="mb-4">
-                              <CardHeader className="pb-2">
-                                <CardTitle className="text-lg">{item.title}</CardTitle>
-                              </CardHeader>
-                              <CardContent>
-                                <Paragraph className="text-sm">{item.description}</Paragraph>
-                              </CardContent>
-                            </Card>
-                          ))}
+                    <div>
+                      {/* Streumittel-Rechner Call-to-Action für Winterdienst-Artikel */}
+                      {category === "winterdienst" && (
+                        <div className="mb-8">
+                          <Card className="bg-blue-50 border-blue-200">
+                            <CardHeader>
+                              <CardTitle className="flex items-center gap-2">
+                                <Calculator className="h-5 w-5 text-primary" />
+                                Interaktiver Streumittel-Rechner
+                              </CardTitle>
+                              <CardDescription>
+                                Berechnen Sie Ihren individuellen Streumittelbedarf und erhalten Sie maßgeschneiderte Empfehlungen
+                              </CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="mb-4 text-sm">
+                                Mit unserem neuen Streumittelrechner können Sie ganz einfach:
+                              </p>
+                              <ul className="list-disc pl-5 space-y-1 mb-6">
+                                <li className="text-sm">Die benötigte Streumittelmenge für Ihre Fläche berechnen</li>
+                                <li className="text-sm">Kosten kalkulieren und Vergleichen</li>
+                                <li className="text-sm">Umweltauswirkungen verschiedener Produkte bewerten</li>
+                                <li className="text-sm">Nachhaltige Alternativen entdecken</li>
+                              </ul>
+                              <Link href="/blog/StreumittelCalculator">
+                                <Button size="lg" className="w-full sm:w-auto">
+                                  Zum Streumittel-Rechner
+                                </Button>
+                              </Link>
+                            </CardContent>
+                          </Card>
                         </div>
-                      </div>
-                    ))
+                      )}
+
+                      {data.steps.map((step, index) => (
+                        <div key={index} id={`step-${step.number}`} className="mb-8">
+                          <H2 className="mb-4 text-2xl">
+                            {step.number}. {step.title}
+                          </H2>
+                          {step.intro && (
+                            <Paragraph className="text-base mb-4">{step.intro}</Paragraph>
+                          )}
+                          <div className="space-y-4">
+                            {step.items.map((item, i) => (
+                              <Card key={i} className="mb-4">
+                                <CardHeader className="pb-2">
+                                  <CardTitle className="text-lg">{item.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                  <Paragraph className="text-sm">{item.description}</Paragraph>
+                                </CardContent>
+                              </Card>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   ) : null}
 
                   {/* Fazit am Ende */}
@@ -582,6 +648,12 @@ export default function BlogPage({
                           className="block hover:bg-accent/5 p-2 rounded transition-colors text-sm"
                         >
                           Streugut-Vergleich für den Winterdienst
+                        </Link>
+                        <Link 
+                          href="/blog/StreumittelCalculator" 
+                          className="block hover:bg-accent/5 p-2 rounded transition-colors text-sm font-medium text-primary"
+                        >
+                          Streumittel-Rechner (NEU)
                         </Link>
                         <Link 
                           href="/blog/security" 

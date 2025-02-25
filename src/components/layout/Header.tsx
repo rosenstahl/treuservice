@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/tooltip"
 import { Container } from "./Container"
 import { cn } from "@/lib/utils"
-import { getCurrentWeather, calculateIceRisk, getUserLocation } from "@/components/weather/brightsky"
+import { calculateIceRisk, getUserLocation } from "@/components/weather/brightsky"
 
 // Neu: Import des intelligenten Weather-Service
 import { 
@@ -29,8 +29,6 @@ import {
   loadApiStatus, 
   saveApiStatus 
 } from '@/components/weather/weather-service'
-
-import { Badge } from "@/components/ui/badge"
 
 interface Category {
   title: string
@@ -348,7 +346,7 @@ export function Header() {
   const nav = navigations[locale].navigation as Navigation
   
   // Füge Fallback-Daten hinzu, falls blog nicht vorhanden ist
-  const blogData = (navigations[locale] as any).blog || blogFallbackData
+  const blogData = (navigations[locale] as Record<string, unknown>).blog || blogFallbackData
   
   const currentPath = pathname.replace(/^\/[a-z]{2}/, "")
 

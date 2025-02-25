@@ -8,7 +8,8 @@ import { Separator } from "@/components/ui/separator"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import StreumittelRechnerBlog from './StreumittelCalculator'
 import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, Calculator } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export default function StreumittelCalculatorPage() {
   return (
@@ -24,9 +25,12 @@ export default function StreumittelCalculatorPage() {
           </div>
           
           <div className="max-w-4xl">
-            <H1 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4">
-              Streumittel-Rechner für Winterdienst
-            </H1>
+            <div className="mb-4 flex items-center gap-3">
+              <Calculator className="h-7 w-7 text-blue-600" />
+              <H1 className="text-3xl lg:text-4xl font-bold tracking-tight">
+                Streumittel-Rechner für Winterdienst
+              </H1>
+            </div>
             <H2 className="text-xl lg:text-2xl text-muted-foreground mb-3">
               Berechnen Sie den optimalen Streumittelbedarf für Ihre Flächen
             </H2>
@@ -138,9 +142,11 @@ export default function StreumittelCalculatorPage() {
                     <Paragraph className="text-sm mb-4">
                       Überlassen Sie den Winterdienst den Profis! Wir kümmern uns um die rechtssichere und umweltfreundliche Räumung Ihrer Flächen - mit optimal dosierten Streumitteln und fachgerechter Ausführung.
                     </Paragraph>
-                    <Link href="/winterdienst" className="text-primary font-medium hover:underline text-sm">
-                      Winterdienst-Angebot anfragen →
-                    </Link>
+                    <Button className="w-full" asChild>
+                      <Link href="/winterdienst">
+                        Winterdienst-Angebot anfragen
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
               </div>

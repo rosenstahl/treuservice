@@ -681,7 +681,7 @@ export default function StreumittelRechnerBlog() {
                 <div>
                   <Label>Temperatur</Label>
                   <div className="flex items-center mt-2">
-                    <Thermometer className="w-5 h-5 text-blue-500 mr-2" />
+                    <Thermometer className="w-5 h-5 text-primary" />
                     <Slider
                       value={[temperatur]}
                       min={-20}
@@ -731,7 +731,7 @@ export default function StreumittelRechnerBlog() {
             <div className="mb-4">
               {ergebnisse.hinweise.map((hinweis, index) => (
                 <div key={index} className="bg-blue-50 border border-blue-200 p-3 rounded-md flex items-start mb-2">
-                  <BadgeInfo className="h-5 w-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
+                  <BadgeInfo className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-blue-800">{hinweis}</span>
                 </div>
               ))}
@@ -835,7 +835,7 @@ export default function StreumittelRechnerBlog() {
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <div className="flex items-center text-sm text-slate-600 cursor-help">
-                            <CloudSnow className="h-4 w-4 mr-1" /> Temperatureinsatzbereich
+                            <CloudSnow className="h-4 w-4 mr-1 text-primary" /> Temperatureinsatzbereich
                             <BadgeInfo className="h-3 w-3 ml-1 text-slate-400" />
                           </div>
                         </TooltipTrigger>

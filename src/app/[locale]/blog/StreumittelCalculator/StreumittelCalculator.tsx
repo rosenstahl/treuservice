@@ -17,9 +17,17 @@ import {
   SquareSlash,
   Leaf,
   Euro,
-  RefreshCcw
+  RefreshCcw,
+  CloudSnow,
+  BadgeInfo
 } from "lucide-react";
 import { H3, Paragraph } from "@/components/ui/typography";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 // Streumitteltypen definieren
 type Streumittel = {
@@ -34,6 +42,8 @@ type Streumittel = {
     stark: number;
   };
   mischungsverhältnis?: string;
+  info?: string;
+  nachhaltig?: boolean;
 };
 
 type StreumittelKategorie = Record<string, Streumittel>;
@@ -44,12 +54,13 @@ const STREUMITTEL_PREISE: {
   salz: StreumittelKategorie;
   abstumpfend: StreumittelKategorie;
   mischungen: StreumittelKategorie;
+  nachhaltig: StreumittelKategorie;
 } = {
   // Streusalz
   salz: {
     "natriumchlorid": {
       name: "Natriumchlorid (Standard)",
-      preis: 0.45, // €/kg
+      preis: 0.48, // €/kg (2025 aktualisiert)
       umweltauswirkung: 8, // 1-10, hoher Wert = schlechter für die Umwelt
       tauwirkung: 7, // 1-10, hoher Wert = bessere Tauwirkung
       wirkungsbereich: -12, // Wirksam bis ca. -12°C
@@ -57,11 +68,12 @@ const STREUMITTEL_PREISE: {
         leicht: 15, // g/m²
         mittel: 25, // g/m²
         stark: 40 // g/m²
-      }
+      },
+      info: "In vielen Kommunen verboten oder stark eingeschränkt."
     },
     "calciumchlorid": {
       name: "Calciumchlorid (Premium)",
-      preis: 0.95, // €/kg
+      preis: 0.98, // €/kg (2025 aktualisiert)
       umweltauswirkung: 7,
       tauwirkung: 9,
       wirkungsbereich: -25, // Wirksam bis ca. -25°C
@@ -69,11 +81,12 @@ const STREUMITTEL_PREISE: {
         leicht: 12, // g/m²
         mittel: 20, // g/m²
         stark: 35 // g/m²
-      }
+      },
+      info: "Effektiv bei sehr niedrigen Temperaturen, aber umweltbelastend."
     },
     "magnesiumchlorid": {
       name: "Magnesiumchlorid",
-      preis: 0.75, // €/kg
+      preis: 0.85, // €/kg (2025 aktualisiert)
       umweltauswirkung: 7.5,
       tauwirkung: 8,
       wirkungsbereich: -15, // Wirksam bis ca. -15°C
@@ -81,7 +94,8 @@ const STREUMITTEL_PREISE: {
         leicht: 14, // g/m²
         mittel: 22, // g/m²
         stark: 38 // g/m²
-      }
+      },
+      info: "Mittlere Wirksamkeit, schont Beton besser als Natriumchlorid."
     }
   },
   
@@ -89,7 +103,7 @@ const STREUMITTEL_PREISE: {
   abstumpfend: {
     "splitt": {
       name: "Splitt/Kies",
-      preis: 0.25, // €/kg
+      preis: 0.28, // €/kg (2025 aktualisiert)
       umweltauswirkung: 3,
       tauwirkung: 1, // Keine Tauwirkung, nur für Trittsicherheit
       wirkungsbereich: -100, // Funktioniert bei jeder Temperatur
@@ -97,11 +111,12 @@ const STREUMITTEL_PREISE: {
         leicht: 100, // g/m²
         mittel: 150, // g/m²
         stark: 200 // g/m²
-      }
+      },
+      info: "Muss nach dem Winter aufgekehrt werden. Kann Schäden an Bodenbelägen verursachen."
     },
     "sand": {
       name: "Sand",
-      preis: 0.15, // €/kg
+      preis: 0.18, // €/kg (2025 aktualisiert)
       umweltauswirkung: 2,
       tauwirkung: 0, // Keine Tauwirkung, nur für Trittsicherheit
       wirkungsbereich: -100, // Funktioniert bei jeder Temperatur
@@ -109,11 +124,12 @@ const STREUMITTEL_PREISE: {
         leicht: 120, // g/m²
         mittel: 180, // g/m²
         stark: 250 // g/m²
-      }
+      },
+      info: "Kostengünstig und umweltfreundlich, aber höherer Verbrauch."
     },
     "sägespäne": {
       name: "Sägespäne",
-      preis: 0.12, // €/kg
+      preis: 0.14, // €/kg (2025 aktualisiert)
       umweltauswirkung: 1,
       tauwirkung: 0,
       wirkungsbereich: -100, // Funktioniert bei jeder Temperatur
@@ -121,7 +137,8 @@ const STREUMITTEL_PREISE: {
         leicht: 80, // g/m²
         mittel: 120, // g/m²
         stark: 160 // g/m²
-      }
+      },
+      info: "Vollständig biologisch abbaubar, aber begrenzte Wirkungsdauer."
     }
   },
   
@@ -129,7 +146,7 @@ const STREUMITTEL_PREISE: {
   mischungen: {
     "salz_sand": {
       name: "Salz-Sand-Gemisch",
-      preis: 0.30, // €/kg
+      preis: 0.33, // €/kg (2025 aktualisiert)
       umweltauswirkung: 5,
       tauwirkung: 5,
       wirkungsbereich: -10, // Wirksam bis ca. -10°C
@@ -138,11 +155,12 @@ const STREUMITTEL_PREISE: {
         mittel: 90, // g/m²
         stark: 120 // g/m²
       },
-      mischungsverhältnis: "1:3 (Salz:Sand)"
+      mischungsverhältnis: "1:3 (Salz:Sand)",
+      info: "Kompromisslösung zwischen Tauwirkung und Umweltbelastung."
     },
     "umweltfreundlich": {
       name: "Umweltschonendes Granulat",
-      preis: 0.80, // €/kg
+      preis: 0.95, // €/kg (2025 aktualisiert)
       umweltauswirkung: 2,
       tauwirkung: 4,
       wirkungsbereich: -7, // Wirksam bis ca. -7°C
@@ -150,7 +168,55 @@ const STREUMITTEL_PREISE: {
         leicht: 40, // g/m²
         mittel: 70, // g/m²
         stark: 100 // g/m²
-      }
+      },
+      info: "Oft auf Calcium-Magnesium-Acetat-Basis, weniger schädlich für Pflanzen.",
+      nachhaltig: true
+    }
+  },
+  
+  // Neue Kategorie: Nachhaltige Alternativen
+  nachhaltig: {
+    "lavagranulat": {
+      name: "Lavagranulat",
+      preis: 1.25, // €/kg
+      umweltauswirkung: 1,
+      tauwirkung: 1,
+      wirkungsbereich: -100,
+      dosierung: {
+        leicht: 70, // g/m²
+        mittel: 120, // g/m²
+        stark: 180 // g/m²
+      },
+      info: "Natürliches Vulkangestein, nimmt Schmelzwasser auf, wiederverwendbar.",
+      nachhaltig: true
+    },
+    "formiat": {
+      name: "Formiat-Lösung",
+      preis: 2.35, // €/kg
+      umweltauswirkung: 1,
+      tauwirkung: 7,
+      wirkungsbereich: -20,
+      dosierung: {
+        leicht: 20, // g/m²
+        mittel: 35, // g/m²
+        stark: 50 // g/m²
+      },
+      info: "Biologisch abbaubar, chloridfrei, keine Rückstände, sehr umweltfreundlich.",
+      nachhaltig: true
+    },
+    "holzspäne_salz": {
+      name: "Holzspäne mit Salzlösung",
+      preis: 0.75, // €/kg
+      umweltauswirkung: 3,
+      tauwirkung: 4,
+      wirkungsbereich: -10,
+      dosierung: {
+        leicht: 50, // g/m²
+        mittel: 90, // g/m²
+        stark: 130 // g/m²
+      },
+      info: "Kombiniert abstumpfende Wirkung mit leichter Tauwirkung, biologisch abbaubar.",
+      nachhaltig: true
     }
   }
 };
@@ -193,6 +259,7 @@ export default function StreumittelRechnerBlog() {
   const [flaechenTyp, setFlaechenTyp] = useState<"preset" | "manuell">("preset");
   const [eisstaerke, setEisstaerke] = useState<"leicht" | "mittel" | "stark">("mittel");
   const [temperatur, setTemperatur] = useState(-3);
+  const [nurNachhaltig, setNurNachhaltig] = useState(false);
   
   // Zustand für die Ergebnisse
   const [ergebnisse, setErgebnisse] = useState({
@@ -200,26 +267,51 @@ export default function StreumittelRechnerBlog() {
     kosten: 0,
     umweltauswirkung: 0,
     wirksamkeit: 0,
-    warnungen: [] as string[]
+    warnungen: [] as string[],
+    hinweise: [] as string[]
   });
   
   // Streumitteloptionen für den aktuellen Tab
   const getAktuelleStreumittelOptionen = (): StreumittelKategorie => {
+    let optionen: StreumittelKategorie = {};
+    
     if (activeTab === "salz") {
-      return STREUMITTEL_PREISE.salz;
+      optionen = STREUMITTEL_PREISE.salz;
     } else if (activeTab === "abstumpfend") {
-      return STREUMITTEL_PREISE.abstumpfend;
-    } else {
-      return STREUMITTEL_PREISE.mischungen;
+      optionen = STREUMITTEL_PREISE.abstumpfend;
+    } else if (activeTab === "mischungen") {
+      optionen = STREUMITTEL_PREISE.mischungen;
+    } else if (activeTab === "nachhaltig") {
+      optionen = STREUMITTEL_PREISE.nachhaltig;
     }
+    
+    // Filter für nachhaltige Optionen
+    if (nurNachhaltig && activeTab !== "nachhaltig") {
+      const gefiltert: StreumittelKategorie = {};
+      Object.entries(optionen).forEach(([key, mittel]) => {
+        if (mittel.nachhaltig) {
+          gefiltert[key] = mittel;
+        }
+      });
+      return gefiltert;
+    }
+    
+    return optionen;
   };
   
   // Setzen eines Standard-Streumittels beim Tab-Wechsel
   useEffect(() => {
     const optionen = getAktuelleStreumittelOptionen();
-    // Wählt den ersten Schlüssel aus dem Objekt
-    setSelectedStreumittel(Object.keys(optionen)[0]);
-  }, [activeTab, getAktuelleStreumittelOptionen]);
+    const keys = Object.keys(optionen);
+    
+    if (keys.length > 0) {
+      // Wählt den ersten Schlüssel aus dem Objekt
+      setSelectedStreumittel(keys[0]);
+    } else if (nurNachhaltig) {
+      // Wenn keine nachhaltigen Optionen in diesem Tab, wechsle zu "nachhaltig" Tab
+      setActiveTab("nachhaltig");
+    }
+  }, [activeTab, nurNachhaltig]);
   
   // Berechnung der Streumittel-Menge
   useEffect(() => {
@@ -235,6 +327,8 @@ export default function StreumittelRechnerBlog() {
       const streumittelOptionen = getAktuelleStreumittelOptionen();
       const streumittel = streumittelOptionen[selectedStreumittel as keyof typeof streumittelOptionen];
       
+      if (!streumittel) return; // Falls kein Streumittel ausgewählt
+      
       // Dosierung basierend auf Eis-Stärke
       const dosierung = streumittel.dosierung[eisstaerke]; // g/m²
       
@@ -246,9 +340,10 @@ export default function StreumittelRechnerBlog() {
       
       // Prüfen auf Warnhinweise
       const warnungen = [];
+      const hinweise = [];
       
       // Warnung 1: Temperatur zu niedrig für Tausalz
-      if (activeTab === "salz" && temperatur < streumittel.wirkungsbereich) {
+      if ((activeTab === "salz" || activeTab === "mischungen") && temperatur < streumittel.wirkungsbereich) {
         warnungen.push(`${streumittel.name} ist bei ${temperatur}°C nicht mehr effektiv (Wirkungsgrenze: ${streumittel.wirkungsbereich}°C). Bitte verwenden Sie Alternativen.`);
       }
       
@@ -257,13 +352,24 @@ export default function StreumittelRechnerBlog() {
         warnungen.push("Vorsicht in Umweltschutzzonen! Die Verwendung dieses Tausalzes kann in bestimmten Gebieten (z.B. in der Nähe von Bäumen, Gewässern oder in Naturschutzgebieten) eingeschränkt oder verboten sein.");
       }
       
+      // Warnung 3: Gesetzliche Regelungen
+      if (activeTab === "salz") {
+        warnungen.push("In vielen deutschen Kommunen ist die private Verwendung von Streusalz verboten oder stark eingeschränkt. Bitte informieren Sie sich über lokale Vorschriften.");
+      }
+      
+      // Hinweis hinzufügen, wenn vorhanden
+      if (streumittel.info) {
+        hinweise.push(streumittel.info);
+      }
+      
       // Setze die berechneten Ergebnisse
       setErgebnisse({
         menge: parseFloat(menge.toFixed(2)),
         kosten: parseFloat(kosten.toFixed(2)),
         umweltauswirkung: streumittel.umweltauswirkung,
         wirksamkeit: streumittel.tauwirkung,
-        warnungen
+        warnungen,
+        hinweise
       });
     };
     
@@ -275,8 +381,7 @@ export default function StreumittelRechnerBlog() {
     selectedFlaechenTyp, 
     manuelleFlaeche, 
     eisstaerke,
-    temperatur,
-    getAktuelleStreumittelOptionen
+    temperatur
   ]);
   
   // Formatieren der Umweltauswirkung
@@ -293,8 +398,21 @@ export default function StreumittelRechnerBlog() {
     return { label: "Stark", color: "text-green-600" };
   };
   
+  // Prüfen, ob es nachhaltige Optionen in aktueller Kategorie gibt
+  const hatNachhaltigeOptionen = () => {
+    if (activeTab === "nachhaltig") return true;
+    
+    const optionen = activeTab === "salz" 
+      ? STREUMITTEL_PREISE.salz 
+      : activeTab === "abstumpfend" 
+        ? STREUMITTEL_PREISE.abstumpfend 
+        : STREUMITTEL_PREISE.mischungen;
+    
+    return Object.values(optionen).some(mittel => mittel.nachhaltig);
+  };
+  
   return (
-    <div className="max-w-4xl mx-auto my-8">
+    <div className="mx-auto">
       <Card className="bg-white shadow-lg">
         <CardHeader className="border-b">
           <div className="flex items-center gap-2">
@@ -309,16 +427,56 @@ export default function StreumittelRechnerBlog() {
         <CardContent className="pt-6">
           {/* Streumittelauswahl */}
           <div className="space-y-4 mb-6">
-            <H3 className="text-lg font-semibold flex items-center gap-2">
-              <SquareSlash className="h-5 w-5 text-primary" />
-              Streumitteltyp
-            </H3>
+            <div className="flex justify-between items-center">
+              <H3 className="text-lg font-semibold flex items-center gap-2">
+                <SquareSlash className="h-5 w-5 text-primary" />
+                Streumitteltyp
+              </H3>
+              
+              {/* Nachhaltigkeits-Schalter */}
+              <div className="flex items-center gap-2">
+                <label className="text-sm flex items-center gap-1 cursor-pointer">
+                  <Leaf className="h-4 w-4 text-green-600" />
+                  <span className="text-green-700">Nur nachhaltige Optionen</span>
+                  <input
+                    type="checkbox"
+                    checked={nurNachhaltig}
+                    onChange={(e) => setNurNachhaltig(e.target.checked)}
+                    className="ml-1 cursor-pointer"
+                  />
+                </label>
+              </div>
+            </div>
             
             <Tabs defaultValue={activeTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="abstumpfend" onClick={() => setActiveTab("abstumpfend")}>Abstumpfende Mittel</TabsTrigger>
-                <TabsTrigger value="salz" onClick={() => setActiveTab("salz")}>Tausalze</TabsTrigger>
-                <TabsTrigger value="mischungen" onClick={() => setActiveTab("mischungen")}>Mischungen</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-4">
+                <TabsTrigger 
+                  value="abstumpfend" 
+                  onClick={() => setActiveTab("abstumpfend")}
+                  disabled={nurNachhaltig && !hatNachhaltigeOptionen()}
+                >
+                  Abstumpfend
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="salz" 
+                  onClick={() => setActiveTab("salz")}
+                  disabled={nurNachhaltig && !hatNachhaltigeOptionen()}
+                >
+                  Tausalze
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="mischungen" 
+                  onClick={() => setActiveTab("mischungen")}
+                  disabled={nurNachhaltig && !hatNachhaltigeOptionen()}
+                >
+                  Mischungen
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="nachhaltig" 
+                  onClick={() => setActiveTab("nachhaltig")}
+                >
+                  Nachhaltig
+                </TabsTrigger>
               </TabsList>
               
               <TabsContent value="abstumpfend" className="pt-4">
@@ -328,17 +486,25 @@ export default function StreumittelRechnerBlog() {
                   </Paragraph>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
-                    {Object.entries(STREUMITTEL_PREISE.abstumpfend).map(([key, mittel]) => (
+                    {Object.entries(nurNachhaltig 
+                      ? Object.fromEntries(Object.entries(STREUMITTEL_PREISE.abstumpfend).filter(([_, mittel]) => mittel.nachhaltig))
+                      : STREUMITTEL_PREISE.abstumpfend
+                    ).map(([key, mittel]) => (
                       <div 
                         key={key}
                         onClick={() => setSelectedStreumittel(key)}
-                        className={`p-3 border rounded-md cursor-pointer transition-colors
+                        className={`p-3 border rounded-md cursor-pointer transition-colors relative
                           ${selectedStreumittel === key ? 'border-primary bg-primary/5' : 'hover:bg-slate-50'}`}
                       >
                         <div className="font-medium">{mittel.name}</div>
                         <div className="text-sm text-muted-foreground">
                           {mittel.preis.toFixed(2)}€/kg
                         </div>
+                        {mittel.nachhaltig && (
+                          <span className="absolute top-2 right-2 text-green-600">
+                            <Leaf className="h-4 w-4" />
+                          </span>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -352,17 +518,25 @@ export default function StreumittelRechnerBlog() {
                   </Paragraph>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
-                    {Object.entries(STREUMITTEL_PREISE.salz).map(([key, mittel]) => (
+                    {Object.entries(nurNachhaltig 
+                      ? Object.fromEntries(Object.entries(STREUMITTEL_PREISE.salz).filter(([_, mittel]) => mittel.nachhaltig))
+                      : STREUMITTEL_PREISE.salz
+                    ).map(([key, mittel]) => (
                       <div 
                         key={key}
                         onClick={() => setSelectedStreumittel(key)}
-                        className={`p-3 border rounded-md cursor-pointer transition-colors
+                        className={`p-3 border rounded-md cursor-pointer transition-colors relative
                           ${selectedStreumittel === key ? 'border-primary bg-primary/5' : 'hover:bg-slate-50'}`}
                       >
                         <div className="font-medium">{mittel.name}</div>
                         <div className="text-sm text-muted-foreground">
                           {mittel.preis.toFixed(2)}€/kg • Bis {mittel.wirkungsbereich}°C
                         </div>
+                        {mittel.nachhaltig && (
+                          <span className="absolute top-2 right-2 text-green-600">
+                            <Leaf className="h-4 w-4" />
+                          </span>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -376,11 +550,14 @@ export default function StreumittelRechnerBlog() {
                   </Paragraph>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-                    {Object.entries(STREUMITTEL_PREISE.mischungen).map(([key, mittel]) => (
+                    {Object.entries(nurNachhaltig 
+                      ? Object.fromEntries(Object.entries(STREUMITTEL_PREISE.mischungen).filter(([_, mittel]) => mittel.nachhaltig))
+                      : STREUMITTEL_PREISE.mischungen
+                    ).map(([key, mittel]) => (
                       <div 
                         key={key}
                         onClick={() => setSelectedStreumittel(key)}
-                        className={`p-3 border rounded-md cursor-pointer transition-colors
+                        className={`p-3 border rounded-md cursor-pointer transition-colors relative
                           ${selectedStreumittel === key ? 'border-primary bg-primary/5' : 'hover:bg-slate-50'}`}
                       >
                         <div className="font-medium">{mittel.name}</div>
@@ -392,6 +569,38 @@ export default function StreumittelRechnerBlog() {
                             {mittel.mischungsverhältnis}
                           </div>
                         )}
+                        {mittel.nachhaltig && (
+                          <span className="absolute top-2 right-2 text-green-600">
+                            <Leaf className="h-4 w-4" />
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="nachhaltig" className="pt-4">
+                <div className="space-y-2">
+                  <Paragraph className="text-sm text-muted-foreground">
+                    Nachhaltige Streumittel bieten eine umweltfreundliche Alternative mit minimalen Auswirkungen auf Boden, Pflanzen und Infrastruktur.
+                  </Paragraph>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+                    {Object.entries(STREUMITTEL_PREISE.nachhaltig).map(([key, mittel]) => (
+                      <div 
+                        key={key}
+                        onClick={() => setSelectedStreumittel(key)}
+                        className={`p-3 border rounded-md cursor-pointer transition-colors relative
+                          ${selectedStreumittel === key ? 'border-primary bg-primary/5' : 'hover:bg-slate-50'}`}
+                      >
+                        <div className="font-medium">{mittel.name}</div>
+                        <div className="text-sm text-muted-foreground">
+                          {mittel.preis.toFixed(2)}€/kg • {mittel.tauwirkung > 2 ? `Bis ${mittel.wirkungsbereich}°C` : 'Nur abstumpfend'}
+                        </div>
+                        <span className="absolute top-2 right-2 text-green-600">
+                          <Leaf className="h-4 w-4" />
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -517,6 +726,18 @@ export default function StreumittelRechnerBlog() {
           
           <Separator className="my-6" />
           
+          {/* Hinweise */}
+          {ergebnisse.hinweise.length > 0 && (
+            <div className="mb-4">
+              {ergebnisse.hinweise.map((hinweis, index) => (
+                <div key={index} className="bg-blue-50 border border-blue-200 p-3 rounded-md flex items-start mb-2">
+                  <BadgeInfo className="h-5 w-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-blue-800">{hinweis}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          
           {/* Warnhinweise */}
           {ergebnisse.warnungen.length > 0 && (
             <div className="mb-6">
@@ -607,6 +828,32 @@ export default function StreumittelRechnerBlog() {
                       </span>
                     </div>
                   </div>
+                  
+                  {/* Temperatureignung */}
+                  <div>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div className="flex items-center text-sm text-slate-600 cursor-help">
+                            <CloudSnow className="h-4 w-4 mr-1" /> Temperatureinsatzbereich
+                            <BadgeInfo className="h-3 w-3 ml-1 text-slate-400" />
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent side="top">
+                          <p className="text-xs max-w-xs">
+                            Zeigt den Temperaturbereich an, in dem das Streumittel effektiv wirkt. Abstumpfende Mittel wirken bei allen Temperaturen.
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                    
+                    <div className="mt-1 font-medium">
+                      {getAktuelleStreumittelOptionen()[selectedStreumittel]?.wirkungsbereich === -100 
+                        ? "Wirksam bei allen Temperaturen" 
+                        : `Wirksam bis ${getAktuelleStreumittelOptionen()[selectedStreumittel]?.wirkungsbereich}°C`
+                      }
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -617,7 +864,7 @@ export default function StreumittelRechnerBlog() {
           <div className="text-sm text-slate-600">
             <p>Alle Preise und Daten wurden im Februar 2025 aktualisiert. Die empfohlenen Dosierungen basieren auf professionellen Winterdienstanforderungen.</p>
           </div>
-          <Button onClick={() => window.print()} className="flex items-center gap-2">
+          <Button onClick={() => window.location.reload()} className="flex items-center gap-2">
             <RefreshCcw className="h-4 w-4" />
             <span>Neu berechnen</span>
           </Button>
@@ -634,13 +881,21 @@ export default function StreumittelRechnerBlog() {
             <li>Achten Sie auf lokale Verordnungen - in vielen Kommunen ist die Verwendung von Streusalz eingeschränkt oder verboten.</li>
             <li>In umweltsensiblen Bereichen (nahe Bäumen, Gewässern) sollten Sie auf abstumpfende Mittel zurückgreifen.</li>
             <li>Bei Temperaturen unter -10°C verliert Standardstreusalz stark an Wirksamkeit.</li>
+            <li>Für Gehwege und Zufahrten sind oft abstumpfende Mittel völlig ausreichend.</li>
           </ul>
         </div>
         
         <div>
           <H3 className="text-xl font-semibold mb-3">Umweltfreundlicher Winterdienst</H3>
           <Paragraph className="text-slate-700">
-            Streusalz belastet Böden, Grundwasser und Pflanzen. Wann immer möglich, nutzen Sie umweltfreundliche Alternativen wie Splitt, Sand oder spezielle umweltverträgliche Granulate. Diese bieten zwar keine Tauwirkung, sorgen aber für ausreichende Trittsicherheit. Ein verantwortungsvoller Umgang mit Streumitteln schont die Umwelt und erfüllt dennoch die gesetzliche Verkehrssicherungspflicht.
+            Streusalz belastet Böden, Grundwasser und Pflanzen. Wann immer möglich, nutzen Sie umweltfreundliche Alternativen wie Splitt, Sand, Lavagranulat oder spezielle umweltverträgliche Granulate. Diese bieten zwar keine oder nur geringe Tauwirkung, sorgen aber für ausreichende Trittsicherheit. Ein verantwortungsvoller Umgang mit Streumitteln schont die Umwelt und erfüllt dennoch die gesetzliche Verkehrssicherungspflicht.
+          </Paragraph>
+        </div>
+        
+        <div>
+          <H3 className="text-xl font-semibold mb-3">Gesetzliche Situation in Deutschland</H3>
+          <Paragraph className="text-slate-700">
+            Die Verwendung von Streusalz im privaten Bereich ist in vielen deutschen Kommunen verboten oder stark eingeschränkt. Erlaubt sind oft nur abstumpfende Mittel wie Sand, Splitt oder umweltfreundliche Alternativen. Ausnahmen gelten meist nur bei extremer Glätte wie Eisregen. Bei Nichteinhaltung drohen Bußgelder bis zu 10.000 Euro. Informieren Sie sich vor dem Einsatz von Streumitteln über die lokalen Vorschriften Ihrer Gemeinde.
           </Paragraph>
         </div>
       </div>

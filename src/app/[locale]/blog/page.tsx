@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from 'next/image'
-import { CalendarDays, Clock, ArrowRight, Search, Phone, Mail } from "lucide-react"
+import { CalendarDays, Clock, ArrowRight, Search, Phone, Mail, Calculator } from "lucide-react"
 import blogData from "@/i18n/de/blog.json"
 
 // Define a type for the valid categories
@@ -60,7 +60,9 @@ const articles = [
     slug: "StreumittelCalculator",
     image: "/images/blog/winter.jpg",
     date: "25.02.2025",
-    readingTime: "Interaktives Tool"
+    readingTime: "Interaktives Tool",
+    featured: true,
+    icon: <Calculator className="h-5 w-5 text-blue-600" />
   },
   {
     title: "Professionelle Reinigungstipps",
@@ -93,6 +95,17 @@ export default function BlogPage() {
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
       article.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
+  });
+
+  // Sortieren - Featured-Artikel zuerst
+  const sortedArticles = [...filteredArticles].sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    
+    // Sekundäres Sortierkriterium: Datum (neuestes zuerst)
+    const dateA = new Date(a.date.split('.').reverse().join('-'));
+    const dateB = new Date(b.date.split('.').reverse().join('-'));
+    return dateB.getTime() - dateA.getTime();
   });
 
   return (
@@ -152,7 +165,7 @@ export default function BlogPage() {
         {/* Ergebnismeldung */}
         <div className="mb-8 text-center">
           <p className="text-muted-foreground">
-            {filteredArticles.length} {filteredArticles.length === 1 ? "Artikel" : "Artikel"} gefunden
+            {sortedArticles.length} {sortedArticles.length === 1 ? "Artikel" : "Artikel"} gefunden
             {selectedCategory !== "Alle" && ` in der Kategorie "${selectedCategory}"`}
             {searchQuery && ` mit dem Suchbegriff "${searchQuery}"`}
           </p>
@@ -160,10 +173,10 @@ export default function BlogPage() {
 
         {/* Blog-Kartengitter */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredArticles.map((article) => (
+          {sortedArticles.map((article) => (
             <Card 
               key={article.slug} 
-              className="overflow-hidden shadow-md border-t-4 border-t-primary flex flex-col h-full"
+              className={`overflow-hidden shadow-md border-t-4 border-t-primary flex flex-col h-full ${article.featured ? 'ring-2 ring-offset-2 ring-primary/20' : ''}`}
             >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <Image 
@@ -177,6 +190,12 @@ export default function BlogPage() {
                 >
                   {article.category}
                 </div>
+                {article.featured && (
+                  <div className="absolute top-4 left-4 bg-white px-2 py-1 rounded-full text-xs font-semibold border shadow-sm flex items-center gap-1">
+                    {article.icon}
+                    <span>NEU</span>
+                  </div>
+                )}
               </div>
               <CardHeader>
                 <CardTitle className="text-xl font-bold">
@@ -202,7 +221,7 @@ export default function BlogPage() {
                 <div className="w-full flex flex-col gap-2">
                   <Link href={`/blog/${article.slug}`} className="w-full">
                     <Button className="w-full group hover:bg-primary">
-                      Artikel lesen
+                      {article.slug === "StreumittelCalculator" ? "Zum Rechner" : "Artikel lesen"}
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
@@ -236,7 +255,7 @@ export default function BlogPage() {
         </div>
         
         {/* "Keine Artikel gefunden" Meldung */}
-        {filteredArticles.length === 0 && (
+        {sortedArticles.length === 0 && (
           <div className="text-center py-12">
             <div className="text-5xl mb-4">🔍</div>
             <h3 className="text-xl font-bold mb-2">Keine Artikel gefunden</h3>

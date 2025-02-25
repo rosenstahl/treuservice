@@ -4,7 +4,7 @@ import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams, usePathname } from "next/navigation"
-import { Globe, Cloud, CloudSnow, Sun, CloudRain, AlertTriangle } from "lucide-react"
+import { Globe, Cloud, CloudSnow, Sun, CloudRain, AlertTriangle, Calculator } from "lucide-react"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -22,6 +22,7 @@ import {
 import { Container } from "./Container"
 import { cn } from "@/lib/utils"
 import { getCurrentWeather, calculateIceRisk } from "@/components/weather/brightsky"
+import { Badge } from "@/components/ui/badge"
 
 interface Category {
   title: string
@@ -357,15 +358,47 @@ export function Header() {
                 
                 {/* Winterdienst */}
                 <NavigationMenuItem>
-                  <Link 
-                    href={nav.services.winterdienst.href}
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "px-3 hover:bg-slate-100"
-                    )}
-                  >
-                    {nav.services.winterdienst.title}
+                  <Link href={nav.services.winterdienst.href}>
+                    <NavigationMenuTrigger className="px-3 hover:bg-slate-100">
+                      {nav.services.winterdienst.title}
+                    </NavigationMenuTrigger>
                   </Link>
+                  <NavigationMenuContent>
+                    <div className="w-[400px] p-4 bg-white">
+                      <div className="grid gap-3">
+                        <Link 
+                          href={nav.services.winterdienst.href}
+                          className="p-2 rounded-md hover:bg-slate-100 transition-colors"
+                        >
+                          <span className="text-sm font-medium">Winterdienst-Services</span>
+                        </Link>
+                        <Link 
+                          href={`/${locale}/blog/winterdienst`}
+                          className="p-2 rounded-md hover:bg-slate-100 transition-colors"
+                        >
+                          <span className="text-sm">DIY-Winterdienst Tipps</span>
+                        </Link>
+                        <Link 
+                          href={`/${locale}/blog/streumittel`}
+                          className="p-2 rounded-md hover:bg-slate-100 transition-colors"
+                        >
+                          <span className="text-sm">Streugut-Vergleich</span>
+                        </Link>
+                        <Link 
+                          href={`/${locale}/blog/StreumittelCalculator`}
+                          className="p-2 rounded-md hover:bg-blue-50 transition-colors flex items-center justify-between"
+                        >
+                          <span className="text-sm font-medium flex items-center gap-1">
+                            <Calculator className="h-4 w-4 text-primary" /> 
+                            Streumittel-Rechner
+                          </span>
+                          <Badge variant="outline" className="text-[10px] bg-primary text-white border-primary">
+                            NEU
+                          </Badge>
+                        </Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 {/* Entrümpelung */}
@@ -417,6 +450,19 @@ export function Header() {
                             {category.title}
                           </Link>
                         ))}
+                        {/* Neuer hervorgehobener Eintrag für den Streumittel-Rechner */}
+                        <Link
+                          href={`/${locale}/blog/StreumittelCalculator`}
+                          className="block p-2 text-sm hover:bg-blue-50 rounded-md transition-colors mt-1 bg-blue-50/50 font-medium flex items-center justify-between"
+                        >
+                          <span className="flex items-center gap-1">
+                            <Calculator className="h-4 w-4 text-primary" /> 
+                            Streumittel-Rechner
+                          </span>
+                          <Badge variant="outline" className="text-[10px] bg-primary text-white border-primary">
+                            NEU
+                          </Badge>
+                        </Link>
                         {blogData.reinigung.categories.map((category: Category) => (
                           <Link
                             key={category.slug}

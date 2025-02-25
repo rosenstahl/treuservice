@@ -30,6 +30,13 @@ import {
   getUserLocation
 } from '@/components/weather/brightsky';
 
+// Neu: Import des intelligenten Wetter-Services
+import { 
+  getWeatherData as getIntelligentWeatherData, 
+  loadApiStatus, 
+  saveApiStatus 
+} from '@/components/weather/weather-service';
+
 // Warnungs-Level-Typen
 type AlertLevel = 'green' | 'yellow' | 'red';
 
@@ -179,8 +186,14 @@ export const WeatherWidget = () => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [cityName, setCityName] = useState<string>(''); // Neu: Stadtname für Anzeige
   
-  // API-Aufrufe
+  // Beim ersten Laden den API-Status laden
+  useEffect(() => {
+    loadApiStatus();
+  }, []);
+  
+  // API-Aufrufe mit dem verbesserten intelligenten Wetter-Service
   const fetchWeatherData = async (location: string, coords?: {lat: number, lon: number}) => {
     setIsLoading(true);
     setError(null);
@@ -202,6 +215,7 @@ export const WeatherWidget = () => {
             // Ortsname aktualisieren, wenn die API einen liefert
             if (geocodeResult.display_name) {
               location = geocodeResult.display_name;
+              setCityName(geocodeResult.display_name);
             }
             
             console.log("Koordinaten gefunden:", useCoords);
@@ -224,7 +238,14 @@ export const WeatherWidget = () => {
       
       console.log("Wetterdaten werden abgerufen für:", location, "mit Koordinaten:", useCoords);
       
-      // API-Aufrufe parallel ausführen
+      // NEU: Verwende den intelligenten Wetter-Service
+      const data = await getIntelligentWeatherData(useCoords.lat, useCoords.lon);
+      
+      // Daten speichern, nachdem wir sie erfolgreich abgerufen haben
+      saveApiStatus();
+      
+      // API-Aufrufe parallel ausführen (behalten wir bei, da der intelligente Service
+      // aktuell noch die gleichen Datenstrukturen zurückgibt)
       const [currentWeatherResponse, forecastResponse] = await Promise.all([
         getCurrentWeather(useCoords),
         getWeatherForecast(useCoords)
@@ -326,10 +347,10 @@ export const WeatherWidget = () => {
       
       console.log("Standort erkannt:", position.lat, position.lon);
       
-      // Reverse-Geocoding, um Ortsnamen zu erhalten
+      // Neu: Erweitertes Reverse-Geocoding, um Ortsnamen zu erhalten
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/geo/1.0/reverse?lat=${position.lat}&lon=${position.lon}&limit=1&appid=ea00e7bbae2b76f651d9385be422088b`
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.lat}&lon=${position.lon}&zoom=10&accept-language=de`
         );
         
         if (!response.ok) {
@@ -339,13 +360,19 @@ export const WeatherWidget = () => {
         const data = await response.json();
         let locationName = "Ihr Standort";
         
-        if (Array.isArray(data) && data.length > 0) {
-          locationName = data[0].name;
-          if (data[0].state) locationName += `, ${data[0].state}`;
+        if (data && data.address) {
+          const address = data.address;
+          locationName = address.city || 
+                         address.town || 
+                         address.village || 
+                         address.suburb ||
+                         address.county ||
+                         "Ihr Standort";
         }
         
         console.log("Ermittelter Ort:", locationName);
         setSearchLocation(locationName);
+        setCityName(locationName);
         
         // Wetterdaten für diesen Standort abrufen
         fetchWeatherData(locationName, { lat: position.lat, lon: position.lon });
@@ -353,6 +380,7 @@ export const WeatherWidget = () => {
         console.error('Fehler beim Reverse-Geocoding:', error);
         // Trotzdem mit Koordinaten fortfahren
         setSearchLocation("Ihr Standort");
+        setCityName("Ihr Standort");
         fetchWeatherData("Ihr Standort", { lat: position.lat, lon: position.lon });
       }
     } catch (error) {
@@ -427,6 +455,11 @@ export const WeatherWidget = () => {
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
         </div>
       )}
+      
+      {/* Wettervorhersage für... Box (neu) */}
+      <div className="text-center mb-2 text-sm text-gray-600">
+        {cityName ? `Wettervorhersage für ${cityName}` : isLoading ? "Standort wird ermittelt..." : "Wettervorhersage"}
+      </div>
       
       {/* Wetterdaten anzeigen wenn verfügbar */}
       {!isLoading && weather && (

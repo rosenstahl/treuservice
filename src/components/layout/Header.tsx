@@ -386,15 +386,12 @@ export function Header() {
                         </Link>
                         <Link 
                           href={`/${locale}/blog/StreumittelCalculator`}
-                          className="p-2 rounded-md hover:bg-blue-50 transition-colors flex items-center justify-between"
+                          className="p-2 rounded-md hover:bg-blue-50 transition-colors flex items-center"
                         >
                           <span className="text-sm font-medium flex items-center gap-1">
                             <Calculator className="h-4 w-4 text-primary" /> 
                             Streumittel-Rechner
                           </span>
-                          <Badge variant="outline" className="text-[10px] bg-primary text-white border-primary">
-                            NEU
-                          </Badge>
                         </Link>
                       </div>
                     </div>
@@ -450,18 +447,15 @@ export function Header() {
                             {category.title}
                           </Link>
                         ))}
-                        {/* Neuer hervorgehobener Eintrag für den Streumittel-Rechner */}
+                        {/* Streumittel-Rechner Eintrag */}
                         <Link
                           href={`/${locale}/blog/StreumittelCalculator`}
-                          className="block p-2 text-sm hover:bg-blue-50 rounded-md transition-colors mt-1 bg-blue-50/50 font-medium flex items-center justify-between"
+                          className="block p-2 text-sm hover:bg-blue-50 rounded-md transition-colors mt-1 bg-blue-50/50 font-medium flex items-center"
                         >
                           <span className="flex items-center gap-1">
                             <Calculator className="h-4 w-4 text-primary" /> 
                             Streumittel-Rechner
                           </span>
-                          <Badge variant="outline" className="text-[10px] bg-primary text-white border-primary">
-                            NEU
-                          </Badge>
                         </Link>
                         {blogData.reinigung.categories.map((category: Category) => (
                           <Link

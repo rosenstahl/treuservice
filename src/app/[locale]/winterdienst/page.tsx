@@ -1,494 +1,626 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
+import { Grid } from "@/components/layout/Grid"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button"
 import { H1, H2, H3, Paragraph } from "@/components/ui/typography"
-import { Separator } from "@/components/ui/separator"
-import ColourfulText from "@/components/ui/colourful-text"
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
-import ContactButton from '@/components/ui/contact-button';
-import { useSearchParams } from 'next/navigation'
-
-import { InView } from "@/components/ui/in-view"
-import { cn } from "@/lib/utils"
-
+import { cn } from '@/lib/utils'
+import { 
+  Star, 
+  ChevronRight, 
+  Info, 
+  CheckCircle2, 
+  PhoneCall, 
+  CloudSnow, 
+  Snowflake, 
+  Timer, 
+  Calendar, 
+  Truck, 
+  Calculator 
+} from 'lucide-react'
+import { WeatherDetails } from '@/components/weather/WeatherDetails';
+import { ServiceCard } from '@/components/ui/service-card'
+import AppleCardsCarousel from '@/components/ui/apple-cards-carousel'
+import AnimatedTestimonials from '@/components/ui/animated-testimonials'
+import { HeroParallax } from '@/components/ui/hero-parallax'
+import { FeaturesGrid } from '@/components/ui/features-section-demo-3'
 import Image from "next/image"
-import winterserviceData from "@/i18n/de/winterservice.json"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import {
-  StarIcon,
-  LeafIcon,
-  Clock,
-  Zap,
-  Cog,
-  CheckCircle2,
-  ClipboardCheck,
-  Droplets,
-  XCircle,
-  Handshake,
-  Snowflake,
-  ThermometerSnowflake,
-  CalendarClock,
-  ShieldCheck
-} from "lucide-react"
+import Link from "next/link"
 
-// Neue Wetter-Komponenten importieren
-import { WeatherDetails } from '@/components/weather/WeatherDetails'
-import { WeatherWidget } from '@/components/weather/WeatherWidget'
-import { NotificationManager } from '@/components/weather/NotificationManager'
+const features = [
+  {
+    icon: <CloudSnow className="h-5 w-5 text-primary" />,
+    title: "Schneeräumung",
+    description: "Professionelles Räumen von Schnee und Eis für sichere Wege und Flächen."
+  },
+  {
+    icon: <Snowflake className="h-5 w-5 text-primary" />,
+    title: "Streudienst",
+    description: "Umweltgerechtes Streuen bei Glätte mit optimalen Materialien für jede Situation."
+  },
+  {
+    icon: <Timer className="h-5 w-5 text-primary" />,
+    title: "24/7 Rufbereitschaft",
+    description: "Rund um die Uhr für Sie verfügbar - auch an Wochenenden und Feiertagen."
+  },
+  {
+    icon: <Calendar className="h-5 w-5 text-primary" />,
+    title: "Saisonverträge",
+    description: "Maßgeschneiderte Saisonverträge für planbare Kosten und sorgenfreie Wintermonate."
+  },
+  {
+    icon: <CheckCircle2 className="h-5 w-5 text-primary" />,
+    title: "Rechtssicherheit",
+    description: "Vollständige Übernahme der Verkehrssicherungspflicht und rechtliche Absicherung."
+  },
+  {
+    icon: <Truck className="h-5 w-5 text-primary" />,
+    title: "Spezialfahrzeuge",
+    description: "Moderne Spezialfahrzeuge für effiziente Räumung auch großer Flächen."
+  }
+];
 
-export default function WinterservicePage() {
-  const [imageLoaded, setImageLoaded] = useState(false)
+const heroItems = [
+  {
+    title: "Professioneller Winterdienst",
+    description:
+      "Schneeräumung und Streudienst für Privat- und Gewerbekunden im Rhein-Main-Gebiet.",
+    link: "#services"
+  },
+  {
+    title: "Streumittel-Rechner",
+    description:
+      "Berechnen Sie Ihren optimalen Streumittelbedarf mit unserem neuen Online-Rechner.",
+    link: "/blog/StreumittelCalculator",
+    highlighted: true
+  },
+  {
+    title: "Keine Wintersorgen mehr",
+    description:
+      "Übernahme aller Pflichten inkl. Dokumentation und rechtlicher Absicherung.",
+    link: "#about"
+  },
+];
 
-  useEffect(() => {
-    setImageLoaded(true)
-  }, [])
-
+export default function WinterdienstPage() {
   return (
-    <div className="flex-1">
-      {/* Hero Section */}
-      <Section className="relative bg-gradient-to-b from-primary/20 to-primary-light pt-28">
+    <div className="w-full">
+      <HeroParallax
+        items={heroItems}
+        backgroundUrl="/images/winter/hero-bg.jpg"
+        blur={true}
+      />
+      
+      <Section id="about" className="">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <InView
-              variants={{
-                hidden: { opacity: 0, x: -50 },
-                visible: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.5 }}
-            >
-              <div>
-                <H1 className="text-6xl lg:text-7xl font-extrabold tracking-tight mb-8">
-                  {winterserviceData.winterservice.hero.title}
-                </H1>
-                <div className="mt-4 min-h-[80px] text-3xl lg:text-4xl mb-8">
-                  <ColourfulText text={winterserviceData.winterservice.meta.subtitle} />
-                </div>
-                <Paragraph className="mt-6 text-xl text-foreground/90">
-                  {winterserviceData.winterservice.hero.description}
-                </Paragraph>
-                <button className="mt-12 bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-lg text-lg font-medium transform transition-all hover:scale-105">
-                  Jetzt Angebot anfordern
-                </button>
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+            <div className="w-full md:w-1/2 lg:pr-8">
+              <H2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-6">
+                Zuverlässiger Winterdienst für Ihre Sicherheit
+              </H2>
+              <Paragraph className="mb-4 text-muted-foreground">
+                Mit dem TREU Service Winterdienst überlassen Sie die Schneeräumung und Streuarbeiten
+                echten Profis. Wir sorgen für sichere Gehwege, Parkplätze und Zufahrten - damit
+                Sie und Ihre Besucher auch bei Eis und Schnee sicher unterwegs sind.
+              </Paragraph>
+              <Paragraph className="mb-4 text-muted-foreground">
+                Als erfahrenes Unternehmen bieten wir maßgeschneiderte Lösungen für
+                Privatpersonen, Hausverwaltungen und Gewerbetreibende im gesamten Rhein-Main-Gebiet.
+              </Paragraph>
+              
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Button className="gap-2" asChild>
+                  <a href="#contact">
+                    <PhoneCall className="h-4 w-4" />
+                    Angebot anfordern
+                  </a>
+                </Button>
+                <Button variant="outline" className="gap-2" asChild>
+                  <Link href="/blog/StreumittelCalculator">
+                    <Calculator className="h-4 w-4 text-blue-600" />
+                    Zum Streumittel-Rechner
+                  </Link>
+                </Button>
               </div>
-            </InView>
-            <div className={cn(
-              "relative h-[600px] rounded-3xl overflow-hidden transition-all duration-1000",
-              imageLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-            )}>
-              <Image
-                src="/images/winterdienst/hero.jpg"
-                fill
-                className="object-cover"
-                alt="Professioneller Winterdienst"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-                onLoad={() => setImageLoaded(true)}
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Separator className="bg-accent/10" />
-
-      {/* Neue Weather Widget Section */}
-      <Section className="bg-white">
-        <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <H2 className="text-center mb-8">Intelligente Wettervorhersage für Ihren Winterdienst</H2>
-            <Paragraph className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-              Unser intelligentes System basiert auf präzisen Wetterdaten des Deutschen Wetterdienstes (DWD) und liefert Ihnen alle wichtigen Informationen für einen effizienten Winterdienst.
-            </Paragraph>
-            
-            {/* Weather Widget einbinden */}
-            <WeatherWidget />
-            
-            {/* Benachrichtigungsmanager */}
-            <div className="mt-8">
-              <NotificationManager 
-                alertLevel="yellow" 
-                temperatureThreshold={0} 
-                location="Berlin"
-              />
             </div>
             
-            
-            {/* Weather Details einbinden */}
-            <div className="mt-8">
-              <WeatherDetails />
-            </div>
-          </InView>
-        </Container>
-      </Section>
-
-      <Separator className="bg-accent/10" />
-
-      {/* Hauptleistungen */}
-      <Section className="bg-background">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <InView
-              variants={{
-                hidden: { opacity: 0, x: 50 },
-                visible: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="relative h-[600px] rounded-3xl overflow-hidden">
-                <Image
-                  src="/images/winterdienst/services.jpg"
-                  fill
+            <div className="w-full md:w-1/2 relative">
+              <div className="aspect-video relative rounded-xl overflow-hidden">
+                <Image 
+                  src="/images/winter/service.jpg" 
+                  alt="TREU Service Winterdienst" 
+                  fill 
                   className="object-cover"
-                  alt="Winterdienst Leistungen"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
               </div>
-            </InView>
-            <div>
-              <InView
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ duration: 0.5 }}
-              >
-                <H2 className="mb-12">{winterserviceData.winterservice.mainServices.title}</H2>
-              </InView>
-              <div className="grid grid-cols-1 gap-8">
-                {winterserviceData.winterservice.mainServices.services.map((service, i) => (
-                  <InView
-                    key={i}
-                    variants={{
-                      hidden: { opacity: 0, x: -50 },
-                      visible: { opacity: 1, x: 0 }
-                    }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <div
-                      className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
-                    >
-                      <div className="text-accent mt-1">
-                        {i === 0 && <Snowflake className="w-6 h-6" />}
-                        {i === 1 && <ThermometerSnowflake className="w-6 h-6" />}
-                        {i === 2 && <Droplets className="w-6 h-6" />}
-                        {i === 3 && <ClipboardCheck className="w-6 h-6" />}
-                      </div>
-                      <div>
-                        <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
-                          {service.title}
-                        </H3>
-                        <Paragraph className="text-muted-foreground">
-                          {service.description}
-                        </Paragraph>
-                      </div>
-                    </div>
-                  </InView>
-                ))}
+              <div className="bg-white shadow-lg p-4 rounded-lg absolute -bottom-6 -left-6 max-w-[280px] hidden md:block">
+                <div className="flex items-center gap-2 mb-2">
+                  <CloudSnow className="h-6 w-6 text-primary" />
+                  <H3 className="font-bold">Winterdienst mit Mehrwert</H3>
+                </div>
+                <Paragraph className="text-sm">
+                  Wir übernehmen die komplette Verantwortung und rechtliche 
+                  Absicherung für Ihre Flächen im Winter.
+                </Paragraph>
               </div>
             </div>
           </div>
         </Container>
       </Section>
-
-      {/* Service Features */}
-      <Section className="bg-primary/5">
+      
+      <Section id="weather" className="bg-slate-50">
         <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <H2 className="text-center mb-12">{winterserviceData.winterservice.serviceFeatures.title}</H2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {winterserviceData.winterservice.serviceFeatures.features.map((feature, i) => (
-                <InView
-                  key={i}
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.9 },
-                    visible: { opacity: 1, scale: 1 }
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 100,
-                    delay: i * 0.1
-                  }}
-                >
-                  <div className="bg-white p-6 rounded-xl shadow-lg border border-accent/10">
-                    <div className="flex items-start gap-4">
-                      <div className="shrink-0 rounded-full bg-accent/10 p-3">
-                        {i === 0 && <Clock className="w-6 h-6 text-accent" />}
-                        {i === 1 && <ShieldCheck className="w-6 h-6 text-accent" />}
-                        {i === 2 && <ClipboardCheck className="w-6 h-6 text-accent" />}
-                        {i === 3 && <CalendarClock className="w-6 h-6 text-accent" />}
-                      </div>
-                      <div>
-                        <H3 className="text-lg font-semibold mb-2">{feature.title}</H3>
-                        <Paragraph className="text-muted-foreground">
-                          {feature.description}
-                        </Paragraph>
-                      </div>
-                    </div>
-                  </div>
-                </InView>
-              ))}
-            </div>
-          </InView>
+          <WeatherDetails />
         </Container>
       </Section>
-
-      {/* Häufige Probleme */}
-      <Section className="bg-background">
+      
+      <Section id="services" className="bg-white">
         <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="flex flex-col md:flex-row gap-6 md:gap-12 mb-12">
+            <div className="md:w-1/3">
+              <H2 className="text-3xl font-bold tracking-tight mb-4">
+                Unsere Winterdienst-Leistungen
+              </H2>
+              <Paragraph className="text-muted-foreground mb-6">
+                Umfassender Service für jede Situation - zuverlässig und pünktlich.
+              </Paragraph>
+              <div className="hidden md:block">
+                <FeaturesGrid features={features} />
+              </div>
+            </div>
+            
+            <div className="md:w-2/3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <ServiceCard
+                  icon={<CloudSnow className="h-6 w-6" />}
+                  title="Schneeräumung"
+                  description="Professionelle und zuverlässige Räumung von Schnee und Eis auf Gehwegen, Zufahrten und Parkplätzen. Wir arbeiten mit modernem Equipment für eine gründliche Reinigung."
+                  features={[
+                    "Manuelle und maschinelle Räumung",
+                    "Regelmäßige Kontrollen bei Schneefall",
+                    "Dokumentierte Einsatzprotokolle"
+                  ]}
+                />
+                
+                <ServiceCard
+                  icon={<Snowflake className="h-6 w-6" />}
+                  title="Professioneller Streudienst"
+                  description="Umweltgerechtes Streuen bei Glätte mit optimal dosierten Streumitteln. Wir setzen auf die richtige Mischung zwischen Wirksamkeit und Umweltschutz."
+                  features={[
+                    "Umweltfreundliche Streumittel",
+                    "Fachgerechte Dosierung",
+                    "Bedarfsgerechter Einsatz"
+                  ]}
+                />
+                
+                <ServiceCard
+                  icon={<CheckCircle2 className="h-6 w-6" />}
+                  title="Verkehrssicherungspflicht"
+                  description="Wir übernehmen Ihre gesetzliche Verpflichtung zur Beseitigung von Schnee und Eis. Mit uns sind Sie rechtlich auf der sicheren Seite."
+                  features={[
+                    "Vollständige Haftungsübernahme",
+                    "Rechtsichere Dokumentation",
+                    "Versicherungsschutz"
+                  ]}
+                />
+                
+                <ServiceCard
+                  icon={<Calendar className="h-6 w-6" />}
+                  title="Saisonverträge"
+                  description="Planungssicherheit für die gesamte Wintersaison mit maßgeschneiderten Vertragsmodellen. Keine unerwarteten Kosten, keine Sorgen."
+                  features={[
+                    "Feste Pauschalen",
+                    "Flexible Vertragsmodelle",
+                    "Komplettpaket oder Einzeleinsätze"
+                  ]}
+                />
+              </div>
+              
+              {/* Neue Call-to-Action für den Streumittel-Rechner */}
+              <div className="mt-10 bg-blue-50 p-6 rounded-lg border border-blue-100">
+                <div className="flex flex-col md:flex-row items-center gap-4">
+                  <div className="flex items-center justify-center bg-white p-3 rounded-full">
+                    <Calculator className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <div className="flex-1">
+                    <H3 className="font-bold text-xl mb-1">Streumittelrechner</H3>
+                    <p className="text-slate-700 text-sm">
+                      Berechnen Sie Ihren optimalen Streumittelbedarf, Kosten und umweltfreundliche Alternativen mit unserem interaktiven Online-Tool.
+                    </p>
+                  </div>
+                  <Button className="whitespace-nowrap" asChild>
+                    <Link href="/blog/StreumittelCalculator">
+                      Zum Rechner
+                      <ChevronRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="block md:hidden mt-6">
+            <FeaturesGrid features={features} />
+          </div>
+        </Container>
+      </Section>
+      
+      <Section id="testimonials" className="bg-slate-50">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <H2 className="text-3xl font-bold tracking-tight mb-4">
+              Das sagen unsere Kunden
+            </H2>
+            <Paragraph className="text-muted-foreground">
+              Seit über 10 Jahren vertrauen Privat- und Gewerbekunden auf unseren zuverlässigen Winterdienst.
+            </Paragraph>
+          </div>
+          
+          <AnimatedTestimonials testimonials={[
+            {
+              name: "Michael Schneider",
+              title: "Hausverwalter, Frankfurt",
+              image: "/images/testimonials/person1.jpg",
+              content: "Endlich keine Beschwerden mehr von Mietern! Der Winterdienst von TREU Service ist absolut zuverlässig und gründlich. Besonders schätze ich die detaillierte Dokumentation und die rechtliche Absicherung."
+            },
+            {
+              name: "Christina Bauer",
+              title: "Immobilienbesitzerin, Offenbach",
+              image: "/images/testimonials/person2.jpg",
+              content: "Seit drei Jahren nutzen wir den Winterdienst und sind rundum zufrieden. Die Mitarbeiter sind immer pünktlich - selbst bei überraschendem Schneefall mitten in der Nacht! Sehr empfehlenswert."
+            },
+            {
+              name: "Thomas Wagner",
+              title: "Restaurantbesitzer, Darmstadt",
+              image: "/images/testimonials/person3.jpg",
+              content: "Für mein Restaurant ist ein sicherer Zugang essenziell. Das Team von TREU Service gewährleistet, dass unsere Gäste selbst bei extremen Wetterbedingungen sicher zu uns kommen können. Ein wichtiger Faktor für unser Geschäft!"
+            },
+            {
+              name: "Marion Schuster",
+              title: "Supermarktleiterin, Mainz",
+              image: "/images/testimonials/person4.jpg",
+              content: "Der Kundenservice ist hervorragend und die Mitarbeiter sind äußerst freundlich. Unser Parkplatz und die Eingänge sind selbst bei schlimmstem Winterwetter stets sicher und gut zugänglich."
+            }
+          ]} />
+        </Container>
+      </Section>
+      
+      <Section id="pricing" className="bg-white">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <H2 className="text-3xl font-bold tracking-tight mb-4">
+              Winterdienst-Pakete für Ihre Bedürfnisse
+            </H2>
+            <Paragraph className="text-muted-foreground">
+              Wir bieten flexible Lösungen für unterschiedliche Anforderungen und Budgets.
+              Von Komplettlösungen für die ganze Wintersaison bis hin zu Einzeleinsätzen.
+            </Paragraph>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="border-blue-100">
+              <CardHeader className="pb-0">
+                <CardTitle className="text-xl">Basispaket</CardTitle>
+                <div className="mt-4 mb-2">
+                  <span className="text-3xl font-bold">ab 349€</span>
+                  <span className="text-sm text-muted-foreground ml-2">/ Saison</span>
+                </div>
+                <CardDescription>
+                  Ideal für Privathaushalte mit kleinen Flächen
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Schneeräumung & Streudienst</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Einsatz bei Schneefall bzw. Glätte</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Dokumentation aller Einsätze</span>
+                  </li>
+                </ul>
+                <div className="mt-6">
+                  <Button className="w-full">Angebot anfordern</Button>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary md:scale-105 shadow-md">
+              <div className="absolute -top-4 left-0 right-0 mx-auto w-fit bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">
+                Empfohlen
+              </div>
+              <CardHeader className="pb-0 pt-6">
+                <CardTitle className="text-xl">Komfortpaket</CardTitle>
+                <div className="mt-4 mb-2">
+                  <span className="text-3xl font-bold">ab 649€</span>
+                  <span className="text-sm text-muted-foreground ml-2">/ Saison</span>
+                </div>
+                <CardDescription>
+                  Optimal für Mehrfamilienhäuser & kleine Gewerbe
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Alle Leistungen des Basispakets</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Haftungsübernahme</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>24/7 Rufbereitschaft</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Regelmäßige Kontrollfahrten</span>
+                  </li>
+                </ul>
+                <div className="mt-6">
+                  <Button className="w-full bg-primary hover:bg-primary/90">Angebot anfordern</Button>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-blue-100">
+              <CardHeader className="pb-0">
+                <CardTitle className="text-xl">Premiumpaket</CardTitle>
+                <div className="mt-4 mb-2">
+                  <span className="text-3xl font-bold">Individuell</span>
+                </div>
+                <CardDescription>
+                  Maßgeschneidert für große Gewerbeflächen
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Alle Leistungen des Komfortpakets</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Einsatz von Spezialfahrzeugen</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Präventiver Winterdienst</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Dedizierter Ansprechpartner</span>
+                  </li>
+                </ul>
+                <div className="mt-6">
+                  <Button className="w-full">Angebot anfordern</Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="mt-12 bg-slate-100 rounded-lg p-6 border border-slate-200">
+            <div className="flex items-start gap-4">
+              <Info className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+              <div>
+                <H3 className="font-semibold mb-2">Individuelle Beratung</H3>
+                <Paragraph className="text-muted-foreground mb-4">
+                  Jede Immobilie und jedes Grundstück ist anders. Kontaktieren Sie uns für eine 
+                  kostenlose Beratung und ein unverbindliches Angebot, das exakt auf Ihre Bedürfnisse 
+                  zugeschnitten ist.
+                </Paragraph>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button asChild>
+                    <a href="#contact">Angebot anfordern</a>
+                  </Button>
+                  
+                  <Button variant="outline" asChild>
+                    <Link href="/blog/StreumittelCalculator" className="inline-flex items-center">
+                      <Calculator className="mr-2 h-4 w-4 text-blue-600" />
+                      Streumittelbedarf berechnen
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+      
+      <Section id="faq" className="bg-slate-50">
+        <Container>
+          <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <H2>{winterserviceData.winterservice.commonProblems.title}</H2>
-              <Paragraph className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                {winterserviceData.winterservice.commonProblems.intro}
+              <H2 className="text-3xl font-bold tracking-tight mb-4">
+                Häufig gestellte Fragen
+              </H2>
+              <Paragraph className="text-muted-foreground">
+                Antworten auf die wichtigsten Fragen rund um unseren Winterdienst
               </Paragraph>
             </div>
-          </InView>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {winterserviceData.winterservice.commonProblems.problems.map((item, i) => (
-              <InView
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.9 },
-                  visible: { opacity: 1, scale: 1 }
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  delay: i * 0.1
-                }}
-              >
-                <div
-                  className="group relative overflow-hidden rounded-2xl bg-white/50 hover:bg-white/80 transition-all duration-300 shadow-lg hover:shadow-xl border border-accent/10"
-                >
-                  <div className="px-6 py-8">
-                    <div className="flex items-start gap-4">
-                      <div className="shrink-0 rounded-full bg-red-100/80 p-3">
-                        <XCircle className="w-6 h-6 text-red-600" />
-                      </div>
-                      <div>
-                        <H3 className="text-lg font-semibold mb-2">{item.question}</H3>
-                        <Paragraph className="text-red-500 mb-6">
-                          {item.problem}
-                        </Paragraph>
-                      </div>
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-accent/10">
-                      <div className="flex items-start gap-4">
-                        <div className="shrink-0 rounded-full bg-green-100/80 p-3">
-                          <CheckCircle2 className="w-6 h-6 text-green-600" />
-                        </div>
-                        <Paragraph className="text-green-600 font-medium py-2">
-                          {item.solution}
-                        </Paragraph>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </InView>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Warum TREU Service */}
-      <Section className="bg-primary/5">
-        <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <H2 className="text-center mb-12">{winterserviceData.winterservice.advantages.title}</H2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {winterserviceData.winterservice.advantages.items.map((advantage, i) => (
-                <div
-                  key={i}
-                  className="bg-white p-6 rounded-xl shadow-lg border border-accent/10"
-                >
-                  <H3 className="text-lg font-semibold mb-4">{advantage.title}</H3>
-                  <Paragraph className="text-muted-foreground">
-                    {advantage.description}
-                  </Paragraph>
-                </div>
-              ))}
-            </div>
-          </InView>
-        </Container>
-      </Section>
-
-      {/* Kundenstimmen */}
-      <Section className="bg-background">
-        <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <H2 className="text-center mb-12">{winterserviceData.winterservice.testimonials.title}</H2>
-            <AnimatedTestimonials
-              testimonials={winterserviceData.winterservice.testimonials.items.map(t => ({
-                quote: t.text,
-                name: t.author,
-                designation: t.position,
-                src: "/images/testimonials/placeholder.jpg"
-              }))}
-            />
-          </InView>
-        </Container>
-      </Section>
-
-      {/* Kontakt CTA */}
-      <Section className="bg-accent/5">
-        <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              {/* Left Side - Contact Info & Features */}
-              <div>
-                <H2 className="mb-4">{winterserviceData.winterservice.contact.title}</H2>
-                <H3 className="mb-8">{winterserviceData.winterservice.contact.subtitle}</H3>
-                <Paragraph className="mb-8 text-lg">
-                  {winterserviceData.winterservice.contact.description}
+            
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <H3 className="font-semibold mb-2">Ab wann beginnt die Winterdienst-Saison?</H3>
+                <Paragraph className="text-muted-foreground">
+                  Unsere Winterdienstsaison beginnt in der Regel am 1. November und endet am 31. März des Folgejahres. Bei besonderen Witterungsverhältnissen sind wir auch außerhalb dieses Zeitraums für Sie da.
                 </Paragraph>
-                
-                {/* Features List */}
-                <div className="grid grid-cols-1 gap-8">
-                  {winterserviceData.winterservice.advantages.items.slice(0, 6).map((item, i) => {
-                    const icons = [
-                      { id: 'handshake', icon: <Handshake key="handshake" className="w-6 h-6" /> },
-                      { id: 'zap', icon: <Zap key="zap" className="w-6 h-6" /> },
-                      { id: 'clock', icon: <Clock key="clock" className="w-6 h-6" /> },
-                      { id: 'star', icon: <StarIcon key="star" className="w-6 h-6" /> },
-                      { id: 'leaf', icon: <LeafIcon key="leaf" className="w-6 h-6" /> },
-                      { id: 'cog', icon: <Cog key="cog" className="w-6 h-6" /> }
-                    ];
-                    return (
-                      <div 
-                        key={i}
-                        className="flex items-start gap-4 group hover:bg-accent/5 p-4 rounded-lg transition-colors"
-                      >
-                        <div className="text-accent mt-1">
-                          {icons[i].icon}
-                        </div>
-                        <div>
-                          <H3 className="text-lg font-medium group-hover:text-accent transition-colors">
-                            {item.title}
-                          </H3>
-                        </div>
-                      </div>
-                    );
-                  })}
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <H3 className="font-semibold mb-2">Welche Flächen werden geräumt?</H3>
+                <Paragraph className="text-muted-foreground">
+                  Wir räumen alle vereinbarten Flächen wie Gehwege, Zufahrten, Parkplätze, Eingangsbereiche und Notausgänge. Die genauen Flächen werden im Vorfeld vertraglich festgelegt und auf einem Lageplan markiert.
+                </Paragraph>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <H3 className="font-semibold mb-2">Wie oft wird geräumt?</H3>
+                <Paragraph className="text-muted-foreground">
+                  Die Räumfrequenz hängt von den Witterungsbedingungen ab. Bei anhaltendem Schneefall oder Eisbildung räumen und streuen wir nach Bedarf mehrmals täglich. Für Gewerbeflächen bieten wir zudem regelmäßige Kontrollfahrten an.
+                </Paragraph>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <H3 className="font-semibold mb-2">Welche Streumittel werden verwendet?</H3>
+                <Paragraph className="text-muted-foreground">
+                  Wir verwenden je nach lokalen Vorschriften und Kundenwunsch verschiedene Streumittel. In vielen Kommunen ist der Einsatz von Streusalz eingeschränkt oder verboten. Wir bieten sowohl abstumpfende Streumittel (Splitt, Sand) als auch umweltfreundliche Taumittel an.
+                </Paragraph>
+                <div className="mt-3">
+                  <Link href="/blog/StreumittelCalculator" className="text-primary font-medium flex items-center hover:underline">
+                    <Calculator className="mr-1.5 h-4 w-4 text-blue-600" />
+                    Mit unserem Streumittelrechner optimale Mengen berechnen
+                  </Link>
                 </div>
               </div>
               
-              {/* Right Side - Contact Form */}
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-accent/10">
-                <form className="space-y-6" onSubmit={(e) => {
-                  e.preventDefault();
-                  // Handle form submission
-                }}>
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input 
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Ihr Name"
-                      className="w-full"
-                      required
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email">E-Mail</Label>
-                    <Input 
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="Ihre E-Mail-Adresse"
-                      className="w-full"
-                      required
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Telefon</Label>
-                    <Input 
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="Ihre Telefonnummer"
-                      className="w-full"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="service">Gewünschte Leistung</Label>
-                    <select 
-                      id="service"
-                      name="service"
-                      className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
-                      required
-                    >
-                      <option value="">Bitte wählen Sie eine Leistung</option>
-                      {winterserviceData.winterservice.mainServices.services.map((service) => (
-                        <option key={service.title} value={service.title}>
-                          {service.title}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Ihre Nachricht</Label>
-                    <Textarea 
-                      id="message"
-                      name="message"
-                      placeholder="Beschreiben Sie uns Ihr Anliegen"
-                      className="w-full min-h-[100px]"
-                      required
-                    />
-                  </div>
-                  
-                  <ContactButton text="Anfrage absenden" />
-                </form>
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <H3 className="font-semibold mb-2">Übernehmen Sie die volle Haftung?</H3>
+                <Paragraph className="text-muted-foreground">
+                  Ja, wir übernehmen bei Vertragsabschluss die volle Haftung für die Verkehrssicherheit der vereinbarten Flächen im Winter. Dies umfasst alle Verpflichtungen der Verkehrssicherungspflicht bei Schnee und Eis.
+                </Paragraph>
               </div>
             </div>
-          </InView>
+          </div>
+        </Container>
+      </Section>
+      
+      <Section id="contact" className="bg-white">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <H2 className="text-3xl font-bold tracking-tight mb-4">
+              Kontaktieren Sie uns
+            </H2>
+            <Paragraph className="text-muted-foreground">
+              Unser Team steht Ihnen für eine individuelle Beratung und ein unverbindliches Angebot gerne zur Verfügung.
+            </Paragraph>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">Winterdienst anfragen</h3>
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-1" htmlFor="name">Name</label>
+                    <input type="text" id="name" className="w-full p-2 border rounded-md" placeholder="Ihr Name" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1" htmlFor="email">E-Mail</label>
+                    <input type="email" id="email" className="w-full p-2 border rounded-md" placeholder="Ihre E-Mail" />
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="phone">Telefon</label>
+                  <input type="tel" id="phone" className="w-full p-2 border rounded-md" placeholder="Ihre Telefonnummer" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="address">Adresse der zu räumenden Fläche</label>
+                  <input type="text" id="address" className="w-full p-2 border rounded-md" placeholder="Straße, Hausnummer, PLZ, Ort" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="area">Größe der Fläche (ca. in m²)</label>
+                  <input type="number" id="area" className="w-full p-2 border rounded-md" placeholder="z.B. 100" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-1" htmlFor="message">Ihre Nachricht an uns</label>
+                  <textarea id="message" rows={4} className="w-full p-2 border rounded-md" placeholder="Weitere Details oder Fragen..."></textarea>
+                </div>
+                
+                <Button className="w-full">Anfrage absenden</Button>
+              </form>
+            </div>
+            
+            <div className="flex flex-col justify-between">
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Kontaktinformationen</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <PhoneCall className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium">Telefon</p>
+                      <p className="text-muted-foreground">+49 (0) 123 456 789</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <CloudSnow className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium">24/7 Winterdienst-Hotline</p>
+                      <p className="text-muted-foreground">+49 (0) 123 456 700</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <Info className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium">Winterdienst-Informationen</p>
+                      <p className="text-muted-foreground mb-2">
+                        Nützliche Informationen für die Wintersaison:
+                      </p>
+                      <ul className="space-y-2 text-sm">
+                        <li className="flex items-center">
+                          <Link href="/blog/winterdienst" className="text-primary hover:underline flex items-center">
+                            <ChevronRight className="h-4 w-4 mr-1" /> 
+                            DIY-Winterdienst Tipps
+                          </Link>
+                        </li>
+                        <li className="flex items-center">
+                          <Link href="/blog/streumittel" className="text-primary hover:underline flex items-center">
+                            <ChevronRight className="h-4 w-4 mr-1" /> 
+                            Streugut-Vergleich
+                          </Link>
+                        </li>
+                        <li className="flex items-center">
+                          <Link href="/blog/StreumittelCalculator" className="text-primary hover:underline flex items-center">
+                            <Calculator className="h-4 w-4 mr-1 text-blue-600" /> 
+                            Streumittel-Rechner
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-10 bg-blue-50 p-5 rounded-lg border border-blue-100">
+                <div className="flex items-start gap-4">
+                  <Snowflake className="h-8 w-8 text-blue-600 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2">Saisonverträge sichern</h4>
+                    <p className="text-slate-700 text-sm mb-4">
+                      Sichern Sie sich jetzt Ihren Winterdienst-Vertrag für die kommende Saison und profitieren Sie von unserem Frühbucherrabatt!
+                    </p>
+                    <Button asChild>
+                      <a href="tel:+49123456789">
+                        <PhoneCall className="h-4 w-4 mr-2" />
+                        Jetzt anrufen
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </Container>
       </Section>
     </div>

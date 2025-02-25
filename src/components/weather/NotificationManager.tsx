@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { H3, Paragraph } from "@/components/ui/typography";
 import { BellRing, BellOff, AlertTriangle, CloudSnow, X } from "lucide-react";
-import { getCurrentWeather, predictSnowfall } from './brightsky';
+import { getCurrentWeather, getWeatherForecast, predictSnowfall } from './brightsky';
 
 // Benachrichtigungstypen
 type NotificationType = 'info' | 'warning' | 'alert';
@@ -76,6 +76,7 @@ export const NotificationManager = ({ location, coordinates }: NotificationManag
       
       return () => clearInterval(intervalId);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubscribed, coordinates]);
 
   // Speichern von Änderungen an den Benachrichtigungen
@@ -199,7 +200,11 @@ export const NotificationManager = ({ location, coordinates }: NotificationManag
     try {
       setLastCheck(new Date());
       
-      const currentWeather = await getCurrentWeather(coordinates);
+      // Aktuelle Wetterdaten mit der aktualisierten API-Methode abrufen
+      const currentWeather = await getCurrentWeather({
+        lat: coordinates.lat,
+        lon: coordinates.lon
+      });
       
       if (!currentWeather) {
         console.warn('Keine Wetterdaten für Warnungen verfügbar');
@@ -207,8 +212,8 @@ export const NotificationManager = ({ location, coordinates }: NotificationManag
       }
       
       // Temperatur- und Niederschlagsdaten extrahieren
-      const temperature = currentWeather.temperature || 0;
-      const precipitationProbability = currentWeather.precipitation_probability || 0;
+      const temperature = currentWeather.temperature ?? 0;
+      const precipitationProbability = currentWeather.precipitation_probability ?? 0;
       
       // Auf kritische Wetterbedingungen prüfen
       if (temperature < 0 && precipitationProbability > 50) {
@@ -234,13 +239,15 @@ export const NotificationManager = ({ location, coordinates }: NotificationManag
         );
       }
       
-      // Zusätzlich Schneefall-Vorhersage prüfen
+      // Zusätzlich Schneefall-Vorhersage abrufen
       const forecast = await getWeatherForecast({
-        ...coordinates,
+        lat: coordinates.lat,
+        lon: coordinates.lon,
         date: new Date().toISOString().split('T')[0]
       });
       
       if (forecast.length > 0) {
+        // Schneefall-Vorhersage mit der korrigierten Version von predictSnowfall
         const snowPrediction = predictSnowfall(forecast, 24);
         
         if (snowPrediction.willSnow && snowPrediction.totalAmount > 1) {
@@ -254,12 +261,6 @@ export const NotificationManager = ({ location, coordinates }: NotificationManag
     } catch (error) {
       console.error('Fehler bei der Prüfung auf Wetterwarnungen:', error);
     }
-  };
-
-  // Mock-Funktion für Vorhersage, wenn API fehlt
-  const getWeatherForecast = async (params: any): Promise<any[]> => {
-    // Hier normalen API-Aufruf aus brightsky.ts verwenden
-    return [];
   };
 
   // Ungelesene Benachrichtigungen zählen

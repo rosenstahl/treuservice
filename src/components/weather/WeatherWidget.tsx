@@ -239,19 +239,19 @@ export const WeatherWidget = () => {
       console.log("Vorhersagedaten:", forecastResponse);
       
 
-// Daten aufbereiten
-const precipitation = currentWeatherResponse.precipitation || 0;
-const precipProbability = currentWeatherResponse.precipitation_probability || 0;
-const temperature = currentWeatherResponse.temperature !== undefined ? 
-  Math.round(currentWeatherResponse.temperature * 10) / 10 : null; // Rundung auf 1 Dezimalstelle
-const humidity = currentWeatherResponse.relative_humidity || 0;
+      // Daten aufbereiten
+      const precipitation = currentWeatherResponse.precipitation || 0;
+      const precipProbability = currentWeatherResponse.precipitation_probability || 0;
+      const temperature = currentWeatherResponse.temperature !== undefined ? 
+        Math.round(currentWeatherResponse.temperature * 10) / 10 : null; // Rundung auf 1 Dezimalstelle
+      const humidity = currentWeatherResponse.relative_humidity || 0;
 
-let condition = currentWeatherResponse.condition || 'unknown';
-if (condition === 'rain' && precipitation === 0) {
-  condition = currentWeatherResponse.cloud_cover && currentWeatherResponse.cloud_cover > 70 ? 
-    'cloudy' : 'partly-cloudy-day';
-  console.log(`Bedingung korrigiert von 'rain' auf '${condition}'`);
-}
+      let condition = currentWeatherResponse.condition || 'unknown';
+      if (condition === 'rain' && precipitation === 0) {
+        condition = currentWeatherResponse.cloud_cover && currentWeatherResponse.cloud_cover > 70 ? 
+          'cloudy' : 'partly-cloudy-day';
+        console.log(`Bedingung korrigiert von 'rain' auf '${condition}'`);
+      }
 
       // Alert-Level berechnen
       const alertLevel = determineAlertLevel(temperature, precipProbability);

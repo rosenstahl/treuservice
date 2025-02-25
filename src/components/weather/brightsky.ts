@@ -14,7 +14,7 @@ export interface WeatherObservation {
   relative_humidity?: number;
   sunshine?: number;
   temperature?: number;
-  soil_temperature?: number; // Bodentemperatur
+  soil_temperature?: number; // Bodentemperatur wird abgeleitet
   visibility?: number;
   wind_direction?: number;
   wind_speed?: number;
@@ -198,11 +198,19 @@ export async function getCurrentWeather({ lat, lon, _cacheBuster }: CurrentWeath
       throw new Error('Ungültige Koordinaten. Bitte geben Sie gültige Breiten- und Längengrade ein.');
     }
     
-    // Hole aktuelle Wetterdaten von Brightsky
+    // Hole aktuelle Wetterdaten von Brightsky - nutze weather Endpunkt mit aktuellem Datum
     try {
-      const result = await fetchBrightskyCurrent({ lat, lon, _cacheBuster });
-      console.log('Brightsky API erfolgreich:', result);
-      return result;
+      // Das heutige Datum für den weather-Endpunkt verwenden
+      const today = new Date().toISOString().split('T')[0];
+      const result = await fetchBrightskyWeather({ lat, lon, date: today, _cacheBuster });
+      
+      // Wenn wir Daten bekommen haben, nehmen wir den aktuellsten Datensatz
+      if (result && result.length > 0) {
+        console.log('Brightsky API erfolgreich:', result[0]);
+        return result[0];
+      } else {
+        throw new Error("Keine aktuellen Wetterdaten verfügbar");
+      }
     } catch (brightskyError) {
       console.error('Brightsky API Fehler:', brightskyError);
       
@@ -226,12 +234,26 @@ export async function getCurrentWeather({ lat, lon, _cacheBuster }: CurrentWeath
   }
 }
 
-async function fetchBrightskyCurrent({ lat, lon, _cacheBuster }: CurrentWeatherParams): Promise<WeatherObservation> {
+// Gemeinsame Funktion zum Abrufen von Wetterdaten von Brightsky
+async function fetchBrightskyWeather({ lat, lon, date, last_date, _cacheBuster }: ForecastParams): Promise<WeatherObservation[]> {
   // Cache-Parameter hinzufügen, wenn vorhanden
   const cacheBuster = _cacheBuster || Date.now();
   
-  // WICHTIG: Verwende den /current_weather-Endpunkt speziell für aktuelle Daten
-  const url = `${BRIGHTSKY_API_BASE}/current_weather?lat=${lat}&lon=${lon}&tz=Europe/Berlin&_=${cacheBuster}`;
+  // URL für den weather Endpunkt erstellen
+  let url = `${BRIGHTSKY_API_BASE}/weather?lat=${lat}&lon=${lon}&tz=Europe/Berlin`;
+  
+  // Hinzufügen von Datumsparametern, wenn angegeben
+  if (date) {
+    url += `&date=${date}`;
+  }
+  
+  if (last_date) {
+    url += `&last_date=${last_date}`;
+  }
+  
+  // Cache-Buster hinzufügen
+  url += `&_=${cacheBuster}`;
+  
   console.log('Brightsky API Anfrage URL:', url);
   
   const response = await fetch(url, {
@@ -255,53 +277,55 @@ async function fetchBrightskyCurrent({ lat, lon, _cacheBuster }: CurrentWeatherP
     throw new Error('Keine Wetterdaten von Brightsky verfügbar');
   }
   
-  const currentWeather = data.weather[0];
-  
-  // Korrigiere Wetterbedingung basierend auf tatsächlichen Niederschlagswerten
-  let condition = currentWeather.condition;
-  let precipitation = currentWeather.precipitation || 0;
-  
-  // Wenn es nicht regnet, aber die Bedingung "Regen" ist, korrigiere sie
-  if (condition === 'rain' && precipitation === 0) {
-    condition = 'cloudy'; // Ändere zu bewölkt
-  }
-  
-  // Sicherstelle, dass die Luftfeuchtigkeit realistisch ist
-  let humidity = currentWeather.relative_humidity;
-  if (humidity === null || humidity === 0) {
-    humidity = 70; // Realistischerer Standardwert
-  }
-  
-  // Runde alle numerischen Werte auf sinnvolle Dezimalstellen
-  return {
-    timestamp: currentWeather.timestamp,
-    source_id: currentWeather.source_id || 2,
-    temperature: currentWeather.temperature !== null ? 
-      Math.round(currentWeather.temperature * 10) / 10 : undefined,
-    condition: condition !== null ? 
-      mapBrightskyCondition(condition) : 
-      deriveWeatherCondition(currentWeather),
-    icon: currentWeather.icon !== null ? 
-      currentWeather.icon : 
-      mapConditionToIcon(condition || 'unknown'),
-    precipitation: Math.round(precipitation * 10) / 10,
-    precipitation_probability: Math.round(currentWeather.precipitation_probability || 0),
-    relative_humidity: Math.round(humidity),
-    wind_speed: Math.round((currentWeather.wind_speed || 0) * 10) / 10,
-    wind_direction: Math.round(currentWeather.wind_direction || 0),
-    wind_gust_speed: currentWeather.wind_gust_speed !== null ? 
-      Math.round(currentWeather.wind_gust_speed * 10) / 10 : undefined,
-    cloud_cover: Math.round(currentWeather.cloud_cover || 0),
-    pressure_msl: Math.round(currentWeather.pressure_msl || 0),
-    visibility: Math.round(currentWeather.visibility || 0),
-    dew_point: currentWeather.dew_point !== null ? 
-      Math.round(currentWeather.dew_point * 10) / 10 : undefined,
-    soil_temperature: currentWeather.temperature !== null ? 
-      Math.round(estimateSoilTemperature(currentWeather.temperature, currentWeather.temperature - 2) * 10) / 10 : 
-      undefined
-  };
+  // Konvertiere die Rohdaten in unser Format
+  return data.weather.map(item => {
+    // Korrigiere Wetterbedingung basierend auf tatsächlichen Niederschlagswerten
+    let condition = item.condition;
+    let precipitation = item.precipitation || 0;
+    
+    // Wenn es nicht regnet, aber die Bedingung "Regen" ist, korrigiere sie
+    if (condition === 'rain' && precipitation === 0) {
+      condition = 'cloudy'; // Ändere zu bewölkt
+    }
+    
+    // Sicherstelle, dass die Luftfeuchtigkeit realistisch ist
+    let humidity = item.relative_humidity;
+    if (humidity === null || humidity === 0) {
+      humidity = 70; // Realistischerer Standardwert
+    }
+    
+    // Runde alle numerischen Werte auf sinnvolle Dezimalstellen
+    return {
+      timestamp: item.timestamp,
+      source_id: item.source_id || 2,
+      temperature: item.temperature !== null ? 
+        Math.round(item.temperature * 10) / 10 : undefined,
+      condition: condition !== null ? 
+        mapBrightskyCondition(condition) : 
+        deriveWeatherCondition(item),
+      icon: item.icon !== null ? 
+        item.icon : 
+        mapConditionToIcon(condition || 'unknown'),
+      precipitation: Math.round((precipitation) * 10) / 10,
+      precipitation_probability: Math.round(item.precipitation ? 70 : 0), // Brightsky liefert keine direkte Wahrscheinlichkeit
+      relative_humidity: Math.round(humidity),
+      wind_speed: Math.round((item.wind_speed || 0) * 10) / 10,
+      wind_direction: Math.round(item.wind_direction || 0),
+      wind_gust_speed: item.wind_gust_speed !== null ? 
+        Math.round(item.wind_gust_speed * 10) / 10 : undefined,
+      cloud_cover: Math.round(item.cloud_cover || 0),
+      pressure_msl: Math.round(item.pressure_msl || 0),
+      visibility: Math.round(item.visibility || 0),
+      dew_point: item.dew_point !== null ? 
+        Math.round(item.dew_point * 10) / 10 : undefined,
+      soil_temperature: item.temperature !== null ? 
+        Math.round(estimateSoilTemperature(item.temperature, item.temperature - 2) * 10) / 10 : 
+        undefined,
+      sunshine: item.sunshine !== null ? item.sunshine : undefined
+    };
+  });
 }
-// Funktion zum Abrufen der OpenWeatherMap-Daten (Backup)
+
 async function fetchOpenWeatherMapCurrent({ lat, lon, _cacheBuster }: CurrentWeatherParams): Promise<WeatherObservation> {
   // Cache-Parameter hinzufügen, wenn vorhanden
   const cacheBuster = _cacheBuster || Date.now();
@@ -355,9 +379,20 @@ export async function getWeatherForecast({ lat, lon, date, last_date, _cacheBust
       throw new Error('Ungültige Koordinaten. Bitte geben Sie gültige Breiten- und Längengrade ein.');
     }
     
-    // Versuche zuerst Brightsky
+    // Standard-Datumsparameter falls nicht angegeben
+    const today = new Date().toISOString().split('T')[0];
+    const endDate = last_date || new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    
+    // Versuche direkt Brightsky zu nutzen mit korrektem Datumsbereich
     try {
-      const result = await fetchBrightskyForecast({ lat, lon, date, last_date, _cacheBuster });
+      const result = await fetchBrightskyWeather({ 
+        lat, 
+        lon, 
+        date: date || today, 
+        last_date: endDate, 
+        _cacheBuster 
+      });
+      
       console.log('Brightsky Forecast API erfolgreich mit', result.length, 'Einträgen');
       return result;
     } catch (brightskyError) {
@@ -381,68 +416,6 @@ export async function getWeatherForecast({ lat, lon, date, last_date, _cacheBust
     console.error('Allgemeiner Fehler bei getWeatherForecast:', error);
     return generateFallbackForecast();
   }
-}
-
-// Funktion zum Abrufen der Brightsky-Vorhersage
-async function fetchBrightskyForecast({ lat, lon, date, last_date, _cacheBuster }: ForecastParams): Promise<WeatherObservation[]> {
-  // Cache-Parameter hinzufügen, wenn vorhanden
-  const cacheBuster = _cacheBuster || Date.now();
-  
-  // Standard-Datumsparameter falls nicht angegeben
-  const today = new Date().toISOString().split('T')[0];
-  const endDate = last_date || new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-  
-  const url = `${BRIGHTSKY_API_BASE}/weather?lat=${lat}&lon=${lon}&date=${date || today}&last_date=${endDate}&tz=Europe/Berlin&units=dwd&_=${cacheBuster}`;
-  console.log('Brightsky Vorhersage API Anfrage:', url);
-  
-  const response = await fetch(url, {
-    headers: {
-      'Accept': 'application/json'
-    },
-    signal: AbortSignal.timeout(10000), // 10 Sekunden Timeout
-    cache: 'no-store' // Verhindert Browser-Caching
-  });
-  
-  if (!response.ok) {
-    throw new Error(`Brightsky API Vorhersage-Fehler: ${response.status} ${response.statusText}`);
-  }
-  
-  const data: BrightskyWeatherResponse = await response.json();
-  console.log('Erhaltene Brightsky-Vorhersagedaten Anzahl:', data.weather?.length);
-  
-  if (!data.weather || data.weather.length === 0) {
-    throw new Error('Keine Vorhersagedaten von Brightsky verfügbar');
-  }
-  
-  if (data.weather.length > 0) {
-    console.log('Erste Brightsky-Vorhersagetemperatur:', data.weather[0].temperature);
-  }
-  
-  return data.weather.map(item => ({
-    timestamp: item.timestamp,
-    source_id: item.source_id || 2, // ID für Brightsky
-    temperature: item.temperature !== null ? item.temperature : undefined,
-    condition: item.condition !== null ? 
-      mapBrightskyCondition(item.condition) : 
-      deriveWeatherCondition(item),
-    icon: item.icon !== null ? 
-      item.icon : 
-      mapConditionToIcon(item.condition || 'unknown'),
-    precipitation: item.precipitation !== null ? item.precipitation : undefined,
-    precipitation_probability: 0, // Brightsky liefert das nicht direkt
-    relative_humidity: item.relative_humidity !== null ? item.relative_humidity : undefined,
-    wind_speed: item.wind_speed !== null ? item.wind_speed : undefined,
-    wind_direction: item.wind_direction !== null ? item.wind_direction : undefined,
-    wind_gust_speed: item.wind_gust_speed !== null ? item.wind_gust_speed : undefined,
-    cloud_cover: item.cloud_cover !== null ? item.cloud_cover : undefined,
-    pressure_msl: item.pressure_msl !== null ? item.pressure_msl : undefined,
-    visibility: item.visibility !== null ? item.visibility : undefined,
-    dew_point: item.dew_point !== null ? item.dew_point : undefined,
-    soil_temperature: item.temperature !== null ? 
-      estimateSoilTemperature(item.temperature, item.temperature - 2) : 
-      undefined,
-    sunshine: item.sunshine !== null ? item.sunshine : undefined
-  }));
 }
 
 // Funktion zum Abrufen der OpenWeatherMap-Vorhersage (Backup)
@@ -631,7 +604,6 @@ function deriveWeatherCondition(data: BrightskyWeatherResponse['weather'][0]): s
   
   // Fallback basierend auf Jahreszeit
   const month = new Date(data.timestamp).getMonth();
-  // Wir vermeiden die Variable isWinter, da sie laut ESLint nicht verwendet wird
   return (month < 2 || month > 10) ? 'partly-cloudy-day' : 'clear-day';
 }
 

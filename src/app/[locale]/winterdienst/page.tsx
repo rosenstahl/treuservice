@@ -40,7 +40,6 @@ import { WeatherDetails } from '@/components/weather/WeatherDetails'
 import { WeatherWidget } from '@/components/weather/WeatherWidget'
 import { SnowfallMapWidget } from '@/components/weather/SnowfallMapWidget'
 import { NotificationManager } from '@/components/weather/NotificationManager'
-import { StreumittelCalculator } from '@/components/weather/StreumittelCalculator'
 
 export default function WinterservicePage() {
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -125,13 +124,6 @@ export default function WinterservicePage() {
               />
             </div>
             
-            {/* Streumittel-Rechner */}
-            <div className="mt-8">
-              <StreumittelCalculator 
-                temperature={-2} 
-                precipitationProbability={58}
-              />
-            </div>
             
             {/* Weather Details einbinden */}
             <div className="mt-8">

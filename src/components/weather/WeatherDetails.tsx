@@ -80,9 +80,10 @@ export const WeatherDetails = ({
       nextWeek.setDate(nextWeek.getDate() + 7);
       const formattedNextWeek = nextWeek.toISOString().split('T')[0];
       
-      // Vorhersage abrufen
+      // Vorhersage abrufen - verwende die aktualisierte API
       const forecast = await getWeatherForecast({
-        ...coordinates,
+        lat: coordinates.lat,
+        lon: coordinates.lon,
         date: formattedToday,
         last_date: formattedNextWeek
       });

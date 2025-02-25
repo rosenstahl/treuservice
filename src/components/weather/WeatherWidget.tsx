@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -25,7 +25,9 @@ import {
   calculateOptimalCleaningTime,
   predictSnowfall,
   calculateRequiredGrit,
-  WeatherObservation
+  WeatherObservation,
+  geocodeAddress,
+  getUserLocation
 } from '@/components/weather/brightsky';
 
 // Warnungs-Level-Typen
@@ -68,14 +70,6 @@ interface WeatherData {
     grit: number;
     description: string;
   };
-}
-
-// Interface für Geocoding-Antworten
-interface GeocodingResponse {
-  lat: string;
-  lon: string;
-  display_name: string;
-  [key: string]: unknown;
 }
 
 // Funktion zur Übersetzung der Wetterbedingungen
@@ -183,51 +177,49 @@ const AlertBanner = ({ level, description }: { level: AlertLevel, description: s
 export const WeatherWidget = () => {
   const [searchLocation, setSearchLocation] = useState('');
   const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [coordinates, setCoordinates] = useState<{lat: number, lon: number} | null>(null);
-  const [locationDetectionFailed, setLocationDetectionFailed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
+  
   // API-Aufrufe
   const fetchWeatherData = async (location: string, coords?: {lat: number, lon: number}) => {
     setIsLoading(true);
     setError(null);
+    setWeather(null); // Bestehende Daten zurücksetzen
     
     try {
-      let useCoords = coords || coordinates;
+      let useCoords = coords;
 
       // Wenn keine Koordinaten übergeben wurden, Geocoding durchführen
       if (!useCoords) {
         try {
-          console.log("Führe Geocoding für Standort durch:", location);
+          console.log("Suche nach Standort:", location);
           
-          const geocodeUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}&limit=1&accept-language=de`;
-          console.log("Geocoding URL:", geocodeUrl);
+          const geocodeResult = await geocodeAddress(location);
           
-          const geocodeResponse = await fetch(geocodeUrl);
-          
-          if (!geocodeResponse.ok) {
-            throw new Error(`Geocoding-Fehler: ${geocodeResponse.status}`);
-          }
-          
-          const geocodeData = await geocodeResponse.json() as GeocodingResponse[];
-          
-          console.log("Geocoding-Ergebnis:", geocodeData);
-          
-          if (geocodeData && geocodeData.length > 0) {
-            const { lat, lon } = geocodeData[0];
-            useCoords = { lat: parseFloat(lat), lon: parseFloat(lon) };
-            setCoordinates(useCoords);
+          if (geocodeResult) {
+            useCoords = { lat: geocodeResult.lat, lon: geocodeResult.lon };
+            
+            // Ortsname aktualisieren, wenn die API einen liefert
+            if (geocodeResult.display_name) {
+              location = geocodeResult.display_name;
+            }
+            
             console.log("Koordinaten gefunden:", useCoords);
           } else {
             throw new Error("Keine Koordinaten für den Standort gefunden");
           }
         } catch (error) {
           console.error('Fehler beim Geocoding:', error);
-          setError("Standort nicht gefunden. Bitte versuchen Sie es mit einer anderen Adresse.");
+          setError(typeof error === 'object' && error !== null && 'message' in error 
+            ? String(error.message)
+            : "Standort nicht gefunden. Bitte versuchen Sie es mit einer anderen Adresse.");
           setIsLoading(false);
           return;
         }
+      }
+      
+      if (!useCoords) {
+        throw new Error("Koordinaten konnten nicht ermittelt werden");
       }
       
       console.log("Wetterdaten werden abgerufen für:", location, "mit Koordinaten:", useCoords);
@@ -235,10 +227,7 @@ export const WeatherWidget = () => {
       // API-Aufrufe parallel ausführen
       const [currentWeatherResponse, forecastResponse] = await Promise.all([
         getCurrentWeather(useCoords),
-        getWeatherForecast({
-          ...useCoords,
-          date: new Date().toISOString().split('T')[0]
-        })
+        getWeatherForecast(useCoords)
       ]);
       
       // Prüfen, ob wir gültige Daten haben
@@ -246,8 +235,8 @@ export const WeatherWidget = () => {
         throw new Error("Keine aktuellen Wetterdaten verfügbar");
       }
       
-      console.log("Aktuelle Wetterdaten empfangen:", currentWeatherResponse);
-      console.log("Vorhersagedaten empfangen:", forecastResponse);
+      console.log("Aktuelle Wetterdaten:", currentWeatherResponse);
+      console.log("Vorhersagedaten:", forecastResponse);
       
       // Daten aufbereiten
       const precipitation = currentWeatherResponse.precipitation || 0;
@@ -307,69 +296,63 @@ export const WeatherWidget = () => {
       });
     } catch (error) {
       console.error('Fehler beim Abrufen der Wetterdaten:', error);
-      setError("Fehler beim Abrufen der Wetterdaten. Bitte versuchen Sie es später erneut.");
-      // Wetterdaten auf null setzen, damit die UI entsprechend reagieren kann
-      setWeather(null);
+      setError(typeof error === 'object' && error !== null && 'message' in error 
+        ? String(error.message)
+        : "Fehler beim Abrufen der Wetterdaten. Bitte versuchen Sie es später erneut.");
     } finally {
       setIsLoading(false);
     }
   };
 
   // Funktion zum Ermitteln des aktuellen Standorts
-  const detectLocation = useCallback(() => {
+  const detectLocation = async () => {
     setIsLoading(true);
-    setLocationDetectionFailed(false);
     setError(null);
+    setWeather(null);
     
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const { latitude, longitude } = position.coords;
-          
-          console.log("Standort erkannt:", latitude, longitude);
-          
-          // Reverse-Geocoding, um Ortsnamen zu erhalten
-          try {
-            const response = await fetch(
-              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&accept-language=de`
-            );
-            
-            if (!response.ok) {
-              throw new Error(`Geocoding-Fehler: ${response.status}`);
-            }
-            
-            const data = await response.json() as Record<string, any>;
-            const locationName = data.address?.city || data.address?.town || data.address?.village || 'Unbekannter Ort';
-            
-            console.log("Ermittelter Ort:", locationName);
-            
-            setCoordinates({ lat: latitude, lon: longitude });
-            setSearchLocation(locationName);
-            
-            // Wetterdaten für diesen Standort abrufen
-            fetchWeatherData(locationName, { lat: latitude, lon: longitude });
-          } catch (error) {
-            console.error('Fehler beim Geocoding:', error);
-            setLocationDetectionFailed(true);
-            setError("Standort konnte nicht in Adresse umgewandelt werden.");
-            // Dennoch mit Koordinaten fortfahren
-            fetchWeatherData("Ihr Standort", { lat: latitude, lon: longitude });
-          }
-        },
-        (error) => {
-          console.error('Geolocation-Fehler:', error);
-          setLocationDetectionFailed(true);
-          setIsLoading(false);
-          setError("Standorterkennung nicht möglich: " + error.message);
+    try {
+      // Standort ermitteln
+      const position = await getUserLocation();
+      
+      console.log("Standort erkannt:", position.lat, position.lon);
+      
+      // Reverse-Geocoding, um Ortsnamen zu erhalten
+      try {
+        const response = await fetch(
+          `https://api.openweathermap.org/geo/1.0/reverse?lat=${position.lat}&lon=${position.lon}&limit=1&appid=ea00e7bbae2b76f651d9385be422088b`
+        );
+        
+        if (!response.ok) {
+          throw new Error(`Geocoding-Fehler: ${response.status}`);
         }
-      );
-    } else {
-      console.error('Browser unterstützt keine Standorterkennung');
-      setLocationDetectionFailed(true);
+        
+        const data = await response.json();
+        let locationName = "Ihr Standort";
+        
+        if (Array.isArray(data) && data.length > 0) {
+          locationName = data[0].name;
+          if (data[0].state) locationName += `, ${data[0].state}`;
+        }
+        
+        console.log("Ermittelter Ort:", locationName);
+        setSearchLocation(locationName);
+        
+        // Wetterdaten für diesen Standort abrufen
+        fetchWeatherData(locationName, { lat: position.lat, lon: position.lon });
+      } catch (error) {
+        console.error('Fehler beim Reverse-Geocoding:', error);
+        // Trotzdem mit Koordinaten fortfahren
+        setSearchLocation("Ihr Standort");
+        fetchWeatherData("Ihr Standort", { lat: position.lat, lon: position.lon });
+      }
+    } catch (error) {
+      console.error('Standortbestimmung fehlgeschlagen:', error);
       setIsLoading(false);
-      setError("Ihr Browser unterstützt keine Standorterkennung.");
+      setError(typeof error === 'object' && error !== null && 'message' in error 
+        ? String(error.message) 
+        : "Standorterkennung fehlgeschlagen aus unbekanntem Grund.");
     }
-  }, []);
+  };
 
   const handleSearch = () => {
     if (searchLocation.trim()) {
@@ -384,34 +367,17 @@ export const WeatherWidget = () => {
     }
   };
 
-  // Beim ersten Laden Standort-basierte Daten abrufen
-  useEffect(() => {
-    // Automatische Standorterkennung beim Laden starten
-    detectLocation();
-    
-    // Fallback auf Standardwerte falls die Standorterkennung fehlschlägt
-    const fallbackTimer = setTimeout(() => {
-      if (isLoading) {
-        console.log("Standorterkennung hat zu lange gedauert, Timeout erreicht");
-        setLocationDetectionFailed(true);
-        setIsLoading(false);
-        setError("Zeitüberschreitung bei der Standorterkennung. Bitte geben Sie Ihren Standort manuell ein.");
-      }
-    }, 10000); // 10 Sekunden Timeout
-    
-    return () => clearTimeout(fallbackTimer);
-  }, [detectLocation, isLoading]);
-
   return (
     <div className="w-full space-y-4">
       {/* Suchleiste */}
       <div className="flex gap-2">
         <Input
-          placeholder="Standort eingeben..."
+          placeholder="PLZ, Ort oder Adresse eingeben..."
           value={searchLocation}
           onChange={(e) => setSearchLocation(e.target.value)}
           onKeyDown={handleKeyDown}
           className="flex-grow"
+          disabled={isLoading}
         />
         <Button 
           onClick={detectLocation} 
@@ -426,21 +392,16 @@ export const WeatherWidget = () => {
           disabled={isLoading || !searchLocation.trim()} 
           className="bg-accent hover:bg-accent/90"
         >
-          <Search className="w-4 h-4 mr-2" />
+          {isLoading ? (
+            <div className="w-4 h-4 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+          ) : (
+            <Search className="w-4 h-4 mr-2" />
+          )}
           Suchen
         </Button>
       </div>
       
       {/* Fehlermeldungen */}
-      {locationDetectionFailed && !error && (
-        <div className="bg-yellow-100 text-yellow-800 border border-yellow-200 p-3 rounded-lg text-sm">
-          <div className="flex items-center">
-            <AlertTriangle className="w-4 h-4 mr-2 flex-shrink-0" />
-            <span>Standorterkennung nicht möglich. Bitte geben Sie Ihren Standort manuell ein.</span>
-          </div>
-        </div>
-      )}
-      
       {error && (
         <div className="bg-red-100 text-red-800 border border-red-200 p-3 rounded-lg text-sm">
           <div className="flex items-center">

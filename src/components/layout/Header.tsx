@@ -386,10 +386,10 @@ export function Header() {
                         </Link>
                         <Link 
                           href={`/${locale}/blog/StreumittelCalculator`}
-                          className="p-2 rounded-md hover:bg-blue-50 transition-colors flex items-center"
+                          className="p-2 rounded-md hover:bg-blue-50 transition-colors"
                         >
                           <span className="text-sm font-medium flex items-center gap-1">
-                            <Calculator className="h-4 w-4 text-primary" /> 
+                            <Calculator className="h-4 w-4 text-blue-600" /> 
                             Streumittel-Rechner
                           </span>
                         </Link>
@@ -450,10 +450,10 @@ export function Header() {
                         {/* Streumittel-Rechner Eintrag */}
                         <Link
                           href={`/${locale}/blog/StreumittelCalculator`}
-                          className="block p-2 text-sm hover:bg-blue-50 rounded-md transition-colors mt-1 bg-blue-50/50 font-medium flex items-center"
+                          className="block p-2 text-sm hover:bg-blue-50 rounded-md transition-colors mt-1 bg-blue-50/50 font-medium"
                         >
                           <span className="flex items-center gap-1">
-                            <Calculator className="h-4 w-4 text-primary" /> 
+                            <Calculator className="h-4 w-4 text-blue-600" /> 
                             Streumittel-Rechner
                           </span>
                         </Link>

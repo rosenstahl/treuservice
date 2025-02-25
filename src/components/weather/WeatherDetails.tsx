@@ -310,10 +310,9 @@ export const WeatherDetails = ({
               </div>
             )}
             
-            {/* Vorhersage-Tabs */}
+            {/* Vorhersage-Tabs - Korrigiert: defaultValue statt value */}
             <Tabs 
               defaultValue={activeTab}
-              value={activeTab}
               className="mb-6"
             >
               <TabsList className="grid w-full grid-cols-2 mb-6">

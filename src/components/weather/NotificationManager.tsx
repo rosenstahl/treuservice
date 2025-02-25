@@ -27,6 +27,16 @@ interface Notification {
   read: boolean;
 }
 
+// Typ für gespeicherte Benachrichtigungen
+interface StoredNotification {
+  id: string;
+  type: NotificationType;
+  title: string;
+  message: string;
+  timestamp: string;
+  read: boolean;
+}
+
 // Props für den NotificationManager
 interface NotificationManagerProps {
   location?: string;
@@ -66,8 +76,8 @@ export const NotificationManager = ({ location, coordinates }: NotificationManag
     const savedNotifications = localStorage.getItem('weatherNotificationsList');
     if (savedNotifications) {
       try {
-        const parsedNotifications = JSON.parse(savedNotifications);
-        setNotifications(parsedNotifications.map((n: any) => ({
+        const parsedNotifications = JSON.parse(savedNotifications) as StoredNotification[];
+        setNotifications(parsedNotifications.map((n) => ({
           ...n,
           timestamp: new Date(n.timestamp)
         })));

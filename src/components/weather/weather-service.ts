@@ -13,10 +13,31 @@ export interface WeatherData {
   // Weitere gemeinsame Felder können hier hinzugefügt werden
 }
 
+// Typen für die API-Antworten
+export interface BrightskyResponse {
+  weather: BrightskyWeatherItem[];
+  sources: unknown[];
+  [key: string]: unknown;
+}
+
+export interface BrightskyWeatherItem {
+  timestamp: string;
+  temperature?: number;
+  precipitation?: number;
+  precipitation_probability?: number;
+  relative_humidity?: number;
+  cloud_cover?: number;
+  wind_speed?: number;
+  soil_temperature?: number;
+  condition?: string;
+  icon?: string;
+  [key: string]: unknown;
+}
+
 /**
  * Holt Wetterdaten von der Brightsky API
  */
-async function fetchFromBrightsky(lat: number, lon: number): Promise<any> {
+async function fetchFromBrightsky(lat: number, lon: number): Promise<BrightskyResponse> {
   const date = new Date();
   const dateString = date.toISOString().split('T')[0];
   
@@ -29,7 +50,7 @@ async function fetchFromBrightsky(lat: number, lon: number): Promise<any> {
     throw new Error(`Brightsky API Error: ${response.status}`);
   }
   
-  const data = await response.json();
+  const data = await response.json() as BrightskyResponse;
   
   // Geben wir die Rohdaten zurück, um die kompatibilität mit dem bestehenden Code zu wahren
   return data;
@@ -38,7 +59,7 @@ async function fetchFromBrightsky(lat: number, lon: number): Promise<any> {
 /**
  * Holt Wetterdaten von der Backup-API (falls implementiert)
  */
-async function fetchFromBackupAPI(lat: number, lon: number): Promise<any> {
+async function fetchFromBackupAPI(lat: number, lon: number): Promise<BrightskyResponse> {
   // Diese Funktion muss an deine tatsächliche Backup-API angepasst werden
   // Momentan gibt es hier nur eine Fallback-Logik, die direkt versucht, 
   // trotzdem von Brightsky zu lesen
@@ -49,7 +70,7 @@ async function fetchFromBackupAPI(lat: number, lon: number): Promise<any> {
 /**
  * Hauptfunktion für intelligente API-Auswahl
  */
-export async function getWeatherData(lat: number, lon: number): Promise<any> {
+export async function getWeatherData(lat: number, lon: number): Promise<BrightskyResponse> {
   console.log(`Wetterdaten werden abgerufen für: ${lat}, ${lon}`);
   console.log(`Brightsky-Fehler bisher: ${brightskyFailures}`);
   

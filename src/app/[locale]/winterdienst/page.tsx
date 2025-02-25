@@ -38,7 +38,6 @@ import {
 // Neue Wetter-Komponenten importieren
 import { WeatherDetails } from '@/components/weather/WeatherDetails'
 import { WeatherWidget } from '@/components/weather/WeatherWidget'
-import { SnowfallMapWidget } from '@/components/weather/SnowfallMapWidget'
 import { NotificationManager } from '@/components/weather/NotificationManager'
 
 export default function WinterservicePage() {
@@ -128,11 +127,6 @@ export default function WinterservicePage() {
             {/* Weather Details einbinden */}
             <div className="mt-8">
               <WeatherDetails />
-            </div>
-            
-            {/* Snowfall Map Widget einbinden */}
-            <div className="mt-8">
-              <SnowfallMapWidget />
             </div>
           </InView>
         </Container>

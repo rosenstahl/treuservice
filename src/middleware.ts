@@ -19,7 +19,9 @@ const validPaths = [
   'blog/reinigung',
   'blog/security',
   'blog/winterdienst',
-  'blog/streumittel'
+  'blog/streumittel',
+  'blog/StreumittelCalculator'
+
 ]
 function getLocale(request: NextRequest) {
   const { pathname } = request.nextUrl

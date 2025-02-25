@@ -54,6 +54,15 @@ const articles = [
     readingTime: "8 min"
   },
   {
+    title: "Streumittel-Rechner",
+    description: "Interaktives Tool zur Berechnung des optimalen Streumittelbedarfs und Kostenübersicht",
+    category: "Winterdienst",
+    slug: "StreumittelCalculator",
+    image: "/images/blog/winter.jpg",
+    date: "25.02.2025",
+    readingTime: "Interaktives Tool"
+  },
+  {
     title: "Professionelle Reinigungstipps",
     description: "Professionelle Reinigungstipps und Problemlösungen",
     category: "Reinigung",

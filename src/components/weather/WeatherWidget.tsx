@@ -238,12 +238,21 @@ export const WeatherWidget = () => {
       console.log("Aktuelle Wetterdaten:", currentWeatherResponse);
       console.log("Vorhersagedaten:", forecastResponse);
       
-      // Daten aufbereiten
-      const precipitation = currentWeatherResponse.precipitation || 0;
-      const precipProbability = currentWeatherResponse.precipitation_probability || 0;
-      const temperature = currentWeatherResponse.temperature !== undefined ? currentWeatherResponse.temperature : null;
-      const humidity = currentWeatherResponse.relative_humidity || 0;
-      
+
+// Daten aufbereiten
+const precipitation = currentWeatherResponse.precipitation || 0;
+const precipProbability = currentWeatherResponse.precipitation_probability || 0;
+const temperature = currentWeatherResponse.temperature !== undefined ? 
+  Math.round(currentWeatherResponse.temperature * 10) / 10 : null; // Rundung auf 1 Dezimalstelle
+const humidity = currentWeatherResponse.relative_humidity || 0;
+
+let condition = currentWeatherResponse.condition || 'unknown';
+if (condition === 'rain' && precipitation === 0) {
+  condition = currentWeatherResponse.cloud_cover && currentWeatherResponse.cloud_cover > 70 ? 
+    'cloudy' : 'partly-cloudy-day';
+  console.log(`Bedingung korrigiert von 'rain' auf '${condition}'`);
+}
+
       // Alert-Level berechnen
       const alertLevel = determineAlertLevel(temperature, precipProbability);
       
@@ -278,12 +287,13 @@ export const WeatherWidget = () => {
       setWeather({
         location: location,
         temperature: temperature,
-        conditions: translatedCondition,
-        humidity: humidity,
-        cloudiness: currentWeatherResponse.cloud_cover || 0,
-        windSpeed: currentWeatherResponse.wind_speed || 0,
-        precipitation: precipitation,
-        precipitationProbability: precipProbability,
+        conditions: translateCondition(condition),
+        humidity: Math.round(humidity), // Runde auf ganze Zahl
+        cloudiness: Math.round(currentWeatherResponse.cloud_cover || 0),
+        windSpeed: Math.round(currentWeatherResponse.wind_speed * 10) / 10 || 0, // 1 Dezimalstelle
+        precipitation: Math.round(precipitation * 10) / 10,
+        precipitationProbability: Math.round(precipProbability),
+      
         snowHeight: snowHeight,
         soilTemperature: currentWeatherResponse.soil_temperature,
         icon: currentWeatherResponse.icon || 'cloud',

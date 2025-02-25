@@ -1,145 +1,413 @@
 "use client";
+
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { H3, Paragraph } from "@/components/ui/typography";
 import { 
+  Thermometer, 
+  Wind, 
+  Droplets, 
   CloudSnow, 
-  CloudRain, 
-  ThermometerSnowflake, 
   Calendar, 
-  Clock, 
-  AlertTriangle 
+  Clock,
+  ArrowDown,
+  Layers
 } from "lucide-react";
+import { getWeatherForecast, predictSnowfall, WeatherObservation } from './brightsky';
 
-export const WeatherDetails = () => {
+interface WeatherDetailsProps {
+  location: string;
+  coordinates?: { lat: number; lon: number };
+  currentWeather?: {
+    temperature: number | null;
+    conditions: string;
+    humidity: number;
+    windSpeed: number;
+    precipitation: number;
+    icon: string;
+    soilTemperature?: number;
+  };
+}
+
+export const WeatherDetails = ({ 
+  location, 
+  coordinates, 
+  currentWeather 
+}: WeatherDetailsProps) => {
+  const [activeTab, setActiveTab] = useState('hourly');
+  const [hourlyForecast, setHourlyForecast] = useState<WeatherObservation[]>([]);
+  const [dailyForecast, setDailyForecast] = useState<{
+    date: string;
+    maxTemp: number;
+    minTemp: number;
+    conditions: string;
+    precipitation: number;
+    snowAmount: number;
+    icon: string;
+  }[]>([]);
+  const [snowPrediction, setSnowPrediction] = useState<{
+    willSnow: boolean;
+    startTime?: string;
+    endTime?: string;
+    totalAmount: number;
+  } | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Wetterdaten laden, wenn Koordinaten verfügbar sind
+  useEffect(() => {
+    if (coordinates) {
+      loadWeatherData();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coordinates]);
+  
+  // Wetterdaten von der API abrufen
+  const loadWeatherData = async () => {
+    if (!coordinates) return;
+    
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      // Heutiges Datum
+      const today = new Date();
+      const formattedToday = today.toISOString().split('T')[0];
+      
+      // Datum in 7 Tagen
+      const nextWeek = new Date(today);
+      nextWeek.setDate(nextWeek.getDate() + 7);
+      const formattedNextWeek = nextWeek.toISOString().split('T')[0];
+      
+      // Vorhersage abrufen
+      const forecast = await getWeatherForecast({
+        ...coordinates,
+        date: formattedToday,
+        last_date: formattedNextWeek
+      });
+      
+      if (forecast.length === 0) {
+        throw new Error("Keine Vorhersagedaten verfügbar");
+      }
+      
+      // Stündliche Vorhersage (nur die nächsten 48 Stunden)
+      setHourlyForecast(forecast.slice(0, 48));
+      
+      // Tägliche Vorhersage berechnen
+      const dailyData = calculateDailyForecast(forecast);
+      setDailyForecast(dailyData);
+      
+      // Schneefall-Vorhersage
+      const snowfall = predictSnowfall(forecast, 72); // 3 Tage vorausschauen
+      setSnowPrediction(snowfall);
+      
+    } catch (error) {
+      console.error("Fehler beim Laden der Wetterdetails:", error);
+      setError("Die Wettervorhersage konnte nicht geladen werden. Bitte versuchen Sie es später erneut.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
+  // Stündliche Vorhersagedaten in tägliche Zusammenfassung konvertieren
+  const calculateDailyForecast = (hourlyData: WeatherObservation[]) => {
+    const dailyMap = new Map<string, {
+      temps: number[]; 
+      conditions: Record<string, number>; 
+      precipitation: number;
+      snowAmount: number;
+      icons: Record<string, number>;
+    }>();
+    
+    // Daten nach Tagen gruppieren
+    hourlyData.forEach(hour => {
+      if (!hour.timestamp || hour.temperature === undefined) return;
+      
+      const date = hour.timestamp.split('T')[0];
+      const temp = hour.temperature;
+      const condition = hour.condition || 'unknown';
+      const precip = hour.precipitation || 0;
+      const icon = hour.icon || 'cloud';
+      
+      // Schneemenge berechnen wenn kalt und Niederschlag
+      let snow = 0;
+      if (temp <= 2 && precip > 0) {
+        const factor = temp <= 0 ? 10 : 7;
+        snow = (precip * factor) / 10; // cm
+      }
+      
+      if (!dailyMap.has(date)) {
+        dailyMap.set(date, {
+          temps: [],
+          conditions: {},
+          precipitation: 0,
+          snowAmount: 0,
+          icons: {}
+        });
+      }
+      
+      const dayData = dailyMap.get(date)!;
+      dayData.temps.push(temp);
+      dayData.precipitation += precip;
+      dayData.snowAmount += snow;
+      
+      // Bedingungen und Icons zählen
+      dayData.conditions[condition] = (dayData.conditions[condition] || 0) + 1;
+      dayData.icons[icon] = (dayData.icons[icon] || 0) + 1;
+    });
+    
+    // Tägliche Zusammenfassung erstellen
+    const dailyForecast = Array.from(dailyMap.entries()).map(([date, data]) => {
+      // Häufigste Wetterbedingung finden
+      let mostCommonCondition = 'unknown';
+      let maxConditionCount = 0;
+      
+      Object.entries(data.conditions).forEach(([condition, count]) => {
+        if (count > maxConditionCount) {
+          mostCommonCondition = condition;
+          maxConditionCount = count;
+        }
+      });
+      
+      // Häufigstes Icon finden
+      let mostCommonIcon = 'cloud';
+      let maxIconCount = 0;
+      
+      Object.entries(data.icons).forEach(([icon, count]) => {
+        if (count > maxIconCount) {
+          mostCommonIcon = icon;
+          maxIconCount = count;
+        }
+      });
+      
+      return {
+        date: formatDate(date),
+        maxTemp: Math.max(...data.temps),
+        minTemp: Math.min(...data.temps),
+        conditions: mostCommonCondition,
+        precipitation: parseFloat(data.precipitation.toFixed(1)),
+        snowAmount: parseFloat(data.snowAmount.toFixed(1)),
+        icon: mostCommonIcon
+      };
+    });
+    
+    return dailyForecast;
+  };
+  
+  // Datum formatieren
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: '2-digit' });
+  };
+  
+  // Uhrzeit formatieren
+  const formatTime = (timestamp: string) => {
+    const date = new Date(timestamp);
+    return date.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+  };
+
+  // Wetter-Icon-Komponente
+  const getWeatherIcon = (condition: string) => {
+    switch(condition.toLowerCase()) {
+      case 'clear-day':
+      case 'clear-night':
+        return '☀️';
+      case 'partly-cloudy-day':
+      case 'partly-cloudy-night':
+        return '⛅';
+      case 'cloudy':
+        return '☁️';
+      case 'rain':
+        return '🌧️';
+      case 'snow':
+        return '❄️';
+      case 'sleet':
+        return '🌨️';
+      case 'wind':
+        return '💨';
+      case 'fog':
+        return '🌫️';
+      case 'thunderstorm':
+        return '⛈️';
+      default:
+        return '☁️';
+    }
+  };
+
   return (
-    <div className="w-full space-y-4">
-      <Tabs defaultValue="forecast" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="forecast">
-            <Calendar className="w-4 h-4 mr-2" />
-            7-Tage-Prognose
-          </TabsTrigger>
-          <TabsTrigger value="temperature">
-            <ThermometerSnowflake className="w-4 h-4 mr-2" />
-            Temperaturverlauf
-          </TabsTrigger>
-          <TabsTrigger value="alerts">
-            <AlertTriangle className="w-4 h-4 mr-2" />
-            Wetterwarnungen
-          </TabsTrigger>
-        </TabsList>
+    <Card className="w-full bg-white">
+      <CardContent className="p-6">
+        <div className="flex justify-between items-center mb-4">
+          <H3 className="text-xl font-semibold">Wettervorhersage für {location}</H3>
+          <div className="text-sm text-gray-500">
+            <Calendar className="inline-block w-4 h-4 mr-1" />
+            {new Date().toLocaleDateString('de-DE')}
+          </div>
+        </div>
         
-        {/* 7-Tage-Prognose */}
-        <TabsContent value="forecast" className="mt-4">
-          <Card>
-            <CardContent className="p-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-3">
-                {[...Array(7)].map((_, i) => {
-                  // Simuliert verschiedene Wetterbedingungen
-                  const isSnow = i === 1 || i === 2;
-                  const temp = i === 1 || i === 2 ? -2 + i : 2 + i;
-                  const day = new Date();
-                  day.setDate(day.getDate() + i);
-                  const dayName = day.toLocaleDateString('de-DE', { weekday: 'short' });
-                  const dateStr = day.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' });
-                  
-                  return (
-                    <div key={i} className="flex flex-col items-center p-3 border rounded-lg">
-                      <span className="text-sm font-medium">{dayName}</span>
-                      <span className="text-xs text-muted-foreground">{dateStr}</span>
-                      <div className="my-3">
-                        {isSnow ? (
-                          <CloudSnow className="w-10 h-10 text-blue-500" />
-                        ) : (
-                          <CloudRain className="w-10 h-10 text-gray-500" />
+        {isLoading && (
+          <div className="flex justify-center py-8">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        )}
+        
+        {error && (
+          <div className="bg-red-100 text-red-800 border border-red-200 p-4 rounded-lg mb-4">
+            {error}
+          </div>
+        )}
+        
+        {!isLoading && !error && (
+          <>
+            {/* Schneefall-Prognose */}
+            {snowPrediction && snowPrediction.willSnow && (
+              <div className="bg-blue-100 text-blue-800 border border-blue-200 p-4 rounded-lg mb-6">
+                <div className="flex items-start">
+                  <CloudSnow className="w-6 h-6 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium mb-1">Schneefall erwartet</div>
+                    <div className="text-sm">
+                      In den nächsten Tagen wird Schneefall mit einer Höhe von ca. {snowPrediction.totalAmount.toFixed(1)} cm erwartet.
+                      {snowPrediction.startTime && (
+                        <span> Beginn: {snowPrediction.startTime}</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {/* Vorhersage-Tabs */}
+            <Tabs 
+              defaultValue={activeTab}
+              value={activeTab}
+              className="mb-6"
+            >
+              <TabsList className="grid w-full grid-cols-2 mb-6">
+                <TabsTrigger value="hourly" onClick={() => setActiveTab('hourly')}>
+                  Stündlich
+                </TabsTrigger>
+                <TabsTrigger value="daily" onClick={() => setActiveTab('daily')}>
+                  7-Tage Trend
+                </TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="hourly" className="space-y-4">
+                {/* Aktuelle Wetterbedingungen */}
+                {currentWeather && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-blue-50 p-4 rounded-lg mb-6">
+                    <div className="flex items-center">
+                      <Thermometer className="w-5 h-5 text-blue-600 mr-2" />
+                      <div>
+                        <div className="text-sm">Temperatur</div>
+                        <div className="font-medium">
+                          {currentWeather.temperature !== null ? `${currentWeather.temperature.toFixed(1)}°C` : "--°C"}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <Wind className="w-5 h-5 text-blue-600 mr-2" />
+                      <div>
+                        <div className="text-sm">Wind</div>
+                        <div className="font-medium">{currentWeather.windSpeed} km/h</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <Droplets className="w-5 h-5 text-blue-600 mr-2" />
+                      <div>
+                        <div className="text-sm">Luftfeuchtigkeit</div>
+                        <div className="font-medium">{currentWeather.humidity}%</div>
+                      </div>
+                    </div>
+                    {currentWeather.soilTemperature !== undefined && (
+                      <div className="flex items-center">
+                        <Layers className="w-5 h-5 text-blue-600 mr-2" />
+                        <div>
+                          <div className="text-sm">Bodentemperatur</div>
+                          <div className="font-medium">{currentWeather.soilTemperature.toFixed(1)}°C</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+                
+                {/* Stündliche Vorhersage */}
+                <div className="overflow-x-auto pb-4">
+                  <div className="inline-flex space-x-4 min-w-full">
+                    {hourlyForecast.map((hour, index) => (
+                      <div 
+                        key={index} 
+                        className="flex-none w-20 text-center p-3 border rounded-lg bg-white"
+                      >
+                        <div className="text-xs text-gray-500 mb-1">
+                          <Clock className="inline-block w-3 h-3 mr-1" />
+                          {formatTime(hour.timestamp)}
+                        </div>
+                        <div className="text-2xl mb-1">{getWeatherIcon(hour.icon || 'cloud')}</div>
+                        <div className="font-bold">{hour.temperature?.toFixed(1)}°C</div>
+                        {hour.precipitation !== undefined && hour.precipitation > 0 && (
+                          <div className="text-xs text-blue-600 mt-1">
+                            <Droplets className="inline-block w-3 h-3 mr-1" />
+                            {hour.precipitation.toFixed(1)} mm
+                          </div>
+                        )}
+                        {hour.wind_speed !== undefined && (
+                          <div className="text-xs text-gray-600 mt-1">
+                            <Wind className="inline-block w-3 h-3 mr-1" />
+                            {hour.wind_speed} km/h
+                          </div>
                         )}
                       </div>
-                      <div className="flex justify-between w-full text-sm">
-                        <span className="font-medium">{temp - 2}°</span>
-                        <span className="font-bold">{temp}°</span>
+                    ))}
+                  </div>
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="daily">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-3">
+                  {dailyForecast.map((day, index) => (
+                    <div 
+                      key={index} 
+                      className={`p-4 border rounded-lg text-center ${index === 0 ? 'bg-blue-50' : 'bg-white'}`}
+                    >
+                      <div className="font-medium mb-2">{day.date}</div>
+                      <div className="text-3xl mb-2">{getWeatherIcon(day.icon)}</div>
+                      <div className="flex justify-center items-center space-x-3 mb-2">
+                        <span className="text-red-500">{day.maxTemp.toFixed(1)}°</span>
+                        <ArrowDown className="h-3 w-3 text-blue-500" />
+                        <span className="text-blue-500">{day.minTemp.toFixed(1)}°</span>
                       </div>
-                      <span className="text-xs text-center text-muted-foreground mt-1">
-                        {isSnow ? 'Leichter Schneefall' : 'Bedeckt'}
-                      </span>
+                      
+                      {day.precipitation > 0 && (
+                        <div className="text-xs text-blue-600 mb-1">
+                          <Droplets className="inline-block w-3 h-3 mr-1" />
+                          {day.precipitation} mm
+                        </div>
+                      )}
+                      
+                      {day.snowAmount > 0 && (
+                        <div className="text-xs text-blue-800 font-medium">
+                          <CloudSnow className="inline-block w-3 h-3 mr-1" />
+                          {day.snowAmount} cm Schnee
+                        </div>
+                      )}
                     </div>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </>
+        )}
         
-        {/* Temperaturverlauf */}
-        <TabsContent value="temperature" className="mt-4">
-          <Card>
-            <CardContent className="p-6">
-              <div className="h-64 w-full bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
-                <Paragraph className="text-center text-muted-foreground">
-                  Hier würde in einer echten Implementierung ein Temperaturverlaufs-Chart angezeigt werden
-                </Paragraph>
-              </div>
-              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border rounded-lg p-4">
-                  <H3 className="text-lg font-medium mb-2">Bodentemperatur</H3>
-                  <div className="flex items-center">
-                    <ThermometerSnowflake className="w-5 h-5 text-blue-500 mr-2" />
-                    <span>Aktuell: -1°C</span>
-                  </div>
-                  <Paragraph className="text-sm text-muted-foreground mt-2">
-                    Die Bodentemperatur ist ein entscheidender Faktor für Glättebildung.
-                  </Paragraph>
-                </div>
-                <div className="border rounded-lg p-4">
-                  <H3 className="text-lg font-medium mb-2">Frostprognose</H3>
-                  <div className="flex items-center">
-                    <Clock className="w-5 h-5 text-amber-500 mr-2" />
-                    <span>Beginn: Heute 18:00 Uhr</span>
-                  </div>
-                  <Paragraph className="text-sm text-muted-foreground mt-2">
-                    Vorsorglicher Winterdienst wird ab 17:00 Uhr empfohlen.
-                  </Paragraph>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        
-        {/* Wetterwarnungen */}
-        <TabsContent value="alerts" className="mt-4">
-          <Card>
-            <CardContent className="p-6">
-              <div className="space-y-4">
-                <div className="bg-red-100 border border-red-200 rounded-lg p-4">
-                  <div className="flex items-center">
-                    <AlertTriangle className="w-5 h-5 text-red-600 mr-2" />
-                    <H3 className="text-lg font-medium text-red-800">Glätte-Warnung</H3>
-                  </div>
-                  <Paragraph className="text-sm text-red-700 mt-2">
-                    Für Berlin und Umgebung: Achtung! Durch gefrierende Nässe kann es zu gefährlicher Glätte kommen.
-                  </Paragraph>
-                  <div className="mt-2 text-xs text-red-600">
-                    Gültig: Heute 18:00 Uhr bis morgen 10:00 Uhr
-                  </div>
-                </div>
-                
-                <div className="bg-amber-100 border border-amber-200 rounded-lg p-4">
-                  <div className="flex items-center">
-                    <AlertTriangle className="w-5 h-5 text-amber-600 mr-2" />
-                    <H3 className="text-lg font-medium text-amber-800">Schneefall-Warnung</H3>
-                  </div>
-                  <Paragraph className="text-sm text-amber-700 mt-2">
-                    Für Berlin und Umgebung: Es werden 2-5 cm Neuschnee innerhalb von 12 Stunden erwartet.
-                  </Paragraph>
-                  <div className="mt-2 text-xs text-amber-600">
-                    Gültig: Morgen 03:00 Uhr bis 15:00 Uhr
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
-    </div>
+        {/* Zusätzliche Informationen */}
+        <div className="mt-6 text-sm text-gray-500 border-t pt-4">
+          <Paragraph>
+            Die Wettervorhersage wird regelmäßig aktualisiert und bietet eine Vorhersagegenauigkeit von bis zu 7 Tagen.
+            Daten basierend auf dem Deutschen Wetterdienst.
+          </Paragraph>
+        </div>
+      </CardContent>
+    </Card>
   );
 };

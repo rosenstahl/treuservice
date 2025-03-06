@@ -1,0 +1,307 @@
+{
+  "hero": {
+    "title": "Professionelle Entkernung",
+    "subtitle": "Perfekte Vorbereitung für Ihre Sanierung",
+    "description": "TREU Service sorgt für die fachgerechte und effiziente Entkernung Ihres Gebäudes. Wir schaffen die optimale Grundlage für Ihr Renovierungsprojekt - schnell, sauber und zu fairen Preisen."
+  },
+  "intro": {
+    "title": "Ihr Experte für komplette Entkernung",
+    "description": "Mit unserer langjährigen Erfahrung entkernen wir zuverlässig Wohn- und Geschäftsgebäude jeder Größe. Wir arbeiten sorgfältig, umweltbewusst und nach höchsten Sicherheitsstandards – kompetent vom ersten Beratungsgespräch bis zur fachgerechten Entsorgung."
+  },
+  "basisleistungen": {
+    "title": "Unsere Dienstleistungen im Überblick", 
+    "items": [
+      "Kompletter Innenraumrückbau",
+      "Selektiver Rückbau",
+      "Entsorgung und Recycling",
+      "Schadstoffsanierung",
+      "Beratung und Planung"
+    ],
+    "note": "Professionelle Entkernung und fachgerechter Rückbau. Mit unseren umfassenden Entkernungsleistungen bereiten wir Ihr Gebäude optimal auf die Sanierung oder den Umbau vor."
+  },
+  "versprechen": {
+    "title": "Unser Versprechen an Sie",
+    "items": [
+      {
+        "title": "Präzision",
+        "description": "Sorgfältige Planung und präzise Durchführung aller Entkernungsarbeiten mit modernster Technik."
+      },
+      {
+        "title": "Sicherheit",
+        "description": "Einhaltung aller Sicherheitsstandards und fachgerechter Umgang mit Schadstoffen."
+      },
+      {
+        "title": "Pünktlichkeit",
+        "description": "Zuverlässige Termineinhaltung und transparente Kommunikation während der gesamten Projektphase."
+      },
+      {
+        "title": "Nachhaltigkeit",
+        "description": "Umweltgerechte Entsorgung und maximale Recyclingquote aller Materialien."
+      },
+      {
+        "title": "Transparenz",
+        "description": "Klare Kostenstruktur ohne versteckte Gebühren und detaillierte Dokumentation aller Arbeiten."
+      }
+    ]
+  },
+  "leistungen": {
+    "title": "Unsere Entkernungsleistungen",
+    "description": "Von der gezielten Entfernung einzelner Bauelemente bis zur kompletten Entkernung - wir bieten maßgeschneiderte Lösungen für Ihre individuellen Anforderungen.",
+    "services": [
+      {
+        "category": "Entkernungsleistungen",
+        "items": [
+          "Entfernung von Innenwänden und Zwischendecken",
+          "Rückbau von Böden und Estrichen",
+          "Demontage von Installationen (Elektro, Sanitär, Heizung)",
+          "Ausbau von Fenstern, Türen und Zargen",
+          "Entfernung von Verkleidungen und Dämmmaterialien",
+          "Selektive Entkernung nach Vorgaben"
+        ]
+      },
+      {
+        "category": "Zusatzleistungen",
+        "items": [
+          "Schadstofferkundung und -sanierung",
+          "Statische Beurteilung und Absicherung",
+          "Sortenreine Trennung und Entsorgung",
+          "Ausstellung von Entsorgungsnachweisen",
+          "Behördliche Abwicklung und Genehmigungen",
+          "Beratung und Projektplanung"
+        ]
+      }
+    ]
+  },
+  "ablauf": {
+    "title": "Ablauf einer Entkernungsarbeit – einfach erklärt",
+    "subtitle": "Von der Planung bis zur Fertigstellung - Professionelles Vorgehen in 10 Schritten",
+    "content": "Die Entkernung eines Gebäudes umfasst mehrere sorgfältig geplante und ausgeführte Schritte. Hier sind die Hauptelemente:",
+    "items": [
+      {
+        "title": "Planung und Vorbereitung",
+        "description": "Einholen aller erforderlichen Genehmigungen und Abnahmen von zuständigen Behörden. Durchführung einer gründlichen Risikoanalyse zur Identifizierung potenzieller Gefahren."
+      },
+      {
+        "title": "Sicherheitseinrichtungen",
+        "description": "Bereitstellung aller notwendigen Sicherheitsausrüstungen wie Absperrungen, Schutzkleidung und Warnschilder zum Schutz der Arbeiter und des Umfelds."
+      },
+      {
+        "title": "Entfernung von Möbeln und Gegenständen",
+        "description": "Räumung aller losen Möbel, Gegenstände und Geräte aus dem betroffenen Bereich für freien Zugang zu allen Bauelementen."
+      },
+      {
+        "title": "Abklemmen von Versorgungsleitungen",
+        "description": "Fachgerechtes Abklemmen von Strom-, Wasser-, Gas- und anderen Versorgungsleitungen, um Gefahren und Schäden zu vermeiden."
+      },
+      {
+        "title": "Entfernung von Wänden und Decken",
+        "description": "Sorgfältige Planung und Durchführung der Entfernung unter Berücksichtigung tragender Elemente. Implementierung aller notwendigen Sicherheitsvorkehrungen."
+      },
+      {
+        "title": "Entfernung von Böden und Bodenbelägen",
+        "description": "Fachgerechte Entfernung von Böden und Bodenbelägen zur Freilegung darunter liegender Rohrleitungen und Kabel unter Einhaltung aller Sicherheitsmaßnahmen."
+      },
+      {
+        "title": "Entfernung von Elektroinstallationen",
+        "description": "Sichere und ordnungsgemäße Entfernung von Elektroinstallationen durch qualifizierte Elektriker, um Unfälle und Folgeschäden zu vermeiden."
+      },
+      {
+        "title": "Entfernung von Rohrleitungen",
+        "description": "Vorsichtige Entfernung von Rohrleitungen zur Schaffung von Raum für neue Installationen ohne Beschädigung umliegender Bereiche."
+      },
+      {
+        "title": "Bauschutträumung",
+        "description": "Gründliche Beseitigung aller Abfälle und Rückstände, um eine saubere Arbeitsfläche für nachfolgende Gewerke zu schaffen und Unfallrisiken zu minimieren."
+      },
+      {
+        "title": "Entsorgung",
+        "description": "Ordnungsgemäße Entsorgung aller während der Entkernung anfallenden Materialien und Abfälle unter strikter Einhaltung von Umwelt- und Gesundheitsstandards."
+      }
+    ]
+  },
+  "haeufigeProbleme": {
+    "title": "Häufige Herausforderungen - Unsere Lösungen",
+    "subtitle": "Professionelle Antworten auf typische Fragen bei der Entkernung",
+    "items": [
+      {
+        "problem": "Statik gefährdet?",
+        "issue": "Risiko der Schädigung tragender Bauteile",
+        "solution": "Statische Voruntersuchung und fachgerechte Absicherung"
+      },
+      {
+        "problem": "Schadstoffbelastung?",
+        "issue": "Unerwartete gesundheitsgefährdende Materialien",
+        "solution": "Umfassende Schadstoffanalyse vor Beginn der Arbeiten"
+      },
+      {
+        "problem": "Lärmbelästigung?",
+        "issue": "Störungen für Anwohner und Nachbarn",
+        "solution": "Lärmreduzierte Verfahren und zeitliche Koordination"
+      },
+      {
+        "problem": "Staubentwicklung?",
+        "issue": "Starke Staubbelastung in und um das Gebäude",
+        "solution": "Professionelles Staubmanagement und Absaugungen"
+      },
+      {
+        "problem": "Entsorgungskosten?",
+        "issue": "Unerwartete Mehrkosten durch große Abfallmengen",
+        "solution": "Exakte Kalkulation und Recyclingkonzept"
+      }
+    ]
+  },
+  "qualitaetsversprechen": {
+    "title": "Unser Qualitätsversprechen",
+    "items": [
+      "Kostenlose Erstberatung",
+      "Fachgerechte Ausführung nach aktuellen Normen",
+      "Termingerechte Abwicklung",
+      "Umfassende Sicherheitsmaßnahmen",
+      "Umweltgerechte Entsorgung",
+      "Transparente Dokumentation"
+    ]
+  },
+  "warumTreuService": {
+    "title": "Warum TREU Service?",
+    "items": [
+      "Erfahrenes Team: Unsere qualifizierten Mitarbeiter sind in allen Aspekten der Entkernungsarbeiten geschult und erfahren",
+      "Moderne Ausrüstung: Wir setzen modernste Werkzeuge und Techniken ein, um die Arbeit effizient und sicher durchzuführen",
+      "Zuverlässigkeit: Wir arbeiten termingerecht und halten alle vereinbarten Fristen ein",
+      "Transparenz: Sämtliche unserer Dienstleistungen sind transparent und rechtssicher dokumentiert",
+      "Umweltbewusstsein: Wir achten auf nachhaltiges Arbeiten und maximales Recycling",
+      "Kundenorientierung: Ihre Anforderungen stehen bei uns im Mittelpunkt"
+    ]
+  },
+  "arbeitsweise": {
+    "title": "So funktioniert unsere Zusammenarbeit",
+    "steps": [
+      {
+        "title": "Beratung",
+        "description": "Kostenlose Erstberatung und Bedarfsanalyse"
+      },
+      {
+        "title": "Besichtigung",
+        "description": "Vor-Ort-Termin und detaillierte Bestandsaufnahme"
+      },
+      {
+        "title": "Angebot",
+        "description": "Transparentes Festpreisangebot ohne versteckte Kosten"
+      },
+      {
+        "title": "Planung",
+        "description": "Detaillierte Projektplanung und Terminkoordination"
+      },
+      {
+        "title": "Durchführung",
+        "description": "Professionelle Entkernung nach höchsten Standards"
+      },
+      {
+        "title": "Abnahme",
+        "description": "Gemeinsame Endkontrolle und Dokumentation"
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Kontakt und Angebotseinholung",
+    "subtitle": "Kostenlose Erstberatung - Wir erstellen Ihr individuelles Entkernungskonzept innerhalb von 24 Stunden!",
+    "contact_features": [
+      "Professionelle Schadstofferkennung",
+      "Umweltgerechtes Entsorgungskonzept",
+      "Einhaltung aller Sicherheitsstandards",
+      "Schnelle Reaktionszeiten",
+      "Modernste Rückbautechnik"
+    ],
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "service": {
+        "label": "Gewünschte Leistung",
+        "placeholder": "Bitte wählen Sie...",
+        "options": [
+          "Kompletter Innenraumrückbau",
+          "Selektiver Rückbau",
+          "Entsorgung und Recycling",
+          "Schadstoffsanierung",
+          "Beratung und Planung",
+          "Andere Leistung"
+        ]
+      },
+      "message": {
+        "label": "Ihre Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen..."
+      },
+      "submit": "Anfrage absenden"
+    }
+  },
+  "preise": {
+    "title": "Unsere Preise für Entkernungsarbeiten",
+    "subtitle": "Transparente Kosten für Ihre Planung",
+    "note": "Die tatsächlichen Kosten können je nach Objekt und spezifischen Anforderungen variieren. Wir erstellen Ihnen gerne ein individuelles Angebot.",
+    "basispreise": [
+      {
+        "leistung": "Basisentkernung",
+        "preis": "40-65",
+        "einheit": "€/m²",
+        "details": "Entfernung von nicht-tragenden Wänden, Decken, Böden"
+      },
+      {
+        "leistung": "Komplettentkernung",
+        "preis": "65-90",
+        "einheit": "€/m²",
+        "details": "Vollständiger Rückbau bis auf die Grundstruktur"
+      },
+      {
+        "leistung": "Selektiver Rückbau",
+        "preis": "45-75",
+        "einheit": "€/m²",
+        "details": "Gezielte Entfernung ausgewählter Elemente"
+      }
+    ],
+    "zusatzleistungen": [
+      {
+        "leistung": "Schadstoffsanierung",
+        "preis": "30-60",
+        "einheit": "€/m²",
+        "details": "Je nach Art und Umfang der Schadstoffe"
+      },
+      {
+        "leistung": "Entsorgung",
+        "preis": "15-40",
+        "einheit": "€/m³",
+        "details": "Abhängig von Material und Menge"
+      },
+      {
+        "leistung": "Statische Beurteilung",
+        "preis": "350-600",
+        "einheit": "€",
+        "details": "Prüfung und Gutachten durch Fachingenieur"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "questions": [
+      {
+        "question": "Was genau umfasst eine Entkernung?",
+        "answer": "Eine Entkernung umfasst die Entfernung aller nicht-tragenden Elemente eines Gebäudes. Dazu gehören Innenwände, Deckenverkleidungen, Bodenbeläge, Installationen (Elektrik, Sanitär, Heizung), Türen und Fenster. Es bleibt im Wesentlichen nur die tragende Struktur des Gebäudes bestehen. Eine Entkernung wird typischerweise vor einer umfassenden Sanierung oder einem Umbau durchgeführt."
+      },
+      {
+        "question": "Wie lange dauert eine Entkernung?",
+        "answer": "Die Dauer einer Entkernung hängt von der Größe und Komplexität des Objekts ab. Bei einer durchschnittlichen Wohnung (ca. 80-100 m²) dauert die reine Entkernungsarbeit etwa 3-5 Arbeitstage. Bei größeren Objekten oder bei Vorhandensein von Schadstoffen kann sich der Zeitraum entsprechend verlängern. Wir erstellen für jedes Projekt einen detaillierten Zeitplan, den wir mit Ihnen abstimmen."
+      },
+      {
+        "question": "Brauche ich Genehmigungen für eine Entkernung?",
+        "answer": "In den meisten Fällen benötigen Sie für reine Entkernungsarbeiten im Innenraum ohne Eingriffe in die Statik keine Baugenehmigung. Bei Veränderungen an tragenden Teilen, der Gebäudehülle oder bei denkmalgeschützten Gebäuden sind jedoch behördliche Genehmigungen erforderlich. Wir beraten Sie gerne zu den jeweiligen Anforderungen und unterstützen Sie bei Bedarf bei der Beschaffung notwendiger Genehmigungen."
+      },
+      {
+        "question": "Wie werden die Kosten für eine Entkernung berechnet?",
+        "answer": "Die Kosten für Entkernungsarbeiten werden üblicherweise nach Quadratmetern Wohnfläche berechnet und liegen im Durchschnitt zwischen 40 und 90 Euro pro m². Der genaue Preis hängt von verschiedenen Faktoren ab: Umfang der Arbeiten, Gebäudetyp und -alter, Zugänglichkeit, vorhandene Schadstoffe und regionale Preisunterschiede. Nach einer Besichtigung erstellen wir Ihnen ein transparentes Festpreisangebot ohne versteckte Kosten."
+      },
+      {
+        "question": "Wie wird mit Schadstoffen umgegangen?",
+        "answer": "Vor Beginn der Entkernungsarbeiten führen wir eine Schadstofferkundung durch, insbesondere bei Gebäuden, die vor 1995 errichtet wurden. Werden Schadstoffe wie Asbest, PCB oder KMF gefunden, erfolgt eine fachgerechte Sanierung nach den geltenden Vorschriften (z.B. TRGS 519 für Asbest). Unsere speziell geschulten Mitarbeiter sorgen für eine sichere Entfernung und ordnungsgemäße Entsorgung aller belasteten Materialien."
+      }
+    ]
+  }
+}

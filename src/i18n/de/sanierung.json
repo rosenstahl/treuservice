@@ -1,0 +1,275 @@
+{
+  "hero": {
+    "title": "Schadensanierung",
+    "subtitle": "Effiziente und umfassende Brand-, Wasser- und Schimmelpilzsanierung für Ihre Sicherheit und Ihr Wohlbefinden",
+    "description": "Bei Brand, Wasserschaden oder Schimmelpilzbefall ist schnelles Handeln entscheidend, um weitere Schäden zu vermeiden und die Gesundheit der Bewohner zu schützen. Die TREU Service GmbH versteht die Dringlichkeit solcher Situationen und bietet Ihnen professionelle, schnelle und zuverlässige Lösungen zur Schadensanierung.",
+    "cta": "Jetzt Angebot anfordern",
+    "ctaCall": "24/7 Notfallnummer"
+  },
+  "basisleistungen": {
+    "title": "Unsere Leistungen im Überblick", 
+    "items": [
+      "24/7 Notfallservice bei akuten Schäden",
+      "Professionelle Schadensbewertung",
+      "Durchdachte Sanierungskonzepte",
+      "Schadstoffentfernung und Dekontamination",
+      "Vollständige Wiederherstellung"
+    ],
+    "note": "Bei Schadensfällen ist schnelles und professionelles Handeln entscheidend. Unser erfahrenes Team steht Ihnen jederzeit zur Verfügung, um umfassende Sanierungsmaßnahmen durchzuführen und Ihr Eigentum zu schützen."
+  },
+  "spezialisierteLoesungen": {
+    "title": "Unsere spezialisierten Sanierungsleistungen",
+    "subtitle": "Unsere spezialisierten Sanierungsleistungen decken alle Arten von Schäden ab - von Brand über Wasser bis hin zu Schimmelbefall.",
+    "labels": {
+      "einsatzgebiete": "Einsatzgebiete",
+      "leistungen": "Leistungen",
+      "angebotAnfordern": "Angebot anfordern",
+      "details": "Details"
+    },
+    "services": [
+      {
+        "icon": "Feuer",
+        "title": "Brandschadensanierung",
+        "description": "Ein Brand hinterlässt nicht nur sichtbare Schäden, sondern auch unsichtbare Gefahren wie Rauchrückstände und giftige Dämpfe. Unsere Experten beginnen mit der Sanierung, sobald die Polizei den Brandort freigegeben hat.",
+        "leistungen": [
+          "Schnelle Schadensbewertung gemäß VdS 2357",
+          "Erstmaßnahmen zur Schadensbegrenzung",
+          "Sicherung der Gebäudestruktur",
+          "Abschaltung beschädigter Leitungen",
+          "Komplette Dekontamination von Ruß, Asche und Brandgasen",
+          "Geruchsneutralisation",
+          "Wiederherstellung und Renovierung"
+        ]
+      },
+      {
+        "icon": "Wasser",
+        "title": "Wasserschadensanierung",
+        "description": "Wasserschäden können durch Rohrbrüche, Überschwemmungen oder andere unvorhersehbare Ereignisse entstehen. Unsere Experten bieten eine umfassende Wasserschadensanierung, um die Bausubstanz zu schützen und eine schnelle Rückkehr zur Normalität zu gewährleisten.",
+        "leistungen": [
+          "Leckage-Ortung und Ursachenanalyse",
+          "Sofortmaßnahmen: Abpumpen und Absicherung",
+          "Schutz des Inventars",
+          "Effektive Trocknungsverfahren",
+          "Kondensationstrocknung",
+          "Infrarottrocknung",
+          "Luftumwälzung",
+          "Wiederherstellung von Wänden, Böden und Decken"
+        ]
+      },
+      {
+        "icon": "Schimmel",
+        "title": "Schimmelpilzsanierung",
+        "description": "Schimmel gefährdet nicht nur die Bausubstanz, sondern stellt auch erhebliche Gesundheitsrisiken dar. Unsere Schimmelpilzsanierung zielt darauf ab, den Schimmel vollständig zu entfernen und zukünftigen Befall zu verhindern.",
+        "leistungen": [
+          "Gründliche Ursachenanalyse",
+          "Identifizierung von Feuchtigkeitsquellen",
+          "Laboranalyse der Schimmelarten",
+          "Professionelle Entfernung mit Spezialwerkzeugen",
+          "Einsatz antimikrobieller Mittel",
+          "Nachbehandlung und \"Freimessungen\"",
+          "Präventive Maßnahmen und Beratung"
+        ]
+      },
+      {
+        "icon": "Beratung",
+        "title": "Beratung und Prävention",
+        "tileText": "Alle Gebäudetypen, besonders gefährdete Objekte, Immobilienverwaltungen, Wohnungsbaugesellschaften, Unternehmen und private Eigentümer",
+        "description": "Vorsorge ist der beste Schutz. Wir bieten umfassende Beratung und präventive Maßnahmen, um Schäden zu verhindern oder im Ernstfall die Auswirkungen zu minimieren.",
+        "leistungen": [
+          "Risikobewertung von Gebäuden",
+          "Entwicklung von Präventionskonzepten",
+          "Inspektionen zur Schadensvorbeugung",
+          "Feuchtigkeitsmessungen",
+          "Installation von Frühwarnsystemen",
+          "Schulungen für Hausmeister und Facility Manager",
+          "Erstellung von Notfallplänen"
+        ]
+      }
+    ]
+  },
+  "praevention": {
+    "title": "Schadensprävention und Erste Hilfe",
+    "subtitle": "Tipps zur Vorbeugung und zum richtigen Handeln im Schadensfall",
+    "ratgeberText": "Schützen Sie Ihr Zuhause oder Geschäft effektiv vor Brand-, Wasser- und Schimmelschäden. In unserem ausführlichen Ratgeber finden Sie wertvolle Tipps zur Prävention und erfahren, wie Sie im Ernstfall richtig handeln.",
+    "ratgeberLinkText": "Zum Ratgeber: Schadensprävention und Erste Hilfe",
+    "praventionsthemen": [
+      {
+        "title": "Brandprävention",
+        "description": "Tipps zur Installation von Rauchmeldern, zum sicheren Umgang mit elektrischen Geräten und zur richtigen Reaktion im Brandfall."
+      },
+      {
+        "title": "Wasserschadenschutz",
+        "description": "Maßnahmen zur Vermeidung von Wasserschäden durch regelmäßige Inspektion von Rohren und Dichtungen sowie schnelles Handeln bei Leckagen."
+      },
+      {
+        "title": "Schimmelvermeidung",
+        "description": "Strategien zum richtigen Lüften, zur Kontrolle der Luftfeuchtigkeit und zum effektiven Umgang mit ersten Anzeichen von Schimmelbildung."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Brandschaden vorbeugen und bekämpfen",
+        "subsections": [
+          {
+            "title": "Prävention",
+            "items": [
+              "Rauchmelder installieren und regelmäßig testen",
+              "Elektrische Geräte sicher nutzen und Überlastung vermeiden",
+              "Entzündliche Materialien sicher lagern",
+              "Kochendes Essen nie unbeaufsichtigt lassen",
+              "Offene Flammen und Kerzen niemals unbeobachtet lassen"
+            ]
+          },
+          {
+            "title": "Bekämpfung",
+            "items": [
+              "Kleinere Entstehungsbrände mit geeigneten Mitteln löschen",
+              "Bei größeren Bränden sofort das Gebäude verlassen und die Feuerwehr alarmieren",
+              "Fluchtwege kennen und regelmäßig Notfallübungen durchführen",
+              "Türen zu Brandherden schließen, um Sauerstoffzufuhr zu minimieren",
+              "Bei Rauchentwicklung gebückt bewegen und Mund mit feuchtem Tuch bedecken"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Wasserschaden vorbeugen und bekämpfen",
+        "subsections": [
+          {
+            "title": "Prävention",
+            "items": [
+              "Regelmäßige Inspektion von Rohren, Leitungen und Dichtungen",
+              "Abflüsse und Dachrinnen regelmäßig reinigen",
+              "In feuchten Bereichen für gute Belüftung sorgen",
+              "Bei längerer Abwesenheit Hauptwasserhahn abdrehen",
+              "Wasserführende Geräte nur bei Anwesenheit betreiben"
+            ]
+          },
+          {
+            "title": "Bekämpfung",
+            "items": [
+              "Wasserquelle sofort abstellen",
+              "Elektrogeräte abschalten und von der Stromversorgung trennen",
+              "Wertgegenstände und Möbel aus dem Wasser entfernen",
+              "Stehendes Wasser mit Pumpen oder Nasssauger entfernen",
+              "Betroffene Bereiche mit Ventilatoren und Luftentfeuchtern trocknen"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Schimmelpilz vorbeugen und bekämpfen",
+        "subsections": [
+          {
+            "title": "Prävention",
+            "items": [
+              "Regelmäßig lüften, besonders in Küche, Bad und Keller",
+              "Relative Luftfeuchtigkeit unter 60% halten",
+              "Wasserschäden sofort beheben und feuchte Stellen trocknen",
+              "In feuchten Räumen schimmelresistente Materialien verwenden",
+              "Wärmebrücken vermeiden durch ausreichende Isolierung"
+            ]
+          },
+          {
+            "title": "Bekämpfung",
+            "items": [
+              "Kleine Schimmelstellen mit Wasser und Reinigungsmittel säubern",
+              "Bei Reinigung Schutzhandschuhe, Atemmaske und Schutzbrille tragen",
+              "Bei starkem Befall eine Bleichelösung (1:10 verdünnt) einsetzen",
+              "Bei großflächigem oder wiederkehrendem Befall Fachmann hinzuziehen",
+              "Nach der Behandlung Raum gut durchlüften und trocknen"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "qualitaetsversprechen": {
+    "title": "Unser Qualitätsversprechen",
+    "items": [
+      "24/7 Erreichbarkeit im Notfall",
+      "Schnelle Reaktionszeiten",
+      "Zertifizierte Sanierungsverfahren",
+      "Umfassende Versicherungsbetreuung",
+      "Nachhaltige Schadensbehebung",
+      "Lückenlose Dokumentation"
+    ]
+  },
+  "warumTreuService": {
+    "title": "Warum TREU Service?",
+    "items": [
+      "Erfahrung und Expertise: Mit jahrelanger Erfahrung in der Schadensanierung bieten wir Ihnen zuverlässige und professionelle Dienstleistungen",
+      "Individuelle Lösungen: Jedes Schadensszenario ist einzigartig. Wir entwickeln maßgeschneiderte Sanierungskonzepte, die genau auf Ihre Bedürfnisse abgestimmt sind",
+      "Transparente Kommunikation: Wir halten Sie während des gesamten Prozesses auf dem Laufenden und bieten klare, faire Preise ohne versteckte Kosten",
+      "Umweltfreundliche Verfahren: Wir setzen umweltschonende Reinigungsmittel und -verfahren ein, um sowohl Ihre Gesundheit als auch die Umwelt zu schützen",
+      "Rund-um-die-Uhr-Service: Unsere Notfallteams stehen Ihnen 24 Stunden, 7 Tage die Woche zur Verfügung",
+      "Versicherungsexpertise: Wir helfen Ihnen bei der Abwicklung mit Ihrer Versicherung und sorgen für eine reibungslose Schadensregulierung"
+    ]
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "questions": [
+      {
+        "question": "Wie schnell können Sie bei einem Schadensfall vor Ort sein?",
+        "answer": "Im Notfall sind unsere Einsatzteams rund um die Uhr einsatzbereit und können in der Regel innerhalb von 60-120 Minuten bei Ihnen vor Ort sein, um erste Maßnahmen einzuleiten und weitere Schäden zu verhindern."
+      },
+      {
+        "question": "Übernimmt meine Versicherung die Kosten für die Sanierung?",
+        "answer": "In den meisten Fällen übernimmt Ihre Gebäude- oder Hausratversicherung die Kosten für eine Schadenssanierung. Wir unterstützen Sie bei der Kommunikation mit Ihrer Versicherung und übernehmen auf Wunsch die komplette Abwicklung für Sie."
+      },
+      {
+        "question": "Wie lange dauert eine typische Sanierung?",
+        "answer": "Die Dauer einer Sanierung hängt stark vom Umfang des Schadens ab. Eine kleine Wasserschadensanierung kann innerhalb von 1-2 Wochen abgeschlossen sein, während umfangreichere Brand- oder Schimmelsanierungen mehrere Wochen bis Monate in Anspruch nehmen können."
+      },
+      {
+        "question": "Müssen wir während der Sanierung ausziehen?",
+        "answer": "Nicht immer ist ein Auszug notwendig. Bei lokalen Schäden kann die Sanierung oft durchgeführt werden, während Sie weiterhin in der Immobilie wohnen. Bei umfangreicheren Schäden oder wenn gesundheitliche Risiken bestehen, kann ein temporärer Auszug erforderlich sein."
+      },
+      {
+        "question": "Verwenden Sie umweltfreundliche Produkte bei der Sanierung?",
+        "answer": "Ja, wir setzen wo immer möglich auf umweltschonende und gesundheitlich unbedenkliche Produkte. Unser Ziel ist es, die Umweltbelastung zu minimieren und gleichzeitig effektive Sanierungsergebnisse zu erzielen."
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Kontakt und Notfallservice",
+    "subtitle": "Kostenlose Erstberatung und 24/7 Notfallhilfe - Wir sind immer für Sie da!",
+    "contact_features": [
+      "Sofortige Notfallhilfe",
+      "Kostenlose Schadensbewertung",
+      "Unterstützung bei Versicherungsfragen",
+      "Schnelle Reaktionszeiten",
+      "Modernste Sanierungstechnologien"
+    ],
+    "cta": {
+      "title": "Schadenssanierung ohne Stress und Sorgen",
+      "description": "Verlassen Sie sich auf unsere Expertise und jahrelange Erfahrung. Kontaktieren Sie uns noch heute für eine schnelle und professionelle Lösung Ihres Schadensproblems.",
+      "button": "Anfrage stellen",
+      "call": "24/7 Notfallnummer"
+    },
+    "form": {
+      "title": "Jetzt Sanierungsanfrage stellen",
+      "subtitle": "In nur wenigen Schritten zu Ihrer individuellen Lösung. Füllen Sie das Formular aus und wir melden uns umgehend bei Ihnen.",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "service": {
+        "label": "Gewünschte Leistung",
+        "placeholder": "Bitte wählen Sie...",
+        "options": [
+          "Brandschadensanierung",
+          "Wasserschadensanierung",
+          "Schimmelpilzsanierung",
+          "24/7 Notfallservice",
+          "Beratung und Prävention",
+          "Andere Leistung"
+        ]
+      },
+      "message": {
+        "label": "Ihre Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen..."
+      },
+      "submit": "Anfrage absenden"
+    }
+  }
+}

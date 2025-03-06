@@ -1,0 +1,287 @@
+{
+  "hero": {
+    "title": "Professionelle PV-Montage",
+    "subtitle": "Ihre Investition in eine nachhaltige Zukunft",
+    "description": "TREU Service ist Ihr Spezialist für die fachgerechte Installation von Photovoltaikanlagen. Nutzen Sie die Kraft der Sonne effizient und nachhaltig – wir sorgen für eine zuverlässige und sichere Montage Ihrer Anlage."
+  },
+  "basisleistungen": {
+    "title": "Unsere Dienstleistungen im Überblick", 
+    "subtitle": "Kompetente Beratung und professionelle Installation aus einer Hand",
+    "items": [
+      "Beratung und Planung",
+      "Fachgerechte Installation",
+      "Verkabelung",
+      "Montage auf verschiedenen Dachtypen",
+      "Sicherheit und Compliance"
+    ],
+    "note": "Unsere umfassenden Leistungen garantieren Ihnen eine optimale und effiziente Photovoltaikanlage."
+  },
+  "spezialisierteLoesungen": {
+    "title": "Unsere Fachgebiete in der PV-Montage",
+    "labels": {
+      "einsatzgebiete": "Einsatzgebiete",
+      "leistungen": "Leistungen",
+      "angebotAnfordern": "Angebot anfordern",
+      "details": "Details"
+    },
+    "services": [
+      {
+        "icon": "Solarpanel",
+        "title": "Aufdach-Montage",
+        "tileText": "Einfamilienhäuser, Mehrfamilienhäuser, Gewerbeobjekte, Industrieanlagen, Landwirtschaftliche Gebäude, Carports und Garagen",
+        "description": "Die klassische und am häufigsten eingesetzte Methode zur Installation von Photovoltaikanlagen. Wir montieren die Solarmodule auf einer speziellen Unterkonstruktion, die auf Ihrem bestehenden Dach befestigt wird.",
+        "leistungen": [
+          "Statische Überprüfung des Daches",
+          "Montage von Dachhaken und Montageschienen",
+          "Sichere Befestigung der Solarmodule",
+          "Optimale Ausrichtung für maximalen Ertrag",
+          "Wetterfeste und sturmgesicherte Installation"
+        ]
+      },
+      {
+        "icon": "Hausdach",
+        "title": "Indach-Montage",
+        "tileText": "Neubauten, Dachsanierungen, Einfamilienhäuser, Mehrfamilienhäuser, Denkmalgeschützte Gebäude und Repräsentative Gebäude",
+        "description": "Die ästhetisch anspruchsvollste Lösung, bei der die Solarmodule direkt in die Dachhaut integriert werden und die Dachziegel ersetzen. Ideal für Neubauten oder im Rahmen einer Dachsanierung.",
+        "leistungen": [
+          "Nahtlose Integration in die Dachfläche",
+          "Wasserdichte Montage und Abdichtung",
+          "Spezial-Solardachziegel oder Indachsysteme",
+          "Ästhetisch ansprechende Optik",
+          "Hohe Widerstandsfähigkeit gegen Witterungseinflüsse"
+        ]
+      },
+      {
+        "icon": "Flachdach",
+        "title": "Flachdach-Montage",
+        "tileText": "Gewerbeimmobilien, Industriehallen, Schulen, Verwaltungsgebäude, Wohnblocks, Supermärkte, Logistikzentren und Krankenhäuser",
+        "description": "Optimale Lösung für Flachdächer, bei der die Module in einem optimalen Winkel zur Sonne ausgerichtet werden. Die Module werden ohne Durchdringung der Dachhaut sicher installiert.",
+        "leistungen": [
+          "Lastoptimierte Aufständerungssysteme",
+          "Ballastierung ohne Dachdurchdringung",
+          "Optimale Neigungswinkel für maximalen Ertrag",
+          "Windlastberechnung und Sturmschutz",
+          "Begehbare Wartungsgänge zwischen den Modulreihen"
+        ]
+      },
+      {
+        "icon": "Vordach",
+        "title": "Vordach-Montage",
+        "tileText": "Carports, Terrassen, Eingangsüberdachungen, Gartenlauben, Pergolen, Freisitze und Balkone",
+        "description": "Die Solarmodule werden als Überdachung für Carports, Terrassen oder andere Außenflächen genutzt und bieten so zusätzlichen Schutz vor Witterungseinflüssen.",
+        "leistungen": [
+          "Kombination aus Überdachung und Energiegewinnung",
+          "Maßgeschneiderte Unterkonstruktionen",
+          "Integration in bestehende Strukturen",
+          "Transparente oder semitransparente Moduloptionen",
+          "Wetterbeständige und langlebige Konstruktionen"
+        ]
+      },
+      {
+        "icon": "Fassade",
+        "title": "Fassadenmontage",
+        "tileText": "Bürogebäude, Verwaltungsgebäude, Wohnhäuser, Hotels, Schulen, Universitäten, Einkaufszentren, Kultureinrichtungen und Repräsentationsbauten",
+        "description": "Innovative Lösung, bei der die Solarmodule an der Gebäudefassade angebracht werden. Ideal für Gebäude mit begrenzter Dachfläche oder zur architektonischen Gestaltung.",
+        "leistungen": [
+          "Kaltfassade: Module vor der Fassade montiert",
+          "Warmfassade: Module als Teil der Gebäudedämmung",
+          "Architektonisch ansprechende Integration",
+          "Spezielle Montagelösungen für verschiedene Fassadentypen",
+          "Kombination mit Wärmedämmung möglich"
+        ]
+      }
+    ]
+  },
+  "hauptkomponenten": {
+    "title": "Aufbau einer Photovoltaikanlage",
+    "subtitle": "Technische Komponenten für eine effiziente Energieerzeugung",
+    "content": "Eine Photovoltaikanlage besteht aus mehreren wichtigen Komponenten, die zusammenarbeiten, um Sonnenenergie in nutzbaren Strom umzuwandeln. Hier sind die Hauptelemente:",
+    "items": [
+      {
+        "title": "Solarmodule oder Solardachziegel",
+        "description": "Diese bestehen aus Solarzellen, die Sonnenlicht in elektrische Energie umwandeln. Sie werden auf einem Montagesystem befestigt und sind in verschiedenen Arten mit unterschiedlichen Wirkungsgraden erhältlich."
+      },
+      {
+        "title": "Wechselrichter",
+        "description": "Der Wechselrichter wandelt den von den Solarmodulen erzeugten Gleichstrom in Wechselstrom um, der für Haushaltsgeräte nutzbar ist und ins öffentliche Netz eingespeist werden kann."
+      },
+      {
+        "title": "Montagesystem",
+        "description": "Das Montagesystem besteht aus verschiedenen Komponenten wie Dachhaken, Montageschienen und Modulklemmen. Diese Teile sorgen für eine sichere und stabile Installation der Solarmodule auf dem Dach."
+      },
+      {
+        "title": "Stromspeicher",
+        "description": "Ein optionaler Solarspeicher speichert überschüssigen Strom, der nicht sofort verbraucht wird. So kann er bei Bedarf genutzt werden, z. B. nachts oder bei bewölktem Wetter."
+      },
+      {
+        "title": "Verkabelung",
+        "description": "UV-, hitze- und witterungsbeständige Solarkabel verbinden die Solarmodule mit dem Wechselrichter (DC-Kabel) und transportieren den Wechselstrom vom Wechselrichter ins Stromnetz (AC-Kabel)."
+      },
+      {
+        "title": "Generatoranschlusskasten",
+        "description": "Dieser bündelt mehrere Solarmodule und gewährleistet die zentrale Funktion der Solaranlage."
+      }
+    ]
+  },
+  "haeufigeProbleme": {
+    "title": "Häufige Herausforderungen - Unsere Lösungen",
+    "subtitle": "Professionelle Antworten auf typische Fragen bei der PV-Installation",
+    "items": [
+      {
+        "problem": "Dacheignung?",
+        "issue": "Unsicherheit über die statische und bauliche Eignung des Daches",
+        "solution": "Umfassende Vorab-Analyse durch unsere Experten"
+      },
+      {
+        "problem": "Genehmigungen?",
+        "issue": "Komplexe behördliche Anforderungen und Netzanschlussverfahren",
+        "solution": "Komplette Unterstützung bei allen Genehmigungsprozessen"
+      },
+      {
+        "problem": "Investitionskosten?",
+        "issue": "Hohe Anfangsinvestition und unklare Amortisationszeit",
+        "solution": "Transparente Kostenaufstellung und Fördermittelberatung"
+      },
+      {
+        "problem": "Ertragsprognosen?",
+        "issue": "Unsicherheit über tatsächliche Energieausbeute",
+        "solution": "Präzise Ertragssimulation mit modernster Software"
+      },
+      {
+        "problem": "Technische Integration?",
+        "issue": "Komplexe Einbindung in bestehende Haustechnik",
+        "solution": "Maßgeschneiderte Systemintegration durch Fachexperten"
+      }
+    ]
+  },
+  "qualitaetsversprechen": {
+    "title": "Unser Qualitätsversprechen",
+    "items": [
+      "Kostenlose Erstberatung",
+      "Fachgerechte Ausführung nach DIN-Normen",
+      "Hochwertige Markenkomponenten",
+      "5 Jahre Gewährleistung auf die Montage",
+      "Reibungslose Abwicklung",
+      "Langfristiger Support und Service"
+    ]
+  },
+  "warumTreuService": {
+    "title": "Warum TREU Service?",
+    "items": [
+      "Erfahrenes Team: Unsere qualifizierten Mitarbeiter sind in allen Aspekten der PV-Montage geschult und erfahren",
+      "Moderne Ausrüstung: Wir setzen modernste Werkzeuge und Techniken ein, um die Arbeit effizient und sicher durchzuführen",
+      "Zuverlässigkeit: Wir arbeiten termingerecht und halten alle vereinbarten Fristen ein",
+      "Transparenz: Sämtliche unserer Dienstleistungen sind transparent und rechtssicher dokumentiert",
+      "Nachhaltigkeit: Wir legen Wert auf umweltbewusstes Arbeiten und nachhaltige Lösungen",
+      "Kundenorientierung: Ihre Zufriedenheit steht für uns an erster Stelle"
+    ]
+  },
+  "vorteile": {
+    "title": "Ihre Vorteile mit einer PV-Anlage",
+    "finanzielle": [
+      "Deutliche Reduzierung der Stromkosten",
+      "Schutz vor steigenden Energiepreisen",
+      "Attraktive Rendite über 20+ Jahre",
+      "Steigerung des Immobilienwerts",
+      "Mögliche Förderungen und Steuervorteile"
+    ],
+    "nachhaltige": [
+      "Erhebliche CO2-Einsparung",
+      "Nutzung erneuerbarer Energie",
+      "Unabhängigkeit von fossilen Brennstoffen",
+      "Beitrag zur Energiewende",
+      "Vermeidung von Ressourcenabbau"
+    ],
+    "praktische": [
+      "Energieautarkie und Unabhängigkeit",
+      "Geringe Wartungskosten",
+      "Lange Lebensdauer (25+ Jahre)",
+      "Kombination mit Elektromobilität",
+      "Smart-Home-Integration möglich"
+    ]
+  },
+  "kontakt": {
+    "title": "Ihre PV-Anlage planen",
+    "subtitle": "Füllen Sie das Formular aus, um ein unverbindliches Angebot für Ihre maßgeschneiderte Photovoltaikanlage zu erhalten. Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
+    "description": "Bereit für Ihre eigene Solaranlage?",
+    "cta": "Mit einer PV-Anlage von TREU Service investieren Sie in eine nachhaltige Zukunft und profitieren von erheblichen Einsparungen. Kontaktieren Sie uns noch heute für eine persönliche Beratung.",
+    "ctaButton": "Anfrage stellen",
+    "ctaCall": "Jetzt anrufen",
+    "formTitle": "Jetzt PV-Anfrage stellen",
+    "formSubtitle": "In nur wenigen Schritten zu Ihrem individuellen PV-Angebot. Füllen Sie das Formular aus und wir melden uns umgehend bei Ihnen.",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "service": {
+        "label": "Gewünschte Leistung",
+        "placeholder": "Bitte wählen Sie...",
+        "options": [
+          "Aufdach-Montage",
+          "Indach-Montage",
+          "Flachdach-Montage",
+          "Fassadenmontage",
+          "Carport/Vordach",
+          "Beratung und Planung",
+          "Mit Batteriespeicher",
+          "Andere Leistung"
+        ]
+      },
+      "message": {
+        "label": "Ihre Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen..."
+      },
+      "submit": "Anfrage absenden"
+    }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen zur PV-Montage",
+    "questions": [
+      {
+        "question": "Wie lange dauert die Installation einer PV-Anlage?",
+        "answer": "Die Dauer der Installation hängt von der Größe und Komplexität der Anlage ab. Bei Einfamilienhäusern rechnen Sie mit 1-3 Tagen reiner Montagezeit. Die gesamte Projektdauer von der Planung bis zur Inbetriebnahme beträgt in der Regel 4-8 Wochen, da Genehmigungen und die Lieferung der Komponenten Zeit in Anspruch nehmen."
+      },
+      {
+        "question": "Eignet sich mein Dach für eine Photovoltaikanlage?",
+        "answer": "Die meisten Dächer eignen sich grundsätzlich für eine PV-Anlage. Ideal sind Süd-, Südost- oder Südwest-Ausrichtungen mit einer Neigung zwischen 30° und 45°. Aber auch bei anderen Ausrichtungen ist eine wirtschaftliche Installation möglich. Entscheidend sind außerdem die Dachfläche, die Statik und potenzielle Verschattungen. Im Rahmen unserer kostenlosen Erstberatung prüfen wir die Eignung Ihres Daches."
+      },
+      {
+        "question": "Wie hoch sind die Wartungskosten einer PV-Anlage?",
+        "answer": "Photovoltaikanlagen sind sehr wartungsarm. Eine regelmäßige Sichtprüfung können Sie selbst durchführen. Alle 4-5 Jahre empfehlen wir eine professionelle Wartung, die je nach Anlagengröße zwischen 150-300 € kostet. Diese beinhaltet die Überprüfung aller elektrischen Verbindungen, der Befestigungen und eine Reinigung, falls erforderlich."
+      },
+      {
+        "question": "Was kostet ein Batteriespeicher und lohnt er sich?",
+        "answer": "Batteriespeicher kosten aktuell zwischen 800-1.200 € pro kWh Speicherkapazität. Für ein Einfamilienhaus ist ein 5-10 kWh Speicher üblich. Die Rentabilität hängt von Ihrem Stromverbrauchsprofil ab. Mit steigenden Strompreisen und sinkenden Einspeisevergütungen werden Speicher zunehmend wirtschaftlicher. Außerdem erhöhen sie den Eigenverbrauchsanteil von ca. 30% auf bis zu 80%."
+      },
+      {
+        "question": "Welche Fördermöglichkeiten gibt es für PV-Anlagen?",
+        "answer": "Aktuell gibt es verschiedene Fördermöglichkeiten: Die Einspeisevergütung nach EEG ist für 20 Jahre garantiert. Viele Bundesländer und Kommunen bieten zusätzliche Förderungen an. Die KfW stellt zinsgünstige Kredite zur Verfügung. Zudem können Steuervorteile durch die Kleinunternehmerregelung genutzt werden. Im Rahmen unserer Beratung informieren wir Sie über alle aktuellen Fördermöglichkeiten."
+      }
+    ]
+  },
+  "arbeitsweise": {
+    "title": "So gehen wir bei der PV-Installation vor",
+    "steps": [
+      {
+        "title": "Erstberatung & Analyse",
+        "description": "Kostenlose Bedarfsanalyse und Prüfung der Dacheignung"
+      },
+      {
+        "title": "Planung & Angebot",
+        "description": "Individuelle Planung der Anlage mit detailliertem Angebot"
+      },
+      {
+        "title": "Genehmigungsverfahren",
+        "description": "Wir übernehmen alle notwendigen Anmeldungen für Sie"
+      },
+      {
+        "title": "Professionelle Montage",
+        "description": "Saubere und fachgerechte Installation durch unsere Experten"
+      },
+      {
+        "title": "Inbetriebnahme & Einweisung",
+        "description": "Testlauf und ausführliche Einweisung in Ihre neue Anlage"
+      }
+    ]
+  }
+}

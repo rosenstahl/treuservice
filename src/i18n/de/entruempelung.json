@@ -1,0 +1,136 @@
+{
+  "hero": {
+    "title": "Entrümpelung leicht gemacht",
+    "subtitle": "Professionell. Zuverlässig. Schnell.",
+    "description": "Wir bieten Ihnen einen kompletten Entrümpelungs-Service für Wohnungen, Häuser, Keller oder Gewerbeimmobilien – schnell, zuverlässig und zu fairen Preisen.",
+    "cta": "Jetzt anfragen",
+    "ctaCall": "Anrufen"
+  },
+  "intro": {
+    "title": "Ihr vertrauensvoller Partner für Entrümpelungen",
+    "description": "Mit über 15 Jahren Erfahrung gehören wir zu den führenden Entrümpelungs-Experten in Deutschland. Wir entrümpeln für Sie schnell, diskret und umweltbewusst – von einzelnen Räumen bis zu kompletten Gebäuden."
+  },
+  "versprechen": {
+    "title": "Unser Versprechen an Sie",
+    "items": [
+      {
+        "title": "Zuverlässigkeit",
+        "description": "Pünktlichkeit und Einhaltung aller Vereinbarungen sind für uns selbstverständlich."
+      },
+      {
+        "title": "Professionalität",
+        "description": "Unser geschultes Team arbeitet schnell, sauber und mit modernster Ausrüstung."
+      },
+      {
+        "title": "Nachhaltigkeit",
+        "description": "Wir trennen Wertstoffe und entsorgen umweltgerecht nach aktuellen Standards."
+      },
+      {
+        "title": "Schnelligkeit",
+        "description": "Kurzfristige Termine und Express-Service bei dringenden Anfragen möglich."
+      },
+      {
+        "title": "Diskretion",
+        "description": "Absolute Vertraulichkeit beim Umgang mit persönlichen Gegenständen."
+      }
+    ]
+  },
+  "leistungen": {
+    "title": "Unser Angebot für Sie",
+    "description": "Von der einfachen Kellerentrümpelung bis zur kompletten Haushaltsauflösung - wir bieten maßgeschneiderte Lösungen für Ihre individuellen Bedürfnisse.",
+    "services": [
+      {
+        "category": "Entrümpelung & Haushaltsauflösung",
+        "items": [
+          "Wohnungsentrümpelung",
+          "Haushaltsauflösung",
+          "Kellerentrümpelung",
+          "Dachbodenentrümpelung",
+          "Geschäfts- und Gewerbeentrümpelung",
+          "Garagenentrümpelung"
+        ]
+      },
+      {
+        "category": "Zusatzleistungen",
+        "items": [
+          "Sperrmüllentsorgung",
+          "Möbelentsorgung",
+          "Elektrogeräteentsorgung",
+          "Fachgerechte Entsorgung von Sondermüll",
+          "Professionelle Endreinigung",
+          "Entsorgungsnachweise"
+        ]
+      }
+    ]
+  },
+  "arbeitsweise": {
+    "title": "So einfach funktioniert es",
+    "steps": [
+      {
+        "title": "Anfrage",
+        "description": "Kontaktieren Sie uns per Formular, Telefon oder E-Mail"
+      },
+      {
+        "title": "Besichtigung",
+        "description": "Kostenlose Vor-Ort-Besichtigung (falls nötig)"
+      },
+      {
+        "title": "Angebot",
+        "description": "Sie erhalten ein transparentes Festpreisangebot"
+      },
+      {
+        "title": "Durchführung",
+        "description": "Wir entrümpeln schnell und professionell"
+      },
+      {
+        "title": "Abschluss",
+        "description": "Fachgerechte Entsorgung & Übergabe"
+      }
+    ]
+  },
+  "vorteile": {
+    "title": "Ihre Vorteile auf einen Blick",
+    "items": [
+      "Kostenlose und unverbindliche Besichtigung",
+      "Qualifizierte und freundliche Mitarbeiter",
+      "Express-Service bei Bedarf möglich",
+      "Transparente Festpreise ohne Überraschungen",
+      "Flexible Terminvereinbarung",
+      "Persönliche Beratung und Betreuung"
+    ]
+  },
+  "kontakt": {
+    "title": "Kontakt",
+    "description": "Benötigen Sie eine Entrümpelung? Wir sind für Sie da!",
+    "cta": "Kontaktieren Sie uns noch heute für ein unverbindliches Angebot.",
+    "formTitle": "Jetzt Entrümpelungsanfrage stellen",
+    "formSubtitle": "In nur wenigen Schritten zu Ihrem individuellen Entrümpelungsangebot. Füllen Sie das Formular aus und wir melden uns umgehend bei Ihnen.",
+    "ctaButton": "Anfrage stellen",
+    "ctaCall": "Jetzt anrufen"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "questions": [
+      {
+        "question": "Wie viel kostet eine Entrümpelung?",
+        "answer": "Die Kosten für eine Entrümpelung hängen von verschiedenen Faktoren ab: Größe und Lage des Objekts, Menge und Art der zu entsorgenden Gegenstände, Zugänglichkeit und eventuelle Zusatzleistungen. Üblicherweise liegen die Kosten zwischen 25-40€ pro m². Nach einer kostenlosen Besichtigung erstellen wir Ihnen ein transparentes Festpreisangebot."
+      },
+      {
+        "question": "Wie schnell können Sie einen Termin anbieten?",
+        "answer": "In der Regel können wir innerhalb von 2-5 Werktagen einen Besichtigungstermin anbieten. Die eigentliche Entrümpelung kann je nach Umfang oft schon wenige Tage später stattfinden. Bei Dringlichkeit bieten wir auch einen Express-Service an – sprechen Sie uns darauf an."
+      },
+      {
+        "question": "Kann ich bei der Entrümpelung auch selbst mithelfen?",
+        "answer": "Grundsätzlich ist das möglich und kann die Kosten reduzieren. Sprechen Sie uns an, dann können wir eine individuell passende Lösung für Sie finden, bei der Sie bestimmte Aufgaben übernehmen und wir den Rest erledigen."
+      },
+      {
+        "question": "Was passiert mit noch brauchbaren Gegenständen?",
+        "answer": "Wir trennen verwertbare von nicht verwertbaren Gegenständen. Brauchbare Möbel, Elektrogeräte oder andere Wertsachen können je nach Vereinbarung verkauft, gespendet oder wiederverwertet werden. Der Erlös kann mit den Entrümpelungskosten verrechnet werden."
+      },
+      {
+        "question": "Bieten Sie auch eine Entrümpelung zum Nulltarif an?",
+        "answer": "In einigen Fällen ist eine kostenlose Entrümpelung oder sogar eine Entrümpelung mit Gewinn möglich, wenn der Wert der verwertbaren Gegenstände die Kosten übersteigt. Dies ist jedoch selten und kann erst nach einer Besichtigung beurteilt werden."
+      }
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "winterservice": {
+    "meta": {
+      "title": "Winterdienst",
+      "subtitle": "Effizienter Winterdienst für Sicherheit und Mobilität"
+    },
+    "hero": {
+      "title": "Effizienter Winterdienst für Sicherheit und Mobilität",
+      "description": "Unser Winterdienst umfasst alle wesentlichen Leistungen, um Ihre Wege und Flächen sicher und begehbar zu halten. Ob an Privathaushalte, Unternehmen und öffentliche Einrichtungen, wir bieten umfassende Dienstleistungen rund um die Räum- und Streupflicht, damit Sie sich keine Sorgen mehr um Schnee und Eis machen müssen."
+    },
+    "mainServices": {
+      "title": "Unsere Winterdienstleistungen im Überblick",
+      "services": [
+        {
+          "title": "Schneeräumung und Streuen",
+          "description": "Wir räumen Schnee und streuen Splitt, Granulat und Sand, um Ihre Flächen vor Rutschgefahr zu schützen."
+        },
+        {
+          "title": "Eisbeseitigung und Schwarzräumung",
+          "description": "Mit geeigneten Streumitteln entfernen wir Eis und Schnee vollständig, sodass nur noch schwarzer Asphalt sichtbar ist."
+        },
+        {
+          "title": "Streugutentfernung",
+          "description": "Nach dem Wintereinbruch sorgen wir für die fachgerechte Entsorgung der Streustoffe, um die Umwelt zu schonen."
+        },
+        {
+          "title": "Schneeabtransport und Verlagerung",
+          "description": "Wir transportieren überschüssige Schneemassen ab oder verlagern sie an vereinbarte Orte, um Platz auf Ihrem Betriebsgelände zu schaffen."
+        }
+      ]
+    },
+    "serviceFeatures": {
+      "title": "Unser Service – Zuverlässig und flexibel",
+      "features": [
+        {
+          "title": "Tag- und Nachtservice",
+          "description": "Wir arbeiten rund um die Uhr, um Ihre Flächen jederzeit sicher und begehbar zu halten."
+        },
+        {
+          "title": "Einhaltung gesetzlicher Vorschriften",
+          "description": "Wir sorgen dafür, dass Sie Ihren gesetzlichen Pflichten zur Schneeräumung und Verkehrssicherung nachkommen."
+        },
+        {
+          "title": "Maßgeschneiderte Räum- und Streupläne",
+          "description": "Nach einer detaillierten Analyse Ihrer Flächen erstellen wir gemeinsam mit Ihnen ein passgenaues Konzept."
+        },
+        {
+          "title": "Notfallplan für extreme Winterbedingungen",
+          "description": "Wir entwickeln maßgeschneiderte Notfallpläne, um Ihre Flächen auch bei extremem Winterwetter sicher und einsatzbereit zu halten."
+        }
+      ]
+    },
+    "additionalServices": {
+      "title": "Weitere Dienstleistungen für den Winterdienst",
+      "services": [
+        {
+          "title": "Streumittelbehälter",
+          "description": "Wir liefern, befüllen und reinigen Ihre Streustoffboxen, sodass Sie stets ausreichend Materialien zur Hand haben."
+        },
+        {
+          "title": "Beratung zur Streumittelauswahl",
+          "description": "Wir helfen Ihnen bei der Auswahl der richtigen Streumittel, um die Rutschgefahr effektiv zu bannen und Ihre Flächen sicher zu machen."
+        }
+      ]
+    },
+    "commonProblems": {
+      "title": "Häufige Probleme – Unsere Lösungen",
+      "intro": "Viele Kunden kennen diese Herausforderungen, wenn es um Winterdienste geht. Wir bei der TREU Service GmbH haben darauf geachtet, genau die Lösungen zu bieten, die Sie brauchen:",
+      "problems": [
+        {
+          "question": "Warum kommt niemand pünktlich?",
+          "problem": "Oft sind Winterdienste überbucht und schaffen es nicht rechtzeitig zu Ihnen.",
+          "solution": "Wir nehmen nur so viele Aufträge an, dass wir bei jedem Wetter pünktlich bei Ihnen sind."
+        },
+        {
+          "question": "Wann wird endlich geräumt?",
+          "problem": "Manche Anbieter sitzen zu weit entfernt und brauchen zu lange, um loszulegen.",
+          "solution": "Wir sind immer in Ihrer Nähe, sodass wir sofort reagieren können, sobald Schnee oder Eis auftritt."
+        },
+        {
+          "question": "Was, wenn es extrem schneit?",
+          "problem": "Viele Winterdienste haben bei starkem Schneefall Probleme und brechen unter der Last zusammen.",
+          "solution": "Mit unseren Notfallplänen bleiben Ihre Wege und Flächen auch bei extremen Wetterbedingungen sicher und begehbar."
+        },
+        {
+          "question": "Wieso habe ich Schäden an meinen Flächen?",
+          "problem": "Aggressive Streumittel können Oberflächen beschädigen und langfristige Schäden verursachen.",
+          "solution": "Wir verwenden nur schonende und umweltfreundliche Streumittel, die Ihre Flächen schützen und trotzdem effektiv sind."
+        },
+        {
+          "question": "Wie hoch sind die Kosten wirklich?",
+          "problem": "Unklare Abrechnungen oder versteckte Kosten sind oft der Grund für Frust.",
+          "solution": "Bei uns gibt es keine Überraschungen. Wir bieten Ihnen transparente Abrechnungen mit einem klaren Pauschalpreis, der alles abdeckt."
+        }
+      ]
+    },
+    "advantages": {
+      "title": "Warum TREU Service?",
+      "items": [
+        {
+          "title": "Erfahrenes Team",
+          "description": "Unsere Mitarbeiter sind hochqualifiziert und wissen, wie man auch schwierige Wetterlagen meistert."
+        },
+        {
+          "title": "Schnelle Reaktionszeiten",
+          "description": "Da wir in Ihrer Nähe sind, können wir schnell auf jede Wetterlage reagieren."
+        },
+        {
+          "title": "24/7-Service",
+          "description": "Der Winter kennt keine Öffnungszeiten, und das tun wir auch nicht. Tag und Nacht, auch an Feiertagen, kümmern wir uns um Ihre Flächen."
+        },
+        {
+          "title": "Individuelle Lösungen",
+          "description": "Maßgeschneiderte Pläne für große Gewerbeflächen oder viel genutzte Kundenbereiche."
+        },
+        {
+          "title": "Umweltfreundliche Methoden",
+          "description": "Wir setzen auf umweltschonende Streumittel."
+        },
+        {
+          "title": "Transparenz und Rechtssicherheit",
+          "description": "Alle unsere Dienstleistungen sind transparent und rechtssicher dokumentiert."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Kontaktieren Sie uns für Ihren Winterdienst",
+      "subtitle": "Wollen Sie die Arbeit den Profis überlassen?",
+      "description": "Wir erstellen für Sie ein maßgeschneidertes Angebot! Teilen Sie uns einfach die Größe Ihrer zu betreuenden Flächen mit – Skizzen, Raumpläne oder Flächenmaße sind hilfreich. Gemeinsam entwickeln wir ein individuelles Konzept, übernehmen die Haftung und dokumentieren alles transparent und rechtssicher.",
+      "cta": "Rufen Sie uns an oder nutzen Sie unser Kontaktformular – wir freuen uns auf Ihre Anfrage!"
+    }
+  }
+}

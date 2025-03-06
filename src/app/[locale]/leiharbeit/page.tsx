@@ -52,31 +52,31 @@ const ServiceCard = ({ title, description, benefits, details, case_study, icon }
 
   return (
     <div
-      className={`bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-[#009FD8]/10 hover:border-[#009FD8]/30
+      className={`bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-accent/10 hover:border-accent/30 h-full
         ${isExpanded ? 'scale-100' : 'hover:translate-y-[-4px]'}`}
       data-service-name={title.toLowerCase().replace(/\s+/g, '-')}
     >
       <div className="p-5">
         <div className="flex items-center gap-3 mb-3">
-          <div className="p-2 rounded-full bg-[#009FD8]/10 text-[#009FD8]">
+          <div className="p-2 rounded-full bg-accent/10 text-accent">
             {icon}
           </div>
           <h3 className="text-lg font-bold">{title}</h3>
         </div>
         
         <p className="text-foreground/80 mb-2 text-sm">{description}</p>
-        <p className="text-[#009FD8] font-medium mb-3 text-sm">{benefits}</p>
+        <p className="text-accent font-medium mb-3 text-sm">{benefits}</p>
         
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="text-[#009FD8] text-sm font-medium flex items-center gap-1 hover:underline"
+          className="text-accent text-sm font-medium flex items-center gap-1 hover:underline"
         >
           {isExpanded ? "Weniger anzeigen" : "Mehr anzeigen"}
           <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
         </button>
         
         {isExpanded && (
-          <div className="mt-3 space-y-3 border-t pt-3 border-[#009FD8]/10 animate-fadeIn">
+          <div className="mt-3 space-y-3 border-t pt-3 border-accent/10 animate-fadeIn">
             <div>
               <h4 className="font-medium mb-2 text-sm">Qualifikationen:</h4>
               <ul className="space-y-1">
@@ -89,7 +89,7 @@ const ServiceCard = ({ title, description, benefits, details, case_study, icon }
               </ul>
             </div>
             
-            <div className="nmt-3 pt-3 border-t border-[#009FD8]/5">
+            <div className="mt-3 pt-3 border-t border-accent/5">
               <h4 className="font-medium mb-1 text-sm">Erfolgsgeschichte:</h4>
               <p className="text-xs text-foreground/80 italic">{case_study}</p>
             </div>
@@ -103,7 +103,7 @@ const ServiceCard = ({ title, description, benefits, details, case_study, icon }
 // Process Step Component - Compact Version
 const ProcessStep = ({ number, title, description }: { number: number; title: string; description: string }) => (
   <div className="flex items-start gap-3">
-    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#009FD8] text-white flex items-center justify-center font-bold text-sm">
+    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center font-bold text-sm">
       {number}
     </div>
     <div>
@@ -113,9 +113,9 @@ const ProcessStep = ({ number, title, description }: { number: number; title: st
   </div>
 );
 
-// Challenge Card Component - Simplified
+// Challenge Card Component - Simplified with fixed height
 const ChallengeCard = ({ problem, issue, solution }: { problem: string; issue: string; solution: string }) => (
-  <div className="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+  <div className="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 h-full flex flex-col">
     <div className="flex items-start gap-3 mb-3">
       <div className="p-1.5 rounded-full bg-red-50 text-red-500 mt-1 flex-shrink-0">
         <XCircle className="w-4 h-4" />
@@ -126,7 +126,7 @@ const ChallengeCard = ({ problem, issue, solution }: { problem: string; issue: s
       </div>
     </div>
     
-    <div className="flex items-start gap-3 pl-10">
+    <div className="flex items-start gap-3 pl-10 mt-auto">
       <div className="p-1.5 rounded-full bg-green-50 text-green-500 flex-shrink-0">
         <CheckCircle2 className="w-4 h-4" />
       </div>
@@ -149,13 +149,13 @@ export default function LeiharbeitPage() {
   // For advantage cards
   const getAdvantageIcon = (iconName: string) => {
     switch(iconName) {
-      case 'Zap': return <Zap className="w-4 h-4 text-[#009FD8]" />;
-      case 'Badge': return <BadgeCheck className="w-4 h-4 text-[#009FD8]" />;
-      case 'Calendar': return <Calendar className="w-4 h-4 text-[#009FD8]" />;
-      case 'FileText': return <FileText className="w-4 h-4 text-[#009FD8]" />;
-      case 'Shield': return <Shield className="w-4 h-4 text-[#009FD8]" />;
-      case 'CheckSquare': return <CheckSquare className="w-4 h-4 text-[#009FD8]" />;
-      default: return <CheckCircle className="w-4 h-4 text-[#009FD8]" />;
+      case 'Zap': return <Zap className="w-4 h-4 text-accent" />;
+      case 'Badge': return <BadgeCheck className="w-4 h-4 text-accent" />;
+      case 'Calendar': return <Calendar className="w-4 h-4 text-accent" />;
+      case 'FileText': return <FileText className="w-4 h-4 text-accent" />;
+      case 'Shield': return <Shield className="w-4 h-4 text-accent" />;
+      case 'CheckSquare': return <CheckSquare className="w-4 h-4 text-accent" />;
+      default: return <CheckCircle className="w-4 h-4 text-accent" />;
     }
   };
 
@@ -169,8 +169,8 @@ export default function LeiharbeitPage() {
 
   return (
     <div className="flex-1">
-      {/* HERO Section */}
-      <Section className="relative bg-gradient-to-b from-blue-50 to-white pt-24 md:pt-28">
+      {/* HERO Section - Full height */}
+      <Section className="relative bg-white min-h-screen flex items-center pt-24 md:pt-28">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <InView
@@ -184,7 +184,7 @@ export default function LeiharbeitPage() {
                 <H1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
                   {leiharbeitData.hero.title}
                 </H1>
-                <div className="text-xl md:text-2xl font-medium text-[#009FD8] mb-6">
+                <div className="text-xl md:text-2xl font-medium text-accent mb-6">
                   {leiharbeitData.hero.subtitle}
                 </div>
                 <Paragraph className="text-lg text-gray-600 mb-8 max-w-xl">
@@ -192,7 +192,7 @@ export default function LeiharbeitPage() {
                 </Paragraph>
                 <button 
                   onClick={scrollToContact}
-                  className="px-6 py-3 bg-[#009FD8] hover:bg-[#007CAB] text-white rounded-lg font-medium transition-all duration-200 shadow-sm flex items-center gap-2"
+                  className="px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-lg font-medium transition-all duration-200 shadow-sm flex items-center gap-2"
                 >
                   Jetzt Mitarbeiter finden
                   <ArrowRight className="h-4 w-4" />
@@ -217,10 +217,10 @@ export default function LeiharbeitPage() {
         </Container>
       </Section>
 
-      <Separator className="bg-[#009FD8]/5" />
+      <Separator className="bg-accent/5" />
 
-      {/* ÜBER UNS Section */}
-      <Section className="bg-white py-12">
+      {/* ÜBER UNS Section - Full height */}
+      <Section className="bg-white min-h-screen flex items-center py-0">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="order-2 lg:order-1">
@@ -231,8 +231,8 @@ export default function LeiharbeitPage() {
                 }}
                 transition={{ duration: 0.5 }}
               >
-                <Badge className="mb-3 bg-[#009FD8] text-white hover:bg-[#007CAB]">ÜBER UNS</Badge>
-                <H2 className="mb-4 text-[#222425]">{leiharbeitData.about.title}</H2>
+                <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">ÜBER UNS</Badge>
+                <H2 className="mb-4 text-secondary">{leiharbeitData.about.title}</H2>
                 <Paragraph className="text-gray-600 mb-6">
                   {leiharbeitData.about.description}
                 </Paragraph>
@@ -240,7 +240,7 @@ export default function LeiharbeitPage() {
                 <div className="space-y-2 mt-5">
                   {leiharbeitData.about.checkpoints.map((point, idx) => (
                     <div key={idx} className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-[#009FD8] flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <p className="text-gray-700">{point}</p>
                     </div>
                   ))}
@@ -248,7 +248,7 @@ export default function LeiharbeitPage() {
                 
                 <button 
                   onClick={scrollToContact}
-                  className="mt-6 px-6 py-3 bg-[#009FD8] hover:bg-[#007CAB] text-white rounded-lg font-medium transition-all duration-200 shadow-sm inline-flex items-center gap-2"
+                  className="mt-6 px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-lg font-medium transition-all duration-200 shadow-sm inline-flex items-center gap-2"
                 >
                   Kostenlose Beratung 
                   <ArrowRight className="h-4 w-4" />
@@ -279,156 +279,86 @@ export default function LeiharbeitPage() {
         </Container>
       </Section>
 
-      {/* SERVICE Section */}
-      <Section className="bg-[#F8FAFC] py-12">
+      {/* SERVICE Section - Full height, with minimal animations */}
+      <Section className="bg-white min-h-screen flex items-center py-0">
         <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="text-center mb-10">
-              <Badge className="mb-3 bg-[#009FD8] text-white hover:bg-[#007CAB]">SERVICE</Badge>
-              <H2 className="mb-4 text-[#222425]">{leiharbeitData.service.title}</H2>
-              <Paragraph className="text-gray-600 max-w-2xl mx-auto">
-                {leiharbeitData.service.description}
-              </Paragraph>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5" id="services">
-              {leiharbeitData.service.categories.map((service, index) => (
-                <ServiceCard
-                  key={index}
-                  title={service.title}
-                  description={service.description}
-                  benefits={service.benefits}
-                  details={service.details}
-                  case_study={service.case_study}
-                  icon={serviceIcons[index]}
-                />
-              ))}
-            </div>
-          </InView>
-        </Container>
-      </Section>
-
-      {/* ABLAUF Section - Kompakter */}
-      <Section className="bg-white py-12">
-        <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="text-center mb-10">
-              <Badge className="mb-3 bg-[#009FD8] text-white hover:bg-[#007CAB]">ABLAUF</Badge>
-              <H2 className="mb-4 text-[#222425]">{leiharbeitData.process.title}</H2>
-              <Paragraph className="text-gray-600 max-w-2xl mx-auto">
-                {leiharbeitData.process.description}
-              </Paragraph>
-            </div>
-            
-            <div className="max-w-3xl mx-auto">
-              <div className="relative">
-                <div className="absolute left-4 top-0 h-full w-0.5 bg-[#009FD8]/20 z-0 hidden md:block"></div>
-                <div className="space-y-8">
-                  {leiharbeitData.process.steps.map((step, index) => (
-                    <div key={index} className="relative z-10">
-                      <ProcessStep 
-                        number={index + 1}
-                        title={step.title}
-                        description={step.description}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="text-center mt-8">
-                <button 
-                  onClick={scrollToContact}
-                  className="px-6 py-3 bg-[#009FD8] hover:bg-[#007CAB] text-white rounded-lg font-medium transition-all duration-200 shadow-sm inline-flex items-center gap-2"
-                >
-                  Jetzt anfragen
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
-            </div>
-          </InView>
-        </Container>
-      </Section>
-
-      {/* UNSERE VORTEILE Section */}
-      <Section className="bg-[#F8FAFC] py-12">
-        <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="text-center mb-10">
-              <Badge className="mb-3 bg-[#009FD8] text-white hover:bg-[#007CAB]">UNSERE VORTEILE</Badge>
-              <H2 className="mb-4 text-[#222425]">{leiharbeitData.advantages.title}</H2>
-              <Paragraph className="text-gray-600 max-w-2xl mx-auto">
-                {leiharbeitData.advantages.description}
-              </Paragraph>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {leiharbeitData.advantages.items.map((item, i) => (
-                <InView
-                  key={i}
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Card className="shadow-sm hover:shadow-md transition-all duration-300 border-t-4 border-t-[#009FD8] h-full">
-                    <CardContent className="p-5">
-                      <div className="flex flex-col h-full">
-                        <div className="mb-3 text-[#009FD8]">
-                          {getAdvantageIcon(item.icon)}
-                        </div>
-                        <h3 className="text-base font-semibold mb-2 text-[#222425]">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.description}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </InView>
-              ))}
-            </div>
-          </InView>
-        </Container>
-      </Section>
-
-      {/* HERAUSFORDERUNGEN Section */}
-      <Section className="bg-white py-12">
-        <Container>
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="text-center mb-10">
-              <Badge className="mb-3 bg-[#009FD8] text-white hover:bg-[#007CAB]">HERAUSFORDERUNGEN</Badge>
-              <H2 className="mb-4 text-[#222425]">{leiharbeitData.challenges.title}</H2>
-              <Paragraph className="text-gray-600 max-w-2xl mx-auto">
-                {leiharbeitData.challenges.subtitle}
-              </Paragraph>
-            </div>
-          </InView>
+          <div className="text-center mb-10">
+            <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">SERVICE</Badge>
+            <H2 className="mb-4 text-secondary">{leiharbeitData.service.title}</H2>
+            <Paragraph className="text-gray-600 max-w-2xl mx-auto">
+              {leiharbeitData.service.description}
+            </Paragraph>
+          </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            {leiharbeitData.challenges.items.map((item, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5" id="services">
+            {leiharbeitData.service.categories.map((service, index) => (
+              <ServiceCard
+                key={index}
+                title={service.title}
+                description={service.description}
+                benefits={service.benefits}
+                details={service.details}
+                case_study={service.case_study}
+                icon={serviceIcons[index]}
+              />
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* ABLAUF Section - Full height */}
+      <Section className="bg-white min-h-screen flex items-center py-0">
+        <Container>
+          <div className="text-center mb-10">
+            <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">ABLAUF</Badge>
+            <H2 className="mb-4 text-secondary">{leiharbeitData.process.title}</H2>
+            <Paragraph className="text-gray-600 max-w-2xl mx-auto">
+              {leiharbeitData.process.description}
+            </Paragraph>
+          </div>
+          
+          <div className="max-w-3xl mx-auto">
+            <div className="relative">
+              <div className="absolute left-4 top-0 h-full w-0.5 bg-accent/20 z-0 hidden md:block"></div>
+              <div className="space-y-8">
+                {leiharbeitData.process.steps.map((step, index) => (
+                  <div key={index} className="relative z-10">
+                    <ProcessStep 
+                      number={index + 1}
+                      title={step.title}
+                      description={step.description}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="text-center mt-8">
+              <button 
+                onClick={scrollToContact}
+                className="px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-lg font-medium transition-all duration-200 shadow-sm inline-flex items-center gap-2"
+              >
+                Jetzt anfragen
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* UNSERE VORTEILE Section - Full height, white background */}
+      <Section className="bg-white min-h-screen flex items-center py-0">
+        <Container>
+          <div className="text-center mb-10">
+            <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">UNSERE VORTEILE</Badge>
+            <H2 className="mb-4 text-secondary">{leiharbeitData.advantages.title}</H2>
+            <Paragraph className="text-gray-600 max-w-2xl mx-auto">
+              {leiharbeitData.advantages.description}
+            </Paragraph>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {leiharbeitData.advantages.items.map((item, i) => (
               <InView
                 key={i}
                 variants={{
@@ -437,63 +367,85 @@ export default function LeiharbeitPage() {
                 }}
                 transition={{ delay: i * 0.1 }}
               >
-                <ChallengeCard
-                  problem={item.problem}
-                  issue={item.issue}
-                  solution={item.solution}
-                />
+                <Card className="shadow-sm hover:shadow-md transition-all duration-300 border-t-4 border-t-accent h-full">
+                  <CardContent className="p-5">
+                    <div className="flex flex-col h-full">
+                      <div className="mb-3 text-accent">
+                        {getAdvantageIcon(item.icon)}
+                      </div>
+                      <h3 className="text-base font-semibold mb-2 text-secondary">{item.title}</h3>
+                      <p className="text-sm text-gray-600">{item.description}</p>
+                    </div>
+                  </CardContent>
+                </Card>
               </InView>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* FAQ Section - Mit korrekt verwendetem Accordion */}
-      <Section className="bg-[#F8FAFC] py-12">
-        <Container size="small">
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="text-center mb-10">
-              <Badge className="mb-3 bg-[#009FD8] text-white hover:bg-[#007CAB]">FAQ</Badge>
-              <H2 className="mb-4 text-[#222425]">{leiharbeitData.faq.title}</H2>
-              <Paragraph className="text-gray-600 max-w-2xl mx-auto">
-                {leiharbeitData.faq.description}
-              </Paragraph>
-            </div>
-            
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
-                {leiharbeitData.faq.questions.map((faq, index) => (
-                  <AccordionItem
-                    key={index}
-                    value={`faq-${index}`}
-                    className="mb-4 border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm"
-                  >
-                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-medium text-[#222425] text-left">{faq.question}</span>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-4 text-gray-600">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </InView>
+      {/* HERAUSFORDERUNGEN Section - Full height, white background, equal card heights */}
+      <Section className="bg-white min-h-screen flex items-center py-0">
+        <Container>
+          <div className="text-center mb-10">
+            <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">HERAUSFORDERUNGEN</Badge>
+            <H2 className="mb-4 text-secondary">{leiharbeitData.challenges.title}</H2>
+            <Paragraph className="text-gray-600 max-w-2xl mx-auto">
+              {leiharbeitData.challenges.subtitle}
+            </Paragraph>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            {leiharbeitData.challenges.items.map((item, i) => (
+              <ChallengeCard
+                key={i}
+                problem={item.problem}
+                issue={item.issue}
+                solution={item.solution}
+              />
+            ))}
+          </div>
         </Container>
       </Section>
 
-      {/* Kontakt Section */}
-      <Section id="kontakt" className="bg-white py-12">
+      {/* FAQ Section - Full height, white background */}
+      <Section className="bg-white min-h-screen flex items-center py-0">
+        <Container size="small">
+          <div className="text-center mb-10">
+            <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">FAQ</Badge>
+            <H2 className="mb-4 text-secondary">{leiharbeitData.faq.title}</H2>
+            <Paragraph className="text-gray-600 max-w-2xl mx-auto">
+              {leiharbeitData.faq.description}
+            </Paragraph>
+          </div>
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              {leiharbeitData.faq.questions.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`faq-${index}`}
+                  className="mb-4 border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm"
+                >
+                  <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                    <span className="font-medium text-secondary text-left">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-4 text-gray-600">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Kontakt Section - Full height */}
+      <Section id="kontakt" className="bg-white min-h-screen flex items-center py-0">
         <Container>
           <div className="text-center mb-10">
-            <Badge className="mb-3 bg-[#009FD8] text-white hover:bg-[#007CAB]">KONTAKT</Badge>
-            <H2 className="mb-4 text-[#222425]">{leiharbeitData.kontakt.title}</H2>
+            <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">KONTAKT</Badge>
+            <H2 className="mb-4 text-secondary">{leiharbeitData.kontakt.title}</H2>
             <Paragraph className="text-gray-600 max-w-2xl mx-auto">
               {leiharbeitData.kontakt.subtitle}
             </Paragraph>
@@ -505,7 +457,7 @@ export default function LeiharbeitPage() {
       </Section>
 
       {/* Call-to-Action */}
-      <Section className="bg-[#009FD8] text-white py-10">
+      <Section className="bg-accent text-white py-10">
         <Container size="small">
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-4">{leiharbeitData.kontakt.cta.title}</h2>
@@ -515,7 +467,7 @@ export default function LeiharbeitPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={scrollToContact}
-                className="px-6 py-3 bg-white text-[#009FD8] hover:bg-gray-100 rounded-lg font-medium transition-all shadow-sm flex items-center justify-center gap-2"
+                className="px-6 py-3 bg-white text-accent hover:bg-gray-100 rounded-lg font-medium transition-all shadow-sm flex items-center justify-center gap-2"
               >
                 {leiharbeitData.kontakt.cta.button}
                 <ArrowRight className="h-4 w-4" />
@@ -534,4 +486,3 @@ export default function LeiharbeitPage() {
     </div>
   )
 }
-

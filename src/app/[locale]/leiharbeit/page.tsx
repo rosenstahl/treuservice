@@ -37,7 +37,7 @@ import {
   ChevronDown
 } from "lucide-react"
 
-// Service Card Component for the Services Section
+// Service Card Component for the Services Section - Optimized for smooth opening animation
 interface ServiceCardProps {
   title: string;
   description: string;
@@ -52,8 +52,7 @@ const ServiceCard = ({ title, description, benefits, details, case_study, icon }
 
   return (
     <div
-      className={`bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-accent/10 hover:border-accent/30 h-full
-        ${isExpanded ? 'scale-100' : 'hover:translate-y-[-4px]'}`}
+      className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-accent/10 hover:border-accent/30 h-full"
       data-service-name={title.toLowerCase().replace(/\s+/g, '-')}
     >
       <div className="p-5">
@@ -72,11 +71,11 @@ const ServiceCard = ({ title, description, benefits, details, case_study, icon }
           className="text-accent text-sm font-medium flex items-center gap-1 hover:underline"
         >
           {isExpanded ? "Weniger anzeigen" : "Mehr anzeigen"}
-          <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
         </button>
         
-        {isExpanded && (
-          <div className="mt-3 space-y-3 border-t pt-3 border-accent/10 animate-fadeIn">
+        <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
+          <div className="space-y-3 border-t pt-3 border-accent/10">
             <div>
               <h4 className="font-medium mb-2 text-sm">Qualifikationen:</h4>
               <ul className="space-y-1">
@@ -91,10 +90,10 @@ const ServiceCard = ({ title, description, benefits, details, case_study, icon }
             
             <div className="mt-3 pt-3 border-t border-accent/5">
               <h4 className="font-medium mb-1 text-sm">Erfolgsgeschichte:</h4>
-              <p className="text-xs text-foreground/80 italic">{case_study}</p>
+              <p className="text-xs text-gray-700 italic bg-accent/5 p-2 rounded-lg">{case_study}</p>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
@@ -220,7 +219,7 @@ export default function LeiharbeitPage() {
       <Separator className="bg-accent/5" />
 
       {/* ÜBER UNS Section - Full height */}
-      <Section className="bg-white min-h-screen flex items-center py-0">
+      <Section className="bg-gray-50 min-h-screen flex items-center py-0">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="order-2 lg:order-1">
@@ -307,7 +306,7 @@ export default function LeiharbeitPage() {
       </Section>
 
       {/* ABLAUF Section - Full height */}
-      <Section className="bg-white min-h-screen flex items-center py-0">
+      <Section className="bg-gray-50 min-h-screen flex items-center py-0">
         <Container>
           <div className="text-center mb-10">
             <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">ABLAUF</Badge>
@@ -384,8 +383,8 @@ export default function LeiharbeitPage() {
         </Container>
       </Section>
 
-      {/* HERAUSFORDERUNGEN Section - Full height, white background, equal card heights */}
-      <Section className="bg-white min-h-screen flex items-center py-0">
+      {/* HERAUSFORDERUNGEN Section - Full height, gray background, equal card heights */}
+      <Section className="bg-gray-50 min-h-screen flex items-center py-0">
         <Container>
           <div className="text-center mb-10">
             <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">HERAUSFORDERUNGEN</Badge>
@@ -440,8 +439,8 @@ export default function LeiharbeitPage() {
         </Container>
       </Section>
 
-      {/* Kontakt Section - Full height */}
-      <Section id="kontakt" className="bg-white min-h-screen flex items-center py-0">
+      {/* Kontakt Section - Full height, gray background for contrast */}
+      <Section id="kontakt" className="bg-gray-50 min-h-screen flex items-center py-0">
         <Container>
           <div className="text-center mb-10">
             <Badge className="mb-3 bg-accent text-white hover:bg-accent-hover">KONTAKT</Badge>

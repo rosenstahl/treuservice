@@ -47,22 +47,42 @@ export function processCurrentWeather(currentItem: BrightskyWeatherItem): Curren
 }
 
 /**
- * Vereinfachte Berechnung der gefühlten Temperatur
+ * Berechnet die gefühlte Temperatur basierend auf wissenschaftlichen Formeln
+ * @param temperature Lufttemperatur in °C
+ * @param windSpeed Windgeschwindigkeit in m/s
+ * @param humidity Relative Luftfeuchtigkeit in %
+ * @returns Gefühlte Temperatur in °C
  */
 function calculateFeelsLike(temperature: number, windSpeed: number, humidity: number): number {
-  let feelsLike = temperature;
-  
-  // Wind-Chill-Effekt bei niedrigen Temperaturen
-  if (temperature < 10 && windSpeed > 5) {
-    feelsLike -= (windSpeed * 0.15);
+  // Sicherstellen, dass wir keine ungültigen Werte verarbeiten
+  if (isNaN(temperature) || isNaN(windSpeed) || isNaN(humidity)) {
+    return temperature;
   }
   
-  // Hitzefaktor bei hohen Temperaturen und Luftfeuchtigkeit
-  if (temperature > 20 && humidity > 60) {
-    feelsLike += (humidity - 60) * 0.1;
+  // Wind-Chill-Formel für kalte Temperaturen (≤ 10°C)
+  if (temperature <= 10 && windSpeed > 1.39) { // 1.39 m/s = 5 km/h
+    // Umrechnung der Windgeschwindigkeit von m/s in km/h
+    const windKmh = windSpeed * 3.6;
+    const windChill = 13.12 + 0.6215 * temperature - 11.37 * Math.pow(windKmh, 0.16) + 
+           0.3965 * temperature * Math.pow(windKmh, 0.16);
+    
+    return Math.round(windChill * 10) / 10;
   }
   
-  return Math.round(feelsLike * 10) / 10;
+  // Hitzeindex für warme Temperaturen (> 20°C)
+  if (temperature > 20 && humidity > 40) {
+    // Vereinfachte Hitzeindex-Formel vom US National Weather Service
+    const heatIndex = -8.784695 + 1.61139411 * temperature + 2.338549 * (humidity/100)
+           - 0.14611605 * temperature * (humidity/100) - 0.012308094 * Math.pow(temperature, 2)
+           - 0.016424828 * Math.pow(humidity/100, 2)
+           + 0.002211732 * Math.pow(temperature, 2) * (humidity/100)
+           + 0.00072546 * temperature * Math.pow(humidity/100, 2);
+    
+    return Math.round(heatIndex * 10) / 10;
+  }
+  
+  // Bei Temperaturen im Bereich 10-20°C, einfach die Originaltemperatur zurückgeben
+  return temperature;
 }
 
 /**

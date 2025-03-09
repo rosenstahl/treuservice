@@ -1,16 +1,11 @@
 /**
- * Formatiere eine Temperatur ohne Dezimalstellen
+ * Einfache Formatierungsfunktionen für Temperatur und Dezimalwerte
  */
-export const formatTemperature = (temp?: number): string => {
-  if (temp === undefined) return "N/A";
+export const formatTemperature = (temp: number): string => {
   return Math.round(temp).toString();
 };
 
-/**
- * Formatiere eine Dezimalzahl mit einer Dezimalstelle
- */
-export const formatDecimal = (value?: number): string => {
-  if (value === undefined) return "N/A";
+export const formatDecimal = (value: number): string => {
   return value.toFixed(1);
 };
 
@@ -101,12 +96,4 @@ export function findMostCommon<T>(items: T[]): T | undefined {
   }
   
   return mostCommon;
-}
-
-/**
- * Prüft, ob eine bestimmte Uhrzeit als "Nacht" gilt (zwischen 18 und 6 Uhr)
- */
-export function isNightTime(date: Date): boolean {
-  const hours = date.getHours();
-  return hours < 6 || hours >= 18;
 }

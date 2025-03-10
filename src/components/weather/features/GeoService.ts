@@ -15,6 +15,13 @@ export interface GeoResult {
   displayName: string;
 }
 
+// Interface für Google Geocoding Adresskomponenten
+interface AddressComponent {
+  long_name: string;
+  short_name: string;
+  types: string[];
+}
+
 /**
  * Browser-Geolocation-API nutzen, um den aktuellen Standort zu ermitteln
  * @returns Promise mit den Koordinaten
@@ -88,14 +95,14 @@ export async function geocodeAddress(address: string): Promise<GeoResult> {
   let displayName = address;
   
   const locality = result.address_components.find(
-    (component: {types: string[]}) => component.types.includes('locality')
+    (component: AddressComponent) => component.types.includes('locality')
   );
   const subLocality = result.address_components.find(
-    (component: {types: string[]}) => component.types.includes('sublocality') || 
+    (component: AddressComponent) => component.types.includes('sublocality') || 
                                     component.types.includes('neighborhood')
   );
   const administrativeArea = result.address_components.find(
-    (component: {types: string[]}) => component.types.includes('administrative_area_level_1') || 
+    (component: AddressComponent) => component.types.includes('administrative_area_level_1') || 
                                     component.types.includes('administrative_area_level_2')
   );
   
@@ -164,7 +171,7 @@ export async function reverseGeocode(lat: number, lon: number): Promise<GeoResul
     position: normalizedLocation,
     place_id: result.place_id,
     types: result.types,
-    components: result.address_components.map((c: any) => ({
+    components: result.address_components.map((c: AddressComponent) => ({
       long_name: c.long_name,
       types: c.types
     }))
@@ -174,7 +181,7 @@ export async function reverseGeocode(lat: number, lon: number): Promise<GeoResul
   let displayName = "Ihr Standort";
   
   const locality = result.address_components.find(
-    (component: {types: string[]}) => component.types.includes('locality')
+    (component: AddressComponent) => component.types.includes('locality')
   );
   
   if (locality) {
@@ -182,11 +189,11 @@ export async function reverseGeocode(lat: number, lon: number): Promise<GeoResul
   } else {
     // Weitere Komponenten prüfen, falls kein locality-Eintrag existiert
     const subLocality = result.address_components.find(
-      (component: {types: string[]}) => component.types.includes('sublocality')
+      (component: AddressComponent) => component.types.includes('sublocality')
     );
     
     const administrativeArea = result.address_components.find(
-      (component: {types: string[]}) => component.types.includes('administrative_area_level_1')
+      (component: AddressComponent) => component.types.includes('administrative_area_level_1')
     );
     
     if (subLocality) {

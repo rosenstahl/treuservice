@@ -3,13 +3,16 @@
  * 
  * Eine zentrale API-Schnittstelle für die Kommunikation mit dem BrightSky-Wetterdienst.
  * Diese Datei enthält alle notwendigen Typen und Funktionen, um Wetterdaten abzurufen.
- * OPTIMIERTE VERSION: Direktere API-Aufrufe, vereinfachte Fehlerbehandlung
+ * VERBESSERTE VERSION mit strikter Cache-Kontrolle
  */
 
 // API-URL-Konstanten
 const BRIGHTSKY_API_BASE = "https://api.brightsky.dev";
-const DEFAULT_TIMEOUT = 10000; // 10 Sekunden Timeout (reduziert von 15s)
+const DEFAULT_TIMEOUT = 10000; // 10 Sekunden Timeout
 const MAX_STATION_DISTANCE = 50; // Maximale Entfernung zur Wetterstation in km
+
+// Debug-Flag für ausführlichere Protokollierung
+const DEBUG = true;
 
 // API-Antwort-Typen, die der offiziellen BrightSky-API entsprechen
 export interface BrightskyWeatherItem {
@@ -64,20 +67,27 @@ export interface WeatherParams {
 /**
  * Funktion zum Abrufen von Wetterdaten von der BrightSky API.
  * Unterstützt sowohl aktuelle als auch Vorhersagedaten.
- * OPTIMIERTE VERSION mit direkten fetch-Aufrufen.
+ * VERBESSERTE VERSION mit strikter Cache-Kontrolle
  * 
  * @param params Parameter für die API-Anfrage
  * @returns Die API-Antwort als Promise
  */
 export async function fetchWeatherData(params: WeatherParams): Promise<BrightskyApiResponse> {
-  // Sicherstellen, dass Koordinaten gültig sind
+  // Koordinaten validieren mit verbesserter Fehlermeldung
   if (!isValidCoordinate(params.lat, params.lon)) {
-    throw new Error('Ungültige Koordinaten. Bitte überprüfen Sie Ihre Eingabe.');
+    throw new Error(`Ungültige Koordinaten: ${params.lat}, ${params.lon}. Die Werte müssen im gültigen Bereich liegen.`);
   }
+  
+  // Koordinaten mit höherer Genauigkeit formatieren (6 Nachkommastellen)
+  const lat = params.lat.toFixed(6);
+  const lon = params.lon.toFixed(6);
+  
+  // Cache-Buster für garantiert frische Daten
+  const cacheBuster = new Date().getTime();
   
   // API-URL zusammenbauen
   const timezone = params.tz || 'Europe/Berlin';
-  let url = `${BRIGHTSKY_API_BASE}/weather?lat=${params.lat}&lon=${params.lon}&tz=${encodeURIComponent(timezone)}`;
+  let url = `${BRIGHTSKY_API_BASE}/weather?lat=${lat}&lon=${lon}&tz=${encodeURIComponent(timezone)}&_cb=${cacheBuster}`;
   
   // Maximale Distanz zur Wetterstation begrenzen für präzisere Daten
   if (params.max_dist || MAX_STATION_DISTANCE) {
@@ -95,19 +105,21 @@ export async function fetchWeatherData(params: WeatherParams): Promise<Brightsky
     url += `&last_date=${encodeURIComponent(params.last_date)}`;
   }
   
-  console.log('BrightSky API-Anfrage:', url);
+  if (DEBUG) console.log(`BrightSky API-Anfrage für Koordinaten (${lat}, ${lon}):`, url);
   
   try {
     // Timeout mit AbortController
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), DEFAULT_TIMEOUT);
     
-    // API-Anfrage senden mit kurzzeitigem Caching (5 Minuten)
+    // API-Anfrage senden mit strikten Cache-Kontrollen
     const response = await fetch(url, {
       signal: controller.signal,
       headers: {
         'Accept': 'application/json',
-        'Cache-Control': 'max-age=300' // 5 Minuten cachen
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
       }
     });
     
@@ -122,7 +134,7 @@ export async function fetchWeatherData(params: WeatherParams): Promise<Brightsky
         // URL ohne max_dist Parameter neu erstellen
         const fallbackUrl = url.replace(/&max_dist=\d+/, '');
         
-        console.log('Fallback-Anfrage:', fallbackUrl);
+        if (DEBUG) console.log('Fallback-Anfrage:', fallbackUrl);
         
         // Neuer Timeout für Fallback-Anfrage
         const fallbackController = new AbortController();
@@ -133,7 +145,9 @@ export async function fetchWeatherData(params: WeatherParams): Promise<Brightsky
           signal: fallbackController.signal,
           headers: {
             'Accept': 'application/json',
-            'Cache-Control': 'max-age=300'
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
           }
         });
         
@@ -150,7 +164,11 @@ export async function fetchWeatherData(params: WeatherParams): Promise<Brightsky
           throw new Error('Keine Wetterdaten in der Fallback-API-Antwort enthalten');
         }
         
-        console.log('Fallback-Daten erhalten:', fallbackData.weather.length, 'Einträge');
+        if (DEBUG) {
+          console.log('Fallback-Daten erhalten:', fallbackData.weather.length, 'Einträge');
+          console.log('Erste Wetterelemente:', fallbackData.weather.slice(0, 2));
+        }
+        
         return fallbackData;
       }
       
@@ -166,16 +184,18 @@ export async function fetchWeatherData(params: WeatherParams): Promise<Brightsky
     }
     
     // Log Informationen zur Wetterstation
-    if (data.sources && data.sources.length > 0) {
+    if (DEBUG && data.sources && data.sources.length > 0) {
       const source = data.sources[0];
       console.log(
         `Wetterdaten von Station: ${source.station_name}, ` +
         `Entfernung: ${source.distance.toFixed(1)} km, ` +
         `Höhe: ${source.height} m`
       );
+      
+      console.log('Erste Wetterelemente:', data.weather.slice(0, 2));
     }
     
-    console.log('BrightSky API-Antwort erhalten:', data.weather.length, 'Einträge');
+    if (DEBUG) console.log('BrightSky API-Antwort erhalten:', data.weather.length, 'Einträge');
     
     return data;
   } catch (error) {
@@ -201,14 +221,13 @@ export async function fetchWeatherData(params: WeatherParams): Promise<Brightsky
  * @returns Die API-Antwort als Promise
  */
 export async function fetchCurrentWeather(lat: number, lon: number): Promise<BrightskyApiResponse> {
-  // Aktuelles Datum mit Uhrzeit und Timezone
+  // Aktuelles Datum mit Uhrzeit
   const now = new Date();
   
-  // Formatiere das Datum für die API - ISO-String mit deutscher Zeitzone
-  // Format: YYYY-MM-DD - wir verwenden das heutige Datum, um alle stündlichen Daten zu bekommen
+  // Formatiere das Datum für die API - ISO-String ohne Zeit (nur YYYY-MM-DD)
   const today = now.toISOString().split('T')[0];
   
-  console.log(`Rufe aktuelle Wetterdaten für ${lat}, ${lon} ab (Datum: ${today})`);
+  if (DEBUG) console.log(`Rufe aktuelle Wetterdaten für (${lat.toFixed(6)}, ${lon.toFixed(6)}) ab (Datum: ${today})`);
   
   return fetchWeatherData({ 
     lat, 
@@ -234,7 +253,7 @@ export async function fetchWeatherForecast(lat: number, lon: number, days: numbe
   endDate.setDate(today.getDate() + days);
   const lastDate = endDate.toISOString().split('T')[0]; // Nur Datum verwenden
   
-  console.log(`Rufe Wettervorhersage für ${lat}, ${lon} ab (von ${startDate} bis ${lastDate})`);
+  if (DEBUG) console.log(`Rufe Wettervorhersage für (${lat.toFixed(6)}, ${lon.toFixed(6)}) ab (von ${startDate} bis ${lastDate})`);
   
   return fetchWeatherData({ 
     lat, 
@@ -246,7 +265,7 @@ export async function fetchWeatherForecast(lat: number, lon: number, days: numbe
 }
 
 /**
- * Hilfsfunktion zum Validieren von Koordinaten.
+ * Verbesserte Hilfsfunktion zum Validieren von Koordinaten.
  * 
  * @param lat Breitengrad
  * @param lon Längengrad

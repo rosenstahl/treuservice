@@ -27,24 +27,15 @@ const WeatherHeader: React.FC<WeatherHeaderProps> = ({ onRequestService }) => {
     location, 
     weather, 
     lastUpdated, 
-    detectLocation, 
-    coordinates 
+    detectLocation,
+    refreshWeather
   } = useWeather();
 
-  // Aktualisieren der Wetterdaten mit verbesserter Fehlerbehandlung
+  // Aktualisieren der Wetterdaten mit verbesserter zentraler Funktion
   const handleRefresh = () => {
-    // Die einfachste und zuverlässigste Methode ist die Standorterkennung 
-    // zu verwenden, falls verfügbar, da dies keine Geocoding-Anfragen erfordert
-    if (navigator.geolocation) {
-      detectLocation();
-    }
-    // Falls keine Geolocation verfügbar ist, versuchen wir, die gespeicherten
-    // Koordinaten oder den Standortnamen zu verwenden
-    else if (coordinates) {
-      // Indirekt die gespeicherten Koordinaten verwenden - 
-      // beim Laden vom lokalen Speicher
-      detectLocation();
-    }
+    // Die zentrale refreshWeather-Funktion verwenden, die 
+    // automatisch die beste Methode auswählt
+    refreshWeather();
   };
 
   // Zeigt Lade-Indikator während des Ladens

@@ -58,70 +58,75 @@ export async function geocodeAddress(address: string): Promise<GeoResult> {
   const cacheBuster = new Date().getTime();
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${GOOGLE_GEOCODING_API_KEY}&region=de&timestamp=${cacheBuster}`;
   
-  const response = await fetch(url, {
-    headers: {
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache', 
-      'Expires': '0'
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache', 
+        'Expires': '0'
+      }
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Geocoding-Fehler: HTTP ${response.status}`);
     }
-  });
-  
-  if (!response.ok) {
-    throw new Error(`Geocoding-Fehler: HTTP ${response.status}`);
+    
+    const data = await response.json();
+    
+    if (data.status !== 'OK') {
+      throw new Error(`Geocoding-Fehler: ${data.status}${data.error_message ? ' - ' + data.error_message : ''}`);
+    }
+    
+    if (!data.results || data.results.length === 0) {
+      throw new Error('Die angegebene Adresse konnte nicht gefunden werden');
+    }
+    
+    const result = data.results[0];
+    const location = result.geometry.location;
+    
+    // Debug-Log für Diagnose
+    console.log("Google Geocoding Ergebnis:", {
+      formatted_address: result.formatted_address,
+      position: location,
+      place_id: result.place_id,
+      types: result.types
+    });
+    
+    // Ortsname aus den Adresskomponenten extrahieren
+    let displayName = address;
+    
+    const locality = result.address_components.find(
+      (component: AddressComponent) => component.types.includes('locality')
+    );
+    const subLocality = result.address_components.find(
+      (component: AddressComponent) => component.types.includes('sublocality') || 
+                                      component.types.includes('neighborhood')
+    );
+    const administrativeArea = result.address_components.find(
+      (component: AddressComponent) => component.types.includes('administrative_area_level_1') || 
+                                      component.types.includes('administrative_area_level_2')
+    );
+    
+    // Präzisesten Namen wählen
+    if (locality) {
+      displayName = locality.long_name;
+    } else if (subLocality) {
+      displayName = subLocality.long_name;
+    } else if (administrativeArea) {
+      displayName = administrativeArea.long_name;
+    }
+    
+    console.log(`Geocoding erfolgreich: ${displayName} (${location.lat}, ${location.lng})`);
+    
+    return {
+      lat: location.lat,
+      lon: location.lng,
+      displayName
+    };
+  } catch (error) {
+    console.error("Geocoding-Fehler:", error);
+    throw new Error(`Standortsuche fehlgeschlagen: ${error instanceof Error ? error.message : 'Unbekannter Fehler'}`);
   }
-  
-  const data = await response.json();
-  
-  if (data.status !== 'OK') {
-    throw new Error(`Geocoding-Fehler: ${data.status}${data.error_message ? ' - ' + data.error_message : ''}`);
-  }
-  
-  if (!data.results || data.results.length === 0) {
-    throw new Error('Die angegebene Adresse konnte nicht gefunden werden');
-  }
-  
-  const result = data.results[0];
-  const location = result.geometry.location;
-  
-  // Debug-Log für Diagnose
-  console.log("Google Geocoding Ergebnis:", {
-    formatted_address: result.formatted_address,
-    position: location,
-    place_id: result.place_id,
-    types: result.types
-  });
-  
-  // Ortsname aus den Adresskomponenten extrahieren
-  let displayName = address;
-  
-  const locality = result.address_components.find(
-    (component: AddressComponent) => component.types.includes('locality')
-  );
-  const subLocality = result.address_components.find(
-    (component: AddressComponent) => component.types.includes('sublocality') || 
-                                    component.types.includes('neighborhood')
-  );
-  const administrativeArea = result.address_components.find(
-    (component: AddressComponent) => component.types.includes('administrative_area_level_1') || 
-                                    component.types.includes('administrative_area_level_2')
-  );
-  
-  // Präzisesten Namen wählen
-  if (locality) {
-    displayName = locality.long_name;
-  } else if (subLocality) {
-    displayName = subLocality.long_name;
-  } else if (administrativeArea) {
-    displayName = administrativeArea.long_name;
-  }
-  
-  console.log(`Geocoding erfolgreich: ${displayName} (${location.lat}, ${location.lng})`);
-  
-  return {
-    lat: location.lat,
-    lon: location.lng,
-    displayName
-  };
 }
 
 /**
@@ -133,83 +138,95 @@ export async function geocodeAddress(address: string): Promise<GeoResult> {
 export async function reverseGeocode(lat: number, lon: number): Promise<GeoResult> {
   console.log(`Reverse Geocoding für: ${lat}, ${lon}`);
   
-  // Cache-Buster hinzufügen
-  const cacheBuster = new Date().getTime();
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${GOOGLE_GEOCODING_API_KEY}&result_type=locality|sublocality|political|administrative_area_level_1&timestamp=${cacheBuster}`;
-  
-  const response = await fetch(url, {
-    headers: {
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache', 
-      'Expires': '0'
+  try {
+    // Cache-Buster hinzufügen
+    const cacheBuster = new Date().getTime();
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${GOOGLE_GEOCODING_API_KEY}&result_type=locality|sublocality|political|administrative_area_level_1&timestamp=${cacheBuster}`;
+    
+    const response = await fetch(url, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache', 
+        'Expires': '0'
+      }
+    });
+    
+    if (!response.ok) {
+      // Bei HTTP-Fehler: Fallback auf original Koordinaten mit Standardname
+      console.error(`Reverse Geocoding-Fehler: HTTP ${response.status}`);
+      return {
+        lat: lat,
+        lon: lon,
+        displayName: "Ihr Standort"
+      };
     }
-  });
-  
-  if (!response.ok) {
-    throw new Error(`Reverse Geocoding-Fehler: HTTP ${response.status}`);
-  }
-  
-  const data = await response.json();
-  
-  console.log("Google Reverse Geocoding Antwort:", data.status, data.results ? data.results.length : 0);
-  
-  if (data.status !== 'OK') {
-    throw new Error(`Reverse Geocoding-Fehler: ${data.status}`);
-  }
-  
-  if (!data.results || data.results.length === 0) {
-    throw new Error('Keine Ortsangaben für diese Koordinaten gefunden');
-  }
-  
-  // Das erste Ergebnis enthält die genauesten Daten
-  const result = data.results[0];
-  const normalizedLocation = result.geometry.location;
-  
-  // Debug-Log
-  console.log("Reverse Geocoding Ergebnis Detail:", {
-    formatted_address: result.formatted_address,
-    position: normalizedLocation,
-    place_id: result.place_id,
-    types: result.types,
-    components: result.address_components.map((c: AddressComponent) => ({
-      long_name: c.long_name,
-      types: c.types
-    }))
-  });
-  
-  // Ortsname extrahieren
-  let displayName = "Ihr Standort";
-  
-  const locality = result.address_components.find(
-    (component: AddressComponent) => component.types.includes('locality')
-  );
-  
-  if (locality) {
-    displayName = locality.long_name;
-  } else {
-    // Weitere Komponenten prüfen, falls kein locality-Eintrag existiert
-    const subLocality = result.address_components.find(
-      (component: AddressComponent) => component.types.includes('sublocality')
+    
+    const data = await response.json();
+    
+    if (data.status !== 'OK' || !data.results || data.results.length === 0) {
+      // Bei API-Fehler: Fallback auf original Koordinaten
+      console.warn(`Reverse Geocoding API-Fehler: ${data.status}`);
+      return {
+        lat: lat,
+        lon: lon,
+        displayName: "Ihr Standort"
+      };
+    }
+    
+    // Das erste Ergebnis enthält die genauesten Daten
+    const result = data.results[0];
+    const normalizedLocation = result.geometry.location;
+    
+    // Debug-Log
+    console.log("Reverse Geocoding Ergebnis Detail:", {
+      formatted_address: result.formatted_address,
+      position: normalizedLocation,
+      place_id: result.place_id,
+      types: result.types
+    });
+    
+    // Ortsname extrahieren
+    let displayName = "Ihr Standort";
+    
+    const locality = result.address_components.find(
+      (component: AddressComponent) => component.types.includes('locality')
     );
     
-    const administrativeArea = result.address_components.find(
-      (component: AddressComponent) => component.types.includes('administrative_area_level_1')
-    );
-    
-    if (subLocality) {
-      displayName = subLocality.long_name;
-    } else if (administrativeArea) {
-      displayName = administrativeArea.long_name;
+    if (locality) {
+      displayName = locality.long_name;
+    } else {
+      // Weitere Komponenten prüfen, falls kein locality-Eintrag existiert
+      const subLocality = result.address_components.find(
+        (component: AddressComponent) => component.types.includes('sublocality')
+      );
+      
+      const administrativeArea = result.address_components.find(
+        (component: AddressComponent) => component.types.includes('administrative_area_level_1')
+      );
+      
+      if (subLocality) {
+        displayName = subLocality.long_name;
+      } else if (administrativeArea) {
+        displayName = administrativeArea.long_name;
+      }
     }
+    
+    console.log(`Reverse Geocoding erfolgreich: ${displayName} (${normalizedLocation.lat}, ${normalizedLocation.lng})`);
+    
+    return {
+      lat: normalizedLocation.lat,
+      lon: normalizedLocation.lng,
+      displayName
+    };
+  } catch (error) {
+    // Bei jedem Fehler: Fallback auf original Koordinaten
+    console.error("Reverse Geocoding kritischer Fehler:", error);
+    return {
+      lat: lat,
+      lon: lon,
+      displayName: "Ihr Standort"
+    };
   }
-  
-  console.log(`Reverse Geocoding erfolgreich: ${displayName} (${normalizedLocation.lat}, ${normalizedLocation.lng})`);
-  
-  return {
-    lat: normalizedLocation.lat,
-    lon: normalizedLocation.lng,
-    displayName
-  };
 }
 
 /**
@@ -226,27 +243,37 @@ export async function detectCurrentLocation(): Promise<GeoResult> {
     
     console.log(`Browser-Koordinaten erhalten: ${latitude}, ${longitude}`);
     
-    // Koordinaten durch Google Geocoding normalisieren
-    const geoResult = await reverseGeocode(latitude, longitude);
-    
-    // Überprüfe, ob die Koordinaten stark abweichen
-    const distance = calculateDistance(
-      latitude, longitude, 
-      geoResult.lat, geoResult.lon
-    );
-    
-    // Wenn die normalisierten Koordinaten zu weit entfernt sind (>5km), 
-    // verwenden wir die Original-Koordinaten
-    if (distance > 5) {
-      console.warn(`Normalisierte Koordinaten weichen stark ab (${distance.toFixed(2)}km). Verwende Original-Koordinaten.`);
+    try {
+      // Koordinaten durch Google Geocoding normalisieren
+      const geoResult = await reverseGeocode(latitude, longitude);
+      
+      // Überprüfe, ob die Koordinaten stark abweichen
+      const distance = calculateDistance(
+        latitude, longitude, 
+        geoResult.lat, geoResult.lon
+      );
+      
+      // Wenn die normalisierten Koordinaten zu weit entfernt sind (>5km), 
+      // verwenden wir die Original-Koordinaten
+      if (distance > 5) {
+        console.warn(`Normalisierte Koordinaten weichen stark ab (${distance.toFixed(2)}km). Verwende Original-Koordinaten.`);
+        return {
+          lat: latitude,
+          lon: longitude,
+          displayName: geoResult.displayName
+        };
+      }
+      
+      return geoResult;
+    } catch (error) {
+      // WICHTIG: Bei Fehler mit Reverse Geocoding trotzdem die Original-Koordinaten zurückgeben
+      console.error("Fehler bei Reverse Geocoding, verwende Original-Koordinaten:", error);
       return {
         lat: latitude,
         lon: longitude,
-        displayName: geoResult.displayName
+        displayName: "Ihr Standort"
       };
     }
-    
-    return geoResult;
   } catch (error) {
     console.error("Fehler bei der Standorterkennung:", error);
     throw error;

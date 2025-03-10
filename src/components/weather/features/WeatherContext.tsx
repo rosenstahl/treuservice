@@ -10,7 +10,12 @@ import { WinterServiceStatus } from '../features/utils';
 import { 
   processWeatherData,
 } from '../features/weatherDataProcessors';
-// DWD-Importe entfernt
+// Neue GeoService-Importe
+import {
+  geocodeAddress as geoServiceGeocode,
+  detectCurrentLocation,
+  GeoResult
+} from './GeoService';
 
 // Typdefinitionen für verarbeitete Wetterdaten
 export interface CurrentWeather {
@@ -53,14 +58,11 @@ export interface DailyForecast {
   snowAmount: number;
 }
 
-// IceRisk-Interface entfernt
-
 export interface ProcessedWeatherData {
   current: CurrentWeather;
   hourly: HourlyForecast[];
   daily: DailyForecast[];
   winterServiceStatus: WinterServiceStatus;
-  // iceRisk-Eigenschaft entfernt
 }
 
 // Typ für den Context
@@ -74,9 +76,6 @@ export interface WeatherContextType {
   lastUpdated: Date | null;
   coordinates: { lat: number; lon: number } | null;
 }
-
-// Google Geocoding API Key
-const GOOGLE_GEOCODING_API_KEY = 'AIzaSyA9Wnj0p_5oHHpcsYZKbbRLCEyUE_gz3UQ';
 
 // Erstellen des Context
 const WeatherContext = createContext<WeatherContextType | undefined>(undefined);
@@ -142,15 +141,14 @@ interface SavedWeatherData {
   hourly: SavedHourData[];
   daily: SavedDayData[];
   winterServiceStatus: WinterServiceStatus;
-  // iceRisk-Eigenschaft entfernt
 }
 
 interface StoredWeatherData {
   location: string;
   coordinates: { lat: number; lon: number };
+  coordKey?: string; // Koordinatenschlüssel für präziseres Caching
   weather: SavedWeatherData;
   lastUpdated: string;
-  requestId?: string;
 }
 
 /**
@@ -168,27 +166,29 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
 
   /**
    * Funktion zum Abrufen der Wetterdaten für bestimmte Koordinaten
-   * VEREINFACHT mit direkten Aufrufen und besserer Fehlerbehandlung
+   * Mit verbesserter Koordinatenvalidierung
    */
   const fetchWeatherForCoordinates = useCallback(async (lat: number, lon: number, locationName: string) => {
-    console.log(`Starte Wetterdatenabruf für: ${lat}, ${lon}, ${locationName}`);
+    console.log(`Starte Wetterdatenabruf für: ${lat.toFixed(6)}, ${lon.toFixed(6)}, "${locationName}"`);
     setIsLoading(true);
     setError(null);
     
     try {
+      // Validiere Koordinaten
+      if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180) {
+        throw new Error(`Ungültige Koordinaten: ${lat}, ${lon}`);
+      }
+      
       // Speichere Koordinaten
-      console.log("Speichere Koordinaten...");
       setCoordinates({ lat, lon });
       
-      // Direkte Promise.all für parallele Anfragen
-      console.log("Rufe Wetterdaten ab...");
+      // Parallele Anfragen für Current und Forecast
       const [current, forecast] = await Promise.all([
         fetchCurrentWeather(lat, lon),
         fetchWeatherForecast(lat, lon, 7)
       ]);
       
       // Kombiniere die Ergebnisse für die Verarbeitung
-      console.log("Wetterdaten erhalten, kombiniere Daten...");
       const combinedData: BrightskyApiResponse = {
         weather: [...current.weather, 
                   ...forecast.weather.filter(item => 
@@ -200,11 +200,9 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       };
       
       // Verarbeite die API-Antwort
-      console.log("Verarbeite Wetterdaten...");
       const processedData = processWeatherData(combinedData);
       
       // Aktualisiere den Zustand
-      console.log("Aktualisiere Zustand...");
       setWeather(processedData);
       setLocation(locationName);
       setLastUpdated(new Date());
@@ -213,9 +211,13 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       
       // Speichere im localStorage für Persistenz
       try {
+        // Einen eindeutigen Schlüssel für die Koordinaten erstellen
+        const coordKey = `${lat.toFixed(4)},${lon.toFixed(4)}`;
+        
         localStorage.setItem('weatherData', JSON.stringify({
           location: locationName,
           coordinates: { lat, lon },
+          coordKey, // Hinzufügen eines eindeutigen Schlüssels für die Koordinaten
           weather: processedData,
           lastUpdated: new Date().toISOString()
         }));
@@ -236,82 +238,8 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
   }, []);
 
   /**
-   * Geocoding mit Google Maps API
-   * VEREINFACHT mit direktem fetch-Aufruf und besserer Fehlerbehandlung
-   */
-  const geocodeAddress = useCallback(async (address: string): Promise<{lat: number, lon: number, display_name: string}> => {
-    console.log("Starte Geocoding für Adresse:", address);
-    const encodedAddress = encodeURIComponent(address.trim());
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${GOOGLE_GEOCODING_API_KEY}&region=de`;
-    
-    try {
-      console.log("Sende Geocoding-Anfrage...");
-      // Direkter fetch-Aufruf ohne den api-service.ts-Umweg
-      const response = await fetch(url);
-      
-      if (!response.ok) {
-        throw new Error(`Geocoding-Fehler: HTTP ${response.status}`);
-      }
-      
-      const data = await response.json();
-      console.log("Geocoding-Antwort erhalten:", data.status);
-      
-      // Prüfe API-Antwort auf Fehler
-      if (data.status !== 'OK') {
-        throw new Error(`Geocoding-Fehler: ${data.status}${data.error_message ? ' - ' + data.error_message : ''}`);
-      }
-      
-      // Stelle sicher, dass Ergebnisse vorhanden sind
-      if (!data.results || data.results.length === 0) {
-        throw new Error('Die angegebene Adresse konnte nicht gefunden werden');
-      }
-      
-      const result = data.results[0];
-      const location = result.geometry.location;
-      
-      // Vereinfachter Ortsname
-      let locationName = address;
-      
-      // Extrahiere Ortsname aus den Adresskomponenten
-      const locality = result.address_components.find(
-        (component: {types: string[]}) => component.types.includes('locality')
-      );
-      const subLocality = result.address_components.find(
-        (component: {types: string[]}) => component.types.includes('sublocality') || component.types.includes('neighborhood')
-      );
-      const administrativeArea = result.address_components.find(
-        (component: {types: string[]}) => component.types.includes('administrative_area_level_1') || 
-                            component.types.includes('administrative_area_level_2')
-      );
-      
-      // Wähle den spezifischsten verfügbaren Namen
-      if (locality) {
-        locationName = locality.long_name;
-      } else if (subLocality) {
-        locationName = subLocality.long_name;
-      } else if (administrativeArea) {
-        locationName = administrativeArea.long_name;
-      }
-      
-      console.log(`Geocoding erfolgreich: ${locationName} (${location.lat}, ${location.lng})`);
-      return {
-        lat: location.lat,
-        lon: location.lng,
-        display_name: locationName
-      };
-    } catch (error) {
-      console.error('Geocoding-Fehler:', error);
-      
-      if (error instanceof Error) {
-        throw error;
-      } else {
-        throw new Error('Unbekannter Fehler bei der Adresssuche');
-      }
-    }
-  }, []);
-
-  /**
    * Funktion zum Abrufen der Wetterdaten durch Ortseingabe
+   * Nutzt den neuen GeoService
    */
   const fetchWeather = useCallback(async (locationQuery: string) => {
     if (!locationQuery.trim()) {
@@ -323,11 +251,11 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
     setError(null);
     
     try {
-      // Geocodierung der Adresse
-      const geoResult = await geocodeAddress(locationQuery);
+      // Geocodierung der Adresse mit dem neuen GeoService
+      const geoResult = await geoServiceGeocode(locationQuery);
       
-      // Abrufen der Wetterdaten für die gefundenen Koordinaten
-      await fetchWeatherForCoordinates(geoResult.lat, geoResult.lon, geoResult.display_name);
+      // Abrufen der Wetterdaten für die gefundenen, normalisierten Koordinaten
+      await fetchWeatherForCoordinates(geoResult.lat, geoResult.lon, geoResult.displayName);
     } catch (error) {
       console.error('Fehler bei der Standortsuche:', error);
       
@@ -339,71 +267,25 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       
       setIsLoading(false);
     }
-  }, [fetchWeatherForCoordinates, geocodeAddress]);
+  }, [fetchWeatherForCoordinates]);
 
   /**
-   * Funktion zur Erkennung des aktuellen Standorts
-   * VEREINFACHT für direktere Verarbeitung
+   * Verbesserte Funktion zur Erkennung des aktuellen Standorts
+   * Verwendet den neuen GeoService für normalisierte Koordinaten
    */
   const detectLocation = useCallback(async () => {
-    console.log("Starte Standorterkennung...");
+    console.log("Starte Standorterkennung mit GeoService...");
     setIsLoading(true);
     setError(null);
     
-    if (!navigator.geolocation) {
-      setError('Geolocation wird von Ihrem Browser nicht unterstützt');
-      setIsLoading(false);
-      return;
-    }
-    
     try {
-      console.log("Fordere Standortdaten vom Browser an...");
-      // Browser-Geolocation verwenden
-      const position = await new Promise<GeolocationPosition>((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(
-          resolve, 
-          reject, 
-          {
-            enableHighAccuracy: true,
-            timeout: 10000, // Kürzeres Timeout
-            maximumAge: 0    // Immer frische Position
-          }
-        );
-      });
+      // Verwende den GeoService für die Standorterkennung und Normalisierung
+      const geoResult = await detectCurrentLocation();
       
-      console.log("Standortdaten erhalten:", position.coords.latitude, position.coords.longitude);
-      const { latitude, longitude } = position.coords;
+      console.log(`Normalisierte Standortdaten erhalten: ${geoResult.lat}, ${geoResult.lon}, "${geoResult.displayName}"`);
       
-      // Direkt Wetterdaten abrufen
-      await fetchWeatherForCoordinates(latitude, longitude, "Ihr Standort");
-      
-      // Vereinfachtes Reverse Geocoding für Ortsnamen
-      try {
-        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_GEOCODING_API_KEY}&result_type=locality|sublocality|political`;
-        
-        const response = await fetch(url);
-        
-        if (response.ok) {
-          const data = await response.json();
-          
-          if (data.status === 'OK' && data.results && data.results.length > 0) {
-            const result = data.results[0];
-            
-            const locality = result.address_components.find(
-              (component: {types: string[]}) => component.types.includes('locality')
-            );
-            
-            if (locality) {
-              // Nur den Ortsnamen aktualisieren
-              console.log("Aktualisiere Ortsnamen zu:", locality.long_name);
-              setLocation(locality.long_name);
-            }
-          }
-        }
-      } catch (geoError) {
-        // Nicht kritisch, Ort bleibt "Ihr Standort"
-        console.warn('Fehler beim Reverse-Geocoding (nicht kritisch):', geoError);
-      }
+      // Wetterdaten mit normalisierten Koordinaten abrufen
+      await fetchWeatherForCoordinates(geoResult.lat, geoResult.lon, geoResult.displayName);
     } catch (error) {
       console.error('Standorterkennung fehlgeschlagen:', error);
       

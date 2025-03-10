@@ -13,7 +13,6 @@ import {
 import {
   geocodeAddress,
   detectCurrentLocation,
-  GeoResult
 } from './GeoService';
 
 // Debug-Flag für ausführlichere Protokollierung
@@ -242,6 +241,49 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
   }, []);
 
   /**
+   * Verbesserte Funktion zur Erkennung des aktuellen Standorts
+   * Verwendet den GeoService
+   */
+  const detectLocation = useCallback(async () => {
+    if (DEBUG) console.log("Starte Standorterkennung mit GeoService...");
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      // Den kompletten Prozess auslagern in den GeoService
+      const geoResult = await detectCurrentLocation();
+      
+      if (DEBUG) console.log(`Normalisierte Standortdaten erhalten: ${geoResult.lat}, ${geoResult.lon}, "${geoResult.displayName}"`);
+      
+      // Wetterdaten mit normalisierten Koordinaten abrufen
+      await fetchWeatherForCoordinates(geoResult.lat, geoResult.lon, geoResult.displayName);
+    } catch (error) {
+      console.error('Standorterkennung fehlgeschlagen:', error);
+      
+      let errorMessage = 'Standorterkennung fehlgeschlagen';
+      
+      if (error instanceof GeolocationPositionError) {
+        switch (error.code) {
+          case GeolocationPositionError.PERMISSION_DENIED:
+            errorMessage = 'Standortzugriff verweigert. Bitte erlauben Sie den Zugriff oder geben Sie einen Ort manuell ein.';
+            break;
+          case GeolocationPositionError.POSITION_UNAVAILABLE:
+            errorMessage = 'Standort konnte nicht ermittelt werden. Bitte geben Sie einen Ort manuell ein.';
+            break;
+          case GeolocationPositionError.TIMEOUT:
+            errorMessage = 'Zeitüberschreitung bei der Standorterkennung. Bitte geben Sie einen Ort manuell ein.';
+            break;
+        }
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      
+      setError(errorMessage);
+      setIsLoading(false);
+    }
+  }, [fetchWeatherForCoordinates]);
+
+  /**
    * Aktualisiert die Wetterdaten mit den aktuellen Koordinaten und Standort
    */
   const refreshWeather = useCallback(async () => {
@@ -296,49 +338,6 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
         setError('Ein unbekannter Fehler ist bei der Standortsuche aufgetreten');
       }
       
-      setIsLoading(false);
-    }
-  }, [fetchWeatherForCoordinates]);
-
-  /**
-   * Verbesserte Funktion zur Erkennung des aktuellen Standorts
-   * Verwendet den GeoService
-   */
-  const detectLocation = useCallback(async () => {
-    if (DEBUG) console.log("Starte Standorterkennung mit GeoService...");
-    setIsLoading(true);
-    setError(null);
-    
-    try {
-      // Den kompletten Prozess auslagern in den GeoService
-      const geoResult = await detectCurrentLocation();
-      
-      if (DEBUG) console.log(`Normalisierte Standortdaten erhalten: ${geoResult.lat}, ${geoResult.lon}, "${geoResult.displayName}"`);
-      
-      // Wetterdaten mit normalisierten Koordinaten abrufen
-      await fetchWeatherForCoordinates(geoResult.lat, geoResult.lon, geoResult.displayName);
-    } catch (error) {
-      console.error('Standorterkennung fehlgeschlagen:', error);
-      
-      let errorMessage = 'Standorterkennung fehlgeschlagen';
-      
-      if (error instanceof GeolocationPositionError) {
-        switch (error.code) {
-          case GeolocationPositionError.PERMISSION_DENIED:
-            errorMessage = 'Standortzugriff verweigert. Bitte erlauben Sie den Zugriff oder geben Sie einen Ort manuell ein.';
-            break;
-          case GeolocationPositionError.POSITION_UNAVAILABLE:
-            errorMessage = 'Standort konnte nicht ermittelt werden. Bitte geben Sie einen Ort manuell ein.';
-            break;
-          case GeolocationPositionError.TIMEOUT:
-            errorMessage = 'Zeitüberschreitung bei der Standorterkennung. Bitte geben Sie einen Ort manuell ein.';
-            break;
-        }
-      } else if (error instanceof Error) {
-        errorMessage = error.message;
-      }
-      
-      setError(errorMessage);
       setIsLoading(false);
     }
   }, [fetchWeatherForCoordinates]);

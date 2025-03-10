@@ -25,6 +25,9 @@ import { WinterServiceStatus } from './features/utils';
 import { WeatherLastUpdated } from './features/WeatherLastUpdated';
 import { WeatherWarningBanner } from './features/WeatherWarningBanner';
 
+// Debug-Flag
+const DEBUG = true;
+
 // Formatierungshilfen
 const formatTemperature = (temp: number) => Math.round(temp);
 const formatDecimal = (num: number) => num.toFixed(1);
@@ -34,7 +37,7 @@ interface WeatherHeroProps {
 }
 
 const WeatherHero: React.FC<WeatherHeroProps> = ({ scrollToContact }) => {
-  // Wetter-Context
+  // Wetter-Context mit verbesserten Funktionen
   const { 
     isLoading, 
     error, 
@@ -43,7 +46,8 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ scrollToContact }) => {
     fetchWeather,
     detectLocation,
     lastUpdated,
-    coordinates
+    coordinates,
+    refreshWeather
   } = useWeather();
 
   // Lokaler State für Suche
@@ -56,9 +60,10 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ scrollToContact }) => {
     }
   }, [location]);
 
-  // Standortsuche
+  // Standortsuche mit verbesserter Fehlerbehandlung
   const handleSearch = () => {
     if (searchInput.trim()) {
+      if (DEBUG) console.log("Suche nach Ort:", searchInput);
       fetchWeather(searchInput);
     }
   };
@@ -70,30 +75,11 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ scrollToContact }) => {
     }
   };
 
-  // Daten neu laden - verbesserte Version mit Fehlerbehandlung
+  // Daten neu laden - verbesserte Version
   const handleRefresh = () => {
-    try {
-      // Wenn wir gespeicherte Koordinaten haben, verwenden wir diese
-      // (vermeidet Geocoding-Fehler bei ungültigen Ortsnamen)
-      if (coordinates) {
-        // Koordinaten direkt für den WeatherContext.fetchWeatherForCoordinates verwenden
-        // Diese Funktion ist nicht direkt zugänglich, aber wir können das gleiche
-        // Ergebnis durch detectLocation erreichen, wenn der Browser es unterstützt
-        detectLocation();
-      } 
-      // Als Fallback: Wenn ein gültiger Standortname vorhanden ist, diesen verwenden
-      else if (location && location.trim() !== "") {
-        fetchWeather(location);
-      }
-      // Als letzter Ausweg: Standorterkennung verwenden
-      else {
-        detectLocation();
-      }
-    } catch (error) {
-      console.error("Fehler beim Aktualisieren der Wetterdaten:", error);
-      // Im Fehlerfall versuchen wir die Standorterkennung
-      detectLocation();
-    }
+    if (DEBUG) console.log("handleRefresh in WeatherHero aufgerufen");
+    // Die zentrale refreshWeather-Funktion verwenden
+    refreshWeather();
   };
 
   // Wetterinhalt rendern
@@ -255,9 +241,12 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ scrollToContact }) => {
     );
   };
 
+  // Cache-Buster für das Hintergrundbild
+  const imageSrc = `${WinterImage.src}?_cb=${new Date().getTime()}`;
+
   return (
     <div className="relative w-full h-screen flex items-center overflow-hidden">
-      {/* Hintergrundbild */}
+      {/* Hintergrundbild mit Cache-Buster */}
       <div className="absolute inset-0 z-0">
         <Image
           src={WinterImage}
@@ -307,10 +296,17 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ scrollToContact }) => {
               </Button>
             </div>
 
-            {/* Fehleranzeige */}
+            {/* Fehleranzeige mit Neuversuch-Option */}
             {error && (
               <div className="mb-4 p-3 bg-red-500/20 backdrop-blur-sm rounded border border-red-400/30 text-white">
                 <p>{error}</p>
+                <Button 
+                  onClick={detectLocation}
+                  className="mt-2 bg-white/10 hover:bg-white/20 text-white text-xs py-1"
+                  size="sm"
+                >
+                  Erneut versuchen
+                </Button>
               </div>
             )}
 

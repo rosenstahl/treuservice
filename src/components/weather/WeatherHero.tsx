@@ -46,8 +46,8 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ scrollToContact }) => {
     fetchWeather,
     detectLocation,
     lastUpdated,
-    coordinates,
     refreshWeather
+    // 'coordinates' entfernt, da es nicht verwendet wird
   } = useWeather();
 
   // Lokaler State für Suche
@@ -241,12 +241,9 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ scrollToContact }) => {
     );
   };
 
-  // Cache-Buster für das Hintergrundbild
-  const imageSrc = `${WinterImage.src}?_cb=${new Date().getTime()}`;
-
   return (
     <div className="relative w-full h-screen flex items-center overflow-hidden">
-      {/* Hintergrundbild mit Cache-Buster */}
+      {/* Hintergrundbild */}
       <div className="absolute inset-0 z-0">
         <Image
           src={WinterImage}

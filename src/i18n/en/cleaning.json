@@ -1,0 +1,515 @@
+{
+  "hero": {
+    "title": "Building Cleaning",
+    "subtitle": "We ensure cleanliness and hygiene so you feel comfortable in your surroundings",
+    "description": "At TREU Service, we set new standards in professional building cleaning. With German precision and innovative technology, we create spotless spaces that impress. As your strategic partner for cleaning excellence, we guarantee not only cleanliness but also a holistic sense of well-being in your premises."
+  },
+  "coreServices": {
+    "title": "Our Core Services",
+    "subtitle": "The Foundation for Cleanliness in Every Area",
+    "items": [
+      "Needs Analysis & Cleaning Concept",
+      "Maintenance Cleaning & Upkeep",
+      "Hygiene & Disinfection",
+      "Quality Control & Documentation",
+      "Sustainable Cleaning Concept"
+    ],
+    "note": "These core services form the heart of all our cleaning offerings."
+  },
+  "specializedSolutions": {
+    "title": "Discover Our Specialized Cleaning Solutions:",
+    "services": [
+      {
+        "icon": "Cleaning Cloth",
+        "title": "Maintenance Cleaning",
+        "tileText": "Areas: office buildings, administrations, schools, universities, shopping centers, retail stores, banks, insurance companies, doctor's offices, clinics, care facilities, hotels, restaurants, production sites, logistics centers, sports facilities and public institutions",
+        "linkText": "[View Service >]",
+        "description": "Maintenance Cleaning: The foundation of professional building upkeep. A clean work environment can boost employee productivity and well-being by up to 30%. Our systematic maintenance cleaning, using state-of-the-art technologies and trained personnel, ensures lasting hygiene and cleanliness in your premises.",
+        "servicesOffered": [
+          "Thorough cleaning of all surfaces",
+          "Sanitary maintenance and disinfection",
+          "Professional office cleaning",
+          "Kitchen cleaning according to HACCP",
+          "Complete waste management",
+          "Supply of hygiene materials",
+          "Dishwashing services",
+          "Replenishment of consumables"
+        ]
+      },
+      {
+        "icon": "Cleaning Machine",
+        "title": "Deep Cleaning",
+        "tileText": "Areas: production halls, warehouses, office complexes, educational institutions, healthcare facilities, shopping centers, hotels, gastronomy, sports facilities, event centers, transportation centers, parking garages and public buildings",
+        "linkText": "[View Service >]",
+        "description": "Deep Cleaning: Professional intensive cleaning for sustainable value preservation. Heavy usage leaves its mark – our deep cleaning removes even the most stubborn dirt and extends the lifespan of your surfaces by up to 40%.",
+        "servicesOffered": [
+          "Intensive cleaning to remove stubborn dirt",
+          "Special floor treatments",
+          "Furniture and inventory cleaning",
+          "Cleaning of hard-to-reach areas"
+        ]
+      },
+      {
+        "icon": "Squeegee",
+        "title": "Glass & Facade Cleaning",
+        "tileText": "Areas: office towers, commercial buildings, hotels, shopping centers, banks, insurance companies, government offices, educational institutions, clinics, production buildings, exhibition halls, shop windows, conservatories and glass roofs",
+        "linkText": "[View Service >]",
+        "description": "Glass & Facade Cleaning: Brilliant impressions for your building. A clean facade can increase property value by up to 20%. Our highly qualified facade cleaners use state-of-the-art techniques and eco-friendly methods to ensure sparkling transparency and a representative appearance.",
+        "servicesOffered": [
+          "Streak-free window cleaning (including frames and sills)",
+          "Cleaning of glass surfaces, facades, and roofs",
+          "Eco-friendly reverse osmosis cleaning",
+          "Historical building care and post-construction cleaning",
+          "Graffiti removal and facade maintenance"
+        ]
+      },
+      {
+        "icon": "Industrial Plant",
+        "title": "Industrial Cleaning",
+        "tileText": "Areas: production halls, warehouses, power plants, chemical plants, food processing, pharmaceutical companies, automotive industry, mechanical engineering, electronics manufacturing, printing houses, metal processing and logistics centers",
+        "linkText": "[View Service >]",
+        "description": "Industrial Cleaning: Maximum efficiency through professional cleaning. Production downtime can cost up to €5,000 per hour – our specialized industrial cleaning teams work efficiently to minimize interruptions.",
+        "servicesOffered": [
+          "Cleaning of industrial halls",
+          "Cleaning of production facilities",
+          "Removal of deposits and dirt",
+          "Compliance with all safety standards"
+        ]
+      },
+      {
+        "icon": "Garden Tools",
+        "title": "Outdoor Maintenance",
+        "tileText": "Areas: corporate campuses, office complexes, shopping centers, hotels, clinics, senior residences, educational institutions, residential complexes, parking garages, underground garages, logistics centers, industrial areas and public institutions",
+        "linkText": "[View Service >]",
+        "description": "Outdoor Maintenance: Your professional partner for well-maintained exteriors. The outside of your building is your business card – first impressions are formed even before entering. Our holistic outdoor maintenance concept ensures a consistently impressive appearance.",
+        "servicesOffered": [
+          "Cleaning of sidewalks and driveways",
+          "Landscape maintenance: lawns, hedges, shrubs, planting, weed control",
+          "Winter services: snow removal and de-icing",
+          "Removal of leaves and seasonal debris",
+          "Parking garage cleaning (including removal of oil and rubber residues)",
+          "Regular maintenance of all outdoor areas"
+        ]
+      },
+      {
+        "icon": "Special Tools",
+        "title": "Special Cleaning",
+        "tileText": "Areas: swimming pools, wellness centers, large kitchens, cafeterias, data centers, office complexes, production sites, event centers, shopping centers, hotels, clinics, schools and public institutions",
+        "linkText": "[View Service >]",
+        "description": "Special Cleaning: Tailor-made solutions for unique requirements. Our certified specialists master even the most complex cleaning challenges with state-of-the-art technology and innovative methods.",
+        "servicesOffered": [
+          "Swimming pool & wellness area cleaning",
+          "Large kitchen cleaning according to HACCP",
+          "PC & IT cleaning",
+          "Air conditioning cleaning",
+          "Lighting system cleaning",
+          "Escalator and moving staircase cleaning",
+          "Machine cleaning",
+          "Construction cleaning (including debris and dust management)"
+        ]
+      },
+      {
+        "icon": "Transport",
+        "title": "Transport Cleaning",
+        "tileText": "Areas: buses, trains, trams, subways, airplanes, cruise ships, ferries, yachts, train stations, airports, terminals, waiting areas and service facilities",
+        "linkText": "[View Service >]",
+        "description": "Transport Cleaning: Hygiene and cleanliness for your fleet. Our specialized teams ensure efficient cleaning even during the shortest downtimes.",
+        "servicesOffered": [
+          "Bus cleaning (daily maintenance and deep cleaning)",
+          "Train cleaning",
+          "Airplane cleaning (interior, exterior, and disinfection)",
+          "Ship cleaning"
+        ]
+      },
+      {
+        "icon": "Hotel Bed",
+        "title": "Hotel Cleaning",
+        "tileText": "Areas: hotels, resorts, guesthouses, vacation rentals, hostels, boarding houses, wellness hotels, conference hotels, city hotels, airport hotels, congress hotels and boutique hotels",
+        "linkText": "[View Service >]",
+        "description": "Hotel Cleaning: First-class service for the highest standards. Our specialized housekeeping teams deliver 5-star quality across all areas, creating a welcoming atmosphere for your guests.",
+        "servicesOffered": [
+          "Room cleaning",
+          "Cleaning of public areas (lobbies, restaurants, etc.)",
+          "Wellness & spa cleaning",
+          "Kitchen cleaning according to HACCP",
+          "Housekeeping (including laundry service and quality control)",
+          "Hotel and staffing services",
+          "Floor care (sanding, polishing, oiling, sealing)"
+        ]
+      },
+      {
+        "icon": "Event",
+        "title": "Event Cleaning",
+        "tileText": "Areas: trade shows, concerts, festivals, sports events, conferences, congresses, corporate events, weddings, city festivals, open-air events, exhibitions and meetings",
+        "linkText": "[View Service >]",
+        "description": "Event Cleaning: Professional service around the clock. Our flexible teams ensure the success of your event with impeccable cleanliness.",
+        "servicesOffered": [
+          "Pre- and post-event cleaning",
+          "Mobile cleaning teams",
+          "Sanitary container service and maintenance",
+          "Professional waste disposal",
+          "Construction-related cleaning"
+        ]
+      },
+      {
+        "icon": "Construction",
+        "title": "Construction Cleaning",
+        "tileText": "Areas: new buildings, renovation projects, office buildings, residential complexes, industrial buildings, shopping centers, hospitals, hotels, schools, public buildings, warehouses and production sites",
+        "linkText": "[View Service >]",
+        "description": "Construction Cleaning: A professional start for your project. Our specialized teams ensure timely completion and a spotless handover.",
+        "servicesOffered": [
+          "Site cleaning during construction",
+          "Interim cleaning",
+          "Final cleaning",
+          "Detailed cleaning for handover",
+          "Industrial dust removal",
+          "Debris management"
+        ]
+      },
+      {
+        "icon": "Natural Stone",
+        "title": "Stone Cleaning",
+        "tileText": "Areas: commercial buildings, hotels, shopping centers, historical buildings, museums, churches, monuments, private houses, outdoor areas, terraces, sidewalks, driveways, facades, staircases and natural stone floors",
+        "linkText": "[View Service >]",
+        "description": "Stone Cleaning: Expertise for valuable natural stone surfaces. Our certified specialists ensure professional care and can increase the value of your stone surfaces by up to 25%.",
+        "servicesOffered": [
+          "Natural stone preparation and sealing",
+          "Terrace and pathway cleaning",
+          "Facade stone cleaning",
+          "Historical building cleaning",
+          "Graffiti removal",
+          "Pavement cleaning",
+          "Impregnation and long-term protection",
+          "Stone restoration and conservation",
+          "Removal of algae and moss",
+          "pH-neutral specialty cleaners",
+          "Surface enhancement",
+          "Preventive maintenance concepts"
+        ]
+      },
+      {
+        "icon": "Roof",
+        "title": "Roof Cleaning",
+        "tileText": "Areas: residential buildings, commercial buildings, industrial buildings, hotels, shopping centers, public buildings, administrative buildings, historical structures, schools, sports facilities, warehouses and production sites",
+        "linkText": "[View Service >]",
+        "description": "Roof Cleaning: Professional protection from above. Our specialized teams ensure flawless functionality and maximum longevity.",
+        "servicesOffered": [
+          "Professional roof cleaning",
+          "Gutter cleaning",
+          "Moss removal",
+          "Roof coating and sealing",
+          "Gutter maintenance",
+          "Downpipe flushing"
+        ]
+      },
+      {
+        "icon": "Solar Panel",
+        "title": "Solar Panel Cleaning",
+        "tileText": "Areas: private buildings, commercial properties, industrial facilities, solar parks, agricultural enterprises, public buildings, schools, sports facilities, parking garages, logistics centers, production halls and office complexes",
+        "linkText": "[View Service >]",
+        "description": "Solar Panel Cleaning: Optimal efficiency for your energy production. Our specialized teams maximize your energy yield through professional maintenance, as dirty modules can lose up to 30% of their efficiency.",
+        "servicesOffered": [
+          "Module cleaning with demineralized water",
+          "Performance optimization",
+          "System inspection",
+          "Preventive cleaning planning",
+          "Efficiency testing",
+          "Shade removal"
+        ]
+      }
+    ]
+  },
+  "commonIssues": {
+    "title": "Common Issues - Our Solutions",
+    "subtitle": "Quality accepts no compromises – Our solutions for your challenges",
+    "items": [
+      {
+        "problem": "Staff Continuity?",
+        "issue": "Frequently changing cleaning staff",
+        "solution": "Fixed teams for consistent quality"
+      },
+      {
+        "problem": "Quality Assurance?",
+        "issue": "Inconsistent cleaning standards",
+        "solution": "Digital quality management and controls"
+      },
+      {
+        "problem": "Availability?",
+        "issue": "No contact person for issues",
+        "solution": "24/7 customer service and site management"
+      },
+      {
+        "problem": "Cost Transparency?",
+        "issue": "Hidden additional costs",
+        "solution": "Fair fixed prices with no surprises"
+      },
+      {
+        "problem": "Flexibility?",
+        "issue": "Rigid cleaning schedules",
+        "solution": "Adaptation to your operating hours"
+      }
+    ]
+  },
+  "qualityPromise": {
+    "title": "Our Quality Promise",
+    "items": [
+      "Free Initial Consultation",
+      "Highest Hygiene Standards",
+      "Environmentally Friendly Methods",
+      "Guaranteed 24/7 Availability",
+      "Rapid Response Times",
+      "State-of-the-art Cleaning Technology"
+    ]
+  },
+  "whyTreuService": {
+    "title": "Why TREU Service?",
+    "items": [
+      "Expertise: Comprehensive know-how in all cleaning areas",
+      "Sustainability: Eco-friendly cleaning methods",
+      "Flexibility: Adaptation to your operating hours",
+      "Tailor-made: Individual cleaning concepts",
+      "Service: 24/7 availability for issues",
+      "Qualified: Trained professional staff",
+      "Innovative: Cutting-edge cleaning technology",
+      "Reliable: Guaranteed service delivery",
+      "Customer-focused: Personalized site management"
+    ]
+  },
+  "customerTestimonials": {
+    "title": "What Our Customers Say",
+    "testimonials": [
+      {
+        "sector": "Office Buildings",
+        "quote": "TREU Service's cleaning quality is top-notch. Our employees feel visibly more comfortable in the clean spaces.",
+        "author": "Michael S., Facility Manager"
+      },
+      {
+        "sector": "Retail",
+        "quote": "Finally, a cleaning company that understands what matters in retail. Reliable and flexible!",
+        "author": "Julia K., Store Manager"
+      },
+      {
+        "sector": "Hotels",
+        "quote": "TREU Service ensures that our guests feel completely at ease. The cleaning service is simply perfect.",
+        "author": "Andreas M., Hotel Director"
+      },
+      {
+        "sector": "Industry",
+        "quote": "Professional industrial cleaning with an understanding of our specific requirements. Exactly what we were looking for.",
+        "author": "Stefan B., Production Manager"
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Contact and Quote Request",
+    "subtitle": "Free Initial Consultation - We'll create your individual cleaning concept within 24 hours!",
+    "contact_features": [
+      "Highest Hygiene Standards",
+      "Environmentally Friendly Methods",
+      "24/7 Availability Guaranteed",
+      "Fast Response Times",
+      "State-of-the-art Cleaning Technology"
+    ],
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "service": {
+        "label": "Desired Service",
+        "placeholder": "Please select...",
+        "options": [
+          "General Cleaning",
+          "Basic Cleaning",
+          "Glass and Facade Cleaning",
+          "Industrial Cleaning",
+          "Outdoor Facility Maintenance",
+          "Special Cleaning",
+          "Cleanroom Cleaning",
+          "Transport Cleaning",
+          "Hotel Cleaning",
+          "Event Cleaning",
+          "Construction Cleaning",
+          "Stone Cleaning",
+          "Roof Cleaning",
+          "Solar Panel Cleaning",
+          "Other Services"
+        ]
+      },
+      "message": {
+        "label": "Your Message",
+        "placeholder": "Describe your request..."
+      },
+      "submit": "Submit Request"
+    }
+  },
+  "issuesAndSolutions": {
+    "floorsAndSurfaces": {
+      "title": "Flooring and Surfaces",
+      "problems": [
+        {
+          "problem": "Stubborn lime deposits in sanitary areas",
+          "cause": "Hard water and insufficient post-treatment",
+          "solution": [
+            "Use of specialized lime removers with proper dwell time",
+            "Installation of water softening systems",
+            "Regular sealing of surfaces",
+            "Immediate drying after cleaning"
+          ],
+          "preventive": [
+            "Daily quick cleaning with microactive cloths",
+            "Regular deep cleaning on a 4-week cycle"
+          ]
+        },
+        {
+          "problem": "Streaks on glass surfaces",
+          "cause": "Incorrect cleaning technique or unsuitable cleaning agents",
+          "solution": [
+            "Use of osmotically purified water",
+            "Two-step cleaning: first deep cleaning, then polishing",
+            "Use of high-quality microfiber cloths",
+            "Cleaning under optimal lighting conditions"
+          ],
+          "preventive": [
+            "Regular training for cleaning staff",
+            "Quality control by supervisors"
+          ]
+        }
+      ]
+    },
+    "specialCleaningSituations": {
+      "title": "Special Cleaning Situations",
+      "problems": [
+        {
+          "problem": "Mold growth in damp areas",
+          "cause": "Poor ventilation and stagnant water",
+          "solution": [
+            "Professional mold removal using specialized cleaners",
+            "Installation of dehumidifiers",
+            "Improvement of air circulation",
+            "Antimicrobial wall treatment"
+          ],
+          "preventive": [
+            "Regular moisture measurements",
+            "Installation of ventilation systems",
+            "Daily monitoring of critical areas"
+          ]
+        },
+        {
+          "problem": "Static buildup on carpeted floors",
+          "cause": "Dry air and synthetic fibers",
+          "solution": [
+            "Use of antistatic cleaning agents",
+            "Extraction cleaning with special additives",
+            "Humidification in critical areas"
+          ],
+          "preventive": [
+            "Regular deep cleaning",
+            "Adjustment of air humidity"
+          ]
+        }
+      ]
+    },
+    "outdoorAndFacade": {
+      "title": "Outdoor Areas and Facades",
+      "problems": [
+        {
+          "problem": "Algae and moss on stone surfaces",
+          "cause": "Moisture and shaded areas",
+          "solution": [
+            "High-pressure cleaning with adjusted pressure",
+            "Special algae and moss killers",
+            "Sustainable sealing",
+            "Improvement of water drainage"
+          ],
+          "preventive": [
+            "Semi-annual inspections",
+            "Preventive treatment of vulnerable areas"
+          ]
+        },
+        {
+          "problem": "Dirty solar panels with performance loss",
+          "cause": "Environmental influences and lack of maintenance",
+          "solution": [
+            "Professional cleaning with demineralized water",
+            "Special cleaning tools for solar modules",
+            "Performance measurement before and after cleaning"
+          ],
+          "preventive": [
+            "Quarterly visual inspections",
+            "Automatic performance monitoring"
+          ]
+        }
+      ]
+    },
+    "hygieneAndDisinfection": {
+      "title": "Hygiene and Disinfection",
+      "problems": [
+        {
+          "problem": "High microbial load in sanitary areas",
+          "cause": "High usage frequency and inadequate cleaning",
+          "solution": [
+            "Professional disinfection of all contact surfaces",
+            "Use of steam cleaners",
+            "Documented cleaning intervals",
+            "Regular surface testing"
+          ],
+          "preventive": [
+            "Daily disinfection",
+            "Staff training in hygiene measures"
+          ]
+        },
+        {
+          "problem": "Odor issues in waste rooms",
+          "cause": "Organic waste and poor ventilation",
+          "solution": [
+            "Intensive deep cleaning",
+            "Installation of odor neutralizers",
+            "Optimization of ventilation",
+            "Use of specialized cleaners"
+          ],
+          "preventive": [
+            "Daily inspection and cleaning",
+            "Regular filter replacement"
+          ]
+        }
+      ]
+    },
+    "qualityAssuranceAndDocumentation": {
+      "title": "Quality Assurance and Documentation",
+      "problems": [
+        {
+          "problem": "Inconsistent cleaning quality",
+          "cause": "Non-uniform standards and lack of control",
+          "solution": [
+            "Implementation of a quality management system",
+            "Regular staff training",
+            "Digital documentation of all cleaning activities",
+            "Customer feedback system"
+          ],
+          "preventive": [
+            "Weekly quality checks",
+            "Standardized work instructions"
+          ]
+        }
+      ]
+    },
+    "sustainabilityAndEnvironmentalProtection": {
+      "title": "Sustainability and Environmental Protection",
+      "problems": [
+        {
+          "problem": "High water consumption",
+          "cause": "Inefficient cleaning methods",
+          "solution": [
+            "Use of water-saving cleaning techniques",
+            "Use of high-concentrate products",
+            "Water treatment and reuse"
+          ],
+          "preventive": [
+            "Regular maintenance of cleaning equipment",
+            "Training in resource-saving methods"
+          ]
+        }
+      ]
+    }
+  }
+}

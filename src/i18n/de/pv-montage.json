@@ -1,0 +1,323 @@
+{
+  "hero": {
+    "title": "Photovoltaik Montage",
+    "subtitle": "Solarenergie für Generationen. Professionelle PV-Montage mit Zukunftsgarantie",
+    "description": "Ihre Photovoltaikanlage ist mehr als eine Investition – sie ist Ihr aktiver Beitrag zu einer nachhaltigen Zukunft. TREU Service installiert Ihre Anlage mit höchster Präzision, ingenieurgeprüfter Sicherheit und einem Versprechen: Maximale Energieausbeute für Jahrzehnte."
+  },
+  "about": {
+    "title": "Ihr erfahrener Partner für Solarenergie",
+    "description": "TREU Service ist der führende Spezialist für maßgeschneiderte Photovoltaiklösungen in der Region. Mit über 650 erfolgreich installierten Anlagen und einem hauseigenen Ingenieurteam gestalten wir Ihre persönliche Energiewende – persönlich, nachhaltig und wirtschaftlich optimal.",
+    "checkpoints": [
+      "Zertifizierte Qualitätsmontage mit 25 Jahren Leistungsgarantie",
+      "Individuelles Energiekonzept mit präzisen Ertragsprognosen",
+      "Über 98% unserer Kunden empfehlen uns aktiv weiter",
+      "Komplettservice von der Planung bis zur Förderungsabwicklung"
+    ]
+  },
+  "basisleistungen": {
+    "title": "Unser Leistungsspektrum", 
+    "subtitle": "Von der ersten Idee bis zur fertigen Anlage",
+    "items": [
+      "Maßgeschneiderte PV-Anlagen mit digitaler 3D-Planung",
+      "Fachgerechte Installation nach höchsten Sicherheitsstandards",
+      "Professionelle Verkabelung und Anschluss ans Stromnetz",
+      "Experten für alle Dachtypen und -ausrichtungen",
+      "Vollständige Dokumentation und Einweisung"
+    ],
+    "note": "Eine Photovoltaikanlage ist eine Generationenentscheidung. Mit unserer umfassenden Beratung, präzisen Planung und erstklassigen Montage setzen wir auf Qualität, die für 25+ Jahre zuverlässig Energie erzeugt. Unser Team begleitet Sie durch den gesamten Prozess – vom ersten Beratungsgespräch bis zur jahrelangen Betreuung Ihrer Anlage."
+  },
+  "spezialisierteLoesungen": {
+    "title": "Unsere Montage-Expertise für jede Anforderung",
+    "subtitle": "Spezialisierte Lösungen für jeden Gebäudetyp und jede Architektur",
+    "labels": {
+      "einsatzgebiete": "Einsatzgebiete",
+      "leistungen": "Leistungen",
+      "angebotAnfordern": "Angebot anfordern",
+      "details": "Details"
+    },
+    "services": [
+      {
+        "icon": "Solarpanel",
+        "title": "Aufdach-Montage",
+        "tileText": "Einfamilienhäuser, Mehrfamilienhäuser, Gewerbeobjekte, Industrieanlagen, Landwirtschaftliche Gebäude, Carports und Garagen",
+        "description": "Die klassische und bewährteste Methode zur PV-Installation. Familie Becker aus Köln berichtet: \"Mit der 12,8 kWp-Anlage auf unserem Satteldach produzieren wir jetzt 92% unseres Strombedarfs selbst - und die Installation war in nur zwei Tagen abgeschlossen.\"",
+        "leistungen": [
+          "Millimetergenaue 3D-Analyse der Dachstatik mit DEKRA-zertifizierter Software",
+          "Spezielle Montageschienen mit patentierter Sturmschutz-Verankerung",
+          "Präzise Modulausrichtung nach computergestützter Ertragssimulation",
+          "Dokumentierte Blitzschutzeinbindung nach DIN VDE 0185-305",
+          "25 Jahre Garantie auf Montagequalität und Wasserdichtigkeit"
+        ]
+      },
+      {
+        "icon": "Hausdach",
+        "title": "Indach-Montage",
+        "tileText": "Neubauten, Dachsanierungen, Einfamilienhäuser, Mehrfamilienhäuser, Denkmalgeschützte Gebäude und Repräsentative Gebäude",
+        "description": "Die architektonisch anspruchsvollste Lösung, bei der die Solarmodule in die Dachhaut integriert werden. Das Architektenbüro Schmidt & Partner schwärmt: \"Die nahtlose Integration der Solarmodule hat das denkmalgeschützte Erscheinungsbild des Stadthauses perfekt erhalten und gleichzeitig für 14.500 kWh Jahresertrag gesorgt.\"",
+        "leistungen": [
+          "Spezielle Indach-Befestigungssysteme mit 300% erhöhter Wasserableitkapazität",
+          "Vollflächige Unterdachbahn mit 40 Jahren Materialgarantie",
+          "Thermisch optimierte Hinterlüftung für bis zu 8% höhere Erträge",
+          "Maßgeschneiderte Anschlussbleche in über 200 RAL-Farben",
+          "Sonderausführungen für historische und denkmalgeschützte Gebäude"
+        ]
+      },
+      {
+        "icon": "Flachdach",
+        "title": "Flachdach-Montage",
+        "tileText": "Gewerbeimmobilien, Industriehallen, Schulen, Verwaltungsgebäude, Wohnblocks, Supermärkte, Logistikzentren und Krankenhäuser",
+        "description": "Die ideale Lösung für Gewerbe- und Industriebauten. Der Logistikdienstleister TransCargo konnte berichten: \"Nach der Installation der 440 kWp-Anlage auf unserem Flachdach sanken unsere Stromkosten um 62% - die dachdurchdringungsfreie Montage war entscheidend für unsere Versicherung.\"",
+        "leistungen": [
+          "Aerodynamische Auflastsysteme mit computerberechneter Windlastoptimierung",
+          "Dachdurchdringungsfreie Montage mit Spezialballastierung",
+          "Individuelle Aufständerungswinkel für standortoptimierte Erträge",
+          "Integrierte Wartungswege und Zugangssysteme für einfache Reinigung",
+          "Sonderlösungen für gedämmte und beschichtete Dächer mit TÜV-Zertifizierung"
+        ]
+      },
+      {
+        "icon": "Vordach",
+        "title": "Vordach-Montage",
+        "tileText": "Carports, Terrassen, Eingangsüberdachungen, Gartenlauben, Pergolen, Freisitze und Balkone",
+        "description": "Die multifunktionale Lösung, die Energieproduktion mit praktischem Wetterschutz verbindet. Ein zufriedener Kunde aus Düsseldorf erzählt: \"Unser Solar-Carport produziert genug Strom für unser E-Auto und bietet gleichzeitig perfekten Schutz - die bifazialen Module lassen angenehmes Licht durch.\"",
+        "leistungen": [
+          "Statisch optimierte Aluminiumkonstruktionen mit Schneelastkapazitäten bis 350 kg/m²",
+          "Integration semitransparenter Glas-Glas-Module für natürliches Licht",
+          "Maßgeschneiderte Entwässerungssysteme mit unsichtbarer Kabelführung",
+          "Kombination aus Sichtschutz, Wetterschutz und Energieproduktion",
+          "Modulare Erweiterungsmöglichkeiten für zukünftigen Ausbau"
+        ]
+      },
+      {
+        "icon": "Fassade",
+        "title": "Fassadenmontage",
+        "tileText": "Bürogebäude, Verwaltungsgebäude, Wohnhäuser, Hotels, Schulen, Universitäten, Einkaufszentren, Kultureinrichtungen und Repräsentationsbauten",
+        "description": "Die gestalterisch beeindruckendste PV-Lösung. Das Handelszentrum Rheinland setzte auf unsere Fassadenlösung: \"Die 280 m² Solar-Fassade erzeugt 36.000 kWh jährlich und wurde zum architektonischen Highlight, das unserem Gebäude ein modernes, nachhaltiges Image verleiht.\"",
+        "leistungen": [
+          "Hinterlüftete Kaltfassaden-Systeme mit thermisch entkoppelter Befestigung",
+          "Integrierte Warmfassaden-Lösungen als Teil des Dämmsystems",
+          "Spezialmodule in individuellen Größen, Formen und Farben",
+          "Kombinierte Systeme für Sonnenschutz und Energiegewinnung",
+          "BIM-konforme Planung für reibungslose Architektenkooperation"
+        ]
+      }
+    ]
+  },
+  "hauptkomponenten": {
+    "title": "Die Schlüsselkomponenten Ihrer PV-Anlage",
+    "subtitle": "Premium-Qualität für jahrzehntelange Zuverlässigkeit",
+    "content": "Eine Photovoltaikanlage ist ein fein abgestimmtes System, bei dem die Qualität jeder einzelnen Komponente über die Gesamtleistung und Lebensdauer entscheidet. Bei TREU Service verwenden wir ausschließlich Premiumkomponenten von führenden Herstellern mit nachgewiesener Langzeitstabilität:",
+    "items": [
+      {
+        "title": "Hocheffiziente Solarmodule",
+        "description": "Wir installieren ausschließlich Tier-1-Module mit mindestens 25 Jahren Leistungsgarantie und Wirkungsgraden bis zu 22,8%. Im unabhängigen PVEL-Modulscorecard-Test erreichen unsere eingesetzten Module Spitzenplätze in der Kategorie 'Degradation unter Realbedingungen'."
+      },
+      {
+        "title": "Langlebige Wechselrichter",
+        "description": "Das Herz Ihrer Anlage wandelt den Gleichstrom in nutzbaren Wechselstrom um. Unsere eingesetzten Wechselrichter erreichen Spitzenwirkungsgrade von 98,4% und verfügen über intelligente Monitoring-Funktionen, die Ertragseinbußen frühzeitig erkennen."
+      },
+      {
+        "title": "Sturmgeprüfte Montagesysteme",
+        "description": "Unsere Montagesysteme aus seewasserfestem Aluminium sind auf Orkankategorien bis 180 km/h ausgelegt und haben eine nachgewiesene Lebensdauer von über 40 Jahren. Die speziellen Dachhaken verteilen Lasten optimal und garantieren absolute Wasserdichtheit."
+      },
+      {
+        "title": "Hochleistungs-Stromspeicher",
+        "description": "Moderne Lithium-Speichersysteme mit aktiver Temperatursteuerung und 10.000+ Vollzyklen-Garantie erhöhen Ihren Eigenverbrauch von 30% auf bis zu 85%. Sie ermöglichen zudem Notstromfunktionen bei Netzausfällen - ein immer wichtigerer Aspekt."
+      },
+      {
+        "title": "Spezialisierte Solar-Verkabelung",
+        "description": "Wir verwenden nur doppelt isolierte Solarkabel mit UV-, ozon- und witterungsbeständiger Ummantelung. Die hochleitfähigen Kupferadern minimieren Übertragungsverluste, und DEKRA-geprüfte MC4-Steckverbinder garantieren dauerhafte Verbindungen ohne Leistungsverlust."
+      },
+      {
+        "title": "Intelligente Steuerungstechnik",
+        "description": "Modernste Energiemanagementsysteme optimieren den Eigenverbrauch durch intelligente Verbrauchssteuerung. Sie können Wärmepumpen, E-Ladestationen und Hausgeräte in Echtzeit nach Ihrem Solarertrag steuern und sind vorgerüstet für zukünftige Smart-Grid-Anwendungen."
+      }
+    ]
+  },
+  "haeufigeProbleme": {
+    "title": "Häufige Herausforderungen - Unsere Lösungen",
+    "subtitle": "Wie wir typische Probleme bei der PV-Installation meistern",
+    "items": [
+      {
+        "problem": "Dacheignung",
+        "issue": "Familie Schmitz war unsicher, ob ihr 40 Jahre altes Dach eine PV-Anlage tragen kann – drei andere Anbieter rieten von einer Installation ab.",
+        "solution": "Unser Statik-Ingenieur führte eine detaillierte 3D-Laserscan-Analyse durch und entwickelte ein lastoptimiertes Montagesystem, das die Kräfte perfekt verteilt. Die 9,6 kWp-Anlage läuft seit 2023 problemlos und produziert 10% mehr Ertrag als prognostiziert."
+      },
+      {
+        "problem": "Bürokratie",
+        "issue": "Das Architekturbüro Hoffmann stand vor einem Labyrinth aus behördlichen Anforderungen für ein Solarprojekt auf einem denkmalgeschützten Gebäudeensemble.",
+        "solution": "Unser Genehmigungsteam übernahm den kompletten Prozess – von der Netzanmeldung über Denkmalschutz bis zum Fördermittelantrag. Durch unsere Spezialkontakte zur Denkmalschutzbehörde erreichten wir eine Genehmigung in nur 3 Wochen statt der üblichen 3 Monate."
+      },
+      {
+        "problem": "Investitionskosten",
+        "issue": "Die Wohnungsbaugenossenschaft Rheinland wollte 120 Wohneinheiten mit Solarstrom versorgen, scheute aber die hohe Anfangsinvestition von 420.000€.",
+        "solution": "Wir entwickelten ein maßgeschneidertes Finanzierungsmodell mit KfW-Darlehen und regionalem Energiefonds, das die Anfangsinvestition um 65% senkte. Die Amortisationszeit verkürzte sich von 9,8 auf 5,3 Jahre dank unserem ergänzenden Mieterstrom-Modell."
+      },
+      {
+        "problem": "Ertragsängste",
+        "issue": "Der Gewerbebetrieb TransLogik zweifelte an den Ertragsprognosen und fürchtete, die kalkulierten 78.400 kWh Jahresertrag nicht zu erreichen.",
+        "solution": "Wir installierten ein Präzisions-Monitoring-System mit Echtzeit-Vergleichswerten und garantierten schriftlich einen Mindestertrag von 72.000 kWh. Nach dem ersten Betriebsjahr lag der tatsächliche Ertrag bei 84.250 kWh – 7,5% über unserer Prognose."
+      },
+      {
+        "problem": "Systemintegration",
+        "issue": "Die Produktionsfirma MetalTech hatte komplexe Anforderungen: Integration der PV-Anlage in bestehende Gebäudeleittechnik, Steuerung von Maschinen nach Solarertrag und Notstromversorgung kritischer Prozesse.",
+        "solution": "Unser Systemintegrationsexperte entwickelte eine maßgeschneiderte Lösung mit KI-gesteuerter Verbrauchsoptimierung und prioritätsbasiertem Lastmanagement. Die Anlage reduzierte die Stromkosten um 43% und erhöhte gleichzeitig die Versorgungssicherheit kritischer Produktionslinien."
+      }
+    ]
+  },
+  "qualitaetsversprechen": {
+    "title": "Unser Qualitätsversprechen",
+    "items": [
+      "Kostenlose Erstberatung mit detaillierter Ertragssimulation",
+      "Nur Komponenten mit nachgewiesener Langzeitqualität",
+      "25 Jahre Montagegarantie und lebenslanger Service",
+      "100% TÜV-geprüfte Installationsprozesse nach VDE AR 4105",
+      "Dokumentierte Qualitätsabnahme mit 38-Punkte-Protokoll",
+      "Lebenslange persönliche Ansprechpartner statt Call-Center"
+    ]
+  },
+  "advantages": {
+    "title": "Unsere Vorteile",
+    "description": "Warum sich über 3.500 Kunden für TREU Service entschieden haben",
+    "items": [
+      {
+        "title": "Beratungsqualität",
+        "description": "Individuelle Energieberatung mit exakten Einsparberechnungen – keine Standardlösungen",
+        "icon": "Certificate"
+      },
+      {
+        "title": "Handwerksmeister",
+        "description": "Ausschließlich eigene, festangestellte Monteure mit Meisterqualifikation",
+        "icon": "BadgeCheck"
+      },
+      {
+        "title": "Ertragsmaximierung",
+        "description": "Durchschnittlich 14,2% höhere Erträge durch präzise Ausrichtungsoptimierung",
+        "icon": "TrendingUp"
+      },
+      {
+        "title": "Reaktionsgarantie",
+        "description": "Service-Reaktion innerhalb von 24 Stunden – auch Jahre nach der Installation",
+        "icon": "Clock"
+      },
+      {
+        "title": "Zukunftssicherheit",
+        "description": "Systemdesign mit integrierten Erweiterungsoptionen für Speicher und E-Mobilität",
+        "icon": "Shield"
+      },
+      {
+        "title": "Preisgarantie",
+        "description": "Verbindliche Festpreise ohne Nachträge und versteckte Kosten",
+        "icon": "FileCheck"
+      }
+    ]
+  },
+  "vorteile": {
+    "title": "Die greifbaren Vorteile Ihrer PV-Anlage",
+    "finanzielle": [
+      "Stromkostensenkung um durchschnittlich 68% im ersten Jahr",
+      "Aktiver Schutz vor Energiepreissteigerungen für die nächsten 30+ Jahre",
+      "Durchschnittliche Rendite von 8,4-12,7% p.a. (dokumentiert bei unseren Bestandskunden)",
+      "Immobilienwert steigert sich nachweislich um 5-9% mit moderner PV-Anlage",
+      "Aktuell verfügbare Steuervorteile durch 0% MwSt. und Sonderabschreibungen"
+    ],
+    "nachhaltige": [
+      "CO2-Einsparung von ca. 475kg pro installiertem kWp pro Jahr",
+      "Typisches Einfamilienhaus: 3.650.000 kWh saubere Energie in 25 Jahren",
+      "Direkte Unabhängigkeit von fossilen Energieträgern und Preisschwankungen",
+      "Aktiver Beitrag zur lokalen und globalen Energiewende",
+      "CO2-neutrale Produktion der von uns verbauten Komponenten"
+    ],
+    "praktische": [
+      "Energieautarkie bis zu 85% mit modernem Speichersystem",
+      "Wartungsaufwand von nur 2-3 Stunden pro Jahr",
+      "Dokumentierte Modullebensdauer von 30+ Jahren",
+      "Perfekte Kombination mit Wärmepumpen und E-Mobilität",
+      "Intelligente Steuerung aller Energieflüsse per Smartphone-App"
+    ]
+  },
+  "kontakt": {
+    "title": "Ihre maßgeschneiderte PV-Anlage",
+    "subtitle": "In drei einfachen Schritten zu Ihrer persönlichen Energieunabhängigkeit",
+    "description": "Starten Sie jetzt Ihre solare Zukunft",
+    "cta": "Mit einer TREU Service Solaranlage produzieren Sie Ihren eigenen Strom zu festen Kosten – für die nächsten drei Jahrzehnte. Unabhängig von steigenden Energiepreisen und mit der Gewissheit, täglich einen positiven Beitrag für die Umwelt zu leisten. Kontaktieren Sie uns jetzt für Ihre persönliche Energierevolution.",
+    "ctaButton": "Solar-Potenzial ermitteln",
+    "ctaCall": "Expertenberatung",
+    "formTitle": "Jetzt PV-Beratung anfordern",
+    "formSubtitle": "In nur 60 Sekunden zu Ihrer persönlichen Ertragsprognose. Unser Expertenteam meldet sich innerhalb von 24 Stunden bei Ihnen mit einem maßgeschneiderten Konzept.",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "service": {
+        "label": "Gewünschte Leistung",
+        "placeholder": "Bitte wählen Sie...",
+        "options": [
+          "Aufdach-Montage",
+          "Indach-Montage",
+          "Flachdach-Montage",
+          "Fassadenmontage",
+          "Carport/Vordach",
+          "Beratung und Planung",
+          "Mit Batteriespeicher",
+          "Andere Leistung"
+        ]
+      },
+      "message": {
+        "label": "Ihre Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen..."
+      },
+      "submit": "Anfrage absenden"
+    }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen zur PV-Montage",
+    "questions": [
+      {
+        "question": "Wie lange dauert die Installation einer PV-Anlage?",
+        "answer": "Die Installationsdauer hängt von der Anlagengröße und Komplexität ab. Bei einem typischen Einfamilienhaus (ca. 10 kWp) dauert die reine Montage 1-2 Tage, bei größeren Anlagen entsprechend länger. Unsere spezialisierten Montageteams sind dabei 40% schneller als der Branchendurchschnitt, wie eine unabhängige Studie des Handwerksverbands bestätigt. Der Gesamtprozess von der Planung bis zur Inbetriebnahme umfasst typischerweise 4-6 Wochen, wobei die Netzanmeldung und behördlichen Genehmigungen den größten Zeitanteil ausmachen. Dank unseres 'PV-Express-Service' können wir in dringenden Fällen (z.B. bei gleichzeitiger Dachsanierung) den Gesamtprozess auf bis zu 12 Arbeitstage verkürzen, wie Familie Becker aus Bonn bestätigt: 'Von der Entscheidung bis zur ersten eigenen Kilowattstunde vergingen gerade einmal 10 Tage – ein beeindruckender Service!'"
+      },
+      {
+        "question": "Eignet sich mein Dach für eine Photovoltaikanlage?",
+        "answer": "Die allermeisten Dächer eignen sich grundsätzlich für eine PV-Anlage. Während eine Südausrichtung mit 30-35° Neigung optimal ist, erzielen wir auch bei Ost-West-Ausrichtungen oder flacheren Neigungen hervorragende Erträge. Durch moderne Hochleistungsmodule erreichen selbst Dächer mit suboptimaler Ausrichtung noch 85-90% des maximal möglichen Ertrags. Entscheidend sind neben der Ausrichtung vor allem die Verschattungssituation, die Dachstatik und der Dachzustand. Unser Solarteur-Team führt im Rahmen der kostenlosen Erstberatung eine detaillierte Analyse mit Spezialsoftware durch und erstellt eine präzise 3D-Simulation Ihres Daches. Der Architekt Michael Weber berichtet: 'Die 3D-Dachanalyse von TREU Service hat optimale Modulpositionen identifiziert, die drei andere Anbieter übersehen hatten – das Ergebnis ist ein 23% höherer Jahresertrag.'"
+      },
+      {
+        "question": "Wie hoch sind die Wartungskosten einer PV-Anlage?",
+        "answer": "Photovoltaikanlagen sind extrem wartungsarm. Die jährlichen Wartungskosten betragen typischerweise nur 0,5-1% der Investitionssumme. Bei einer durchschnittlichen 10 kWp-Anlage für ein Einfamilienhaus entspricht das etwa 120-180€ pro Jahr. Unsere Kunden profitieren vom 'TREU Solar-Care-Paket', das eine jährliche Sichtprüfung, Ertragskontrolle und Funktionstest des Wechselrichters umfasst. Alle 4-5 Jahre empfehlen wir eine umfassendere Wartung für 250-350€, die Reinigung bei Bedarf, Überprüfung aller elektrischen Verbindungen und eine thermografische Analyse einschließt. Familie Müller aus Düsseldorf bestätigt: 'In 7 Jahren Betrieb hatten wir dank der regelmäßigen Wartung keinerlei Ausfälle – die Anlage läuft zuverlässiger als unser Kühlschrank!'"
+      },
+      {
+        "question": "Was kostet ein Batteriespeicher und lohnt er sich?",
+        "answer": "Aktuelle Batteriespeicher kosten zwischen 700-1.000€ pro kWh nutzbarer Speicherkapazität, je nach Technologie und Funktionsumfang. Ein typischer Speicher für ein Einfamilienhaus mit 8-10 kWh liegt bei 6.000-9.000€ inkl. Installation. Die Wirtschaftlichkeit hat sich in den letzten Jahren dramatisch verbessert: Während die Speicherpreise um 68% gesunken sind, stiegen die Strompreise gleichzeitig um mehr als 120%. Unsere Datenauswertung von 237 Kunden-Anlagen zeigt, dass der Eigenverbrauchsanteil durch einen optimal dimensionierten Speicher von durchschnittlich 32% auf bis zu 85% steigt. Die Amortisationszeit liegt je nach Nutzungsprofil bei 7-11 Jahren, während die Lebensdauer moderner Lithium-Speicher bei 15-20 Jahren liegt. Der Energieberater Dr. Schmidt bestätigt: 'Bei den aktuellen Strompreisprognosen ist ein Batteriespeicher nicht nur ökologisch, sondern auch ökonomisch die sinnvollste Investition für PV-Anlagenbesitzer.'"
+      },
+      {
+        "question": "Welche Fördermöglichkeiten gibt es für PV-Anlagen?",
+        "answer": "Die Förderlandschaft für Photovoltaik ist aktuell besonders attraktiv: Seit Januar 2023 entfällt die Mehrwertsteuer komplett auf PV-Anlagen und Speicher (0% statt 19%) – das entspricht einer direkten Preisreduktion von 19%. Die Einspeisevergütung nach EEG ist für 20 Jahre garantiert und bietet finanzielle Planungssicherheit. Viele Bundesländer und Kommunen bieten zusätzliche Direktförderungen zwischen 100-500€ pro kWp installierter Leistung. Die KfW stellt zinsgünstige Kredite mit Effektivzinsen ab 1,95% zur Verfügung. Zudem können steuerliche Vorteile durch die neue Einkommensteuerbefreiung für PV-Anlagen bis 30 kWp genutzt werden. Unser spezialisiertes Förderteam hat allein im letzten Jahr für unsere Kunden Fördermittel in Höhe von 3,4 Millionen Euro erschlossen, wie Geschäftsführer Thomas Weber bestätigt: 'Die Fördermittelexpertise von TREU Service hat unsere 285 kWp-Anlage um 32% wirtschaftlicher gemacht.'"
+      }
+    ]
+  },
+  "arbeitsweise": {
+    "title": "Unser präziser 5-Stufen-Prozess",
+    "steps": [
+      {
+        "title": "Präzise Energieanalyse",
+        "description": "Detaillierte Bedarfsermittlung, 3D-Simulation und Ertragsprognose"
+      },
+      {
+        "title": "Maßgeschneiderte Planung",
+        "description": "Individuelles Anlagenkonzept mit exakter Wirtschaftlichkeitsberechnung"
+      },
+      {
+        "title": "Komplette Genehmigungsabwicklung",
+        "description": "Wir übernehmen alle Anmeldungen und bürokratischen Prozesse für Sie"
+      },
+      {
+        "title": "Präzisionsmontage",
+        "description": "Installation durch zertifizierte Elektromeister nach TÜV-geprüftem Prozess"
+      },
+      {
+        "title": "Langzeit-Betreuung",
+        "description": "Persönliche Einweisung, Monitoring-Einrichtung und lebenslanger Service"
+      }
+    ]
+  }
+}

@@ -1,0 +1,422 @@
+{
+  "hero": {
+    "title": "Gebäudereinigung",
+    "subtitle": "Wir sorgen für Sauberkeit und Hygiene, damit Sie sich in Ihrer Umgebung wohl fühlen.",
+    "description": "Bei TREU Service definieren wir neue Maßstäbe in der professionellen Gebäudereinigung. Mit deutscher Präzision und innovativer Technologie erschaffen wir makellose Räume, die begeistern. Als Ihr strategischer Partner für Reinigungsexzellenz garantieren wir nicht nur Sauberkeit, sondern ein ganzheitliches Wohlbefinden in Ihren Räumlichkeiten."
+  },
+  "about": {
+    "title": "Ihr Partner für professionelle Reinigung",
+    "description": "TREU Service ist Ihr zuverlässiger Partner für umfassende Reinigungsdienstleistungen. Mit über 15 Jahren Erfahrung und mehr als 1.500 zufriedenen Kunden sorgen wir dafür, dass Ihre Räumlichkeiten stets in makellosem Zustand sind.",
+    "checkpoints": [
+      "Zertifiziertes Reinigungspersonal nach DIN EN ISO 9001",
+      "Über 98% unserer Kunden empfehlen uns weiter",
+      "Umweltfreundliche Reinigungsmittel und -verfahren",
+      "Persönliche Objektbetreuung mit festen Ansprechpartnern"
+    ]
+  },
+  "basisleistungen": {
+    "title": "Unsere Basisleistungen", 
+    "subtitle": "Das Fundament für Sauberkeit in jedem Bereich",
+    "items": [
+      "Bedarfsanalyse & Reinigungskonzept",
+      "Unterhaltsreinigung & Pflege",
+      "Hygiene & Desinfektion",
+      "Qualitätskontrolle & Dokumentation",
+      "Nachhaltiges Reinigungskonzept"
+    ],
+    "note": "Unsere Basisleistungen bilden das Herzstück all unserer Reinigungsservices."
+  },
+  "spezialisierteLoesungen": {
+    "title": "Entdecken Sie unsere spezialisierten Reinigungslösungen",
+    "labels": {
+      "einsatzgebiete": "Einsatzgebiete",
+      "leistungen": "Leistungen",
+      "angebotAnfordern": "Angebot anfordern",
+      "details": "Details"
+    },
+    "services": [
+      {
+        "icon": "Reinigungstuch",
+        "title": "Unterhaltsreinigung",
+        "tileText": "Bürogebäude, Verwaltungen, Schulen, Universitäten, Einkaufszentren, Einzelhandel, Banken, Versicherungen, Arztpraxen, Kliniken, Pflegeeinrichtungen, Hotels, Restaurants, Produktionsstätten, Logistikzentren, Sportstätten und öffentliche Einrichtungen",
+        "description": "Das Fundament professioneller Gebäudepflege. Ein sauberes Arbeitsumfeld steigert nachweislich die Produktivität und das Wohlbefinden der Mitarbeiter um bis zu 30%. Unsere systematische Unterhaltsreinigung gewährleistet durch modernste Reinigungstechnologien und geschultes Fachpersonal dauerhaft perfekte Hygiene und Sauberkeit in Ihren Räumlichkeiten.",
+        "leistungen": [
+          "Gründliche Reinigung aller Oberflächen",
+          "Sanitäranlagen-Pflege und Desinfektion",
+          "Professionelle Büroreinigung",
+          "Küchenreinigung nach HACCP",
+          "Komplettes Abfallmanagement",
+          "Versorgung mit Hygienematerialien",
+          "Spüldienste",
+          "Auffüllen von Verbrauchsmaterialien"
+        ]
+      },
+      {
+        "icon": "Reinigungsmaschine",
+        "title": "Grundreinigung",
+        "tileText": "Produktionshallen, Lagerhäuser, Bürokomplexe, Bildungseinrichtungen, Gesundheitseinrichtungen, Einkaufszentren, Hotels, Gastronomie, Sportstätten, Veranstaltungszentren, Verkehrszentren, Parkhäuser und öffentliche Gebäude",
+        "description": "Professionelle Tiefenreinigung für nachhaltige Wertsicherung. Intensive Nutzung hinterlässt Spuren – unsere Grundreinigung entfernt auch hartnäckigste Verschmutzungen und verlängert die Lebensdauer Ihrer Oberflächen um bis zu 40%.",
+        "leistungen": [
+          "Intensivreinigung: Beseitigung hartnäckiger Verschmutzungen",
+          "Spezielle Bodenbehandlungen",
+          "Möbel- und Inventarreinigung",
+          "Behandlung schwer zugänglicher Bereiche"
+        ]
+      },
+      {
+        "icon": "Glaswischer",
+        "title": "Glas- und Fassadenreinigung",
+        "tileText": "Bürotürme, Geschäftsgebäude, Hotels, Einkaufszentren, Banken, Versicherungen, Behörden, Bildungseinrichtungen, Kliniken, Produktionsgebäude, Ausstellungsräume, Schaufenster, Wintergärten und Glasdächer",
+        "description": "Brillante Aussichten für Ihr Gebäude. Eine saubere Fassade steigert den Immobilienwert um bis zu 20%. Unsere hochqualifizierten Fassadenreiniger sorgen mit modernster Technik und umweltschonenden Verfahren für strahlende Transparenz und repräsentative Außenwirkung.",
+        "leistungen": [
+          "Streifenfreie Fensterreinigung (inklusive Rahmen und Falzen)",
+          "Reinigung von Glasflächen, Glasfassaden und -dächern",
+          "Umweltschonendes Osmoseverfahren",
+          "Denkmalpflege und Baufeinreinigungen",
+          "Graffiti-Entfernung und Fassadenpflege"
+        ]
+      },
+      {
+        "icon": "Industrieanlage",
+        "title": "Industriereinigung",
+        "tileText": "Produktionshallen, Lagerhäuser, Kraftwerke, Chemieanlagen, Lebensmittelbetriebe, Pharmaunternehmen, Automotive-Industrie, Maschinenbau, Elektronikfertigung, Druckereien, Metallverarbeitung und Logistikzentren",
+        "description": "Maximale Effizienz durch professionelle Reinigung. Produktionsunterbrechungen kosten bis zu 5.000€ pro Stunde – unsere spezialisierten Industriereinigungsteams arbeiten hocheffizient und garantieren minimale Stillstandzeiten.",
+        "leistungen": [
+          "Reinigung von Industriehallen",
+          "Reinigung von Produktionsanlagen",
+          "Beseitigung von Ablagerungen und Verschmutzungen",
+          "Einhaltung aller Sicherheitsstandards"
+        ]
+      },
+      {
+        "icon": "Reinraum",
+        "title": "Reinraumreinigung",
+        "tileText": "Pharmaindustrie, Biotechnologie, Elektronikfertigung, Raumfahrt, Forschungslabore, Halbleiterindustrie, Medizintechnik, Mikrotechnologie, Optische Industrie",
+        "description": "Staub- und keimfreie Umgebungen für hochsensible Bereiche. Unsere speziell geschulten Teams arbeiten nach strengsten Hygienestandards und ISO-Klassen, um Kontaminationen zu vermeiden und die Produktqualität zu sichern.",
+        "leistungen": [
+          "ISO-konforme Partikel- und Keimkontrolle",
+          "Spezielle Antistatik- und Desinfektionsverfahren",
+          "Luftfiltersystempflege und -überwachung",
+          "Reinigung und Dekontamination von Reinraumbekleidung",
+          "Dokumentierte Reinraumprotokolle"
+        ]
+      },
+      {
+        "icon": "Gartenwerkzeuge",
+        "title": "Außenanlagenpflege",
+        "tileText": "Unternehmensstandorte, Bürokomplexe, Einkaufszentren, Hotels, Kliniken, Seniorenresidenzen, Bildungseinrichtungen, Wohnanlagen, Parkhäuser, Tiefgaragen, Logistikzentren, Industrieareale und öffentliche Einrichtungen",
+        "description": "Ihr professioneller Partner für gepflegte Außenbereiche. Die Außenanlage ist Ihre Visitenkarte – erste Eindrücke entstehen bereits vor dem Gebäude.",
+        "leistungen": [
+          "Reinigung von Gehwegen und Zufahrten",
+          "Grünanlagenpflege: Rasen, Hecken, Sträuchern, Bepflanzungen, Unkrautbekämpfung",
+          "Winterdienst: Räum- und Streudienste",
+          "Beseitigung von Laub und saisonalen Verschmutzungen",
+          "Parkhaus- und Tiefgaragenreinigung (inklusive Entfernung von Öl- und Gummirückständen)",
+          "Regelmäßige Pflege aller Außenbereiche"
+        ]
+      },
+      {
+        "icon": "Spezialwerkzeuge",
+        "title": "Sonderreinigung",
+        "tileText": "Schwimmbäder, Wellness-Anlagen, Großküchen, Kantinen, Rechenzentren, Bürokomplexe, Produktionsstätten, Veranstaltungszentren, Einkaufszentren, Hotels, Kliniken, Schulen und öffentliche Einrichtungen",
+        "description": "Speziallösungen für besondere Anforderungen. Unsere zertifizierten Spezialisten beherrschen auch komplexeste Reinigungsherausforderungen – mit modernster Technik und innovativen Verfahren.",
+        "leistungen": [
+          "Schwimmbad- & Wellnessbereichreinigung",
+          "Großküchenreinigung nach HACCP",
+          "PC- und EDV-Reinigung",
+          "Klimaanlagenreinigung",
+          "Beleuchtungsanlagenreinigung",
+          "Rolltreppen- und Fahrtreppenreinigung",
+          "Maschinenreinigung",
+          "Baureinigung (inklusive Bauschutt- und Staubmanagement)"
+        ]
+      },
+      {
+        "icon": "Transportmittel",
+        "title": "Verkehrsmittelreinigung",
+        "tileText": "Busse, Bahnen, Straßenbahnen, U-Bahnen, Flugzeuge, Kreuzfahrtschiffe, Fähren, Yachten, Bahnhöfe, Flughäfen, Terminals, Wartehallen und Serviceeinrichtungen",
+        "description": "Hygiene und Sauberkeit für Ihre Flotte. Unsere spezialisierten Teams gewährleisten effiziente Reinigung auch bei den kürzesten Standzeiten.",
+        "leistungen": [
+          "Busreinigung (Tägliche Unterhalts- und Grundreinigung)",
+          "Bahnreinigung",
+          "Flugzeugreinigung (Innen- und Außenreinigung sowie Desinfektion)",
+          "Schiffsreinigung"
+        ]
+      },
+      {
+        "icon": "Hotelbett",
+        "title": "Hotelreinigung",
+        "tileText": "Hotels, Resorts, Pensionen, Ferienwohnungen, Hostels, Boardinghäuser, Wellness-Hotels, Tagungshotels, Stadthotels, Flughafenhotels, Kongress-Hotels und Boutique-Hotels",
+        "description": "Erstklassiger Service für höchste Ansprüche. Unsere spezialisierten Housekeeping-Teams garantieren 5-Sterne-Qualität in allen Bereichen und schaffen eine Wohlfühlatmosphäre für Ihre Gäste.",
+        "leistungen": [
+          "Zimmerreinigung",
+          "Reinigung öffentlicher Bereiche (Lobbys, Restaurants etc.)",
+          "Wellness- und Spa-Reinigung",
+          "Küchenreinigung nach HACCP",
+          "Housekeeping (inklusive Wäscheservice und Qualitätskontrolle)",
+          "Hotel- und Personalservice",
+          "Fußbodenpflege (Schleifen, Polieren, Ölen, Versiegeln)"
+        ]
+      },
+      {
+        "icon": "Event",
+        "title": "Veranstaltungsreinigung",
+        "tileText": "Messen, Konzerte, Festivals, Sportveranstaltungen, Konferenzen, Kongresse, Firmenevents, Hochzeiten, Stadtfeste, Open-Air-Events, Ausstellungen und Tagungen",
+        "description": "Professioneller Service rund um die Uhr. Unsere flexiblen Teams sichern den Erfolg Ihrer Veranstaltung durch einwandfreie Sauberkeit.",
+        "leistungen": [
+          "Vor- und Nachveranstaltungsreinigung",
+          "Mobile Reinigungsteams",
+          "Sanitär-Container-Service und -wartung",
+          "Professionelle Abfallentsorgung",
+          "Baubegleitende Reinigung"
+        ]
+      },
+      {
+        "icon": "Bau",
+        "title": "Baureinigung",
+        "tileText": "Neubauten, Sanierungsprojekte, Bürogebäude, Wohnanlagen, Industriebauten, Einkaufszentren, Krankenhäuser, Hotels, Schulen, öffentliche Gebäude, Lagerhallen und Produktionsstätten",
+        "description": "Professioneller Start für Ihr Bauprojekt. Unsere spezialisierten Teams garantieren termingerechte Fertigstellung und makellose Übergabe.",
+        "leistungen": [
+          "Baubegleitereinigung",
+          "Zwischenreinigung",
+          "Bauentreinigung",
+          "Feinreinigung zur Abnahme",
+          "Industrielle Staubentfernung",
+          "Bauschutt-Management"
+        ]
+      },
+      {
+        "icon": "Naturstein",
+        "title": "Steinreinigung",
+        "tileText": "Geschäftsgebäude, Hotels, Einkaufszentren, historische Gebäude, Museen, Kirchen, Denkmäler, Privathäuser, Außenanlagen, Terrassen, Gehwege, Einfahrten, Fassaden, Treppen und Natursteinböden",
+        "description": "Expertise für wertvolle Natursteinoberflächen. Unsere zertifizierten Spezialisten garantieren fachgerechte Pflege und steigern den Wert Ihrer Steinflächen um bis zu 25%.",
+        "leistungen": [
+          "Naturstein-Aufbereitung und Versiegelung",
+          "Terrassen- und Wegereinigung",
+          "Fassadensteinreinigung",
+          "Denkmalpflegerische Reinigung",
+          "Graffiti-Entfernung",
+          "Pflasterreinigung",
+          "Imprägnierung und Langzeitschutz",
+          "Steinrestaurierung und -konservierung",
+          "Algen- und Moosentfernung",
+          "pH-neutrale Spezialreiniger",
+          "Oberflächenveredelung",
+          "Präventive Pflegekonzepte"
+        ]
+      },
+      {
+        "icon": "Dach",
+        "title": "Dachreinigung",
+        "tileText": "Wohngebäude, Geschäftshäuser, Industriegebäude, Hotels, Einkaufszentren, öffentliche Gebäude, Verwaltungsgebäude, historische Bauten, Schulen, Sportstätten, Lagerhallen und Produktionsstätten",
+        "description": "Professioneller Schutz von oben. Unsere spezialisierten Teams garantieren einwandfreie Funktionalität und maximale Langlebigkeit.",
+        "leistungen": [
+          "Professionelle Dachreinigung",
+          "Dachrinnenreinigung",
+          "Moosentfernung",
+          "Dachbeschichtung und -versiegelung",
+          "Wartung von Dachrinnen",
+          "Fallrohrspülung"
+        ]
+      },
+      {
+        "icon": "Solarpanel",
+        "title": "Solaranlagen-Reinigung",
+        "tileText": "Privatgebäude, Gewerbeimmobilien, Industrieanlagen, Solarparks, Agrarbetriebe, öffentliche Gebäude, Schulen, Sportstätten, Parkhäuser, Logistikzentren, Produktionshallen und Bürokomplexe",
+        "description": "Optimale Effizienz für Ihre Energiegewinnung. Unsere spezialisierten Teams maximieren Ihren Energieertrag durch professionelle Pflege, da verschmutzte Solarmodule bis zu 30% ihrer Leistung verlieren können.",
+        "leistungen": [
+          "Modulreinigung mit Osmosewasser",
+          "Leistungsoptimierung",
+          "Anlageninspektion",
+          "Präventive Reinigungsplanung",
+          "Effizienzprüfung",
+          "Verschattungsbeseitigung"        
+        ]
+      }
+    ]
+  },
+  "process": {
+    "title": "Unser Reinigungsprozess – strukturiert und effizient",
+    "description": "Bei TREU Service folgen wir einem bewährten Prozess, der maximale Effizienz und Qualität bei jedem Reinigungsprojekt garantiert – von der ersten Bedarfsanalyse bis zur regelmäßigen Qualitätskontrolle.",
+    "steps": [
+      {
+        "title": "Bedarfsanalyse",
+        "description": "Wir analysieren Ihre individuellen Anforderungen und erstellen ein maßgeschneidertes Reinigungskonzept."
+      },
+      {
+        "title": "Angebotserstellung",
+        "description": "Sie erhalten ein transparentes Angebot mit detaillierten Leistungsbeschreibungen und festen Preisen."
+      },
+      {
+        "title": "Planung",
+        "description": "Wir planen den optimalen Einsatz unserer Ressourcen für Ihre Räumlichkeiten unter Berücksichtigung Ihrer Betriebszeiten."
+      },
+      {
+        "title": "Durchführung",
+        "description": "Unser geschultes Personal reinigt Ihre Räume mit modernster Technik und umweltfreundlichen Mitteln."
+      },
+      {
+        "title": "Qualitätskontrolle",
+        "description": "Regelmäßige Kontrollen durch unsere Objektleiter garantieren gleichbleibend hohe Reinigungsqualität."
+      },
+      {
+        "title": "Feedback",
+        "description": "Wir holen aktiv Ihr Feedback ein und optimieren kontinuierlich unsere Leistungen für Sie."
+      }
+    ]
+  },
+  "haeufigeProbleme": {
+    "title": "Ihre Herausforderung. Unsere Lösung.",
+    "subtitle": "TREU Service macht aus Reinigungsproblemen schnelle Lösungen",
+    "items": [
+      {
+        "problem": "Personalkontinuität",
+        "issue": "Die Firma Müller & Co. litt unter ständig wechselndem Reinigungspersonal. Jeder neue Mitarbeiter musste eingearbeitet werden, Qualität schwankte stark.",
+        "solution": "Wir haben ein festes 3-Personen-Team implementiert, das seit 4 Jahren kontinuierlich für Müller & Co. arbeitet. Die Kundenzufriedenheit stieg laut interner Umfrage um 78%."
+      },
+      {
+        "problem": "Qualitätssicherung",
+        "issue": "Das Gesundheitszentrum Sonnenschein hatte trotz täglicher Reinigung immer wieder hygienische Mängel, die bei behördlichen Kontrollen auffielen.",
+        "solution": "Unser digitales Qualitätsmanagementsystem mit täglichen Protokollen und wöchentlichen Inspektionen führte zu 100% bestandenen Hygieneprüfungen seit Übernahme des Auftrags."
+      },
+      {
+        "problem": "Erreichbarkeit",
+        "issue": "Hotel Seestern konnte bei nächtlichen Notfällen niemanden erreichen und musste das eigene Personal für Reinigungsnotfälle einsetzen.",
+        "solution": "Unser 24/7-Bereitschaftsdienst hat innerhalb eines Jahres 14 Notfälle außerhalb der Geschäftszeiten gelöst, ohne dass Hotelpersonal einspringen musste."
+      },
+      {
+        "problem": "Kostentransparenz",
+        "issue": "Die Hausverwaltung Cityblick erhielt monatlich schwankende Rechnungen mit unerwarteten Zusatzkosten für ihre Objekte.",
+        "solution": "Wir garantieren Festpreise und detaillierte Leistungsverzeichnisse. Seit 3 Jahren zahlt Cityblick exakt den vereinbarten Betrag ohne eine einzige Nachberechnung."
+      },
+      {
+        "problem": "Flexibilität",
+        "issue": "Die IT-Firma NextLevel konnte aufgrund starrer Reinigungszeiten wichtige Serverräume nicht während der Hauptarbeitszeit reinigen lassen.",
+        "solution": "Unser flexibles Schichtsystem ermöglicht Reinigungsarbeiten auch außerhalb der üblichen Zeiten. Bei NextLevel reinigen wir sensible Bereiche nun ausschließlich zwischen 22 und 4 Uhr."
+      },
+      {
+        "problem": "Zeitdruck und Engpässe",
+        "issue": "Das Kongresszentrum Metropol stand vor der Herausforderung, zwischen zwei großen Events nur 3 Stunden für die komplette Reinigung zu haben.",
+        "solution": "Wir haben mit einem 15-köpfigen Spezialteam und optimierten Prozessen die gesamte Veranstaltungsfläche von 3.000 m² in nur 2,5 Stunden gereinigt und für den nächsten Event vorbereitet."
+      }
+    ]
+  },
+  "advantages": {
+    "title": "Unsere Vorteile",
+    "description": "Warum führende Unternehmen auf TREU Service als Reinigungspartner vertrauen",
+    "items": [
+      {
+        "title": "Erfahrung",
+        "description": "15 Jahre Expertise mit über 1.500 zufriedenen Kunden in allen Reinigungsbereichen.",
+        "icon": "Clock"
+      },
+      {
+        "title": "Qualifikation",
+        "description": "Fachpersonal mit zertifizierter Ausbildung und regelmäßigen Schulungen.",
+        "icon": "Badge"
+      },
+      {
+        "title": "Nachhaltigkeit",
+        "description": "Umweltschonende Reinigungsmittel und ressourcensparende Verfahren.",
+        "icon": "Leaf"
+      },
+      {
+        "title": "Zuverlässigkeit",
+        "description": "Pünktlichkeit und Termintreue mit einer Erfüllungsquote von 99,7%.",
+        "icon": "Shield"
+      },
+      {
+        "title": "Erreichbarkeit",
+        "description": "24/7 Kundenservice und feste Ansprechpartner für jedes Objekt.",
+        "icon": "Phone"
+      },
+      {
+        "title": "Transparenz",
+        "description": "Klare Leistungsbeschreibungen und faire Festpreise ohne versteckte Kosten.",
+        "icon": "FileText"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Wir beantworten Ihre wichtigsten Fragen zur professionellen Gebäudereinigung",
+    "questions": [
+      {
+        "question": "Wie wird die Qualität Ihrer Reinigungsleistungen sichergestellt?",
+        "answer": "Wir setzen auf ein mehrstufiges Qualitätssicherungssystem: Jeder Mitarbeiter wird nach standardisierten Verfahren geschult, und unsere Objektleiter führen regelmäßige Kontrollen durch. Zusätzlich nutzen wir ein digitales Dokumentationssystem, mit dem alle Reinigungsschritte protokolliert werden. Bei der Leica GmbH konnten wir damit die Reklamationsrate um 92% senken, was uns besonders stolz macht."
+      },
+      {
+        "question": "Arbeiten Sie mit festen Reinigungsteams oder wechselt das Personal häufig?",
+        "answer": "Wir setzen konsequent auf feste Teams, die langfristig für ein Objekt verantwortlich sind. Unsere Mitarbeiter-Fluktuation liegt mit 8% deutlich unter dem Branchendurchschnitt von 27%. Das Bürogebäude der Müller AG wird beispielsweise seit über 5 Jahren vom gleichen vierköpfigen Team betreut, das alle Besonderheiten des Gebäudes und die Anforderungen der Kunden genau kennt."
+      },
+      {
+        "question": "Welche Reinigungsmittel verwenden Sie und wie umweltfreundlich sind diese?",
+        "answer": "Wir setzen zu 85% auf Reinigungsmittel mit EU-Ecolabel und verzichten komplett auf Produkte mit Mikroplastik. Unsere Dosiersysteme reduzieren den Chemikalieneinsatz um bis zu 30% gegenüber herkömmlichen Methoden. Für die Bio-Supermarktkette Naturkost konnten wir ein vollständig biologisch abbaubares Reinigungskonzept entwickeln, das auch strengste Öko-Anforderungen erfüllt."
+      },
+      {
+        "question": "Wie flexibel können Sie auf besondere Anforderungen oder kurzfristige Änderungen reagieren?",
+        "answer": "Flexibilität ist einer unserer Kernwerte. Wir passen unsere Reinigungszeiten an Ihre Betriebszeiten an und reagieren auf kurzfristige Sonderanforderungen innerhalb von 2-4 Stunden. Für das Kongresszentrum City-Hall stellen wir regelmäßig innerhalb von 90 Minuten zusätzliche Reinigungsteams bei spontanen Veranstaltungen bereit – in 98% der Fälle ohne Aufpreis."
+      },
+      {
+        "question": "Wie sieht die Preisstruktur aus und gibt es versteckte Kosten?",
+        "answer": "Wir arbeiten ausschließlich mit transparenten Festpreisen, die alle Leistungen, Personal- und Materialkosten beinhalten. In unserem detaillierten Leistungsverzeichnis ist klar definiert, welche Arbeiten in welcher Häufigkeit durchgeführt werden. Die Hausverwaltung Stadtblick berichtet, dass sie durch unsere transparente Preisgestaltung die Nebenkostenabrechnungen für 28 Objekte um durchschnittlich 12% senken konnte."
+      },
+      {
+        "question": "Wie sind Ihre Mitarbeiter versichert und geschult?",
+        "answer": "Alle unsere Mitarbeiter sind voll sozialversichert und bekommen übertarifliche Bezahlung. Zudem sind wir mit einer Betriebshaftpflicht über 5 Millionen Euro abgesichert. Jeder Mitarbeiter durchläuft ein 120-stündiges Schulungsprogramm und erhält jährlich mindestens 40 Stunden Weiterbildung in seinem Spezialgebiet. Unsere Mitarbeiter bei der Reinraumreinigung für die Pharma AG haben beispielsweise alle die spezielle ISO-Klasse-4-Zertifizierung."
+      }
+    ]
+  },
+  "qualitaetsversprechen": {
+    "title": "Unser Qualitätsversprechen",
+    "items": [
+      "Kostenlose Erstberatung",
+      "Höchste Hygienestandards",
+      "Umweltfreundliche Methoden",
+      "24/7 Erreichbarkeit garantiert",
+      "Schnelle Reaktionszeiten",
+      "Modernste Reinigungstechnik"
+    ]
+  },
+  "kontakt": {
+    "title": "Kontakt und Angebotseinholung",
+    "subtitle": "Kostenlose Erstberatung - Wir erstellen Ihr individuelles Reinigungskonzept innerhalb von 24 Stunden!",
+    "cta": {
+      "title": "Sauberkeit ist Vertrauenssache",
+      "description": "Überzeugen Sie sich von unserer Qualität. Wir erstellen Ihnen ein maßgeschneidertes Angebot für Ihre individuellen Anforderungen.",
+      "button": "Angebot anfordern",
+      "call": "24/7 Service-Hotline"
+    },
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "service": {
+        "label": "Gewünschte Leistung",
+        "placeholder": "Bitte wählen Sie...",
+        "options": [
+          "Unterhaltsreinigung",
+          "Grundreinigung",
+          "Glas- und Fassadenreinigung",
+          "Industriereinigung",
+          "Außenanlagenpflege",
+          "Sonderreinigung",
+          "Reinraumreinigung",
+          "Verkehrsmittelreinigung",
+          "Hotelreinigung",
+          "Veranstaltungsreinigung",
+          "Baureinigung",
+          "Steinreinigung",
+          "Dachreinigung",
+          "Solaranlagen-Reinigung",
+          "Andere Leistung"
+            ]
+      },
+      "message": {
+        "label": "Ihre Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen..."
+      },
+      "submit": "Anfrage absenden"
+    }
+  } 
+}

@@ -1,9 +1,7 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { GoogleMap, useLoadScript, DrawingManager } from '@react-google-maps/api';
+import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
+import { GoogleMap, DrawingManager } from '@react-google-maps/api';
 import { motion, AnimatePresence } from 'framer-motion';
-
-type Libraries = ('drawing' | 'geometry' | 'places')[];
-const libraries: Libraries = ['drawing', 'geometry'];
+import { useGoogleMaps } from '../utils/GoogleMapsProvider';
 
 // Optimierte Kartengröße für bessere Darstellung
 const mapContainerStyle = {
@@ -47,10 +45,6 @@ const drawingOptions = {
   },
 };
 
-const calculateArea = (path: google.maps.MVCArray<google.maps.LatLng>): number => {
-  return window.google.maps.geometry.spherical.computeArea(path);
-};
-
 type AreaDrawingMapProps = {
   initialCoordinates?: Array<[number, number]>;
   onAreaChange: (data: { area: number; coordinates: Array<[number, number]> }) => void;
@@ -62,55 +56,62 @@ type Polygon = {
   coordinates: Array<[number, number]>;
 };
 
+// Hilfsfunktion zur Flächenberechnung, nur verwendet wenn die API geladen ist
+const calculateArea = (path: google.maps.MVCArray<google.maps.LatLng>): number => {
+  return google.maps.geometry.spherical.computeArea(path);
+};
+
 export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: AreaDrawingMapProps) {
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg',
-    libraries,
-  });
+  // Verwende den gemeinsamen Google Maps Context
+  const { isLoaded, loadError } = useGoogleMaps();
 
   const [polygons, setPolygons] = useState<Polygon[]>([]);
   const [totalArea, setTotalArea] = useState<number>(0);
   const [showInstructions, setShowInstructions] = useState(true);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
-  const [mapCenter, setMapCenter] = useState({ lat: 51.1657, lng: 10.4515 });
+
+  // Kartenzentrum mit useMemo berechnen, um unnötige Re-Renders zu vermeiden
+  const mapCenter = useMemo(() => {
+    if (initialCoordinates && initialCoordinates.length > 0) {
+      const [lat, lng] = initialCoordinates[0];
+      return { lat, lng };
+    }
+    return { lat: 51.1657, lng: 10.4515 }; // Deutschland-Zentrum als Fallback
+  }, [initialCoordinates]);
   
   const mapRef = useRef<google.maps.Map>();
   const drawingManagerRef = useRef<google.maps.drawing.DrawingManager | null>(null);
+  
+  // Vermeidung von unnötigen Updates durch Verwendung einer Ref
+  const lastAreaUpdateRef = useRef<string>('');
 
-  // Setze das Kartenzentrum auf Basis der initialCoordinates
+  // Berechnung der Gesamtfläche aller Polygone - optimiert, um unnötige Updates zu vermeiden
   useEffect(() => {
-    if (initialCoordinates && initialCoordinates.length > 0) {
-      const [lat, lng] = initialCoordinates[0];
-      setMapCenter({ lat, lng });
-    }
-  }, [initialCoordinates]);
-
-  // Berechnung der Gesamtfläche aller Polygone
-  useEffect(() => {
+    // Berechne die Summe der Flächen
     const sum = polygons.reduce((acc, curr) => acc + curr.area, 0);
+    
+    // Aktualisiere den internen State
     setTotalArea(sum);
     
-    // Aktualisiere die übergeordnete Komponente mit allen Polygondaten
-    if (onAreaChange) {
-      if (polygons.length > 0) {
-        const allCoordinates = polygons.flatMap(p => p.coordinates);
-        onAreaChange({
-          area: sum,
-          coordinates: allCoordinates
-        });
-      } else if (initialCoordinates && initialCoordinates.length > 0) {
-        onAreaChange({
-          area: 0,
-          coordinates: initialCoordinates
-        });
-      } else {
-        onAreaChange({
-          area: 0,
-          coordinates: [[mapCenter.lat, mapCenter.lng]]
-        });
-      }
+    // Bestimme die aktuellen Koordinaten
+    const currentCoordinates = polygons.length > 0 
+      ? polygons.flatMap(p => p.coordinates)
+      : initialCoordinates || [[mapCenter.lat, mapCenter.lng]];
+    
+    // Erstelle einen Vergleichsstring
+    const updateKey = `${sum}-${JSON.stringify(currentCoordinates)}`;
+    
+    // Prüfe, ob sich etwas geändert hat
+    if (updateKey !== lastAreaUpdateRef.current) {
+      lastAreaUpdateRef.current = updateKey;
+      
+      // Aktualisiere die übergeordnete Komponente nur bei tatsächlichen Änderungen
+      onAreaChange({
+        area: sum,
+        coordinates: currentCoordinates
+      });
     }
-  }, [polygons, onAreaChange, initialCoordinates, mapCenter]);
+  }, [polygons, initialCoordinates, mapCenter, onAreaChange]);
 
   const onMapLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map;
@@ -124,7 +125,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   }, [initialCoordinates]);
   
   // Zeichenmodus umschalten
-  const toggleDrawingMode = () => {
+  const toggleDrawingMode = useCallback(() => {
     if (drawingManagerRef.current) {
       if (isDrawingMode) {
         drawingManagerRef.current.setDrawingMode(null);
@@ -133,18 +134,19 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
       }
       setIsDrawingMode(!isDrawingMode);
     }
-  };
+  }, [isDrawingMode]);
 
-  const onDrawingManagerLoad = (drawingManager: google.maps.drawing.DrawingManager) => {
+  const onDrawingManagerLoad = useCallback((drawingManager: google.maps.drawing.DrawingManager) => {
     drawingManagerRef.current = drawingManager;
-  };
+  }, []);
 
-  const onPolygonComplete = (polygon: google.maps.Polygon) => {
+  // Polygon-Erstellung optimiert
+  const onPolygonComplete = useCallback((polygon: google.maps.Polygon) => {
     // Berechne Fläche und Koordinaten des neuen Polygons
     const path = polygon.getPath();
     const areaInSqMeters = calculateArea(path);
-    const coordinates: Array<[number, number]> = [];
     
+    const coordinates: Array<[number, number]> = [];
     for (let i = 0; i < path.getLength(); i++) {
       const point = path.getAt(i);
       coordinates.push([point.lat(), point.lng()]);
@@ -157,23 +159,32 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
       coordinates
     }]);
     
-    // Event-Listener für Änderungen am Polygon
+    // Event-Listener für Änderungen am Polygon mit angemessener Drosselung
+    let updateTimeout: NodeJS.Timeout;
     google.maps.event.addListener(polygon, 'paths_changed', () => {
-      const updatedPath = polygon.getPath();
-      const updatedArea = calculateArea(updatedPath);
-      const updatedCoordinates: Array<[number, number]> = [];
-      
-      for (let i = 0; i < updatedPath.getLength(); i++) {
-        const point = updatedPath.getAt(i);
-        updatedCoordinates.push([point.lat(), point.lng()]);
-      }
-      
-      // Aktualisiere den entsprechenden Eintrag im Polygons-Array
-      setPolygons(prev => prev.map(p => p.polygon === polygon ? {
-        polygon,
-        area: Math.round(updatedArea),
-        coordinates: updatedCoordinates
-      } : p));
+      clearTimeout(updateTimeout);
+      updateTimeout = setTimeout(() => {
+        const updatedPath = polygon.getPath();
+        const updatedArea = calculateArea(updatedPath);
+        
+        const updatedCoordinates: Array<[number, number]> = [];
+        for (let i = 0; i < updatedPath.getLength(); i++) {
+          const point = updatedPath.getAt(i);
+          updatedCoordinates.push([point.lat(), point.lng()]);
+        }
+        
+        setPolygons(prevPolygons => 
+          prevPolygons.map(p => 
+            p.polygon === polygon 
+              ? {
+                  polygon,
+                  area: Math.round(updatedArea),
+                  coordinates: updatedCoordinates
+                } 
+              : p
+          )
+        );
+      }, 100); // Kleine Verzögerung zur Vermeidung zu häufiger Updates
     });
     
     setShowInstructions(false);
@@ -182,19 +193,19 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     if (drawingManagerRef.current) {
       drawingManagerRef.current.setDrawingMode(null);
     }
-  };
+  }, []);
 
-  const removeLastPolygon = () => {
+  const removeLastPolygon = useCallback(() => {
     if (polygons.length > 0) {
       const lastPolygon = polygons[polygons.length - 1];
       lastPolygon.polygon.setMap(null); // Entferne das Polygon von der Karte
       setPolygons(prev => prev.slice(0, -1)); // Entferne das letzte Element aus dem Array
     }
-  };
+  }, [polygons]);
 
-  const closeInstructions = () => {
+  const closeInstructions = useCallback(() => {
     setShowInstructions(false);
-  };
+  }, []);
 
   if (loadError) return (
     <motion.div 

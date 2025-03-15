@@ -8,8 +8,7 @@ import { UnternehmenBedarfStep } from './steps/UnternehmenBedarfStep'
 import { BewerberProfilStep } from './steps/BewerberProfilStep'
 import { AnforderungenStep } from './steps/AnforderungenStep'
 import { KonditionenStep } from './steps/KonditionenStep'
-import { KontaktStep } from './steps/KontaktStep'
-import { ZusammenfassungStep } from './steps/ZusammenfassungStep'
+import { KontaktZusammenfassungStep } from './steps/KontaktZusammenfassungStep'
 
 // FormData-Struktur für den Leiharbeit-Wizard
 export type FormData = {
@@ -17,9 +16,9 @@ export type FormData = {
   unternehmenBedarf?: {
     branche: 'produktion' | 'logistik' | 'handwerk' | 'buero' | 'it' | 'gastronomie' | 'handel' | 'medizin' | 'sonstiges' | '';
     brancheSonstiges?: string;
-    anzahlMitarbeiter: number;
+    anzahlMitarbeiter: number | string; // Geändert zu number | string für manuelle Eingabe
     qualifikationsniveau: 'ungelernt' | 'angelernt' | 'fachkraft' | 'spezialist' | 'fuehrungskraft' | '';
-    einsatzdauer: 'kurzfristig' | 'mittelfristig' | 'langfristig' | '';
+    einsatzdauer: 'ein_tag' | 'mehrere_tage' | 'kurzfristig' | 'mittelfristig' | 'langfristig' | ''; // Geändert für tageweise Optionen
     einsatzbeginn: string;
   };
   bewerberProfil?: {
@@ -113,7 +112,7 @@ const LeiharbeitWizard: React.FC = () => {
 
   // Navigation zwischen Schritten
   const goToNextStep = () => {
-    if (currentStep < 6) {
+    if (currentStep < 5) { // Geändert von 6 auf 5 (ein Schritt weniger)
       setDirection('forward')
       setCurrentStep(currentStep + 1)
     }
@@ -179,9 +178,7 @@ const LeiharbeitWizard: React.FC = () => {
       case 4:
         return <KonditionenStep {...commonProps} goToNextStep={goToNextStep} />
       case 5:
-        return <KontaktStep {...commonProps} goToNextStep={goToNextStep} />
-      case 6:
-        return <ZusammenfassungStep {...commonProps} isLastStep={true} />
+        return <KontaktZusammenfassungStep {...commonProps} isLastStep={true} />
       default:
         return null
     }
@@ -200,7 +197,7 @@ const LeiharbeitWizard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          <StepIndicator currentStep={currentStep} totalSteps={6} />
+          <StepIndicator currentStep={currentStep} totalSteps={5} />
         </motion.div>
         
         <div className="mt-8">

@@ -30,8 +30,11 @@ type ReinigungsartStepProps = {
   goToPreviousStep: () => void;
 }
 
+// Wir definieren einen Typ, der den leeren String ausschließt
+type NonEmptyReinigungsart = Exclude<FormData['reinigungsart']['hauptkategorie'], ''>
+
 // Icons für die verschiedenen Reinigungsarten
-const icons = {
+const icons: Record<NonEmptyReinigungsart, React.ReactNode> = {
   unterhaltsreinigung: <Repeat className="h-8 w-8" />, // Neues Icon für Unterhaltsreinigung
   grundreinigung: <Sparkle className="h-8 w-8" />, // Zurück zu Sparkle für Grundreinigung
   glas_fassade: <Droplet className="h-8 w-8" />,
@@ -50,7 +53,7 @@ const icons = {
 }
 
 // Titel für die Reinigungsarten
-const titles = {
+const titles: Record<NonEmptyReinigungsart, string> = {
   unterhaltsreinigung: "Unterhaltsreinigung",
   grundreinigung: "Grundreinigung",
   glas_fassade: "Glas & Fassade",
@@ -113,7 +116,7 @@ export const ReinigungsartStep: React.FC<ReinigungsartStepProps> = ({
     goToNextStep()
   }
 
-  const reinigungsarten: Array<FormData['reinigungsart']['hauptkategorie']> = [
+  const reinigungsarten: Array<NonEmptyReinigungsart> = [
     'unterhaltsreinigung', 'grundreinigung', 'glas_fassade', 'industrie', 'reinraum',
     'aussenanlagen', 'sonderreinigung', 'verkehrsmittel', 'hotel', 'veranstaltung',
     'baureinigung', 'steinreinigung', 'dachreinigung', 'solaranlagen', 'sonstiges'
@@ -161,9 +164,11 @@ export const ReinigungsartStep: React.FC<ReinigungsartStepProps> = ({
             whileTap={{ scale: 0.98 }}
           >
             <div className={`p-2 rounded-full mb-2 ${selectedType === type ? 'text-accent' : 'text-gray-500'}`}>
-              {icons[type]}
+              {selectedType ? icons[type as NonEmptyReinigungsart] : icons[type]}
             </div>
-            <h3 className="font-medium text-gray-800 text-xs text-center">{titles[type]}</h3>
+            <h3 className="font-medium text-gray-800 text-xs text-center">
+              {selectedType ? titles[type as NonEmptyReinigungsart] : titles[type]}
+            </h3>
           </motion.div>
         ))}
       </motion.div>

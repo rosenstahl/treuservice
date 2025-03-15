@@ -11,14 +11,6 @@ type UmfangGroesseStepProps = {
   goToPreviousStep: () => void;
 }
 
-// Beispielbilder für Füllgrade
-const fuellgradImages = {
-  leer: "/images/entrumpelung/fullness-empty.jpg",
-  wenig: "/images/entrumpelung/fullness-light.jpg",
-  mittel: "/images/entrumpelung/fullness-medium.jpg",
-  voll: "/images/entrumpelung/fullness-full.jpg"
-}
-
 // Beschreibungen für Füllgrade
 const fuellgradDescriptions = {
   leer: "Leere Räume mit wenigen Gegenständen",

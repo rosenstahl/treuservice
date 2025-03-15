@@ -69,26 +69,6 @@ const titles = {
   sonstiges: "Sonstige Sicherheitsdienste"
 }
 
-// Beschreibungen für die Security-Typen mit optimierten, kurzen Texten
-const descriptions = {
-  objektschutz: "Umfassende Sicherheitslösung für Gebäude und Grundstücke mit Zutrittskontrolle und Überwachung",
-  werkschutz: "Spezialisierte Sicherheit für Produktionsbetriebe und Industrieanlagen",
-  baustellenbewachung: "Schutz von Baugeräten, Materialien und Baustellen vor Diebstahl und Vandalismus",
-  asylunterkuenfte: "Professionelle und interkulturell kompetente Sicherheitsdienste für Unterkünfte",
-  city_streife: "Mobile Präsenz in Innenstädten und auf öffentlichen Plätzen für mehr Sicherheit",
-  revierstreifendienst: "Regelmäßige Kontrollgänge auf weitläufigen Geländen und in Wohnbereichen",
-  doorman: "Repräsentative Einlasskontrolle für exklusive Lokalitäten mit höchsten Serviceansprüchen",
-  ladendetektiv: "Diskrete Überwachung zur Verhinderung von Ladendiebstählen und Inventurschwund",
-  empfangsdienst: "Professionelle Kombination aus Empfangs- und Sicherheitsdienst",
-  nightaudit: "Spezialisierte Hotel-Sicherheit und -Rezeption in den Nachtstunden",
-  eventschutz: "Umfassende Sicherheitsdienste für Veranstaltungen aller Art und Größen",
-  standwache: "Überwachung von Messeauftritten, Ausstellungsständen und temporären Installationen",
-  ordnerdienst: "Strukturierte Besucherführung und Crowd-Management bei Events",
-  parkraummanagement: "Überwachung und Organisation von Parkflächen und Parkanlagen",
-  chauffeurservice: "Professionelle Fahrer mit Sicherheitsausbildung für diskrete Transfers",
-  sonstiges: "Individuelle Sicherheitslösungen für spezielle Anforderungen"
-}
-
 export const SecurityTypeStep: React.FC<SecurityTypeStepProps> = ({ 
   formData, 
   updateFormData, 
@@ -185,9 +165,6 @@ export const SecurityTypeStep: React.FC<SecurityTypeStepProps> = ({
               {icons[type]}
             </div>
             <h3 className="font-medium text-gray-800 text-sm text-center mb-1">{titles[type]}</h3>
-            <p className="text-xs text-gray-500 text-center line-clamp-2 h-10">
-              {descriptions[type]}
-            </p>
           </motion.div>
         ))}
       </motion.div>

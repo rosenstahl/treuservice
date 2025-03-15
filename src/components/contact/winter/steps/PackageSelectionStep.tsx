@@ -178,9 +178,14 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
             transform: formData.package.type === 'all-in-one' ? 'translateY(-4px)' : ''
           }}
         >
-          <div className="absolute -right-12 -top-12 transform rotate-45 bg-blue-600 w-40 h-40 z-10"></div>
-          <div className="absolute top-1 right-1 z-20 text-white text-xs font-bold transform rotate-45">
-            Bestseller
+          {/* Eleganteres Bestseller-Label im Apple-Stil */}
+          <div className="absolute top-3 right-3 z-20">
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-1 px-3 rounded-full text-xs font-medium shadow-sm flex items-center">
+              <svg className="h-3 w-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zm7-10a1 1 0 01.707.293l.707.707.707-.707A1 1 0 0116 3v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0V6h-1a1 1 0 110-2h1V3a1 1 0 011-1z" clipRule="evenodd" />
+              </svg>
+              Bestseller
+            </div>
           </div>
           
           {formData.package.type === 'all-in-one' && (

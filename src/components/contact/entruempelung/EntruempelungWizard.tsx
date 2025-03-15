@@ -148,7 +148,7 @@ const EntruempelungWizard: React.FC = () => {
       case 4:
         return <ZugangTerminStep {...commonProps} goToNextStep={goToNextStep} />
       case 5:
-        return <KontaktZusammenfassungStep {...commonProps} isLastStep={true} />
+        return <KontaktZusammenfassungStep {...commonProps} _isLastStep={true} />
       default:
         return null
     }

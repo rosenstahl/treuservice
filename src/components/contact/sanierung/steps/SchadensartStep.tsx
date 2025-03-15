@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../SanierungWizard'
-import { Flame, Droplet, Bug, Wrench, CaseSensitive } from 'lucide-react'
+import { Flame, Droplet, Bug, Wrench } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 
 type SchadensartStepProps = {
@@ -46,11 +46,10 @@ export const SchadensartStep: React.FC<SchadensartStepProps> = ({
   }
 
   const options = [
-    { id: 'brand', label: 'Brandschaden', icon: <Flame className="h-6 w-6" /> },
-    { id: 'wasser', label: 'Wasserschaden', icon: <Droplet className="h-6 w-6" /> },
-    { id: 'schimmel', label: 'Schimmelbefall', icon: <Bug className="h-6 w-6" /> },
-    { id: 'kombi', label: 'Kombischaden (mehrere Arten)', icon: <CaseSensitive className="h-6 w-6" /> },
-    { id: 'sonstige', label: 'Andere Sanierungsleistung', icon: <Wrench className="h-6 w-6" /> }
+    { id: 'brand', label: 'Brandschaden', icon: <Flame className="h-6 w-6" />, color: 'bg-red-100 text-red-700' },
+    { id: 'wasser', label: 'Wasserschaden', icon: <Droplet className="h-6 w-6" />, color: 'bg-blue-100 text-blue-700' },
+    { id: 'schimmel', label: 'Schimmelbefall', icon: <Bug className="h-6 w-6" />, color: 'bg-green-100 text-green-700' },
+    { id: 'sonstige', label: 'Andere Sanierungsleistung', icon: <Wrench className="h-6 w-6" />, color: 'bg-purple-100 text-purple-700' }
   ]
 
   return (
@@ -80,7 +79,7 @@ export const SchadensartStep: React.FC<SchadensartStepProps> = ({
       </div>
       
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto"
+        className="grid grid-cols-1 sm:grid-cols-4 gap-4 max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
@@ -89,17 +88,17 @@ export const SchadensartStep: React.FC<SchadensartStepProps> = ({
           <motion.div
             key={option.id}
             onClick={() => handleSchadensartChange(option.id as FormData['schadensart'])}
-            className={`p-6 rounded-lg border border-gray-200 cursor-pointer transition-all duration-200 ${
+            className={`p-6 rounded-lg shadow-sm cursor-pointer transition-all duration-200 ${
               formData.schadensart === option.id
-                ? 'border-accent bg-accent/5 ring-2 ring-accent/20'
-                : 'hover:border-accent/30 hover:bg-gray-50'
+                ? 'border-2 border-accent bg-accent/5 ring-2 ring-accent/20 transform scale-105'
+                : 'border border-gray-200 hover:border-accent/30 hover:bg-gray-50'
             }`}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
             <div className="flex flex-col items-center text-center">
               <div className={`p-3 rounded-full ${
-                formData.schadensart === option.id ? 'bg-accent text-white' : 'bg-gray-100 text-gray-600'
+                formData.schadensart === option.id ? 'bg-accent text-white' : option.color
               }`}>
                 {option.icon}
               </div>

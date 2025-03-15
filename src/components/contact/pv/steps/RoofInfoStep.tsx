@@ -37,7 +37,7 @@ export const RoofInfoStep: React.FC<RoofInfoStepProps> = ({
   const validateForm = useCallback(() => {
     const valid = 
       roofMaterial !== '' && 
-      Boolean(roofOrientation && roofOrientation !== '' as any) && 
+      Boolean(roofOrientation) && 
       roofArea > 0
     
     setIsValid(valid)

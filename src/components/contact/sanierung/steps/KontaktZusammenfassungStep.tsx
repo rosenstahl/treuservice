@@ -7,7 +7,6 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
-import { calculateTotalPrice, formatPrice } from '../utils/priceCalculation'
 import { CheckCircle2, AlertCircle, ArrowUpRight, Flame, Droplet, Bug, Clock, Calendar, Building, User, Mail, Phone } from 'lucide-react'
 
 type KontaktZusammenfassungStepProps = {
@@ -36,12 +35,6 @@ export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProp
       isValidEmail(kontakt.email)
     )
   }, [formData.kontakt])
-
-  // Berechne den Preis basierend auf den Formulardaten
-  useEffect(() => {
-    const preis = calculateTotalPrice(formData)
-    updateFormData({ preisschaetzung: preis })
-  }, [formData, updateFormData])
 
   const isValidEmail = (email: string): boolean => {
     // Einfache E-Mail-Validierung
@@ -402,30 +395,6 @@ export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProp
                   <p className="text-sm text-gray-600">
                     Etage: <span className="font-medium">{formData.adresse.etage}</span>
                     {formData.adresse.aufzug && <span className="ml-2 text-green-600">(Aufzug vorhanden)</span>}
-                  </p>
-                </div>
-              </div>
-
-              {/* Preisschätzung */}
-              <div className="bg-white p-5 rounded-lg border-2 border-accent/20 shadow-sm">
-                <div className="flex items-center mb-3">
-                  <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <h3 className="font-medium text-lg ml-2">Preisindikation</h3>
-                </div>
-                
-                <div className="flex justify-between items-center">
-                  <p className="text-gray-600">Geschätzter Preis:</p>
-                  <p className="text-2xl font-bold text-accent">
-                    {formatPrice(formData.preisschaetzung)}
-                  </p>
-                </div>
-                
-                <div className="mt-3 text-xs text-gray-500">
-                  <p>
-                    Dies ist eine unverbindliche Preisindikation basierend auf Ihren Angaben.
-                    Der endgültige Preis kann nach einer detaillierten Vor-Ort-Begutachtung variieren.
                   </p>
                 </div>
               </div>

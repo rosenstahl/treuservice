@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../PVMontageWizard'
-import { ArrowRight, Battery, BatteryCharging, BatteryFull, PenLine } from 'lucide-react'
+import { ArrowRight, Plus, Minus } from 'lucide-react'
 
 type BatteryStorageStepProps = {
   formData: FormData;
@@ -18,37 +18,32 @@ export const BatteryStorageStep: React.FC<BatteryStorageStepProps> = ({
   goToNextStep,
   goToPreviousStep 
 }) => {
-  const [includeStorage, setIncludeStorage] = useState(formData.battery.includeStorage)
-  const [batteryCapacity, setBatteryCapacity] = useState(formData.battery.capacity || 0)
-  const [additionalInfo, setAdditionalInfo] = useState(formData.additionalInfo || '')
-  const [isValid, setIsValid] = useState(true) // Diese Schritte sind optional, daher immer gültig
+  const [includeStorage, setIncludeStorage] = useState(formData.battery.includeStorage || false)
+  const [batteryCapacity, setBatteryCapacity] = useState(formData.battery.capacity || 5)
 
-  // Bei Änderung der Batteriekapazität prüfen, ob der Speicher aktiviert werden soll
+  // Aktualisierung bei Änderungen des Speichers
   useEffect(() => {
-    if (batteryCapacity > 0 && !includeStorage) {
-      setIncludeStorage(true)
-    }
-  }, [batteryCapacity])
-
-  // Beim Deaktivieren des Speichers die Kapazität zurücksetzen
-  useEffect(() => {
+    // Wenn kein Speicher gewählt wird, setze Kapazität auf 0
     if (!includeStorage && batteryCapacity > 0) {
-      setBatteryCapacity(0)
+      setBatteryCapacity(0);
+    } 
+    // Wenn Speicher gewählt wird, setze Mindestkapazität auf 5 kWh
+    else if (includeStorage && batteryCapacity === 0) {
+      setBatteryCapacity(5);
     }
-  }, [includeStorage])
+  }, [includeStorage, batteryCapacity])
 
-  // Formular absenden
-  const handleSubmit = () => {
+  // Submit Handler
+  const handleSubmit = useCallback(() => {
     updateFormData({
       battery: {
         includeStorage,
         capacity: batteryCapacity
-      },
-      additionalInfo
+      }
     })
     
     goToNextStep()
-  }
+  }, [updateFormData, includeStorage, batteryCapacity, goToNextStep])
 
   return (
     <motion.div 
@@ -64,7 +59,7 @@ export const BatteryStorageStep: React.FC<BatteryStorageStepProps> = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.3 }}
         >
-          Speicherlösung & Zusatzinformationen
+          Batteriespeicher
         </motion.h2>
         <motion.p 
           className="text-gray-600 max-w-2xl mx-auto"
@@ -72,7 +67,7 @@ export const BatteryStorageStep: React.FC<BatteryStorageStepProps> = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          Möchten Sie einen Batteriespeicher integrieren? Teilen Sie uns hier auch weitere Informationen zu Ihrem Projekt mit.
+          Möchten Sie einen Batteriespeicher in Ihre PV-Anlage integrieren?
         </motion.p>
       </div>
       
@@ -82,136 +77,113 @@ export const BatteryStorageStep: React.FC<BatteryStorageStepProps> = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
       >
-        {/* Speicherlösung */}
-        <div className="bg-[#009FD8]/5 p-6 rounded-lg">
-          <div className="flex items-center mb-4">
-            <BatteryFull className="w-6 h-6 text-[#009FD8] mr-2" />
-            <h3 className="text-lg font-medium">Batteriespeicher</h3>
-          </div>
-          
-          <div className="mb-6">
-            <label className="flex items-center cursor-pointer space-x-3">
-              <input
-                type="checkbox"
-                checked={includeStorage}
-                onChange={() => setIncludeStorage(!includeStorage)}
-                className="form-checkbox h-5 w-5 text-[#009FD8] rounded border-gray-300 focus:ring-[#009FD8]"
-              />
-              <span className="text-sm font-medium text-gray-700">
-                Ich möchte einen Batteriespeicher integrieren
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div 
+            className={`border rounded-lg p-6 cursor-pointer transition-all hover:shadow-md ${
+              !includeStorage ? 'border-[#009FD8] bg-[#009FD8]/5' : 'border-gray-200 hover:border-[#009FD8]/50'
+            }`}
+            onClick={() => setIncludeStorage(false)}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className="flex flex-col items-center text-center">
+              <div className={`text-3xl mb-3 ${!includeStorage ? 'text-[#009FD8]' : 'text-gray-500'}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                </svg>
+              </div>
+              <span className={`text-lg font-medium ${!includeStorage ? 'text-[#009FD8]' : 'text-gray-700'}`}>
+                Nein, kein Speicher
               </span>
-            </label>
+              <p className="mt-2 text-sm text-gray-500">
+                Einspeisen des überschüssigen Stroms ins Netz
+              </p>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            className={`border rounded-lg p-6 cursor-pointer transition-all hover:shadow-md ${
+              includeStorage ? 'border-[#009FD8] bg-[#009FD8]/5' : 'border-gray-200 hover:border-[#009FD8]/50'
+            }`}
+            onClick={() => setIncludeStorage(true)}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className="flex flex-col items-center text-center">
+              <div className={`text-3xl mb-3 ${includeStorage ? 'text-[#009FD8]' : 'text-gray-500'}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5H18V15H4.5v-4.5zM3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
+                </svg>
+              </div>
+              <span className={`text-lg font-medium ${includeStorage ? 'text-[#009FD8]' : 'text-gray-700'}`}>
+                Ja, mit Batteriespeicher
+              </span>
+              <p className="mt-2 text-sm text-gray-500">
+                Speichern des überschüssigen Stroms für späteren Verbrauch
+              </p>
+            </div>
+          </motion.div>
+        </div>
+        
+        {includeStorage && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="bg-gray-50 p-6 rounded-lg"
+          >
+            <h3 className="text-lg font-medium text-gray-800 mb-4">Speicherkapazität:</h3>
             
-            {includeStorage && (
-              <motion.div 
-                className="mt-4"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                transition={{ duration: 0.3 }}
-              >
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Gewünschte Speicherkapazität (kWh)
-                </label>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-500">5 kWh</span>
-                    <span className="text-xs text-gray-500">25 kWh</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="5"
-                    max="25"
-                    step="1"
-                    value={batteryCapacity || 5}
-                    onChange={(e) => setBatteryCapacity(parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#009FD8]"
-                    disabled={!includeStorage}
-                  />
-                  <div className="flex items-center gap-4">
-                    <button 
-                      onClick={() => setBatteryCapacity(Math.max(5, batteryCapacity - 1))}
-                      className={`px-3 py-1 border rounded-md transition-colors ${
-                        includeStorage 
-                          ? 'border-gray-300 hover:border-[#009FD8]' 
-                          : 'border-gray-200 text-gray-400 cursor-not-allowed'
-                      }`}
-                      disabled={!includeStorage}
-                    >
-                      -
-                    </button>
-                    <input
-                      type="number"
-                      min="5"
-                      max="25"
-                      value={batteryCapacity || ''}
-                      onChange={(e) => setBatteryCapacity(Math.min(25, Math.max(5, parseInt(e.target.value) || 0)))}
-                      className={`w-20 px-3 py-1 border rounded-md text-center focus:outline-none focus:ring-2 ${
-                        includeStorage 
-                          ? 'border-gray-300 focus:ring-[#009FD8]/50' 
-                          : 'border-gray-200 text-gray-400 bg-gray-50 cursor-not-allowed'
-                      }`}
-                      placeholder="kWh"
-                      disabled={!includeStorage}
-                    />
-                    <button 
-                      onClick={() => setBatteryCapacity(Math.min(25, batteryCapacity + 1))}
-                      className={`px-3 py-1 border rounded-md transition-colors ${
-                        includeStorage 
-                          ? 'border-gray-300 hover:border-[#009FD8]' 
-                          : 'border-gray-200 text-gray-400 cursor-not-allowed'
-                      }`}
-                      disabled={!includeStorage}
-                    >
-                      +
-                    </button>
-                    <span className="text-sm text-gray-500">kWh</span>
-                  </div>
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <span>5 kWh</span>
+                <span>20 kWh</span>
+              </div>
+              
+              <input
+                type="range"
+                min="5"
+                max="20"
+                step="1"
+                value={batteryCapacity}
+                onChange={(e) => setBatteryCapacity(parseInt(e.target.value))}
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#009FD8]"
+              />
+              
+              <div className="flex items-center justify-center gap-4">
+                <button 
+                  type="button"
+                  onClick={() => setBatteryCapacity(Math.max(5, batteryCapacity - 1))}
+                  className="p-2 rounded-full border border-gray-300 hover:border-[#009FD8] transition-colors"
+                >
+                  <Minus className="h-4 w-4" />
+                </button>
+                
+                <div className="flex items-center">
+                  <span className="text-2xl font-bold text-[#009FD8]">{batteryCapacity}</span>
+                  <span className="ml-2 text-gray-700">kWh</span>
                 </div>
                 
-                <div className="mt-4 p-3 bg-white rounded-md flex items-center">
-                  <BatteryCharging className="w-5 h-5 text-[#009FD8] mr-2" />
-                  <span className="text-sm">
-                    {batteryCapacity} kWh entspricht etwa {Math.round(batteryCapacity / 5 * 100) / 10} kWh täglich
-                  </span>
-                </div>
-                
-                <p className="mt-4 text-xs text-gray-500">
-                  Ein Speicher ermöglicht es Ihnen, selbst erzeugten Strom auch nachts zu nutzen und erhöht Ihre Unabhängigkeit vom Stromnetz.
+                <button 
+                  type="button"
+                  onClick={() => setBatteryCapacity(Math.min(20, batteryCapacity + 1))}
+                  className="p-2 rounded-full border border-gray-300 hover:border-[#009FD8] transition-colors"
+                >
+                  <Plus className="h-4 w-4" />
+                </button>
+              </div>
+              
+              <div className="mt-4 text-sm text-gray-600">
+                <p>Empfohlene Speichergröße für Ihren Haushalt basierend auf Ihrer PV-Anlagengröße.</p>
+                <p className="mt-2 text-xs text-gray-500">
+                  * Die genaue Dimensionierung des Speichers erfolgt nach Prüfung Ihres individuellen Bedarfsprofils.
                 </p>
-              </motion.div>
-            )}
-          </div>
-        </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
         
-        {/* Zusatzinformationen */}
-        <div className="bg-gray-50 p-6 rounded-lg">
-          <div className="flex items-center mb-4">
-            <PenLine className="w-6 h-6 text-gray-700 mr-2" />
-            <h3 className="text-lg font-medium">Weitere Informationen</h3>
-          </div>
-          
-          <div className="mb-2">
-            <label 
-              htmlFor="additionalInfo" 
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Möchten Sie uns noch etwas zu Ihrem Projekt mitteilen?
-            </label>
-            <textarea
-              id="additionalInfo"
-              value={additionalInfo}
-              onChange={(e) => setAdditionalInfo(e.target.value)}
-              placeholder="z.B. besondere Anforderungen, Zeitrahmen, Budget..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#009FD8]/50 min-h-[120px]"
-            />
-          </div>
-          
-          <p className="text-xs text-gray-500">
-            Je mehr Informationen Sie uns geben, desto besser können wir auf Ihre individuellen Bedürfnisse eingehen.
-          </p>
-        </div>
-        
-        {/* Navigationsbuttons */}
         <div className="flex gap-4">
           <motion.button
             onClick={goToPreviousStep}
@@ -224,11 +196,11 @@ export const BatteryStorageStep: React.FC<BatteryStorageStepProps> = ({
           
           <motion.button
             onClick={handleSubmit}
-            className="flex-1 py-3 px-6 rounded-md font-medium bg-[#009FD8] text-white hover:bg-[#007CAB] transition-all duration-200 flex items-center justify-center transform hover:scale-[1.03] hover:shadow-md"
+            className="flex-1 py-3 px-6 rounded-md font-medium bg-[#009FD8] text-white hover:bg-[#007CAB] transform hover:scale-[1.03] hover:shadow-md transition-all duration-200 flex items-center justify-center"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
-            Weiter zur Zusammenfassung
+            Weiter
             <ArrowRight className="ml-2 h-4 w-4" />
           </motion.button>
         </div>

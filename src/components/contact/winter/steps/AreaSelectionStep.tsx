@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { FormData } from '../WinterdienstWizard'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
@@ -28,7 +28,7 @@ export const AreaSelectionStep: React.FC<AreaSelectionStepProps> = ({
   const [areaSize, setAreaSize] = useState(formData.area.value > 0 ? formData.area.value.toString() : "")
   const [isManualMode, setIsManualMode] = useState(formData.area.manual)
   
-  const handleAreaChange = ({ area, coordinates }: { area: number; coordinates: Array<[number, number]> }) => {
+  const handleAreaChange = useCallback(({ area, coordinates }: { area: number; coordinates: Array<[number, number]> }) => {
     // Nur formData aktualisieren, aber nicht die manuelle Eingabe
     if (!isManualMode) {
       updateFormData({
@@ -40,7 +40,7 @@ export const AreaSelectionStep: React.FC<AreaSelectionStepProps> = ({
         }
       });
     }
-  };
+  }, [formData.area, isManualMode, updateFormData]);
   
   const handleContinue = () => {
     // Beim Weiter immer den aktuellen Wert übernehmen
@@ -186,16 +186,16 @@ export const AreaSelectionStep: React.FC<AreaSelectionStepProps> = ({
           Zurück
         </button>
         <button
-  onClick={handleContinue}
-  disabled={isManualMode ? (!areaSize || isNaN(parseFloat(areaSize)) || parseFloat(areaSize) <= 0) : formData.area.value <= 0}
-  className={`py-2 px-6 bg-accent text-white font-medium rounded-md hover:bg-accent-dark transition-all duration-200 transform hover:scale-105 hover:shadow-md ${
-    (isManualMode ? (!areaSize || isNaN(parseFloat(areaSize)) || parseFloat(areaSize) <= 0) : formData.area.value <= 0) 
-      ? 'opacity-50 cursor-not-allowed' 
-      : ''
-  }`}
->
-  Weiter
-</button>
+          onClick={handleContinue}
+          disabled={isManualMode ? (!areaSize || isNaN(parseFloat(areaSize)) || parseFloat(areaSize) <= 0) : formData.area.value <= 0}
+          className={`py-2 px-6 bg-accent text-white font-medium rounded-md hover:bg-accent-dark transition-all duration-200 transform hover:scale-105 hover:shadow-md ${
+            (isManualMode ? (!areaSize || isNaN(parseFloat(areaSize)) || parseFloat(areaSize) <= 0) : formData.area.value <= 0) 
+              ? 'opacity-50 cursor-not-allowed' 
+              : ''
+          }`}
+        >
+          Weiter
+        </button>
       </motion.div>
     </motion.div>
   )

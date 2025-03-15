@@ -69,7 +69,6 @@ const formatDate = (dateString: string) => {
 
 export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({ 
   formData, 
-  updateFormData, 
   goToPreviousStep
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -236,12 +235,12 @@ export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <p className="text-sm font-medium text-gray-500">Einsatzdauer</p>
-                    <p className="text-base">{dauerTypLabels[formData.zeitlicheInfos.dauerTyp]}</p>
+                    <p className="text-base">{formData.zeitlicheInfos.dauerTyp ? dauerTypLabels[formData.zeitlicheInfos.dauerTyp] : ''}</p>
                   </div>
                   
                   <div>
                     <p className="text-sm font-medium text-gray-500">Wiederholung</p>
-                    <p className="text-base">{wiederholungLabels[formData.zeitlicheInfos.wiederholung]}</p>
+                    <p className="text-base">{formData.zeitlicheInfos.wiederholung ? wiederholungLabels[formData.zeitlicheInfos.wiederholung] : ''}</p>
                   </div>
                 </div>
                 

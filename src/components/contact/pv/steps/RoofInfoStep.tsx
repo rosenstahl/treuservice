@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../PVMontageWizard'
-import { Home, Building, ArrowRight, PanelTop, Building2, Warehouse } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 type RoofInfoStepProps = {
   formData: FormData;
@@ -18,7 +18,6 @@ export const RoofInfoStep: React.FC<RoofInfoStepProps> = ({
   goToNextStep,
   goToPreviousStep 
 }) => {
-  const [roofType, setRoofType] = useState<FormData['roof']['type']>(formData.roof.type)
   const [roofMaterial, setRoofMaterial] = useState(formData.roof.material)
   const [roofOrientation, setRoofOrientation] = useState<FormData['roof']['orientation']>(formData.roof.orientation)
   const [roofArea, setRoofArea] = useState(formData.roof.area || 0)
@@ -37,12 +36,11 @@ export const RoofInfoStep: React.FC<RoofInfoStepProps> = ({
   // Validierung bei Änderungen
   useEffect(() => {
     validateForm()
-  }, [roofType, roofMaterial, roofArea, roofOrientation])
+  }, [roofMaterial, roofArea, roofOrientation])
 
   // Formular-Validierung
   const validateForm = () => {
     const valid = 
-      roofType !== '' && 
       roofMaterial !== '' && 
       roofOrientation !== '' && 
       roofArea > 0
@@ -56,7 +54,7 @@ export const RoofInfoStep: React.FC<RoofInfoStepProps> = ({
 
     updateFormData({
       roof: {
-        type: roofType,
+        ...formData.roof,
         material: roofMaterial,
         orientation: roofOrientation,
         area: roofArea
@@ -88,7 +86,7 @@ export const RoofInfoStep: React.FC<RoofInfoStepProps> = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          Bitte geben Sie uns Informationen zu Ihrem Dach, damit wir die passende PV-Lösung für Sie finden können.
+          Bitte geben Sie uns weitere Informationen zu Ihrem Dach, damit wir die passende PV-Lösung für Sie finden können.
         </motion.p>
       </div>
       
@@ -98,41 +96,6 @@ export const RoofInfoStep: React.FC<RoofInfoStepProps> = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
       >
-        {/* Dachtyp Auswahl */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-3">
-            Dachtyp
-          </label>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              { value: 'pitched', label: 'Schrägdach', icon: <Home /> },
-              { value: 'flat', label: 'Flachdach', icon: <PanelTop /> },
-              { value: 'facade', label: 'Fassade', icon: <Building2 /> },
-              { value: 'carport', label: 'Carport', icon: <Warehouse /> },
-              { value: 'other', label: 'Andere', icon: <Building /> }
-            ].map((type) => (
-              <motion.div 
-                key={type.value}
-                className={`border rounded-lg p-4 cursor-pointer transition-all hover:shadow-md ${
-                  roofType === type.value ? 'border-[#009FD8] bg-[#009FD8]/5' : 'border-gray-200 hover:border-[#009FD8]/50'
-                }`}
-                onClick={() => setRoofType(type.value as FormData['roof']['type'])}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className={`text-xl mb-2 ${roofType === type.value ? 'text-[#009FD8]' : 'text-gray-500'}`}>
-                    {type.icon}
-                  </div>
-                  <span className={`text-sm ${roofType === type.value ? 'font-medium text-[#009FD8]' : 'text-gray-700'}`}>
-                    {type.label}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        
         {/* Dachmaterial */}
         <div>
           <label 

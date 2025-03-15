@@ -6,42 +6,32 @@ import { FormData } from '../EntkernungWizard';
 
 type ZusammenfassungStepProps = {
   formData: FormData;
+  updateFormData: (data: Partial<FormData>) => void;
   goToPreviousStep: () => void;
   isLastStep?: boolean;
 }
 
 export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({ 
   formData,
+  updateFormData,
   goToPreviousStep
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [contactInfo, setContactInfo] = useState({
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    telefon: ''
+  });
+  
+  // Initializing contact info from existing form data
+  const [kontaktInfo, setKontaktInfo] = useState({
     name: formData.kontakt.name || '',
     email: formData.kontakt.email || '',
-    phone: formData.kontakt.telefon || '',
-    message: formData.kontakt.nachricht || '',
+    telefon: formData.kontakt.telefon || '',
+    nachricht: formData.kontakt.nachricht || '',
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setContactInfo(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Hier würde normalerweise die Datenübermittlung erfolgen
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1500);
-  };
-  
   // Objekttyp formatieren
   const getObjektTypName = () => {
     switch (formData.objektTyp) {
@@ -58,6 +48,62 @@ export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({
       default:
         return 'Sonstiges';
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setKontaktInfo(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Fehler zurücksetzen wenn ein Feld ausgefüllt wird
+    if (errors[name as keyof typeof errors]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+    
+    updateFormData({
+      kontakt: {
+        ...formData.kontakt,
+        [name]: value
+      }
+    });
+  };
+
+  const isValidEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validateForm = () => {
+    const newErrors = {
+      name: !kontaktInfo.name ? 'Bitte geben Sie Ihren Namen ein' : '',
+      email: !kontaktInfo.email ? 'Bitte geben Sie Ihre E-Mail ein' : !isValidEmail(kontaktInfo.email) ? 'Bitte geben Sie eine gültige E-Mail ein' : '',
+      telefon: !kontaktInfo.telefon ? 'Bitte geben Sie Ihre Telefonnummer ein' : '',
+    };
+    
+    setErrors(newErrors);
+    
+    // Prüfen ob alle erforderlichen Felder ausgefüllt sind
+    return !Object.values(newErrors).some(error => error !== '');
+  };
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    // Hier würde normalerweise die Datenübermittlung erfolgen
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 1500);
   };
   
   return (
@@ -176,6 +222,13 @@ export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({
                 </div>
                 
                 <div>
+                  <p className="text-sm text-gray-500">Adresse:</p>
+                  <p className="text-sm font-medium">
+                    {formData.adresseTermin.strasse} {formData.adresseTermin.hausnummer}, {formData.adresseTermin.plz} {formData.adresseTermin.ort}
+                  </p>
+                </div>
+                
+                <div>
                   <p className="text-sm text-gray-500">Kostenvoranschlag:</p>
                   <p className="text-sm font-medium text-accent">
                     {formData.preisschaetzung.toLocaleString('de-DE')} €
@@ -196,10 +249,13 @@ export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({
                   name="name"
                   type="text"
                   required
-                  value={contactInfo.name}
+                  value={kontaktInfo.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50 ${errors.name ? 'border-red-300' : 'border-gray-300'}`}
                 />
+                {errors.name && (
+                  <p className="mt-1 text-xs text-red-500">{errors.name}</p>
+                )}
               </div>
               
               <div>
@@ -211,35 +267,42 @@ export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({
                   name="email"
                   type="email"
                   required
-                  value={contactInfo.email}
+                  value={kontaktInfo.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50 ${errors.email ? 'border-red-300' : 'border-gray-300'}`}
                 />
+                {errors.email && (
+                  <p className="mt-1 text-xs text-red-500">{errors.email}</p>
+                )}
               </div>
               
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                  Telefon
+                <label htmlFor="telefon" className="block text-sm font-medium text-gray-700 mb-1">
+                  Telefon*
                 </label>
                 <input
-                  id="phone"
-                  name="phone"
+                  id="telefon"
+                  name="telefon"
                   type="tel"
-                  value={contactInfo.phone}
+                  required
+                  value={kontaktInfo.telefon}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50 ${errors.telefon ? 'border-red-300' : 'border-gray-300'}`}
                 />
+                {errors.telefon && (
+                  <p className="mt-1 text-xs text-red-500">{errors.telefon}</p>
+                )}
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="nachricht" className="block text-sm font-medium text-gray-700 mb-1">
                   Nachricht
                 </label>
                 <textarea
-                  id="message"
-                  name="message"
+                  id="nachricht"
+                  name="nachricht"
                   rows={3}
-                  value={contactInfo.message}
+                  value={kontaktInfo.nachricht}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
                 ></textarea>
@@ -285,7 +348,7 @@ export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({
             Wir haben Ihre Informationen erhalten und werden uns schnellstmöglich bei Ihnen melden.
           </p>
           <p className="text-gray-600">
-            Eine Bestätigung wurde an {contactInfo.email} gesendet.
+            Eine Bestätigung wurde an {kontaktInfo.email} gesendet.
           </p>
         </motion.div>
       )}

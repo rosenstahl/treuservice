@@ -60,8 +60,6 @@ export type FormData = {
     bevorzugteKontaktzeit: 'vormittags' | 'nachmittags' | 'abends' | '';
     anmerkungen: string;
   };
-
-  preisschaetzung: number;
 }
 
 const SanierungWizard: React.FC = () => {
@@ -118,9 +116,7 @@ const SanierungWizard: React.FC = () => {
       telefon: '',
       bevorzugteKontaktzeit: '',
       anmerkungen: ''
-    },
-
-    preisschaetzung: 0
+    }
   })
 
   // Navigation zwischen Schritten

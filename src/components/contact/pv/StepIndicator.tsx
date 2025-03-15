@@ -3,76 +3,75 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-// Interface für die Eigenschaften der StepIndicator-Komponente
 interface StepIndicatorProps {
-  currentStep: number;
-  totalSteps: number;
+  currentStep: number
+  totalSteps: number
 }
 
-// Die Schrittbeschreibungen für den Wizard
-const stepsInfo = [
-  'Kontaktdaten',
-  'Dachinfo',
-  'Anlagengröße',
-  'Speicherlösung',
-  'Zusammenfassung'
-]
-
 export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, totalSteps }) => {
-  // Berechnet den Fortschritt in Prozent
-  const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100
+  const steps = Array.from({ length: totalSteps }, (_, i) => i + 1)
   
+  const stepLabels = [
+    'Dachtyp',
+    'Dachinfo',
+    'Anlagengröße',
+    'Speicher',
+    'Zusammenfassung'
+  ]
+
   return (
-    <div className="mb-6">
-      {/* Fortschrittsbalken */}
-      <div className="relative h-2 bg-gray-200 rounded-full overflow-hidden mb-8">
-        <motion.div
-          className="absolute h-full bg-[#009FD8]"
-          initial={{ width: 0 }}
-          animate={{ width: `${progressPercentage}%` }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-        />
+    <div className="w-full">
+      <div className="flex justify-between items-center">
+        {steps.map((step) => (
+          <div key={step} className="flex flex-col items-center">
+            <motion.div
+              className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors
+                ${currentStep === step 
+                  ? 'bg-accent text-white shadow-md' 
+                  : currentStep > step 
+                    ? 'bg-accent/20 text-accent' 
+                    : 'bg-gray-200 text-gray-500'}`}
+              initial={{ scale: 0.8 }}
+              animate={{ 
+                scale: currentStep === step ? 1.1 : 1,
+                backgroundColor: currentStep === step 
+                  ? '#0284c7' // accent color
+                  : currentStep > step 
+                    ? 'rgba(2, 132, 199, 0.2)' // accent/20
+                    : '#e5e7eb' // gray-200
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {currentStep > step ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              ) : (
+                <span className="text-sm font-medium">{step}</span>
+              )}
+            </motion.div>
+            <span className={`text-xs mt-2 font-medium text-center
+              ${currentStep === step 
+                ? 'text-accent' 
+                : currentStep > step 
+                  ? 'text-accent/70' 
+                  : 'text-gray-500'}`}>
+              {stepLabels[step - 1]}
+            </span>
+          </div>
+        ))}
       </div>
       
-      {/* Schrittindikatoren */}
-      <div className="flex justify-between relative">
-        {stepsInfo.map((step, index) => {
-          // Bestimmt den Status jedes Schritts
-          const isActive = index + 1 === currentStep
-          const isCompleted = index + 1 < currentStep
-          
-          return (
-            <div 
-              key={index} 
-              className="flex flex-col items-center relative"
-              style={{ width: `${100 / totalSteps}%` }}
-            >
-              {/* Schrittnummer im Kreis */}
-              <motion.div
-                className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium 
-                  ${isActive ? 'bg-[#009FD8] text-white' : 
-                    isCompleted ? 'bg-[#009FD8] text-white' : 'bg-gray-100 text-gray-500'}`}
-                initial={{ scale: 0.8 }}
-                animate={{ 
-                  scale: isActive ? 1.1 : 1,
-                  backgroundColor: isActive || isCompleted ? '#009FD8' : '#f3f4f6'
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                {index + 1}
-              </motion.div>
-              
-              {/* Schrittbeschreibung */}
-              <span 
-                className={`text-xs mt-2 text-center 
-                  ${isActive ? 'text-[#009FD8] font-medium' : 
-                    isCompleted ? 'text-[#009FD8]' : 'text-gray-500'}`}
-              >
-                {step}
-              </span>
-            </div>
-          )
-        })}
+      <div className="relative mt-3 mb-2">
+        <div className="absolute top-0 h-1 bg-gray-200 w-full rounded-full"></div>
+        <motion.div 
+          className="absolute top-0 h-1 bg-accent rounded-full"
+          initial={{ width: `0%` }}
+          animate={{ 
+            width: `${((currentStep - 1) / (totalSteps - 1)) * 100}%` 
+          }}
+          transition={{ duration: 0.5 }}
+        ></motion.div>
       </div>
     </div>
   )

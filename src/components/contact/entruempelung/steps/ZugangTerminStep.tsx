@@ -18,10 +18,6 @@ export const ZugangTerminStep: React.FC<ZugangTerminStepProps> = ({
   goToPreviousStep
 }) => {
   const [errors, setErrors] = useState<{
-    strasse?: string
-    hausnummer?: string
-    plz?: string
-    ort?: string
     wunschtermin?: string
   }>({})
 
@@ -30,15 +26,7 @@ export const ZugangTerminStep: React.FC<ZugangTerminStepProps> = ({
   ) => {
     const { name, value } = e.target
     
-    // Prüfen, zu welchem Abschnitt das Feld gehört
-    if (['strasse', 'hausnummer', 'plz', 'ort'].includes(name)) {
-      updateFormData({
-        adresseZugang: {
-          ...formData.adresseZugang,
-          [name]: value
-        }
-      })
-    } else if (name === 'wunschtermin') {
+    if (name === 'wunschtermin') {
       updateFormData({
         terminKontakt: {
           ...formData.terminKontakt,
@@ -111,24 +99,6 @@ export const ZugangTerminStep: React.FC<ZugangTerminStepProps> = ({
   const validateForm = () => {
     const newErrors: typeof errors = {}
     
-    if (!formData.adresseZugang.strasse.trim()) {
-      newErrors.strasse = 'Straße ist erforderlich'
-    }
-    
-    if (!formData.adresseZugang.hausnummer.trim()) {
-      newErrors.hausnummer = 'Hausnummer ist erforderlich'
-    }
-    
-    if (!formData.adresseZugang.plz.trim()) {
-      newErrors.plz = 'PLZ ist erforderlich'
-    } else if (!/^\d{5}$/.test(formData.adresseZugang.plz)) {
-      newErrors.plz = 'PLZ muss 5 Ziffern enthalten'
-    }
-    
-    if (!formData.adresseZugang.ort.trim()) {
-      newErrors.ort = 'Ort ist erforderlich'
-    }
-
     if (!formData.terminKontakt.wunschtermin.trim()) {
       newErrors.wunschtermin = 'Bitte wählen Sie einen Wunschtermin'
     }
@@ -151,99 +121,13 @@ export const ZugangTerminStep: React.FC<ZugangTerminStepProps> = ({
     >
       <div className="space-y-6">
         <div className="text-center">
-          <h2 className="text-2xl font-medium text-gray-900">Zugang, Termin & Zusatzleistungen</h2>
+          <h2 className="text-2xl font-medium text-gray-900">Zugang, Zusatzleistungen & Termin</h2>
           <p className="mt-2 text-sm text-gray-500">
-            Geben Sie die Adresse, Zugangsinformationen, Wunschtermin und Zusatzleistungen an
+            Geben Sie Zugangsinformationen, Zusatzleistungen und Ihren Wunschtermin an
           </p>
         </div>
 
         <div className="mt-6 space-y-6">
-          {/* Adress-Abschnitt */}
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Adresse</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="md:col-span-2">
-                <label htmlFor="strasse" className="block text-sm font-medium text-gray-700">
-                  Straße
-                </label>
-                <input
-                  type="text"
-                  id="strasse"
-                  name="strasse"
-                  value={formData.adresseZugang.strasse}
-                  onChange={handleInputChange}
-                  className={`mt-1 block w-full border ${
-                    errors.strasse ? 'border-red-300' : 'border-gray-300'
-                  } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
-                />
-                {errors.strasse && (
-                  <p className="mt-1 text-sm text-red-600">{errors.strasse}</p>
-                )}
-              </div>
-              
-              <div>
-                <label htmlFor="hausnummer" className="block text-sm font-medium text-gray-700">
-                  Hausnummer
-                </label>
-                <input
-                  type="text"
-                  id="hausnummer"
-                  name="hausnummer"
-                  value={formData.adresseZugang.hausnummer}
-                  onChange={handleInputChange}
-                  className={`mt-1 block w-full border ${
-                    errors.hausnummer ? 'border-red-300' : 'border-gray-300'
-                  } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
-                />
-                {errors.hausnummer && (
-                  <p className="mt-1 text-sm text-red-600">{errors.hausnummer}</p>
-                )}
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-              <div>
-                <label htmlFor="plz" className="block text-sm font-medium text-gray-700">
-                  PLZ
-                </label>
-                <input
-                  type="text"
-                  id="plz"
-                  name="plz"
-                  value={formData.adresseZugang.plz}
-                  onChange={handleInputChange}
-                  className={`mt-1 block w-full border ${
-                    errors.plz ? 'border-red-300' : 'border-gray-300'
-                  } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
-                  maxLength={5}
-                />
-                {errors.plz && (
-                  <p className="mt-1 text-sm text-red-600">{errors.plz}</p>
-                )}
-              </div>
-              
-              <div className="md:col-span-2">
-                <label htmlFor="ort" className="block text-sm font-medium text-gray-700">
-                  Ort
-                </label>
-                <input
-                  type="text"
-                  id="ort"
-                  name="ort"
-                  value={formData.adresseZugang.ort}
-                  onChange={handleInputChange}
-                  className={`mt-1 block w-full border ${
-                    errors.ort ? 'border-red-300' : 'border-gray-300'
-                  } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
-                />
-                {errors.ort && (
-                  <p className="mt-1 text-sm text-red-600">{errors.ort}</p>
-                )}
-              </div>
-            </div>
-          </div>
-          
           {/* Zugangs-Abschnitt */}
           <div className="bg-gray-50 p-4 rounded-lg">
             <h3 className="text-lg font-medium text-gray-900 mb-4">Zugangsinformationen</h3>
@@ -330,35 +214,6 @@ export const ZugangTerminStep: React.FC<ZugangTerminStepProps> = ({
               </div>
             </div>
           </div>
-
-          {/* Wunschtermin */}
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Wunschtermin</h3>
-            
-            <div>
-              <label htmlFor="wunschtermin" className="block text-sm font-medium text-gray-700">
-                Bevorzugtes Datum für die Entrümpelung
-              </label>
-              <input
-                type="date"
-                id="wunschtermin"
-                name="wunschtermin"
-                value={formData.terminKontakt.wunschtermin}
-                onChange={handleInputChange}
-                min={getMinDate()}
-                max={getMaxDate()}
-                className={`mt-1 block w-full border ${
-                  errors.wunschtermin ? 'border-red-300' : 'border-gray-300'
-                } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
-              />
-              {errors.wunschtermin && (
-                <p className="mt-1 text-sm text-red-600">{errors.wunschtermin}</p>
-              )}
-              <p className="mt-1 text-xs text-gray-500">
-                Bitte beachten Sie: Der tatsächliche Termin wird nach Verfügbarkeit bestätigt.
-              </p>
-            </div>
-          </div>
           
           {/* Zusatzleistungen */}
           <div className="bg-gray-50 p-4 rounded-lg">
@@ -402,6 +257,35 @@ export const ZugangTerminStep: React.FC<ZugangTerminStepProps> = ({
                   <p className="text-gray-500">Sie erhalten einen dokumentierten Nachweis über die fachgerechte Entsorgung</p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Wunschtermin */}
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">Wunschtermin</h3>
+            
+            <div>
+              <label htmlFor="wunschtermin" className="block text-sm font-medium text-gray-700">
+                Bevorzugtes Datum für die Entrümpelung
+              </label>
+              <input
+                type="date"
+                id="wunschtermin"
+                name="wunschtermin"
+                value={formData.terminKontakt.wunschtermin}
+                onChange={handleInputChange}
+                min={getMinDate()}
+                max={getMaxDate()}
+                className={`mt-1 block w-full border ${
+                  errors.wunschtermin ? 'border-red-300' : 'border-gray-300'
+                } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
+              />
+              {errors.wunschtermin && (
+                <p className="mt-1 text-sm text-red-600">{errors.wunschtermin}</p>
+              )}
+              <p className="mt-1 text-xs text-gray-500">
+                Bitte beachten Sie: Der tatsächliche Termin wird nach Verfügbarkeit bestätigt.
+              </p>
             </div>
           </div>
         </div>

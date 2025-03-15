@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../LeiharbeitWizard'
 import { CheckCircle, Loader2, PhoneCall, Briefcase, Building2, User, Phone, Mail, Pin, Clock, Info } from 'lucide-react'
@@ -102,42 +102,14 @@ export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProp
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
-  const [showSummary, setShowSummary] = useState(false);
+  // Start mit dem Zusammenfassungsschritt anstelle des Kontaktformulars
+  const [showSummary, setShowSummary] = useState(true);
   
   // Handler für die Formular-Inputs
   const handleDatenschutzToggle = () => {
     setDatenschutz(prev => !prev)
     updateFormData({ datenschutz: !datenschutz })
   }
-
-  // Speichern der Kontaktdaten und Anzeigen der Zusammenfassung
-  const handleSaveAndContinue = () => {
-    if (!validateForm()) return;
-    
-    // Aktualisiere die Formulardaten
-    updateFormData({
-      kontakt: {
-        name,
-        firma: isUnternehmen ? firma : undefined,
-        ansprechpartner: isUnternehmen ? ansprechpartner : undefined,
-        telefon,
-        email,
-        adresseStrasse,
-        adresseHausnummer,
-        adressePlz,
-        adresseOrt,
-        anmerkungen
-      },
-      datenschutz
-    });
-    
-    setShowSummary(true);
-  };
-
-  // Zurück zum Kontaktformular
-  const handleBackToContact = () => {
-    setShowSummary(false);
-  };
 
   // Formularvalidierung
   const validateForm = () => {
@@ -179,6 +151,35 @@ export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProp
   const validateEmail = (email: string) => {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return re.test(email);
+  };
+
+  // Speichern der Kontaktdaten
+  const handleSaveContact = () => {
+    if (!validateForm()) return;
+    
+    // Aktualisiere die Formulardaten
+    updateFormData({
+      kontakt: {
+        name,
+        firma: isUnternehmen ? firma : undefined,
+        ansprechpartner: isUnternehmen ? ansprechpartner : undefined,
+        telefon,
+        email,
+        adresseStrasse,
+        adresseHausnummer,
+        adressePlz,
+        adresseOrt,
+        anmerkungen
+      },
+      datenschutz
+    });
+    
+    setShowSummary(true);
+  };
+
+  // Zum Bearbeiten des Kontaktformulars
+  const handleEditContact = () => {
+    setShowSummary(false);
   };
 
   // Absenden des Formulars
@@ -483,12 +484,12 @@ export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProp
                 </motion.button>
 
                 <motion.button
-                  onClick={handleSaveAndContinue}
+                  onClick={handleSaveContact}
                   className="py-3 px-8 rounded-md font-medium transition-all duration-200 bg-accent text-white hover:bg-accent-dark hover:shadow-md"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  Weiter
+                  Weiter zur Zusammenfassung
                 </motion.button>
               </motion.div>
             </div>
@@ -749,7 +750,7 @@ export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProp
                 <div className="flex justify-between border-b pb-2 mb-4">
                   <h3 className="text-lg font-medium text-gray-900">Kontaktdaten</h3>
                   <button 
-                    onClick={handleBackToContact}
+                    onClick={handleEditContact}
                     className="text-sm text-accent hover:text-accent-dark underline"
                   >
                     Bearbeiten
@@ -759,37 +760,37 @@ export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProp
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <p className="text-sm font-medium text-gray-500">Name</p>
-                    <p className="text-base">{name}</p>
+                    <p className="text-base">{formData.kontakt.name || "Bitte Kontaktdaten eingeben"}</p>
                   </div>
                   
-                  {isUnternehmen && firma && (
+                  {isUnternehmen && formData.kontakt.firma && (
                     <div>
                       <p className="text-sm font-medium text-gray-500">Firma</p>
-                      <p className="text-base">{firma}</p>
+                      <p className="text-base">{formData.kontakt.firma}</p>
                     </div>
                   )}
                   
                   <div>
                     <p className="text-sm font-medium text-gray-500">E-Mail</p>
-                    <p className="text-base">{email}</p>
+                    <p className="text-base">{formData.kontakt.email || "Bitte Kontaktdaten eingeben"}</p>
                   </div>
                   
                   <div>
                     <p className="text-sm font-medium text-gray-500">Telefon</p>
-                    <p className="text-base">{telefon}</p>
+                    <p className="text-base">{formData.kontakt.telefon || "Bitte Kontaktdaten eingeben"}</p>
                   </div>
                   
                   <div className="col-span-2">
                     <p className="text-sm font-medium text-gray-500">Adresse</p>
                     <p className="text-base">
-                      {adresseStrasse} {adresseHausnummer}, {adressePlz} {adresseOrt}
+                      {formData.kontakt.adresseStrasse ? `${formData.kontakt.adresseStrasse} ${formData.kontakt.adresseHausnummer}, ${formData.kontakt.adressePlz} ${formData.kontakt.adresseOrt}` : "Bitte Adresse eingeben"}
                     </p>
                   </div>
                   
-                  {anmerkungen && (
+                  {formData.kontakt.anmerkungen && (
                     <div className="col-span-2">
                       <p className="text-sm font-medium text-gray-500">Anmerkungen</p>
-                      <p className="text-base">{anmerkungen}</p>
+                      <p className="text-base">{formData.kontakt.anmerkungen}</p>
                     </div>
                   )}
                 </div>
@@ -812,7 +813,7 @@ export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProp
                 transition={{ delay: 0.8, duration: 0.3 }}
               >
                 <motion.button
-                  onClick={handleBackToContact}
+                  onClick={goToPreviousStep}
                   className="py-2 px-6 bg-gray-100 text-gray-700 font-medium rounded-md border border-gray-200 hover:bg-gray-200 transition-all duration-200 hover:shadow-sm"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -822,11 +823,21 @@ export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProp
                 </motion.button>
 
                 <motion.button
-                  onClick={handleSubmit}
-                  className="py-3 px-8 rounded-md font-medium transition-all duration-200 bg-accent text-white hover:bg-accent-dark hover:shadow-md flex items-center"
+                  onClick={handleEditContact}
+                  className="py-2 px-6 bg-white text-accent border border-accent font-medium rounded-md hover:bg-accent/5 transition-all duration-200 hover:shadow-sm mx-2"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   disabled={isSubmitting}
+                >
+                  Kontaktdaten eingeben
+                </motion.button>
+
+                <motion.button
+                  onClick={handleSubmit}
+                  className={`py-3 px-8 rounded-md font-medium transition-all duration-200 ${formData.kontakt.name ? 'bg-accent text-white hover:bg-accent-dark hover:shadow-md' : 'bg-gray-300 text-gray-500 cursor-not-allowed'} flex items-center`}
+                  whileHover={formData.kontakt.name ? { scale: 1.03 } : {}}
+                  whileTap={formData.kontakt.name ? { scale: 0.97 } : {}}
+                  disabled={isSubmitting || !formData.kontakt.name}
                 >
                   {isSubmitting ? (
                     <>

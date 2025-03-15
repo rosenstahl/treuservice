@@ -7,7 +7,6 @@ import { SecurityTypeStep } from './steps/SecurityTypeStep'
 import { ObjektTypStep } from './steps/ObjektTypStep'
 import { PersonalUmfangStep } from './steps/PersonalUmfangStep'
 import { ZeitlicheInfosStep } from './steps/ZeitlicheInfosStep'
-import { KontaktStep } from './steps/KontaktStep'
 import { ZusammenfassungStep } from './steps/ZusammenfassungStep'
 
 // FormData-Struktur für den Security-Wizard
@@ -118,7 +117,7 @@ const SecurityWizard: React.FC = () => {
 
   // Navigation zwischen Schritten
   const goToNextStep = () => {
-    if (currentStep < 6) {
+    if (currentStep < 5) { // Jetzt nur noch 5 Schritte statt 6
       setDirection('forward')
       setCurrentStep(currentStep + 1)
     }
@@ -173,8 +172,6 @@ const SecurityWizard: React.FC = () => {
       case 4:
         return <ZeitlicheInfosStep {...commonProps} goToNextStep={goToNextStep} />
       case 5:
-        return <KontaktStep {...commonProps} goToNextStep={goToNextStep} />
-      case 6:
         return <ZusammenfassungStep {...commonProps} isLastStep={true} />
       default:
         return null
@@ -194,7 +191,7 @@ const SecurityWizard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          <StepIndicator currentStep={currentStep} totalSteps={6} />
+          <StepIndicator currentStep={currentStep} totalSteps={5} />
         </motion.div>
         
         <div className="mt-8">

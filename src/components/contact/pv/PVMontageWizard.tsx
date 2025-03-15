@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { StepIndicator } from './StepIndicator'
-import { ContactStep } from './steps/ContactStep'
+import { DachTypStep } from './steps/DachTypStep'
 import { RoofInfoStep } from './steps/RoofInfoStep'
 import { SystemSizeStep } from './steps/SystemSizeStep'
 import { BatteryStorageStep } from './steps/BatteryStorageStep'
@@ -112,7 +112,7 @@ const PVMontageWizard: React.FC = () => {
     
     switch (currentStep) {
       case 1:
-        return <ContactStep {...commonProps} goToNextStep={goToNextStep} />
+        return <DachTypStep {...commonProps} goToNextStep={goToNextStep} />
       case 2:
         return <RoofInfoStep {...commonProps} goToNextStep={goToNextStep} />
       case 3:

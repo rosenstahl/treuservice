@@ -89,11 +89,15 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
           variants={cardVariants}
           initial="hidden"
           animate="visible"
-          className={`relative overflow-hidden rounded-lg border-2 transition-all duration-300 ${
+          className={`relative overflow-hidden rounded-xl border transition-all duration-300 ${
             formData.package.type === 'flex' 
-              ? 'border-accent shadow-md' 
-              : 'border-gray-200 hover:border-accent/50'
+              ? 'border-accent shadow-lg bg-white' 
+              : 'border-gray-200 bg-white hover:shadow-md'
           }`}
+          style={{
+            boxShadow: formData.package.type === 'flex' ? '0 4px 14px rgba(0,0,0,0.1)' : '',
+            transform: formData.package.type === 'flex' ? 'translateY(-4px)' : ''
+          }}
         >
           {formData.package.type === 'flex' && (
             <div className="absolute top-0 left-0 z-10">
@@ -103,15 +107,15 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
             </div>
           )}
           
-          <div className="bg-secondary text-primary py-4 text-center">
-            <h3 className="text-2xl font-bold text-accent">FLEX</h3>
-            <p className="text-sm text-primary-light">Im Ernstfall flexibel abgesichert sein</p>
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 py-4 text-center border-b">
+            <h3 className="text-2xl font-bold text-blue-600">FLEX</h3>
+            <p className="text-sm text-gray-600">Im Ernstfall flexibel abgesichert sein</p>
           </div>
           
-          <div className="p-5 bg-secondary text-primary">
+          <div className="p-5">
             <ul className="space-y-4 mb-6">
               <li className="flex items-start">
-                <div className="bg-accent rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
+                <div className="bg-blue-500 rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
                   <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -119,7 +123,7 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
                 <span className="text-sm">Einsatzabhängige Abrechnung</span>
               </li>
               <li className="flex items-start">
-                <div className="bg-accent rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
+                <div className="bg-blue-500 rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
                   <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -127,7 +131,7 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
                 <span className="text-sm">Zuverlässiger Winterdienst nach Bedarf</span>
               </li>
               <li className="flex items-start">
-                <div className="bg-accent rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
+                <div className="bg-blue-500 rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
                   <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -136,18 +140,22 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
               </li>
             </ul>
             
-            <div className="border-t border-accent/20 pt-4 mt-6">
-              <div className="flex justify-between items-center mt-2">
-                <span className="text-accent font-bold">Bereithaltegebühr {seasonText}</span>
+            <div className="border-t pt-4 mt-6 text-center">
+              <div className="mt-2">
+                <span className="text-blue-600 font-bold">Bereithaltegebühr {seasonText}</span>
               </div>
-              <div className="flex justify-between text-sm text-primary-light mt-4">
+              <div className="text-sm text-gray-500 mt-2">
                 <span>Abrechnung pro Einsatz</span>
               </div>
             </div>
             
             <button
               onClick={() => handlePackageSelection('flex')}
-              className="w-full py-3 px-2 rounded-md bg-white text-secondary font-semibold mt-6 hover:bg-primary-dark transition-colors"
+              className={`w-full py-3 px-2 rounded-md mt-6 transition-all duration-300 ${
+                formData.package.type === 'flex'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white text-blue-600 border border-blue-600 hover:bg-blue-50'
+              }`}
             >
               {formData.package.type === 'flex' ? 'Ausgewählt' : 'Jetzt auswählen'}
             </button>
@@ -160,13 +168,17 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
           variants={cardVariants}
           initial="hidden"
           animate="visible"
-          className={`relative overflow-hidden rounded-lg border-2 transition-all duration-300 ${
+          className={`relative overflow-hidden rounded-xl border transition-all duration-300 ${
             formData.package.type === 'all-in-one' 
-              ? 'border-accent shadow-md' 
-              : 'border-gray-200 hover:border-accent/50'
+              ? 'border-accent shadow-lg bg-white' 
+              : 'border-gray-200 bg-white hover:shadow-md'
           }`}
+          style={{
+            boxShadow: formData.package.type === 'all-in-one' ? '0 4px 14px rgba(0,0,0,0.1)' : '',
+            transform: formData.package.type === 'all-in-one' ? 'translateY(-4px)' : ''
+          }}
         >
-          <div className="absolute -right-12 -top-12 transform rotate-45 bg-accent w-40 h-40 z-10"></div>
+          <div className="absolute -right-12 -top-12 transform rotate-45 bg-blue-600 w-40 h-40 z-10"></div>
           <div className="absolute top-1 right-1 z-20 text-white text-xs font-bold transform rotate-45">
             Bestseller
           </div>
@@ -179,15 +191,15 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
             </div>
           )}
           
-          <div className="bg-secondary text-primary py-4 text-center">
-            <h3 className="text-2xl font-bold text-accent">ALL-IN-ONE</h3>
-            <p className="text-sm text-primary-light">Budgetsicherheit, keine Kostenüberraschung</p>
+          <div className="bg-gradient-to-br from-blue-100 to-blue-200 py-4 text-center border-b">
+            <h3 className="text-2xl font-bold text-blue-700">ALL-IN-ONE</h3>
+            <p className="text-sm text-gray-600">Budgetsicherheit, keine Kostenüberraschung</p>
           </div>
           
-          <div className="p-5 bg-secondary text-primary">
+          <div className="p-5">
             <ul className="space-y-4 mb-6">
               <li className="flex items-start">
-                <div className="bg-accent rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
+                <div className="bg-blue-600 rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
                   <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -195,7 +207,7 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
                 <span className="text-sm">Unbegrenzter Leistungsumfang in der gesamten Saison</span>
               </li>
               <li className="flex items-start">
-                <div className="bg-accent rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
+                <div className="bg-blue-600 rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
                   <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -203,7 +215,7 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
                 <span className="text-sm">Zuverlässiger Winterdienst während der gesamten Saison</span>
               </li>
               <li className="flex items-start">
-                <div className="bg-accent rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
+                <div className="bg-blue-600 rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
                   <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -212,18 +224,22 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
               </li>
             </ul>
             
-            <div className="border-t border-accent/20 pt-4 mt-6">
-              <div className="flex justify-between items-center mt-2">
-                <span className="text-accent font-bold">Fixpreis/Saison {seasonText}</span>
+            <div className="border-t pt-4 mt-6 text-center">
+              <div className="mt-2">
+                <span className="text-blue-700 font-bold">Fixpreis/Saison {seasonText}</span>
               </div>
-              <div className="flex justify-between text-sm text-primary-light mt-4">
+              <div className="text-sm text-gray-500 mt-2">
                 <span>Optional: monatliche Abrechnung</span>
               </div>
             </div>
             
             <button
               onClick={() => handlePackageSelection('all-in-one')}
-              className="w-full py-3 px-2 rounded-md bg-white text-secondary font-semibold mt-6 hover:bg-primary-dark transition-colors"
+              className={`w-full py-3 px-2 rounded-md mt-6 transition-all duration-300 ${
+                formData.package.type === 'all-in-one'
+                ? 'bg-blue-700 text-white'
+                : 'bg-white text-blue-700 border border-blue-700 hover:bg-blue-50'
+              }`}
             >
               {formData.package.type === 'all-in-one' ? 'Ausgewählt' : 'Jetzt auswählen'}
             </button>
@@ -236,11 +252,15 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
           variants={cardVariants}
           initial="hidden"
           animate="visible"
-          className={`relative overflow-hidden rounded-lg border-2 transition-all duration-300 ${
+          className={`relative overflow-hidden rounded-xl border transition-all duration-300 ${
             formData.package.type === 'on-demand' 
-              ? 'border-accent shadow-md' 
-              : 'border-gray-200 hover:border-accent/50'
+              ? 'border-accent shadow-lg bg-white' 
+              : 'border-gray-200 bg-white hover:shadow-md'
           }`}
+          style={{
+            boxShadow: formData.package.type === 'on-demand' ? '0 4px 14px rgba(0,0,0,0.1)' : '',
+            transform: formData.package.type === 'on-demand' ? 'translateY(-4px)' : ''
+          }}
         >
           {formData.package.type === 'on-demand' && (
             <div className="absolute top-0 left-0 z-10">
@@ -250,15 +270,15 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
             </div>
           )}
           
-          <div className="bg-secondary text-primary py-4 text-center">
-            <h3 className="text-2xl font-bold text-accent">ON DEMAND</h3>
-            <p className="text-sm text-primary-light">Unser TREU Service-Notfallservice</p>
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 py-4 text-center border-b">
+            <h3 className="text-2xl font-bold text-blue-600">ON DEMAND</h3>
+            <p className="text-sm text-gray-600">Unser TREU Service-Notfallservice</p>
           </div>
           
-          <div className="p-5 bg-secondary text-primary">
+          <div className="p-5">
             <ul className="space-y-4 mb-6">
               <li className="flex items-start">
-                <div className="bg-accent rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
+                <div className="bg-blue-500 rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
                   <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -266,7 +286,7 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
                 <span className="text-sm">&quot;Last minute&quot; Buchung ohne Vorabreservierung</span>
               </li>
               <li className="flex items-start">
-                <div className="bg-accent rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
+                <div className="bg-blue-500 rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
                   <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -274,7 +294,7 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
                 <span className="text-sm">Räum- und Streuservice bei Bedarf</span>
               </li>
               <li className="flex items-start">
-                <div className="bg-accent rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
+                <div className="bg-blue-500 rounded-full p-1 mr-3 mt-0.5 flex-shrink-0">
                   <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -283,15 +303,19 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
               </li>
             </ul>
             
-            <div className="border-t border-accent/20 pt-4 mt-6">
-              <div className="flex justify-between items-center mt-4">
-                <span className="text-accent font-bold">Abrechnung pro Einzelfahrt</span>
+            <div className="border-t pt-4 mt-6 text-center">
+              <div className="mt-2">
+                <span className="text-blue-600 font-bold">Abrechnung pro Einzelfahrt</span>
               </div>
             </div>
             
             <button
               onClick={() => handlePackageSelection('on-demand')}
-              className="w-full py-3 px-2 rounded-md bg-white text-secondary font-semibold mt-6 hover:bg-primary-dark transition-colors"
+              className={`w-full py-3 px-2 rounded-md mt-6 transition-all duration-300 ${
+                formData.package.type === 'on-demand'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white text-blue-600 border border-blue-600 hover:bg-blue-50'
+              }`}
             >
               {formData.package.type === 'on-demand' ? 'Ausgewählt' : 'Jetzt auswählen'}
             </button>

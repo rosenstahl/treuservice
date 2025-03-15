@@ -7,8 +7,7 @@ import { ReinigungsartStep } from './steps/ReinigungsartStep'
 import { ObjektTypStep } from './steps/ObjektTypStep'
 import { FlaecheInfoStep } from './steps/FlaecheInfoStep'
 import { TerminServiceStep } from './steps/TerminServiceStep'
-import { KontaktStep } from './steps/KontaktStep'
-import { ZusammenfassungStep } from './steps/ZusammenfassungStep'
+import { KontaktZusammenfassungStep } from './steps/KontaktZusammenfassungStep'
 
 // FormData-Struktur für den Reinigungs-Wizard
 export type FormData = {
@@ -88,7 +87,7 @@ const ReinigungWizard: React.FC = () => {
 
   // Navigation zwischen Schritten
   const goToNextStep = () => {
-    if (currentStep < 6) {
+    if (currentStep < 5) {
       setDirection('forward')
       setCurrentStep(currentStep + 1)
     }
@@ -143,9 +142,7 @@ const ReinigungWizard: React.FC = () => {
       case 4:
         return <TerminServiceStep {...commonProps} goToNextStep={goToNextStep} />
       case 5:
-        return <KontaktStep {...commonProps} goToNextStep={goToNextStep} />
-      case 6:
-        return <ZusammenfassungStep {...commonProps} isLastStep={true} />
+        return <KontaktZusammenfassungStep {...commonProps} isLastStep={true} />
       default:
         return null
     }
@@ -164,7 +161,7 @@ const ReinigungWizard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          <StepIndicator currentStep={currentStep} totalSteps={6} />
+          <StepIndicator currentStep={currentStep} totalSteps={5} />
         </motion.div>
         
         <div className="mt-8">

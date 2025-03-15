@@ -140,11 +140,12 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
               </li>
             </ul>
             
-            <div className="border-t pt-4 mt-6 text-center">
+            {/* Einheitliches Layout für Preisinfos */}
+            <div className="border-t pt-4 mt-6 text-center h-20 flex flex-col justify-between">
               <div className="mt-2">
                 <span className="text-blue-600 font-bold">Bereithaltegebühr {seasonText}</span>
               </div>
-              <div className="text-sm text-gray-500 mt-2">
+              <div className="text-sm text-gray-500">
                 <span>Abrechnung pro Einsatz</span>
               </div>
             </div>
@@ -229,11 +230,12 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
               </li>
             </ul>
             
-            <div className="border-t pt-4 mt-6 text-center">
+            {/* Einheitliches Layout für Preisinfos */}
+            <div className="border-t pt-4 mt-6 text-center h-20 flex flex-col justify-between">
               <div className="mt-2">
                 <span className="text-blue-700 font-bold">Fixpreis/Saison {seasonText}</span>
               </div>
-              <div className="text-sm text-gray-500 mt-2">
+              <div className="text-sm text-gray-500">
                 <span>Optional: monatliche Abrechnung</span>
               </div>
             </div>
@@ -308,9 +310,13 @@ export const PackageSelectionStep: React.FC<PackageSelectionStepProps> = ({
               </li>
             </ul>
             
-            <div className="border-t pt-4 mt-6 text-center">
+            {/* Einheitliches Layout für Preisinfos */}
+            <div className="border-t pt-4 mt-6 text-center h-20 flex flex-col justify-between">
               <div className="mt-2">
                 <span className="text-blue-600 font-bold">Abrechnung pro Einzelfahrt</span>
+              </div>
+              <div className="text-sm text-gray-500">
+                <span>Keine Bereithaltegebühr</span>
               </div>
             </div>
             

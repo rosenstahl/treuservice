@@ -13,7 +13,7 @@ type PersonalUmfangStepProps = {
 }
 
 // Informationen zu Qualifikationen
-const qualificationsInfo = {
+const qualificationsInfo: Record<string, { title: string; description: string; icon: React.ReactNode }> = {
   sg34a: {
     title: "Sachkundeprüfung nach § 34a GewO",
     description: "Obligatorische Grundqualifikation für Sicherheitspersonal",

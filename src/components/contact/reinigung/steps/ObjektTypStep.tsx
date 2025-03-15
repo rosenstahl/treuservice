@@ -22,8 +22,11 @@ type ObjektTypStepProps = {
   goToPreviousStep: () => void;
 }
 
+// Wir müssen sicherstellen, dass der leere String nicht als Typ existieren kann
+type NonEmptyObjektTyp = Exclude<FormData['objektTyp']['typ'], ''>
+
 // Icons für die verschiedenen Objekttypen
-const icons = {
+const icons: Record<NonEmptyObjektTyp, React.ReactNode> = {
   buero: <Building2 className="h-8 w-8" />,
   wohnhaus: <Home className="h-8 w-8" />,
   industrie: <Factory className="h-8 w-8" />,
@@ -36,7 +39,7 @@ const icons = {
 }
 
 // Titel und Beschreibungen für die Objekttypen
-const titles = {
+const titles: Record<NonEmptyObjektTyp, string> = {
   buero: "Büro",
   wohnhaus: "Wohnhaus",
   industrie: "Industrie",
@@ -48,7 +51,7 @@ const titles = {
   sonstiges: "Sonstiges"
 }
 
-const descriptions = {
+const descriptions: Record<NonEmptyObjektTyp, string> = {
   buero: "Büroräume, Verwaltungsgebäude, Coworking-Spaces",
   wohnhaus: "Privatwohnungen, Einfamilienhäuser, Mehrfamilienhäuser",
   industrie: "Produktionshallen, Werkstätten, Lagerhallen",
@@ -106,7 +109,7 @@ export const ObjektTypStep: React.FC<ObjektTypStepProps> = ({
     goToNextStep()
   }
 
-  const objektTypes: Array<FormData['objektTyp']['typ']> = [
+  const objektTypes: Array<NonEmptyObjektTyp> = [
     'buero', 'wohnhaus', 'industrie', 'gewerbe', 'hotel', 
     'krankenhaus', 'schule', 'aussenbereich', 'sonstiges'
   ]
@@ -153,11 +156,11 @@ export const ObjektTypStep: React.FC<ObjektTypStepProps> = ({
             whileTap={{ scale: 0.98 }}
           >
             <div className={`p-3 rounded-full mb-3 ${selectedType === type ? 'text-accent' : 'text-gray-500'}`}>
-              {icons[type]}
+              {selectedType ? icons[type as NonEmptyObjektTyp] : icons[type]}
             </div>
-            <h3 className="font-medium text-gray-800 capitalize mb-1">{titles[type]}</h3>
+            <h3 className="font-medium text-gray-800 capitalize mb-1">{selectedType ? titles[type as NonEmptyObjektTyp] : titles[type]}</h3>
             <p className="text-xs text-gray-500 text-center">
-              {descriptions[type]}
+              {selectedType ? descriptions[type as NonEmptyObjektTyp] : descriptions[type]}
             </p>
           </motion.div>
         ))}

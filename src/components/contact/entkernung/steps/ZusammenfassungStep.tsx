@@ -227,13 +227,6 @@ export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({
                     {formData.adresseTermin.strasse} {formData.adresseTermin.hausnummer}, {formData.adresseTermin.plz} {formData.adresseTermin.ort}
                   </p>
                 </div>
-                
-                <div>
-                  <p className="text-sm text-gray-500">Kostenvoranschlag:</p>
-                  <p className="text-sm font-medium text-accent">
-                    {formData.preisschaetzung.toLocaleString('de-DE')} €
-                  </p>
-                </div>
               </div>
             </div>
           </div>

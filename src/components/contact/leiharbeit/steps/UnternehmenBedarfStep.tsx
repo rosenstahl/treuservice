@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../LeiharbeitWizard'
-import { Briefcase, Timer, Calendar, Factory, Building2, HardHat, Computer, Utensils, ShoppingBag, HeartPulse, MoreHorizontal, Zap } from 'lucide-react'
+import { Briefcase, Timer, Calendar, Factory, Building2, HardHat, Computer, Utensils, ShoppingBag, HeartPulse, MoreHorizontal, Zap, Edit3, Clock } from 'lucide-react'
 
 type UnternehmenBedarfStepProps = {
   formData: FormData;
@@ -63,9 +63,11 @@ const qualifikationsniveaus = [
 
 // Einsatzdauer Optionen
 const einsatzdauerOptionen = [
-  { value: 'kurzfristig', label: 'Kurzfristig (1-4 Wochen)' },
-  { value: 'mittelfristig', label: 'Mittelfristig (1-6 Monate)' },
-  { value: 'langfristig', label: 'Langfristig (> 6 Monate)' }
+  { value: 'ein_tag', label: 'Ein Tag', icon: <Clock className="h-5 w-5" /> },
+  { value: 'mehrere_tage', label: '2-5 Tage', icon: <Clock className="h-5 w-5" /> },
+  { value: 'kurzfristig', label: 'Kurzfristig (1-4 Wochen)', icon: <Timer className="h-5 w-5" /> },
+  { value: 'mittelfristig', label: 'Mittelfristig (1-6 Monate)', icon: <Timer className="h-5 w-5" /> },
+  { value: 'langfristig', label: 'Langfristig (> 6 Monate)', icon: <Timer className="h-5 w-5" /> }
 ]
 
 export const UnternehmenBedarfStep: React.FC<UnternehmenBedarfStepProps> = ({ 
@@ -81,9 +83,14 @@ export const UnternehmenBedarfStep: React.FC<UnternehmenBedarfStepProps> = ({
   const [brancheSonstiges, setBrancheSonstiges] = useState(
     formData.unternehmenBedarf?.brancheSonstiges || ''
   )
-  const [anzahlMitarbeiter, setAnzahlMitarbeiter] = useState(
+  
+  // Für Anzahl Mitarbeiter: entweder Zahl oder benutzerdefinierter Text
+  const [anzahlMitarbeiter, setAnzahlMitarbeiter] = useState<number | string>(
     formData.unternehmenBedarf?.anzahlMitarbeiter || 1
   )
+  const [customAnzahl, setCustomAnzahl] = useState(false)
+  const [customAnzahlText, setCustomAnzahlText] = useState('')
+  
   const [qualifikationsniveau, setQualifikationsniveau] = useState<FormData['unternehmenBedarf']['qualifikationsniveau']>(
     formData.unternehmenBedarf?.qualifikationsniveau || ''
   )
@@ -99,20 +106,35 @@ export const UnternehmenBedarfStep: React.FC<UnternehmenBedarfStepProps> = ({
 
   const [error, setError] = useState('')
 
+  // Wenn customAnzahl aktiviert wird, Wechsel zwischen Slider und Textfeld
+  useEffect(() => {
+    if (customAnzahl) {
+      if (typeof anzahlMitarbeiter === 'number') {
+        setCustomAnzahlText(anzahlMitarbeiter.toString())
+      }
+    } else {
+      if (typeof anzahlMitarbeiter === 'string' && !isNaN(Number(anzahlMitarbeiter))) {
+        setAnzahlMitarbeiter(Number(anzahlMitarbeiter))
+      }
+    }
+  }, [customAnzahl, anzahlMitarbeiter])
+
   // Aktualisiere formData wenn sich lokale Zustände ändern
   useEffect(() => {
+    const finalAnzahlMitarbeiter = customAnzahl ? customAnzahlText : anzahlMitarbeiter
+    
     updateFormData({
       unternehmenBedarf: {
         branche,
         brancheSonstiges: branche === 'sonstiges' ? brancheSonstiges : undefined,
-        anzahlMitarbeiter,
+        anzahlMitarbeiter: finalAnzahlMitarbeiter,
         qualifikationsniveau,
         einsatzdauer,
         einsatzbeginn
       },
       expressAnfrage
     })
-  }, [branche, brancheSonstiges, anzahlMitarbeiter, qualifikationsniveau, einsatzdauer, einsatzbeginn, expressAnfrage, updateFormData])
+  }, [branche, brancheSonstiges, anzahlMitarbeiter, customAnzahlText, customAnzahl, qualifikationsniveau, einsatzdauer, einsatzbeginn, expressAnfrage, updateFormData])
 
   // Handler für verschiedene Inputs
   const handleBrancheSelect = (selected: FormData['unternehmenBedarf']['branche']) => {
@@ -134,6 +156,10 @@ export const UnternehmenBedarfStep: React.FC<UnternehmenBedarfStepProps> = ({
     setExpressAnfrage(prev => !prev)
   }
 
+  const toggleCustomAnzahl = () => {
+    setCustomAnzahl(prev => !prev)
+  }
+
   // Minimales Datum für den Einsatzbeginn (heute)
   const today = new Date().toISOString().split('T')[0]
 
@@ -146,6 +172,11 @@ export const UnternehmenBedarfStep: React.FC<UnternehmenBedarfStepProps> = ({
     
     if (branche === 'sonstiges' && !brancheSonstiges.trim()) {
       setError('Bitte geben Sie Ihre Branche an')
+      return
+    }
+    
+    if (customAnzahl && !customAnzahlText.trim()) {
+      setError('Bitte geben Sie die Anzahl der benötigten Mitarbeiter an')
       return
     }
     
@@ -283,23 +314,43 @@ export const UnternehmenBedarfStep: React.FC<UnternehmenBedarfStepProps> = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.3 }}
         >
-          <label htmlFor="anzahlMitarbeiter" className="block text-lg font-medium text-gray-700 mb-3">
-            Anzahl benötigter Mitarbeiter
-          </label>
-          <div className="flex items-center">
-            <input
-              type="range"
-              id="anzahlMitarbeiter"
-              min="1"
-              max="50"
-              value={anzahlMitarbeiter}
-              onChange={(e) => setAnzahlMitarbeiter(parseInt(e.target.value))}
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
-            />
-            <span className="ml-4 px-3 py-2 bg-accent text-white font-medium rounded-md min-w-[3rem] text-center">
-              {anzahlMitarbeiter}
-            </span>
+          <div className="flex justify-between items-center mb-3">
+            <label htmlFor="anzahlMitarbeiter" className="block text-lg font-medium text-gray-700">
+              Anzahl benötigter Mitarbeiter
+            </label>
+            <button 
+              onClick={toggleCustomAnzahl}
+              className="flex items-center text-sm text-accent hover:text-accent-dark transition-colors"
+            >
+              <Edit3 className="h-4 w-4 mr-1" />
+              {customAnzahl ? "Slider verwenden" : "Manuell eingeben"}
+            </button>
           </div>
+          
+          {customAnzahl ? (
+            <input
+              type="text"
+              value={customAnzahlText}
+              onChange={(e) => setCustomAnzahlText(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-accent focus:border-accent"
+              placeholder="z.B. 10, 15-20, nach Bedarf"
+            />
+          ) : (
+            <div className="flex items-center">
+              <input
+                type="range"
+                id="anzahlMitarbeiter"
+                min="1"
+                max="50"
+                value={typeof anzahlMitarbeiter === 'number' ? anzahlMitarbeiter : 1}
+                onChange={(e) => setAnzahlMitarbeiter(parseInt(e.target.value))}
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
+              />
+              <span className="ml-4 px-3 py-2 bg-accent text-white font-medium rounded-md min-w-[3rem] text-center">
+                {typeof anzahlMitarbeiter === 'number' ? anzahlMitarbeiter : 1}
+              </span>
+            </div>
+          )}
         </motion.div>
 
         {/* Qualifikationsniveau */}
@@ -346,7 +397,7 @@ export const UnternehmenBedarfStep: React.FC<UnternehmenBedarfStepProps> = ({
                 whileTap={{ scale: 0.98 }}
               >
                 <div className={`mr-3 ${einsatzdauer === option.value ? 'text-accent' : 'text-gray-500'}`}>
-                  <Timer className="h-5 w-5" />
+                  {option.icon}
                 </div>
                 <span className="text-sm font-medium">{option.label}</span>
               </motion.div>

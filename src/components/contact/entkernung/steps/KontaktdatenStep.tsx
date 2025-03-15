@@ -74,48 +74,8 @@ export const KontaktdatenStep: React.FC<KontaktdatenStepProps> = ({
 
   const handleContinue = () => {
     if (validateForm()) {
-      // Berechnung des Preises basierend auf ausgewählten Optionen
-      const basePrice = calculatePrice(formData)
-      updateFormData({ preisschaetzung: basePrice })
       goToNextStep()
     }
-  }
-
-  // Einfache Preisberechnung (für die Demonstration - in der Realität würde dies komplexer sein)
-  const calculatePrice = (data: FormData) => {
-    let basePrice = 0
-    
-    // Grundpreis basierend auf Fläche
-    basePrice = data.objektDetails.flaeche * 65 // 65€ pro m²
-    
-    // Aufschlag für komplette Entkernung
-    if (data.umfang.komplettEntkernung) {
-      basePrice *= 1.2 // 20% Aufschlag
-    }
-    
-    // Aufschlag für Schadstoffe
-    if (data.schadstoffoptionen.asbest) basePrice += data.objektDetails.flaeche * 20
-    if (data.schadstoffoptionen.pcb) basePrice += data.objektDetails.flaeche * 15
-    if (data.schadstoffoptionen.kmf) basePrice += data.objektDetails.flaeche * 10
-    if (data.schadstoffoptionen.schimmel) basePrice += data.objektDetails.flaeche * 12
-    if (data.schadstoffoptionen.holzschutz) basePrice += data.objektDetails.flaeche * 8
-    
-    // Zusatzoptionen
-    if (data.zusatzoptionen.statikPruefung) basePrice += 450
-    if (data.zusatzoptionen.behoerdengaenge) basePrice += 350
-    
-    // Je nach Objekttyp
-    switch (data.objektTyp) {
-      case 'industriegebaeude':
-        basePrice *= 0.9 // 10% Rabatt wegen größerer Flächen
-        break
-      case 'oeffentlichesgebaeude':
-        basePrice *= 1.1 // 10% Aufschlag wegen höherer Anforderungen
-        break
-    }
-    
-    // Runden auf ganze Euro
-    return Math.round(basePrice)
   }
 
   return (

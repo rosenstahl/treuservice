@@ -22,7 +22,8 @@ export const DachTypStep: React.FC<DachTypStepProps> = ({
 
   // Formular-Validierung
   const validateForm = useCallback(() => {
-    const valid = Boolean(roofType && roofType !== '' as any)
+    // Prüfe, ob ein gültiger Dachtyp ausgewählt wurde (nicht leer)
+    const valid = Boolean(roofType)
     setIsValid(valid)
   }, [roofType])
 

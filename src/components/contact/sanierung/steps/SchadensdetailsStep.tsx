@@ -68,6 +68,13 @@ export const SchadensdetailsStep: React.FC<SchadensdetailsStepProps> = ({
     { id: 'elektrogeraete', label: 'Elektrogeräte' }
   ]
 
+  // Beschreibungen für Verschmutzungsgrade (aus Füllgrad von Entrümpelung)
+  const verschmutzungsgradDescriptions = {
+    leicht: "Oberflächlicher Ruß, kaum Geruch",
+    mittel: "Deutlicher Ruß, wahrnehmbarer Geruch",
+    stark: "Starke Verschmutzung, intensiver Geruch"
+  }
+
   const handleBrandVerschmutzung = (grad: FormData['details']['brandVerschmutzungsgrad']) => {
     updateFormData({
       details: {
@@ -171,27 +178,41 @@ export const SchadensdetailsStep: React.FC<SchadensdetailsStepProps> = ({
     <div className="space-y-8 max-w-3xl mx-auto">
       <div>
         <h3 className="text-lg font-medium mb-4">Grad der Verschmutzung:</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {[
-            { id: 'leicht', label: 'Leicht', desc: 'Oberflächlicher Ruß, kaum Geruch' },
-            { id: 'mittel', label: 'Mittel', desc: 'Deutlicher Ruß, wahrnehmbarer Geruch' },
-            { id: 'stark', label: 'Stark', desc: 'Starke Verschmutzung, intensiver Geruch' }
-          ].map((option) => (
+        
+        <div className="grid grid-cols-3 gap-3">
+          {(['leicht', 'mittel', 'stark'] as const).map((grad) => (
             <motion.div
-              key={option.id}
-              onClick={() => handleBrandVerschmutzung(option.id as FormData['details']['brandVerschmutzungsgrad'])}
-              className={`p-4 rounded-lg border cursor-pointer transition-all ${
-                formData.details.brandVerschmutzungsgrad === option.id
-                  ? 'border-accent bg-accent/5'
-                  : 'border-gray-200 hover:border-accent/30 hover:bg-gray-50'
-              }`}
+              key={grad}
+              className={`relative flex flex-col items-center border-2 rounded-lg p-3 cursor-pointer transition-all
+                ${formData.details.brandVerschmutzungsgrad === grad ? 'border-accent shadow-md' : 'border-gray-200'}`}
+              onClick={() => handleBrandVerschmutzung(grad)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="flex flex-col">
-                <h4 className="font-medium">{option.label}</h4>
-                <p className="text-sm text-gray-600">{option.desc}</p>
+              <div className="w-full h-16 bg-gray-100 rounded mb-2 overflow-hidden">
+                <div className={`w-full h-full flex items-center justify-center ${
+                  grad === 'leicht' ? 'bg-gray-100' :
+                  grad === 'mittel' ? 'bg-gray-300' :
+                  'bg-gray-500'
+                }`}>
+                  <span className="text-xs text-gray-700 capitalize">{grad}</span>
+                </div>
               </div>
+              <span className="text-sm font-medium capitalize mb-1">{grad}</span>
+              <p className="text-xs text-gray-500 text-center">
+                {verschmutzungsgradDescriptions[grad]}
+              </p>
+              {formData.details.brandVerschmutzungsgrad === grad && (
+                <motion.div 
+                  className="absolute -top-1 -right-1 w-5 h-5 bg-accent rounded-full flex items-center justify-center text-white"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </motion.div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -201,20 +222,19 @@ export const SchadensdetailsStep: React.FC<SchadensdetailsStepProps> = ({
         <h3 className="text-lg font-medium mb-4">Betroffene Materialien:</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {brandMaterialien.map((material) => (
-            <div key={material.id} className="flex items-start space-x-2">
+            <label 
+              key={material.id} 
+              htmlFor={`material-${material.id}`}
+              className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded-md"
+            >
               <Checkbox 
                 id={`material-${material.id}`}
                 checked={(formData.details.brandMaterialien || []).includes(material.id)}
                 onCheckedChange={() => handleBrandMaterialToggle(material.id)}
-                className="mt-1"
+                className="h-4 w-4 rounded border-gray-300"
               />
-              <Label 
-                htmlFor={`material-${material.id}`}
-                className="cursor-pointer"
-              >
-                {material.label}
-              </Label>
-            </div>
+              <span className="font-medium text-gray-700">{material.label}</span>
+            </label>
           ))}
         </div>
       </div>
@@ -397,18 +417,6 @@ export const SchadensdetailsStep: React.FC<SchadensdetailsStepProps> = ({
     </div>
   )
 
-  // Rendering für Kombischäden: Tabs für verschiedene Schäden
-  const renderKombiDetails = () => (
-    <div className="space-y-8 max-w-3xl mx-auto">
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-amber-800">
-        <p>
-          Bei kombinierten Schäden benötigen wir für eine genaue Einschätzung eine Besichtigung vor Ort. 
-          Fahren Sie mit dem Formular fort, um einen Termin zu vereinbaren.
-        </p>
-      </div>
-    </div>
-  )
-
   // Rendering für sonstige Sanierungen
   const renderSonstigeDetails = () => (
     <div className="space-y-8 max-w-3xl mx-auto">
@@ -430,8 +438,6 @@ export const SchadensdetailsStep: React.FC<SchadensdetailsStepProps> = ({
         return renderWasserDetails()
       case 'schimmel':
         return renderSchimmelDetails()
-      case 'kombi':
-        return renderKombiDetails()
       default:
         return renderSonstigeDetails()
     }
@@ -478,14 +484,14 @@ export const SchadensdetailsStep: React.FC<SchadensdetailsStepProps> = ({
 
         <motion.button
           onClick={goToNextStep}
-          disabled={formData.schadensart !== 'kombi' && formData.schadensart !== 'sonstige' && !isValid}
+          disabled={formData.schadensart !== 'sonstige' && !isValid}
           className={`py-3 px-8 rounded-md font-medium transition-all duration-200 ${
-            isValid || formData.schadensart === 'kombi' || formData.schadensart === 'sonstige'
+            isValid || formData.schadensart === 'sonstige'
               ? 'bg-accent text-white hover:bg-accent-dark transform hover:scale-[1.03] hover:shadow-md'
               : 'bg-gray-200 text-gray-500 cursor-not-allowed'
           }`}
-          whileHover={(isValid || formData.schadensart === 'kombi' || formData.schadensart === 'sonstige') ? { scale: 1.03 } : {}}
-          whileTap={(isValid || formData.schadensart === 'kombi' || formData.schadensart === 'sonstige') ? { scale: 0.97 } : {}}
+          whileHover={(isValid || formData.schadensart === 'sonstige') ? { scale: 1.03 } : {}}
+          whileTap={(isValid || formData.schadensart === 'sonstige') ? { scale: 0.97 } : {}}
         >
           Weiter
         </motion.button>

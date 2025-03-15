@@ -17,20 +17,17 @@ const serviceTypes = {
   standard: {
     title: "Standard-Service",
     description: "Normale Bearbeitung innerhalb von 3 Werktagen",
-    icon: <Clock className="h-8 w-8" />,
-    priceInfo: "Standardpreis"
+    icon: <Clock className="h-8 w-8" />
   },
   express: {
     title: "Express-Service",
     description: "Bevorzugte Bearbeitung innerhalb von 24 Stunden",
-    icon: <CalendarCheck className="h-8 w-8" />,
-    priceInfo: "+25% Aufschlag"
+    icon: <CalendarCheck className="h-8 w-8" />
   },
   sofort: {
     title: "Sofort-Service",
     description: "Sofortige Beauftragung & schnellstmögliche Durchführung",
-    icon: <Zap className="h-8 w-8" />,
-    priceInfo: "+50% Aufschlag"
+    icon: <Zap className="h-8 w-8" />
   }
 }
 
@@ -45,19 +42,19 @@ const frequencyTypes = {
     title: "Täglich",
     description: "Tägliche Reinigung (Montag bis Freitag)",
     icon: <CalendarDays className="h-6 w-6" />,
-    discount: "30% Rabatt"
+    discount: "20% Rabatt"
   },
   woechentlich: {
     title: "Wöchentlich",
     description: "Regelmäßige Reinigung einmal pro Woche",
     icon: <CalendarDays className="h-6 w-6" />,
-    discount: "20% Rabatt"
+    discount: "15% Rabatt"
   },
   monatlich: {
     title: "Monatlich",
     description: "Regelmäßige Reinigung einmal pro Monat",
     icon: <CalendarDays className="h-6 w-6" />,
-    discount: "10% Rabatt"
+    discount: "8% Rabatt"
   },
   individuell: {
     title: "Individuell",
@@ -237,9 +234,6 @@ export const TerminServiceStep: React.FC<TerminServiceStepProps> = ({
                 <p className="text-xs text-gray-500 text-center mb-2">
                   {info.description}
                 </p>
-                <span className={`text-xs px-2 py-1 rounded ${servicetyp === type ? 'bg-accent/20 text-accent' : 'bg-gray-100 text-gray-500'}`}>
-                  {info.priceInfo}
-                </span>
               </motion.div>
             ))}
           </div>

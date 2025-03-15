@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { FormData } from '../WinterdienstWizard';
 
@@ -87,10 +87,6 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
         return '';
     }
   };
-
-  // Progressbar-Komponente aus Entkernung-Formular (angepasst)
-  const progressBarSteps = 5;
-  const currentProgressStep = 4; // Der aktuelle Schritt (4 von 5)
   
   return (
     <motion.div 
@@ -117,21 +113,6 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
           Wählen Sie optionale Ergänzungen für Ihren Winterdienst ({getPackageTypeName()}).
         </motion.p>
       </div>
-
-      {/* Progress Bar von Entkernung */}
-      <div className="w-full mb-6">
-        <div className="relative mt-3 mb-2">
-          <div className="absolute top-0 h-1 bg-gray-200 w-full rounded-full"></div>
-          <motion.div 
-            className="absolute top-0 h-1 bg-accent rounded-full"
-            initial={{ width: `0%` }}
-            animate={{ 
-              width: `${((currentProgressStep - 1) / (progressBarSteps - 1)) * 100}%` 
-            }}
-            transition={{ duration: 0.5 }}
-          ></motion.div>
-        </div>
-      </div>
       
       <motion.div 
         className="space-y-4 max-w-2xl mx-auto"
@@ -139,6 +120,28 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
       >
+        {/* Haftung (immer inklusive) */}
+        <div className="bg-accent/10 p-4 rounded-md border border-accent/30">
+          <div className="flex items-start">
+            <input
+              type="checkbox"
+              checked={true}
+              disabled={true}
+              className="mt-1 h-4 w-4 text-accent rounded bg-accent/20 border-accent/30 cursor-not-allowed"
+            />
+            <div className="ml-3">
+              <span className="text-base font-medium text-gray-800 flex items-center gap-1">
+                Haftung 
+                <span className="text-accent text-sm">(immer inklusive)</span>
+              </span>
+              <p className="text-sm text-gray-600 mt-1">
+                Lehnen Sie sich zurück - TREU Service übernimmt für Sie die Haftung! 
+                Auf uns können Sie sich zu 100% verlassen.
+              </p>
+            </div>
+          </div>
+        </div>
+        
         {/* Umweltpaket */}
         <div className="bg-white p-4 rounded-md border border-gray-200 hover:shadow-sm transition-shadow">
           <div className="flex items-start">

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../LeiharbeitWizard'
-import { Clock, CreditCard, HomeIcon, Building } from 'lucide-react'
+import { Clock, CreditCard, HomeIcon, Building, Briefcase, Info } from 'lucide-react'
 
 type KonditionenStepProps = {
   formData: FormData;
@@ -95,11 +95,6 @@ export const KonditionenStep: React.FC<KonditionenStepProps> = ({
       return
     }
     
-    if (isUnternehmen && !stundensatz.trim()) {
-      setError('Bitte geben Sie einen Stundensatz an')
-      return
-    }
-    
     goToNextStep()
   }
 
@@ -117,7 +112,7 @@ export const KonditionenStep: React.FC<KonditionenStepProps> = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.3 }}
         >
-          {isUnternehmen ? 'Konditionen & Vergütung' : 'Konditionen & Erwartungen'}
+          {isUnternehmen ? 'Zusätzliche Informationen' : 'Ihre Erwartungen'}
         </motion.h2>
         <motion.p 
           className="text-gray-600 max-w-2xl mx-auto"
@@ -126,12 +121,34 @@ export const KonditionenStep: React.FC<KonditionenStepProps> = ({
           transition={{ delay: 0.2, duration: 0.3 }}
         >
           {isUnternehmen 
-            ? 'Welche Konditionen und Vergütung bieten Sie für die Leiharbeiter?' 
-            : 'Welche Konditionen und Vergütung erwarten Sie bei Ihrem Einsatz?'}
+            ? 'Bitte teilen Sie uns weitere wichtige Details zum Einsatz mit' 
+            : 'Welche Erwartungen haben Sie an Ihren zukünftigen Einsatz?'}
         </motion.p>
       </div>
       
       <div className="max-w-3xl mx-auto">
+        {/* Infobox für Unternehmen */}
+        {isUnternehmen && (
+          <motion.div
+            className="mb-8 border-2 border-accent/30 rounded-lg p-4 bg-accent/5"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.3 }}
+          >
+            <div className="flex items-start">
+              <div className="mr-3 text-accent mt-1">
+                <Info className="h-5 w-5" />
+              </div>
+              <div>
+                <h4 className="font-medium text-accent">Hinweis zur Vergütung</h4>
+                <p className="text-gray-600 text-sm mt-1">
+                  Die endgültige Vergütung wird individuell mit Ihnen besprochen. Die hier gemachten Angaben helfen uns, passende Kandidaten für Sie zu finden.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
         {/* Arbeitszeiten - für beide */}
         <motion.div
           className="mb-6"
@@ -145,7 +162,7 @@ export const KonditionenStep: React.FC<KonditionenStepProps> = ({
             </div>
             <div className="w-full">
               <label htmlFor="arbeitszeiten" className="block text-lg font-medium text-gray-700 mb-2">
-                {isUnternehmen ? 'Arbeitszeiten / Wochenstunden' : 'Gewünschte Arbeitszeiten'}
+                {isUnternehmen ? 'Benötigte Arbeitszeiten' : 'Gewünschte Arbeitszeiten'}
               </label>
               <input
                 type="text"
@@ -221,97 +238,68 @@ export const KonditionenStep: React.FC<KonditionenStepProps> = ({
           </motion.div>
         )}
 
-        {/* Bewerber: Unterkunftsbedarf */}
-        {isBewerber && (
-          <motion.div
-            className="mb-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.3 }}
-          >
-            <div className="flex items-start">
-              <div className="mr-3 text-accent mt-1">
-                <HomeIcon className="h-6 w-6" />
-              </div>
-              <div>
-                <div className="flex items-center">
-                  <input
-                    id="unterkunftBedarf"
-                    name="unterkunftBedarf"
-                    type="checkbox"
-                    checked={unterkunftBedarf}
-                    onChange={handleUnterkunftBedarfToggle}
-                    className="h-5 w-5 text-accent border-gray-300 rounded"
-                  />
-                  <label htmlFor="unterkunftBedarf" className="ml-3 font-medium text-gray-700">
-                    Unterkunftsbedarf
-                  </label>
-                </div>
-                <p className="text-gray-500 text-sm mt-1 ml-8">
-                  Ich benötige für den Einsatz eine Unterkunft oder Unterstützung bei der Wohnungssuche.
-                </p>
-              </div>
+        {/* Unterkunft - für beide */}
+        <motion.div
+          className="mb-6"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.3 }}
+        >
+          <div className="flex items-start">
+            <div className="mr-3 text-accent mt-1">
+              <HomeIcon className="h-6 w-6" />
             </div>
-          </motion.div>
-        )}
+            <div>
+              <div className="flex items-center">
+                <input
+                  id={isUnternehmen ? "unterkunftVorhanden" : "unterkunftBedarf"}
+                  name={isUnternehmen ? "unterkunftVorhanden" : "unterkunftBedarf"}
+                  type="checkbox"
+                  checked={isUnternehmen ? unterkunftVorhanden : unterkunftBedarf}
+                  onChange={isUnternehmen ? handleUnterkunftVorhandenToggle : handleUnterkunftBedarfToggle}
+                  className="h-5 w-5 text-accent border-gray-300 rounded"
+                />
+                <label htmlFor={isUnternehmen ? "unterkunftVorhanden" : "unterkunftBedarf"} className="ml-3 font-medium text-gray-700">
+                  {isUnternehmen ? 'Unterkunftsmöglichkeiten vorhanden' : 'Unterkunftsbedarf'}
+                </label>
+              </div>
+              <p className="text-gray-500 text-sm mt-1 ml-8">
+                {isUnternehmen 
+                  ? 'Wir können Unterkunftsmöglichkeiten bereitstellen oder bei der Wohnungssuche unterstützen.'
+                  : 'Ich benötige für den Einsatz eine Unterkunft oder Unterstützung bei der Wohnungssuche.'}
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
-        {/* Unternehmen: Stundensatz */}
+        {/* Unternehmen: Optionaler Stundensatz */}
         {isUnternehmen && (
           <motion.div
             className="mb-6"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.3 }}
+            transition={{ delay: 0.7, duration: 0.3 }}
           >
             <div className="flex items-start">
               <div className="mr-3 text-accent mt-1">
-                <CreditCard className="h-6 w-6" />
+                <Briefcase className="h-6 w-6" />
               </div>
               <div className="w-full">
-                <label htmlFor="stundensatz" className="block text-lg font-medium text-gray-700 mb-2">
-                  Budget / Stundensatz
-                </label>
+                <div className="flex items-center justify-between">
+                  <label htmlFor="stundensatz" className="block text-lg font-medium text-gray-700 mb-2">
+                    Budget / Vergütungsrahmen <span className="text-sm font-normal text-gray-500">(optional)</span>
+                  </label>
+                </div>
                 <input
                   type="text"
                   id="stundensatz"
                   value={stundensatz}
                   onChange={(e) => setStundensatz(e.target.value)}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-accent focus:border-accent"
-                  placeholder="z.B. max. 25 EUR/Stunde oder 3.500 EUR/Monat"
+                  placeholder="z.B. Budget bis 25 EUR/Stunde"
                 />
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Unternehmen: Unterkunftsmöglichkeiten */}
-        {isUnternehmen && (
-          <motion.div
-            className="mb-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.3 }}
-          >
-            <div className="flex items-start">
-              <div className="mr-3 text-accent mt-1">
-                <Building className="h-6 w-6" />
-              </div>
-              <div>
-                <div className="flex items-center">
-                  <input
-                    id="unterkunftVorhanden"
-                    name="unterkunftVorhanden"
-                    type="checkbox"
-                    checked={unterkunftVorhanden}
-                    onChange={handleUnterkunftVorhandenToggle}
-                    className="h-5 w-5 text-accent border-gray-300 rounded"
-                  />
-                  <label htmlFor="unterkunftVorhanden" className="ml-3 font-medium text-gray-700">
-                    Unterkunftsmöglichkeiten vorhanden
-                  </label>
-                </div>
-                <p className="text-gray-500 text-sm mt-1 ml-8">
-                  Wir können Unterkunftsmöglichkeiten bereitstellen oder bei der Wohnungssuche unterstützen.
+                <p className="text-gray-500 text-xs mt-1">
+                  Diese Angabe ist optional. Wir erstellen Ihnen ein individuelles Angebot basierend auf Ihren Anforderungen.
                 </p>
               </div>
             </div>
@@ -332,7 +320,7 @@ export const KonditionenStep: React.FC<KonditionenStepProps> = ({
           className="flex justify-between mt-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.3 }}
+          transition={{ delay: 0.8, duration: 0.3 }}
         >
           <motion.button
             onClick={goToPreviousStep}

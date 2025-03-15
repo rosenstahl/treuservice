@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../PVMontageWizard'
 import { Home, Building, ArrowRight, PanelTop, Building2, Warehouse } from 'lucide-react'
@@ -20,16 +20,16 @@ export const DachTypStep: React.FC<DachTypStepProps> = ({
   const [roofType, setRoofType] = useState<FormData['roof']['type']>(formData.roof.type)
   const [isValid, setIsValid] = useState(false)
 
+  // Formular-Validierung
+  const validateForm = useCallback(() => {
+    const valid = Boolean(roofType && roofType !== '' as any)
+    setIsValid(valid)
+  }, [roofType])
+
   // Validierung bei Änderungen
   useEffect(() => {
     validateForm()
-  }, [roofType])
-
-  // Formular-Validierung
-  const validateForm = () => {
-    const valid = roofType !== ''
-    setIsValid(valid)
-  }
+  }, [roofType, validateForm])
 
   // Formular absenden
   const handleSubmit = () => {

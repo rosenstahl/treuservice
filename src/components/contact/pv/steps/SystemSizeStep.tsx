@@ -29,8 +29,8 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
   const validateForm = useCallback(() => {
     const valid = 
       systemSize > 0 && 
-      (Boolean(moduleType && moduleType !== '' as any) || noPreferenceSelected) && 
-      (Boolean(installationType && installationType !== '' as any) || noPreferenceSelected)
+      (Boolean(moduleType) || noPreferenceSelected) && 
+      (Boolean(installationType) || noPreferenceSelected)
     
     setIsValid(valid)
   }, [systemSize, moduleType, installationType, noPreferenceSelected])

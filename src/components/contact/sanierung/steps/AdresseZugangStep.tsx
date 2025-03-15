@@ -24,6 +24,12 @@ export const AdresseZugangStep: React.FC<AdresseZugangStepProps> = ({
   goToPreviousStep
 }) => {
   const [isValid, setIsValid] = useState(false)
+  const [errors, setErrors] = useState<{
+    strasse?: string
+    hausnummer?: string
+    plz?: string
+    ort?: string
+  }>({})
 
   useEffect(() => {
     // Prüfen, ob der Schritt vollständig ist
@@ -39,12 +45,21 @@ export const AdresseZugangStep: React.FC<AdresseZugangStepProps> = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
+    
     updateFormData({
       adresse: {
         ...formData.adresse,
         [name]: value
       }
     })
+    
+    // Fehler zurücksetzen, wenn ein Feld ausgefüllt wird
+    if (errors[name as keyof typeof errors]) {
+      setErrors({
+        ...errors,
+        [name]: undefined
+      })
+    }
   }
 
   const handleEtageChange = (etage: number) => {
@@ -74,219 +89,257 @@ export const AdresseZugangStep: React.FC<AdresseZugangStepProps> = ({
     })
   }
 
+  const validateForm = () => {
+    const newErrors: typeof errors = {}
+    
+    if (!formData.adresse.strasse.trim()) {
+      newErrors.strasse = 'Straße ist erforderlich'
+    }
+    
+    if (!formData.adresse.hausnummer.trim()) {
+      newErrors.hausnummer = 'Hausnummer ist erforderlich'
+    }
+    
+    if (!formData.adresse.plz.trim()) {
+      newErrors.plz = 'PLZ ist erforderlich'
+    } else if (!/^\d{5}$/.test(formData.adresse.plz)) {
+      newErrors.plz = 'PLZ muss 5 Ziffern enthalten'
+    }
+    
+    if (!formData.adresse.ort.trim()) {
+      newErrors.ort = 'Ort ist erforderlich'
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = () => {
+    if (validateForm()) {
+      goToNextStep()
+    }
+  }
+
   return (
-    <motion.div 
-      className="space-y-6"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="text-center mb-6">
-        <motion.h2 
-          className="text-2xl font-medium text-gray-800 mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.1, duration: 0.3 }}
-        >
-          Adresse und Zugang
-        </motion.h2>
-        <motion.p 
-          className="text-gray-600 max-w-2xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.3 }}
-        >
-          Bitte geben Sie die genaue Adresse und Informationen zur Zugänglichkeit an.
-        </motion.p>
-      </div>
-
-      <div className="max-w-2xl mx-auto">
-        {/* Straße und Hausnummer */}
-        <div className="grid grid-cols-3 gap-4 mb-4">
-          <div className="col-span-2">
-            <Label htmlFor="strasse">Straße *</Label>
-            <Input 
-              id="strasse"
-              name="strasse"
-              value={formData.adresse.strasse}
-              onChange={handleChange}
-              placeholder="Straße"
-              className="w-full mt-1"
-              required
-            />
-          </div>
-          <div>
-            <Label htmlFor="hausnummer">Hausnummer *</Label>
-            <Input 
-              id="hausnummer"
-              name="hausnummer"
-              value={formData.adresse.hausnummer}
-              onChange={handleChange}
-              placeholder="Nr."
-              className="w-full mt-1"
-              required
-            />
-          </div>
+      <div className="space-y-6">
+        <div className="text-center">
+          <h2 className="text-2xl font-medium text-gray-900">Adresse & Zugangsinformationen</h2>
+          <p className="mt-2 text-sm text-gray-500">
+            Geben Sie die genaue Adresse und Informationen zur Zugänglichkeit an
+          </p>
         </div>
 
-        {/* PLZ und Ort */}
-        <div className="grid grid-cols-3 gap-4 mb-6">
-          <div>
-            <Label htmlFor="plz">PLZ *</Label>
-            <Input 
-              id="plz"
-              name="plz"
-              value={formData.adresse.plz}
-              onChange={handleChange}
-              placeholder="PLZ"
-              className="w-full mt-1"
-              pattern="[0-9]{5}"
-              maxLength={5}
-              required
-            />
-          </div>
-          <div className="col-span-2">
-            <Label htmlFor="ort">Ort *</Label>
-            <Input 
-              id="ort"
-              name="ort"
-              value={formData.adresse.ort}
-              onChange={handleChange}
-              placeholder="Ort"
-              className="w-full mt-1"
-              required
-            />
-          </div>
-        </div>
-
-        {/* Etage und Aufzug */}
-        <div className="p-5 border border-gray-200 rounded-lg mb-6 bg-gray-50">
-          <div className="flex items-center mb-4">
-            <Building className="mr-2 h-5 w-5 text-gray-500" />
-            <h3 className="text-lg font-medium">Etagenangaben</h3>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6">
-            {/* Etage */}
-            <div>
-              <Label htmlFor="etage">Etage</Label>
-              <div className="flex items-center mt-1">
-                <button
-                  type="button"
-                  onClick={() => formData.adresse.etage > -1 && handleEtageChange(formData.adresse.etage - 1)}
-                  className="p-2 bg-gray-100 rounded-l-lg text-gray-700 hover:bg-gray-200 transition-colors"
-                >
-                  <Minus className="h-4 w-4" />
-                </button>
-                <Input
-                  id="etage"
-                  type="number"
-                  value={formData.adresse.etage}
-                  onChange={(e) => handleEtageChange(parseInt(e.target.value) || 0)}
-                  className="text-center rounded-none border-x-0"
+        <div className="mt-6 space-y-6">
+          {/* Adress-Abschnitt */}
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">Adresse</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="md:col-span-2">
+                <label htmlFor="strasse" className="block text-sm font-medium text-gray-700">
+                  Straße
+                </label>
+                <input
+                  type="text"
+                  id="strasse"
+                  name="strasse"
+                  value={formData.adresse.strasse}
+                  onChange={handleChange}
+                  className={`mt-1 block w-full border ${
+                    errors.strasse ? 'border-red-300' : 'border-gray-300'
+                  } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
                 />
-                <button
-                  type="button"
-                  onClick={() => handleEtageChange(formData.adresse.etage + 1)}
-                  className="p-2 bg-gray-100 rounded-r-lg text-gray-700 hover:bg-gray-200 transition-colors"
-                >
-                  <Plus className="h-4 w-4" />
-                </button>
+                {errors.strasse && (
+                  <p className="mt-1 text-sm text-red-600">{errors.strasse}</p>
+                )}
               </div>
-              <p className="text-xs text-gray-500 mt-1">
-                0 = Erdgeschoss, -1 = Untergeschoss
-              </p>
+              
+              <div>
+                <label htmlFor="hausnummer" className="block text-sm font-medium text-gray-700">
+                  Hausnummer
+                </label>
+                <input
+                  type="text"
+                  id="hausnummer"
+                  name="hausnummer"
+                  value={formData.adresse.hausnummer}
+                  onChange={handleChange}
+                  className={`mt-1 block w-full border ${
+                    errors.hausnummer ? 'border-red-300' : 'border-gray-300'
+                  } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
+                />
+                {errors.hausnummer && (
+                  <p className="mt-1 text-sm text-red-600">{errors.hausnummer}</p>
+                )}
+              </div>
             </div>
-
-            {/* Aufzug */}
-            <div>
-              <div className="flex flex-col space-y-2">
-                <Label htmlFor="aufzug">Aufzug vorhanden</Label>
-                <div className="flex items-center space-x-2">
-                  <Switch
-                    id="aufzug"
-                    checked={formData.adresse.aufzug}
-                    onCheckedChange={handleAufzugChange}
-                  />
-                  <span className="text-sm text-gray-700">
-                    {formData.adresse.aufzug ? 'Ja' : 'Nein'}
-                  </span>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+              <div>
+                <label htmlFor="plz" className="block text-sm font-medium text-gray-700">
+                  PLZ
+                </label>
+                <input
+                  type="text"
+                  id="plz"
+                  name="plz"
+                  value={formData.adresse.plz}
+                  onChange={handleChange}
+                  className={`mt-1 block w-full border ${
+                    errors.plz ? 'border-red-300' : 'border-gray-300'
+                  } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
+                  maxLength={5}
+                />
+                {errors.plz && (
+                  <p className="mt-1 text-sm text-red-600">{errors.plz}</p>
+                )}
+              </div>
+              
+              <div className="md:col-span-2">
+                <label htmlFor="ort" className="block text-sm font-medium text-gray-700">
+                  Ort
+                </label>
+                <input
+                  type="text"
+                  id="ort"
+                  name="ort"
+                  value={formData.adresse.ort}
+                  onChange={handleChange}
+                  className={`mt-1 block w-full border ${
+                    errors.ort ? 'border-red-300' : 'border-gray-300'
+                  } rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
+                />
+                {errors.ort && (
+                  <p className="mt-1 text-sm text-red-600">{errors.ort}</p>
+                )}
+              </div>
+            </div>
+          </div>
+          
+          {/* Zugangs-Abschnitt */}
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">Zugangsinformationen</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Etage
+                </label>
+                <div className="mt-2 flex rounded-md shadow-sm">
+                  <button
+                    type="button"
+                    onClick={() => handleEtageChange(Math.max(0, formData.adresse.etage - 1))}
+                    className="px-3 py-2 border border-r-0 border-gray-300 rounded-l-md bg-gray-50 text-gray-500 hover:bg-gray-100"
+                  >
+                    -
+                  </button>
+                  <div className="flex-1 flex items-center justify-center border-t border-b border-gray-300 bg-white text-sm">
+                    {formData.adresse.etage === 0 ? 'Erdgeschoss' : `${formData.adresse.etage}. Etage`}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleEtageChange(formData.adresse.etage + 1)}
+                    className="px-3 py-2 border border-l-0 border-gray-300 rounded-r-md bg-gray-50 text-gray-500 hover:bg-gray-100"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
+              
+              <div className="flex items-center">
+                <input
+                  id="aufzug"
+                  name="aufzug"
+                  type="checkbox"
+                  checked={formData.adresse.aufzug}
+                  onChange={(e) => handleAufzugChange(e.target.checked)}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                />
+                <label htmlFor="aufzug" className="ml-2 block text-sm text-gray-700">
+                  Aufzug vorhanden
+                </label>
+              </div>
+            </div>
+            
+            <div className="mt-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Parkmöglichkeit vor Ort
+              </label>
+              <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button
+                  type="button"
+                  onClick={() => handleParkmoeglichkeitChange('gut')}
+                  className={`px-4 py-2 border rounded-md text-sm font-medium ${
+                    formData.adresse.parkmoeglichkeit === 'gut'
+                      ? 'bg-blue-50 border-blue-500 text-blue-700'
+                      : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  Gut (direkt vor dem Gebäude)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleParkmoeglichkeitChange('eingeschraenkt')}
+                  className={`px-4 py-2 border rounded-md text-sm font-medium ${
+                    formData.adresse.parkmoeglichkeit === 'eingeschraenkt'
+                      ? 'bg-blue-50 border-blue-500 text-blue-700'
+                      : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  Eingeschränkt (in der Nähe)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleParkmoeglichkeitChange('keine')}
+                  className={`px-4 py-2 border rounded-md text-sm font-medium ${
+                    formData.adresse.parkmoeglichkeit === 'keine'
+                      ? 'bg-blue-50 border-blue-500 text-blue-700'
+                      : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  Keine/Schwierig
+                </button>
+              </div>
+            </div>
+            
+            <div className="mt-4">
+              <label htmlFor="zugaenglichkeit" className="block text-sm font-medium text-gray-700">
+                Zugänglichkeit und Besonderheiten
+              </label>
+              <Textarea
+                id="zugaenglichkeit"
+                name="zugaenglichkeit"
+                value={formData.adresse.zugaenglichkeit}
+                onChange={handleChange}
+                placeholder="Gibt es besondere Hinweise zur Zugänglichkeit? (z.B. Hinterhaus, schwierige Enge Treppe, etc.)"
+                className="w-full mt-1 h-24"
+              />
             </div>
           </div>
         </div>
 
-        {/* Parkmöglichkeiten */}
-        <div className="mb-6">
-          <Label className="mb-2 block">Parkmöglichkeiten für Einsatzfahrzeuge *</Label>
-          <RadioGroup
-            value={formData.adresse.parkmoeglichkeit}
-            onValueChange={(value) => handleParkmoeglichkeitChange(value as FormData['adresse']['parkmoeglichkeit'])}
-            className="space-y-3 mt-1"
+        <div className="flex justify-between mt-8">
+          <button
+            type="button"
+            onClick={goToPreviousStep}
+            className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            <div className="flex items-start space-x-2">
-              <RadioGroupItem value="gut" id="park-gut" className="mt-1" />
-              <Label htmlFor="park-gut" className="cursor-pointer">
-                <span className="font-medium">Gute Parkmöglichkeiten</span>
-                <p className="text-sm text-gray-600">Direkt vor dem Gebäude, privater Parkplatz, etc.</p>
-              </Label>
-            </div>
-            <div className="flex items-start space-x-2">
-              <RadioGroupItem value="eingeschraenkt" id="park-eingeschraenkt" className="mt-1" />
-              <Label htmlFor="park-eingeschraenkt" className="cursor-pointer">
-                <span className="font-medium">Eingeschränkte Parkmöglichkeiten</span>
-                <p className="text-sm text-gray-600">Begrenzte Parkplätze, temporäres Halten möglich</p>
-              </Label>
-            </div>
-            <div className="flex items-start space-x-2">
-              <RadioGroupItem value="keine" id="park-keine" className="mt-1" />
-              <Label htmlFor="park-keine" className="cursor-pointer">
-                <span className="font-medium">Keine Parkmöglichkeiten</span>
-                <p className="text-sm text-gray-600">Fußgängerzone, stark begrenzter Zugang</p>
-              </Label>
-            </div>
-          </RadioGroup>
+            Zurück
+          </button>
+          
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Weiter
+          </button>
         </div>
-
-        {/* Zugänglichkeit/Besonderheiten */}
-        <div className="mb-6">
-          <Label htmlFor="zugaenglichkeit">Zugänglichkeit und Besonderheiten</Label>
-          <Textarea
-            id="zugaenglichkeit"
-            name="zugaenglichkeit"
-            value={formData.adresse.zugaenglichkeit}
-            onChange={handleChange}
-            placeholder="Gibt es besondere Hinweise zur Zugänglichkeit? (z.B. Hinterhaus, schwierige Enge Treppe, etc.)"
-            className="w-full mt-1 h-24"
-          />
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <div className="flex justify-between max-w-2xl mx-auto">
-        <motion.button
-          onClick={goToPreviousStep}
-          className="py-3 px-6 bg-gray-100 rounded-md text-gray-800 font-medium hover:bg-gray-200 transition-all"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Zurück
-        </motion.button>
-
-        <motion.button
-          onClick={goToNextStep}
-          disabled={!isValid}
-          className={`py-3 px-8 rounded-md font-medium transition-all duration-200 ${
-            isValid
-              ? 'bg-accent text-white hover:bg-accent-dark transform hover:scale-[1.03] hover:shadow-md'
-              : 'bg-gray-200 text-gray-500 cursor-not-allowed'
-          }`}
-          whileHover={isValid ? { scale: 1.03 } : {}}
-          whileTap={isValid ? { scale: 0.97 } : {}}
-        >
-          Weiter
-        </motion.button>
       </div>
     </motion.div>
   )

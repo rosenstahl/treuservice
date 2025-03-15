@@ -11,14 +11,6 @@ type FlaecheInfoStepProps = {
   goToPreviousStep: () => void;
 }
 
-// Füllgrad-Beschreibungen
-const fuellgradDescriptions = {
-  leer: "Leere Räume mit wenigen Gegenständen",
-  wenig: "Teilweise möblierte Räume, wenig zu reinigen",
-  mittel: "Normal möblierte Räume",
-  voll: "Stark gefüllte Räume, viele Hindernisse"
-}
-
 export const FlaecheInfoStep: React.FC<FlaecheInfoStepProps> = ({ 
   formData, 
   updateFormData, 
@@ -27,21 +19,47 @@ export const FlaecheInfoStep: React.FC<FlaecheInfoStepProps> = ({
 }) => {
   const [flaeche, setFlaeche] = useState(formData.flaecheInfo.flaeche || 0)
   const [raumanzahl, setRaumanzahl] = useState(formData.flaecheInfo.raumanzahl || 0)
+  const [etagenanzahl, setEtagenanzahl] = useState(formData.flaecheInfo.etagenanzahl || 1)
+  const [fensteranzahl, setFensteranzahl] = useState(formData.flaecheInfo.fensteranzahl || 0)
+  const [spezialDetails, setSpezialDetails] = useState(formData.flaecheInfo.spezialDetails || '')
   const [error, setError] = useState('')
   
-  // Dynamische Felder basierend auf der gewählten Reinigungsart und dem Objekttyp
-  const isFensterreinigung = formData.reinigungsart.hauptkategorie === 'glas_fassade'
+  // Analyse der gewählten Reinigungsart und Objekttyp für dynamische Feldanzeige
+  const reinigungsart = formData.reinigungsart.hauptkategorie;
+  const objektTyp = formData.objektTyp.typ;
+
+  // Booleans für verschiedene Reinigungsarten-Kategorien
   const isInnenreinigung = [
+    'unterhaltsreinigung', 'grundreinigung', 'hotel', 'veranstaltung', 'reinraum'
+  ].includes(reinigungsart);
+  
+  const isFensterreinigung = [
+    'glas_fassade'
+  ].includes(reinigungsart);
+  
+  const isDachreinigung = [
+    'dachreinigung'
+  ].includes(reinigungsart);
+  
+  const isSolarreinigung = [
+    'solaranlagen'
+  ].includes(reinigungsart);
+  
+  const isAussenreinigung = [
+    'aussenanlagen', 'steinreinigung'
+  ].includes(reinigungsart);
+  
+  const isGebaeude = [
     'buero', 'wohnhaus', 'hotel', 'krankenhaus', 'schule', 'gewerbe'
-  ].includes(formData.objektTyp.typ)
+  ].includes(objektTyp);
 
   // Berechne die Fläche automatisch basierend auf der Raumanzahl, falls noch nicht gesetzt
   useEffect(() => {
-    if (flaeche === 0 && raumanzahl > 0) {
+    if (flaeche === 0 && raumanzahl > 0 && isInnenreinigung) {
       // Durchschnittliche Raumgröße von 15m²
       setFlaeche(raumanzahl * 15)
     }
-  }, [flaeche, raumanzahl])
+  }, [flaeche, raumanzahl, isInnenreinigung])
 
   const handleFlaecheChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value)
@@ -66,7 +84,32 @@ export const FlaecheInfoStep: React.FC<FlaecheInfoStepProps> = ({
     })
   }
 
+  const handleEtagenanzahlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value)
+    const newEtagen = isNaN(value) ? 1 : Math.max(1, value)
+    setEtagenanzahl(newEtagen)
+    updateFormData({
+      flaecheInfo: {
+        ...formData.flaecheInfo,
+        etagenanzahl: newEtagen
+      }
+    })
+  }
+
+  const handleFensteranzahlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value)
+    const newFenster = isNaN(value) ? 0 : value
+    setFensteranzahl(newFenster)
+    updateFormData({
+      flaecheInfo: {
+        ...formData.flaecheInfo,
+        fensteranzahl: newFenster
+      }
+    })
+  }
+
   const handleSpezialDetailsChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setSpezialDetails(e.target.value)
     updateFormData({
       flaecheInfo: {
         ...formData.flaecheInfo,
@@ -82,7 +125,26 @@ export const FlaecheInfoStep: React.FC<FlaecheInfoStepProps> = ({
       return
     }
     
+    if (isInnenreinigung && raumanzahl <= 0) {
+      setError('Bitte geben Sie die Anzahl der Räume an')
+      return
+    }
+    
+    if (isFensterreinigung && fensteranzahl <= 0) {
+      setError('Bitte geben Sie die Anzahl der Fenster an')
+      return
+    }
+    
     goToNextStep()
+  }
+
+  // Hilfstext für die Flächenberechnung basierend auf der Reinigungsart
+  const getFlaechenLabel = () => {
+    if (isFensterreinigung) return "Glasfläche:";
+    if (isDachreinigung) return "Dachfläche:";
+    if (isSolarreinigung) return "Fläche der Solaranlage:";
+    if (isAussenreinigung) return "Außenfläche:";
+    return "Fläche:";
   }
 
   return (
@@ -119,6 +181,7 @@ export const FlaecheInfoStep: React.FC<FlaecheInfoStepProps> = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.3 }}
         >
+          {/* Raumanzahl - nur bei Innenreinigung */}
           {isInnenreinigung && (
             <div>
               <label htmlFor="raumanzahl" className="block text-sm font-medium text-gray-700 mb-1">
@@ -146,9 +209,65 @@ export const FlaecheInfoStep: React.FC<FlaecheInfoStepProps> = ({
             </div>
           )}
 
+          {/* Etagenanzahl - nur bei Gebäuden */}
+          {isGebaeude && (isInnenreinigung || reinigungsart === 'glas_fassade') && (
+            <div>
+              <label htmlFor="etagenanzahl" className="block text-sm font-medium text-gray-700 mb-1">
+                Anzahl der Etagen: <span className="font-semibold">{etagenanzahl}</span>
+              </label>
+              <div className="flex items-center space-x-4">
+                <input
+                  type="range"
+                  id="etagenanzahl"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value={etagenanzahl}
+                  onChange={handleEtagenanzahlChange}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
+                />
+                <input
+                  type="number"
+                  min="1"
+                  value={etagenanzahl}
+                  onChange={handleEtagenanzahlChange}
+                  className="w-16 px-2 py-1 text-center border border-gray-300 rounded-md"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Fensteranzahl - nur bei Fensterreinigung */}
+          {isFensterreinigung && (
+            <div>
+              <label htmlFor="fensteranzahl" className="block text-sm font-medium text-gray-700 mb-1">
+                Anzahl der Fenster/Glaselemente: <span className="font-semibold">{fensteranzahl}</span>
+              </label>
+              <div className="flex items-center space-x-4">
+                <input
+                  type="range"
+                  id="fensteranzahl"
+                  min="1"
+                  max="50"
+                  step="1"
+                  value={fensteranzahl}
+                  onChange={handleFensteranzahlChange}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
+                />
+                <input
+                  type="number"
+                  min="1"
+                  value={fensteranzahl}
+                  onChange={handleFensteranzahlChange}
+                  className="w-16 px-2 py-1 text-center border border-gray-300 rounded-md"
+                />
+              </div>
+            </div>
+          )}
+
           <div>
             <label htmlFor="flaeche" className="block text-sm font-medium text-gray-700 mb-1">
-              Fläche: <span className="font-semibold">{flaeche} m²</span>
+              {getFlaechenLabel()} <span className="font-semibold">{flaeche} m²</span>
             </label>
             <div className="flex items-center space-x-4">
               <input
@@ -175,7 +294,7 @@ export const FlaecheInfoStep: React.FC<FlaecheInfoStepProps> = ({
           </div>
         </motion.div>
 
-        {/* Füllgrad-Auswahl */}
+        {/* Zusatzinformationen */}
         <motion.div
           className="space-y-3"
           initial={{ opacity: 0, y: 10 }}
@@ -188,7 +307,7 @@ export const FlaecheInfoStep: React.FC<FlaecheInfoStepProps> = ({
             id="spezialDetails"
             name="spezialDetails"
             rows={3}
-            value={formData.flaecheInfo.spezialDetails || ""}
+            value={spezialDetails}
             onChange={handleSpezialDetailsChange}
             placeholder="Besonderheiten, Zugang, spezielle Verschmutzungen oder andere wichtige Informationen"
             className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-accent focus:border-accent"

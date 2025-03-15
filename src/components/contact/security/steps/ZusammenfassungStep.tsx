@@ -68,15 +68,72 @@ const formatDate = (dateString: string) => {
 }
 
 export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({ 
-  formData, 
+  formData,
+  updateFormData,
   goToPreviousStep
 }) => {
+  // Zustandsvariablen für Kontaktdaten
+  const [name, setName] = useState(formData.kontakt.name || '')
+  const [email, setEmail] = useState(formData.kontakt.email || '')
+  const [telefon, setTelefon] = useState(formData.kontakt.telefon || '')
+  const [firma, setFirma] = useState(formData.kontakt.firma || '')
+  const [adresseStrasse, setAdresseStrasse] = useState(formData.kontakt.adresseStrasse || '')
+  const [adresseHausnummer, setAdresseHausnummer] = useState(formData.kontakt.adresseHausnummer || '')
+  const [adressePlz, setAdressePlz] = useState(formData.kontakt.adressePlz || '')
+  const [adresseOrt, setAdresseOrt] = useState(formData.kontakt.adresseOrt || '')
+  const [anmerkungen, setAnmerkungen] = useState(formData.kontakt.anmerkungen || '')
+
+  // Zustandsvariablen für die Formularverarbeitung
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
 
+  // E-Mail-Validierung mit regulärem Ausdruck
+  const validateEmail = (email: string) => {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    return re.test(email)
+  }
+
   // Simuliert das Versenden des Formulars
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    // Grundlegende Validierung
+    if (!name.trim()) {
+      setError('Bitte geben Sie Ihren Namen an')
+      return
+    }
+    
+    if (!email.trim() || !validateEmail(email)) {
+      setError('Bitte geben Sie eine gültige E-Mail-Adresse an')
+      return
+    }
+    
+    if (!telefon.trim()) {
+      setError('Bitte geben Sie Ihre Telefonnummer an')
+      return
+    }
+    
+    if (!adresseStrasse.trim() || !adresseHausnummer.trim() || !adressePlz.trim() || !adresseOrt.trim()) {
+      setError('Bitte füllen Sie alle Adressfelder aus')
+      return
+    }
+    
+    // Aktualisiere die Formular-Daten
+    updateFormData({
+      kontakt: {
+        name,
+        email,
+        telefon,
+        firma,
+        adresseStrasse,
+        adresseHausnummer,
+        adressePlz,
+        adresseOrt,
+        anmerkungen
+      }
+    })
+    
     setIsSubmitting(true)
     setError('')
     
@@ -162,211 +219,281 @@ export const ZusammenfassungStep: React.FC<ZusammenfassungStepProps> = ({
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.3 }}
             >
-              Überprüfen Sie Ihre Angaben und senden Sie Ihre Anfrage ab.
+              Überprüfen Sie Ihre Auswahl und vervollständigen Sie Ihre Anfrage.
             </motion.p>
           </div>
           
-          <div className="max-w-2xl mx-auto">
-            {/* Sicherheitsdienstleistung */}
-            <motion.div
-              className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.3 }}
-            >
-              <h3 className="text-lg font-medium text-gray-800 mb-4">Gewünschte Sicherheitsleistung</h3>
-              
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* Zusammenfassung linke Spalte */}
+            <div className="space-y-6">
+              {/* Ausgewählte Dienste */}
+              <motion.div
+                className="bg-gray-50 p-4 rounded-md border border-gray-200"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
+              >
+                <h3 className="text-lg font-medium text-gray-800 mb-3">Ausgewählte Dienste</h3>
+                
+                <div className="space-y-2">
                   <div>
-                    <p className="text-sm font-medium text-gray-500">Sicherheitsdienstleistung</p>
-                    <p className="text-base text-accent">{getSecurityTypeDisplay()}</p>
+                    <p className="text-sm text-gray-500">Sicherheitsdienstleistung:</p>
+                    <p className="text-sm font-medium text-accent">{getSecurityTypeDisplay()}</p>
                   </div>
                   
                   <div>
-                    <p className="text-sm font-medium text-gray-500">Objekttyp</p>
-                    <p className="text-base text-accent">{getObjektTypDisplay()}</p>
-                  </div>
-                </div>
-                
-                {formData.objektTyp.customDetails && (
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Objektdetails</p>
-                    <p className="text-base">{formData.objektTyp.customDetails}</p>
-                  </div>
-                )}
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Sicherheitskräfte</p>
-                    <p className="text-base">{formData.personalUmfang.anzahlMitarbeiter} Personen</p>
+                    <p className="text-sm text-gray-500">Objekttyp:</p>
+                    <p className="text-sm font-medium">{getObjektTypDisplay()}</p>
                   </div>
                   
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Bewaffnung</p>
-                    <p className="text-base">{formData.personalUmfang.bewaffnung ? "Ja" : "Nein"}</p>
-                  </div>
-                </div>
-                
-                <div>
-                  <p className="text-sm font-medium text-gray-500">Qualifikationen</p>
-                  <p className="text-base">{qualifikationenList()}</p>
-                </div>
-
-                {formData.personalUmfang.spezifischeAnforderungen && (
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Spezifische Anforderungen</p>
-                    <p className="text-base">{formData.personalUmfang.spezifischeAnforderungen}</p>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-            
-            {/* Zeitliche Details */}
-            <motion.div
-              className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.3 }}
-            >
-              <h3 className="text-lg font-medium text-gray-800 mb-4">Zeitliche Details</h3>
-              
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Einsatzdauer</p>
-                    <p className="text-base">{formData.zeitlicheInfos.dauerTyp ? dauerTypLabels[formData.zeitlicheInfos.dauerTyp] : ''}</p>
-                  </div>
-                  
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Wiederholung</p>
-                    <p className="text-base">{formData.zeitlicheInfos.wiederholung ? wiederholungLabels[formData.zeitlicheInfos.wiederholung] : ''}</p>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Startdatum</p>
-                    <p className="text-base">{formatDate(formData.zeitlicheInfos.beginnDatum)}</p>
-                  </div>
-                  
-                  {formData.zeitlicheInfos.endeDatum && (
+                  {formData.objektTyp.customDetails && (
                     <div>
-                      <p className="text-sm font-medium text-gray-500">Enddatum</p>
-                      <p className="text-base">{formatDate(formData.zeitlicheInfos.endeDatum)}</p>
+                      <p className="text-sm text-gray-500">Objektdetails:</p>
+                      <p className="text-sm">{formData.objektTyp.customDetails}</p>
                     </div>
                   )}
                 </div>
-                
-                <div>
-                  <p className="text-sm font-medium text-gray-500">Dienstzeiten</p>
-                  <p className="text-base">{diensteTimes()}</p>
-                </div>
-
-                {formData.zeitlicheInfos.anmerkungen && (
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Anmerkungen zu Zeitvorgaben</p>
-                    <p className="text-base">{formData.zeitlicheInfos.anmerkungen}</p>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-            
-            {/* Kontaktdaten */}
-            <motion.div
-              className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.3 }}
-            >
-              <h3 className="text-lg font-medium text-gray-800 mb-4">Kontaktdaten</h3>
+              </motion.div>
               
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Personal Informationen */}
+              <motion.div
+                className="bg-gray-50 p-4 rounded-md border border-gray-200"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.3 }}
+              >
+                <h3 className="text-lg font-medium text-gray-800 mb-3">Personal</h3>
+                
+                <div className="space-y-2">
                   <div>
-                    <p className="text-sm font-medium text-gray-500">Name</p>
-                    <p className="text-base">{formData.kontakt.name}</p>
+                    <p className="text-sm text-gray-500">Anzahl Sicherheitskräfte:</p>
+                    <p className="text-sm font-medium">{formData.personalUmfang.anzahlMitarbeiter} Personen</p>
                   </div>
                   
-                  {formData.kontakt.firma && (
-                    <div>
-                      <p className="text-sm font-medium text-gray-500">Firma</p>
-                      <p className="text-base">{formData.kontakt.firma}</p>
-                    </div>
-                  )}
+                  <div>
+                    <p className="text-sm text-gray-500">Bewaffnung:</p>
+                    <p className="text-sm font-medium">{formData.personalUmfang.bewaffnung ? "Ja" : "Nein"}</p>
+                  </div>
+                  
+                  <div>
+                    <p className="text-sm text-gray-500">Qualifikationen:</p>
+                    <p className="text-sm font-medium">{qualifikationenList()}</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              {/* Zeitliche Details */}
+              <motion.div
+                className="bg-gray-50 p-4 rounded-md border border-gray-200"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.3 }}
+              >
+                <h3 className="text-lg font-medium text-gray-800 mb-3">Zeitliche Details</h3>
+                
+                <div className="space-y-2">
+                  <div>
+                    <p className="text-sm text-gray-500">Einsatzdauer:</p>
+                    <p className="text-sm font-medium">{formData.zeitlicheInfos.dauerTyp ? dauerTypLabels[formData.zeitlicheInfos.dauerTyp] : ''}</p>
+                  </div>
+                  
+                  <div>
+                    <p className="text-sm text-gray-500">Zeitraum:</p>
+                    <p className="text-sm font-medium">
+                      {formatDate(formData.zeitlicheInfos.beginnDatum)}
+                      {formData.zeitlicheInfos.endeDatum && ` bis ${formatDate(formData.zeitlicheInfos.endeDatum)}`}
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <p className="text-sm text-gray-500">Dienstzeiten:</p>
+                    <p className="text-sm font-medium">{diensteTimes()}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* Kontaktformular rechte Spalte */}
+            <div>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    Name*
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  />
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">E-Mail</p>
-                    <p className="text-base">{formData.kontakt.email}</p>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    E-Mail*
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="telefon" className="block text-sm font-medium text-gray-700 mb-1">
+                    Telefon*
+                  </label>
+                  <input
+                    id="telefon"
+                    name="telefon"
+                    type="tel"
+                    required
+                    value={telefon}
+                    onChange={(e) => setTelefon(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="firma" className="block text-sm font-medium text-gray-700 mb-1">
+                    Firma (optional)
+                  </label>
+                  <input
+                    id="firma"
+                    name="firma"
+                    type="text"
+                    value={firma}
+                    onChange={(e) => setFirma(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  />
+                </div>
+                
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="col-span-2">
+                    <label htmlFor="adresseStrasse" className="block text-sm font-medium text-gray-700 mb-1">
+                      Straße*
+                    </label>
+                    <input
+                      id="adresseStrasse"
+                      name="adresseStrasse"
+                      type="text"
+                      required
+                      value={adresseStrasse}
+                      onChange={(e) => setAdresseStrasse(e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    />
                   </div>
                   
                   <div>
-                    <p className="text-sm font-medium text-gray-500">Telefon</p>
-                    <p className="text-base">{formData.kontakt.telefon}</p>
+                    <label htmlFor="adresseHausnummer" className="block text-sm font-medium text-gray-700 mb-1">
+                      Nr.*
+                    </label>
+                    <input
+                      id="adresseHausnummer"
+                      name="adresseHausnummer"
+                      type="text"
+                      required
+                      value={adresseHausnummer}
+                      onChange={(e) => setAdresseHausnummer(e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-3 gap-2">
+                  <div>
+                    <label htmlFor="adressePlz" className="block text-sm font-medium text-gray-700 mb-1">
+                      PLZ*
+                    </label>
+                    <input
+                      id="adressePlz"
+                      name="adressePlz"
+                      type="text"
+                      required
+                      value={adressePlz}
+                      onChange={(e) => setAdressePlz(e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    />
+                  </div>
+                  
+                  <div className="col-span-2">
+                    <label htmlFor="adresseOrt" className="block text-sm font-medium text-gray-700 mb-1">
+                      Ort*
+                    </label>
+                    <input
+                      id="adresseOrt"
+                      name="adresseOrt"
+                      type="text"
+                      required
+                      value={adresseOrt}
+                      onChange={(e) => setAdresseOrt(e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    />
                   </div>
                 </div>
                 
                 <div>
-                  <p className="text-sm font-medium text-gray-500">Adresse</p>
-                  <p className="text-base">
-                    {formData.kontakt.adresseStrasse} {formData.kontakt.adresseHausnummer}, {formData.kontakt.adressePlz} {formData.kontakt.adresseOrt}
-                  </p>
+                  <label htmlFor="anmerkungen" className="block text-sm font-medium text-gray-700 mb-1">
+                    Nachricht (optional)
+                  </label>
+                  <textarea
+                    id="anmerkungen"
+                    name="anmerkungen"
+                    rows={3}
+                    value={anmerkungen}
+                    onChange={(e) => setAnmerkungen(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  ></textarea>
                 </div>
                 
-                {formData.kontakt.anmerkungen && (
-                  <div>
-                    <p className="text-sm font-medium text-gray-500">Anmerkungen</p>
-                    <p className="text-base text-gray-700">{formData.kontakt.anmerkungen}</p>
-                  </div>
+                {error && (
+                  <motion.p 
+                    className="text-red-500 text-sm"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    {error}
+                  </motion.p>
                 )}
-              </div>
-            </motion.div>
-
-            {error && (
-              <motion.p 
-                className="text-red-500 text-sm text-center mt-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                {error}
-              </motion.p>
-            )}
-            
-            <motion.div 
-              className="flex justify-between mt-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.3 }}
-            >
-              <motion.button
-                onClick={goToPreviousStep}
-                className="py-2 px-6 bg-gray-100 text-gray-700 font-medium rounded-md border border-gray-200 hover:bg-gray-200 transition-all duration-200 hover:shadow-sm"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                disabled={isSubmitting}
-              >
-                Zurück
-              </motion.button>
-
-              <motion.button
-                onClick={handleSubmit}
-                className="py-3 px-8 rounded-md font-medium transition-all duration-200 bg-accent text-white hover:bg-accent-dark hover:shadow-md flex items-center"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="animate-spin mr-2 h-5 w-5" />
-                    Wird gesendet...
-                  </>
-                ) : (
-                  'Anfrage absenden'
-                )}
-              </motion.button>
-            </motion.div>
+                
+                <div className="flex justify-between space-x-4 pt-4">
+                  <button
+                    type="button"
+                    onClick={goToPreviousStep}
+                    className="py-2 px-6 bg-gray-100 text-gray-700 font-medium rounded-md border border-gray-200 hover:bg-gray-200 transition-all duration-200 hover:shadow-sm"
+                  >
+                    Zurück
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`flex-1 py-2 px-6 bg-accent text-white font-medium rounded-md transition-all duration-200 transform hover:scale-105 hover:shadow-md flex items-center justify-center ${
+                      isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-accent-dark'
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="animate-spin mr-2 h-5 w-5" />
+                        Wird gesendet...
+                      </>
+                    ) : (
+                      'Jetzt anfragen'
+                    )}
+                  </button>
+                </div>
+                
+                <p className="text-xs text-gray-500 mt-4">
+                  Ihre Daten werden gemäß unserer Datenschutzerklärung verarbeitet. Durch das Absenden erklären Sie sich mit der Verarbeitung einverstanden.
+                </p>
+              </form>
+            </div>
           </div>
         </>
       ) : (

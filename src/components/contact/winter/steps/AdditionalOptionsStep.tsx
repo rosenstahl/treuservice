@@ -1,9 +1,8 @@
 "use client"
 
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FormData } from '../WinterdienstWizard';
-import { calculateAllPrices, formatPrice } from '../utils/priceCalculation';
 
 type AdditionalOptionsStepProps = {
   formData: FormData;
@@ -20,25 +19,6 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
 }) => {
   const [showTimeSelect, setShowTimeSelect] = useState(formData.options.offHours.enabled);
   const [time, setTime] = useState(formData.options.offHours.time || '08:00');
-  
-  // Berechne die Preise für Zusatzoptionen
-  // Die Preise einiger Optionen werden basierend auf der Flächengröße und dem Paketpreis berechnet
-  const optionPrices = useMemo(() => {
-    const basePackagePrices = calculateAllPrices(formData.area.value);
-    const packagePrice = formData.package.price;
-    
-    const environmentalPackagePrice = Math.round(packagePrice * 0.05); // 5% vom Paketpreis
-    const finalCleaningPrice = 135; // Fester Preis
-    const offHoursPrice = 507; // Fester Preis
-    const seasonExtensionPrice = Math.round(packagePrice * 0.16); // 16% vom Paketpreis
-    
-    return {
-      environmentalPackage: environmentalPackagePrice,
-      finalCleaning: finalCleaningPrice,
-      offHours: offHoursPrice,
-      seasonExtension: seasonExtensionPrice
-    };
-  }, [formData.area.value, formData.package.price]);
   
   const handleOptionToggle = (option: keyof FormData['options']) => {
     if (option === 'offHours') {
@@ -107,6 +87,10 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
         return '';
     }
   };
+
+  // Progressbar-Komponente aus Entkernung-Formular (angepasst)
+  const progressBarSteps = 5;
+  const currentProgressStep = 4; // Der aktuelle Schritt (4 von 5)
   
   return (
     <motion.div 
@@ -133,6 +117,21 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
           Wählen Sie optionale Ergänzungen für Ihren Winterdienst ({getPackageTypeName()}).
         </motion.p>
       </div>
+
+      {/* Progress Bar von Entkernung */}
+      <div className="w-full mb-6">
+        <div className="relative mt-3 mb-2">
+          <div className="absolute top-0 h-1 bg-gray-200 w-full rounded-full"></div>
+          <motion.div 
+            className="absolute top-0 h-1 bg-accent rounded-full"
+            initial={{ width: `0%` }}
+            animate={{ 
+              width: `${((currentProgressStep - 1) / (progressBarSteps - 1)) * 100}%` 
+            }}
+            transition={{ duration: 0.5 }}
+          ></motion.div>
+        </div>
+      </div>
       
       <motion.div 
         className="space-y-4 max-w-2xl mx-auto"
@@ -140,28 +139,6 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
       >
-        {/* Haftung (immer inklusive) */}
-        <div className="bg-accent/10 p-4 rounded-md border border-accent/30">
-          <div className="flex items-start">
-            <input
-              type="checkbox"
-              checked={true}
-              disabled={true}
-              className="mt-1 h-4 w-4 text-accent rounded bg-accent/20 border-accent/30 cursor-not-allowed"
-            />
-            <div className="ml-3">
-              <span className="text-base font-medium text-gray-800 flex items-center gap-1">
-                Haftung 
-                <span className="text-accent text-sm">(immer inklusive)</span>
-              </span>
-              <p className="text-sm text-gray-600 mt-1">
-                Lehnen Sie sich zurück - EQQO übernimmt für Sie die Verkehrssicherungspflicht und die Haftung! 
-                Auf uns können Sie sich zu 100% verlassen.
-              </p>
-            </div>
-          </div>
-        </div>
-        
         {/* Umweltpaket */}
         <div className="bg-white p-4 rounded-md border border-gray-200 hover:shadow-sm transition-shadow">
           <div className="flex items-start">
@@ -175,12 +152,9 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
             <div className="ml-3">
               <label htmlFor="environmentPackage" className="text-base font-medium text-gray-800 flex items-center gap-2">
                 Umweltfreundliches Streumittel
-                <span className="text-accent">
-                  (+{formatPrice(optionPrices.environmentalPackage)})
-                </span>
               </label>
               <p className="text-sm text-gray-600 mt-1">
-                Durch die Umweltpakete von EQQO haben Sie die Möglichkeit, einen Beitrag zu unserem Klimawandel zu leisten. 
+                Durch die Umweltpakete von TREU Service haben Sie die Möglichkeit, einen Beitrag zu unserem Klimawandel zu leisten. 
                 Wir verwenden umweltschonende Streumittel, die Pflanzen und Tiere schützen und trotzdem höchste Wirksamkeit garantieren.
               </p>
             </div>
@@ -199,14 +173,11 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
             />
             <div className="ml-3">
               <label htmlFor="finalCleaning" className="text-base font-medium text-gray-800 flex items-center gap-2">
-                Endreinigung 
-                <span className="text-accent">
-                  (+{formatPrice(optionPrices.finalCleaning)})
-                </span>
+                Endreinigung
               </label>
               <p className="text-sm text-gray-600 mt-1">
                 Greifen Sie noch zum Besen? Damit Ihre Flächen nach der Saison vollständig von Salz-, Splitt- und 
-                Sandresten befreit sind, bietet unser EQQO-Team Ihnen eine professionelle Endreinigung an.
+                Sandresten befreit sind, bietet unser TREU Service-Team Ihnen eine professionelle Endreinigung an.
               </p>
             </div>
           </div>
@@ -225,13 +196,10 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
             <div className="ml-3 w-full">
               <label htmlFor="offHours" className="text-base font-medium text-gray-800 flex items-center gap-2">
                 Off-Hours Wunschzeit
-                <span className="text-accent">
-                  (+{formatPrice(optionPrices.offHours)})
-                </span>
               </label>
               <p className="text-sm text-gray-600 mt-1">
                 Sie haben individuelle Öffnungszeiten, kein Problem! Durch die Option von Off-Hours 
-                besitzen Sie die Möglichkeit Zeiten festzulegen, damit der EQQO Winterdienst abweichend 
+                besitzen Sie die Möglichkeit Zeiten festzulegen, damit der TREU Service Winterdienst abweichend 
                 von der Ortsatzung Ihre Flächen räumen kann. So kommen Ihre Kunden, Lieferanten und 
                 Mitarbeiter immer sicher in Ihr Gebäude.
               </p>
@@ -277,14 +245,11 @@ export const AdditionalOptionsStep: React.FC<AdditionalOptionsStepProps> = ({
             <div className="ml-3">
               <label htmlFor="seasonExtension" className="text-base font-medium text-gray-800 flex items-center gap-2">
                 Saisonverlängerung
-                <span className="text-accent">
-                  (+{formatPrice(optionPrices.seasonExtension)})
-                </span>
               </label>
               <p className="text-sm text-gray-600 mt-1">
                 Mittlerweile wird es immer schwerer vorherzusagen, wann der Winter beginnt und wann er endet. 
-                Um sicherzugehen, dass Sie nicht doch plötzlich vom Schnee überrumpelt werden, bietet EQQO 
-                Ihnen eine Saisonverlängerung an. Unser EQQO Winterdienst ist gerne für Sie im Einsatz.
+                Um sicherzugehen, dass Sie nicht doch plötzlich vom Schnee überrumpelt werden, bietet TREU Service 
+                Ihnen eine Saisonverlängerung an. Unser TREU Service Winterdienst ist gerne für Sie im Einsatz.
               </p>
               
               {formData.options.seasonExtension.enabled && (

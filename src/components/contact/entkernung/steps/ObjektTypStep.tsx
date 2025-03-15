@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { FormData } from '../EntkernungWizard'
 import { 
   Home, 
-  Building, 
+  Building2, 
   Factory, 
   Landmark, 
   PenTool,
@@ -21,22 +21,12 @@ type ObjektTypStepProps = {
 
 // Icons für die verschiedenen Objekttypen
 const icons = {
-  wohnung: <Home className="h-8 w-8" />,
+  wohnung: <Building2 className="h-8 w-8" />,
   haus: <Home className="h-8 w-8" />,
-  gewerbe: <Building className="h-8 w-8" />,
+  gewerbe: <Building2 className="h-8 w-8" />,
   industriegebaeude: <Factory className="h-8 w-8" />,
   oeffentlichesgebaeude: <Landmark className="h-8 w-8" />,
   sonstiges: <PenTool className="h-8 w-8" />
-}
-
-// Beschreibungen für die Objekttypen
-const descriptions = {
-  wohnung: "Entkernung einer Wohnung, inkl. Innenwände, Böden und Installationen",
-  haus: "Komplette oder teilweise Entkernung eines Hauses bis auf die Grundstruktur",
-  gewerbe: "Entkernung von Büros, Ladenflächen oder anderen Gewerbeobjekten",
-  industriegebaeude: "Industriegebäude, Lagerhallen oder Produktionsstätten",
-  oeffentlichesgebaeude: "Schulen, Verwaltungsgebäude oder andere öffentliche Einrichtungen",
-  sonstiges: "Andere Objekttypen, bitte näher spezifizieren"
 }
 
 export const ObjektTypStep: React.FC<ObjektTypStepProps> = ({ 
@@ -150,7 +140,7 @@ export const ObjektTypStep: React.FC<ObjektTypStepProps> = ({
         {objektTypes.map((type) => (
           <motion.div
             key={type}
-            className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all cursor-pointer 
+            className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all cursor-pointer h-[120px] 
               ${selectedType === type ? 'border-accent bg-accent/5 shadow-md' : 'border-gray-200 hover:border-accent/50'}`}
             onClick={() => handleObjektTypSelect(type)}
             whileHover={{ scale: 1.03 }}
@@ -159,10 +149,7 @@ export const ObjektTypStep: React.FC<ObjektTypStepProps> = ({
             <div className={`p-3 rounded-full mb-3 ${selectedType === type ? 'text-accent' : 'text-gray-500'}`}>
               {icons[type]}
             </div>
-            <h3 className="font-medium text-gray-800 capitalize mb-1">{type.replace('oeffentlichesgebaeude', 'Öffentliches Gebäude').replace('industriegebaeude', 'Industriegebäude')}</h3>
-            <p className="text-xs text-gray-500 text-center">
-              {descriptions[type]}
-            </p>
+            <h3 className="font-medium text-gray-800 capitalize mb-1 text-center">{type.replace('oeffentlichesgebaeude', 'Öffentliches Gebäude').replace('industriegebaeude', 'Industriegebäude')}</h3>
           </motion.div>
         ))}
       </motion.div>

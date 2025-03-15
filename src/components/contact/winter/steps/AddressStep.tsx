@@ -3,21 +3,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../WinterdienstWizard'
+import { useGoogleMaps } from '../utils/GoogleMapsProvider';
 
 // Spezifischere Types für die Google Maps Objekte
-declare global {
-  interface Window {
-    google: {
-      maps: {
-        places: {
-          Autocomplete: new (input: HTMLInputElement, options?: Record<string, unknown>) => google.maps.places.Autocomplete;
-        };
-        Geocoder: new () => google.maps.Geocoder;
-      };
-    };
-  }
-}
-
 interface GooglePlace {
   formatted_address?: string;
   geometry?: {
@@ -59,12 +47,14 @@ export const AddressStep: React.FC<AddressStepProps> = ({
   updateFormData, 
   goToNextStep 
 }) => {
+  const { isLoaded } = useGoogleMaps();
   const [address, setAddress] = useState(formData.address)
   const [isValid, setIsValid] = useState(Boolean(formData.address))
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
+  const isInitializedRef = useRef(false);
 
   // Prüft, ob eine Adresse vollständig ist (enthält Straße, Hausnummer, PLZ, Stadt)
   const isCompleteAddress = (addressComponents?: Array<{types: string[], long_name: string}>) => {
@@ -130,25 +120,36 @@ export const AddressStep: React.FC<AddressStepProps> = ({
     }
   }, [formData.area, updateFormData]);
 
+  // Initialisiere Autocomplete nur einmal, wenn isLoaded wahr ist und es noch nicht initialisiert wurde
   useEffect(() => {
-    // Initialisiere Google Autocomplete wenn das Input-Element existiert
-    if (inputRef.current && window.google && window.google.maps && window.google.maps.places) {
-      autocompleteRef.current = new window.google.maps.places.Autocomplete(inputRef.current, {
-        types: ['address'],
-        componentRestrictions: { country: 'de' }
-      })
+    if (isLoaded && inputRef.current && !isInitializedRef.current) {
+      // Markiere als initialisiert, um doppelte Initialisierung zu vermeiden
+      isInitializedRef.current = true;
+      
+      try {
+        autocompleteRef.current = new google.maps.places.Autocomplete(inputRef.current, {
+          types: ['address'],
+          componentRestrictions: { country: 'de' }
+        });
 
-      // Event-Listener für Änderungen
-      autocompleteRef.current.addListener('place_changed', handlePlaceChanged)
+        // Event-Listener für Änderungen
+        autocompleteRef.current.addListener('place_changed', handlePlaceChanged);
+      } catch (error) {
+        console.error("Error initializing Google Autocomplete:", error);
+      }
     }
 
     return () => {
       // Cleanup der Event-Listener wenn verfügbar
-      if (autocompleteRef.current && window.google && window.google.maps) {
-        google.maps.event.clearInstanceListeners(autocompleteRef.current);
+      if (autocompleteRef.current && isLoaded) {
+        try {
+          google.maps.event.clearInstanceListeners(autocompleteRef.current);
+        } catch (error) {
+          console.error("Error cleaning up listeners:", error);
+        }
       }
     }
-  }, [handlePlaceChanged]);
+  }, [isLoaded, handlePlaceChanged]);
 
   const handleManualInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAddress(e.target.value)
@@ -175,7 +176,13 @@ export const AddressStep: React.FC<AddressStepProps> = ({
     
     // Ansonsten die Adresse geocodieren
     try {
-      const geocoder = new window.google.maps.Geocoder()
+      if (!isLoaded) {
+        setIsLoading(false);
+        setError('Google Maps ist noch nicht geladen. Bitte warten Sie und versuchen Sie es erneut.');
+        return;
+      }
+      
+      const geocoder = new google.maps.Geocoder();
       geocoder.geocode({ address }, (results: GeocoderResult[] | null, status: google.maps.GeocoderStatus) => {
         setIsLoading(false)
         
@@ -207,6 +214,7 @@ export const AddressStep: React.FC<AddressStepProps> = ({
     } catch (geocodeError) {
       setIsLoading(false)
       setError('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.')
+      console.error("Geocoding error:", geocodeError);
     }
   }
 
@@ -273,18 +281,23 @@ export const AddressStep: React.FC<AddressStepProps> = ({
           <p className="mt-2 text-xs text-gray-500">
             Bitte geben Sie eine vollständige Adresse mit Straße, Hausnummer, PLZ und Ort ein.
           </p>
+          {!isLoaded && (
+            <p className="mt-2 text-xs text-amber-600">
+              Google Maps wird geladen... Die Adresssuche ist erst verfügbar, wenn der Ladevorgang abgeschlossen ist.
+            </p>
+          )}
         </div>
         
         <motion.button
           onClick={validateAndContinue}
-          disabled={!isValid || isLoading}
+          disabled={!isValid || isLoading || !isLoaded}
           className={`w-full py-3 px-6 rounded-md font-medium transition-all duration-200 ${
-            isValid && !isLoading
+            isValid && !isLoading && isLoaded
               ? 'bg-accent text-white hover:bg-accent-dark transform hover:scale-[1.03] hover:shadow-md'
               : 'bg-gray-200 text-gray-500 cursor-not-allowed'
           }`}
-          whileHover={isValid && !isLoading ? { scale: 1.03 } : {}}
-          whileTap={isValid && !isLoading ? { scale: 0.97 } : {}}
+          whileHover={isValid && !isLoading && isLoaded ? { scale: 1.03 } : {}}
+          whileTap={isValid && !isLoading && isLoaded ? { scale: 0.97 } : {}}
         >
           {isLoading ? 'Wird geladen...' : 'Weiter'}
         </motion.button>

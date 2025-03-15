@@ -7,7 +7,6 @@ import { ObjektTypStep } from './steps/ObjektTypStep'
 import { UmfangBereichsStep } from './steps/UmfangBereichsStep'
 import { SchadstoffOptionsStep } from './steps/SchadstoffOptionsStep'
 import { AdresseTerminStep } from './steps/AdresseTerminStep'
-import { KontaktdatenStep } from './steps/KontaktdatenStep'
 import { ZusammenfassungStep } from './steps/ZusammenfassungStep'
 
 // FormData-Struktur für den Entkernung-Wizard
@@ -106,7 +105,7 @@ const EntkernungWizard: React.FC = () => {
 
   // Navigation zwischen Schritten
   const goToNextStep = () => {
-    if (currentStep < 6) {
+    if (currentStep < 5) {
       setDirection('forward')
       setCurrentStep(currentStep + 1)
     }
@@ -161,8 +160,6 @@ const EntkernungWizard: React.FC = () => {
       case 4:
         return <AdresseTerminStep {...commonProps} goToNextStep={goToNextStep} />
       case 5:
-        return <KontaktdatenStep {...commonProps} goToNextStep={goToNextStep} />
-      case 6:
         return <ZusammenfassungStep {...commonProps} isLastStep={true} />
       default:
         return null
@@ -182,7 +179,7 @@ const EntkernungWizard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          <StepIndicator currentStep={currentStep} totalSteps={6} />
+          <StepIndicator currentStep={currentStep} totalSteps={5} />
         </motion.div>
         
         <div className="mt-8">

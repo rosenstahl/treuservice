@@ -16,7 +16,6 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, total
     'Umfang & Bereiche',
     'Optionen',
     'Adresse & Termin',
-    'Kontaktdaten',
     'Zusammenfassung'
   ]
 

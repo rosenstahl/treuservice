@@ -51,7 +51,6 @@ export type FormData = {
     telefon: string;
     nachricht: string;
   };
-  preisschaetzung: number;
 };
 
 const EntkernungWizard: React.FC = () => {
@@ -99,8 +98,7 @@ const EntkernungWizard: React.FC = () => {
       email: '',
       telefon: '',
       nachricht: ''
-    },
-    preisschaetzung: 0
+    }
   })
 
   // Navigation zwischen Schritten

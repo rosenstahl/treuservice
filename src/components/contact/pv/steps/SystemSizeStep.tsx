@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../PVMontageWizard'
-import { ArrowRight, Zap, AreaChart } from 'lucide-react'
+import { ArrowRight, Zap, AreaChart, HelpCircle } from 'lucide-react'
 
 type SystemSizeStepProps = {
   formData: FormData;
@@ -21,6 +21,7 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
   const [systemSize, setSystemSize] = useState(formData.system.size || 10)
   const [moduleType, setModuleType] = useState<FormData['system']['moduleType']>(formData.system.moduleType || 'standard')
   const [installationType, setInstallationType] = useState<FormData['system']['installationType']>(formData.system.installationType || 'roof-mounted')
+  const [noPreferenceSelected, setNoPreferenceSelected] = useState(false)
   const [estimatedYield, setEstimatedYield] = useState(0)
   const [isValid, setIsValid] = useState(false)
 
@@ -31,14 +32,14 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
     // Dies ist eine grobe Schätzung - 900-1100 kWh pro kWp in Deutschland
     const yieldFactor = moduleType === 'premium' ? 1100 : moduleType === 'bifacial' ? 1050 : 950
     setEstimatedYield(Math.round(systemSize * yieldFactor))
-  }, [systemSize, moduleType, installationType])
+  }, [systemSize, moduleType, installationType, noPreferenceSelected])
 
   // Formular-Validierung
   const validateForm = () => {
     const valid = 
       systemSize > 0 && 
-      moduleType !== '' && 
-      installationType !== ''
+      (moduleType !== '' || noPreferenceSelected) && 
+      (installationType !== '' || noPreferenceSelected)
     
     setIsValid(valid)
   }
@@ -50,12 +51,17 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
     updateFormData({
       system: {
         size: systemSize,
-        moduleType,
-        installationType
+        moduleType: noPreferenceSelected ? 'standard' : moduleType,
+        installationType: noPreferenceSelected ? 'roof-mounted' : installationType
       }
     })
     
     goToNextStep()
+  }
+
+  // Checkbox für "Keine Präferenz" umschalten
+  const toggleNoPreference = () => {
+    setNoPreferenceSelected(!noPreferenceSelected)
   }
 
   return (
@@ -146,8 +152,24 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
           </div>
         </div>
         
+        {/* "Keine Präferenz" Checkbox */}
+        <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
+          <label className="flex items-center">
+            <input
+              type="checkbox"
+              checked={noPreferenceSelected}
+              onChange={toggleNoPreference}
+              className="h-4 w-4 text-[#009FD8] focus:ring-[#009FD8] border-gray-300 rounded"
+            />
+            <span className="ml-2 text-sm text-gray-700">
+              Ich kenne mich nicht mit den technischen Details aus und möchte mich auf Ihre Empfehlung verlassen
+            </span>
+            <HelpCircle className="h-4 w-4 text-gray-400 ml-1" />
+          </label>
+        </div>
+        
         {/* Modultyp */}
-        <div>
+        <div className={noPreferenceSelected ? 'opacity-50 pointer-events-none' : ''}>
           <label className="block text-sm font-medium text-gray-700 mb-3">
             Modultyp
           </label>
@@ -156,19 +178,19 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
               { 
                 value: 'standard', 
                 label: 'Standard', 
-                desc: 'Gutes Preis-Leistungs-Verhältnis',
+                desc: 'Monokristallin, gutes Preis-Leistungs-Verhältnis',
                 efficiency: '19-21%'
               },
               { 
                 value: 'premium', 
                 label: 'Premium', 
-                desc: 'Höherer Wirkungsgrad',
+                desc: 'Höherer Wirkungsgrad, längere Lebensdauer',
                 efficiency: '21-23%'
               },
               { 
                 value: 'bifacial', 
                 label: 'Bifazial', 
-                desc: 'Beidseitige Stromerzeugung',
+                desc: 'Beidseitige Stromerzeugung, bis 30% mehr Ertrag',
                 efficiency: '20-22%'
               }
             ].map((type) => (
@@ -177,7 +199,7 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
                 className={`border rounded-lg p-4 cursor-pointer transition-all hover:shadow-md ${
                   moduleType === type.value ? 'border-[#009FD8] bg-[#009FD8]/5' : 'border-gray-200 hover:border-[#009FD8]/50'
                 }`}
-                onClick={() => setModuleType(type.value as FormData['system']['moduleType'])}
+                onClick={() => !noPreferenceSelected && setModuleType(type.value as FormData['system']['moduleType'])}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -200,7 +222,7 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
         </div>
         
         {/* Installationsart */}
-        <div>
+        <div className={noPreferenceSelected ? 'opacity-50 pointer-events-none' : ''}>
           <label className="block text-sm font-medium text-gray-700 mb-3">
             Installationsart
           </label>
@@ -227,7 +249,7 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
                 className={`border rounded-lg p-4 cursor-pointer transition-all hover:shadow-md ${
                   installationType === type.value ? 'border-[#009FD8] bg-[#009FD8]/5' : 'border-gray-200 hover:border-[#009FD8]/50'
                 }`}
-                onClick={() => setInstallationType(type.value as FormData['system']['installationType'])}
+                onClick={() => !noPreferenceSelected && setInstallationType(type.value as FormData['system']['installationType'])}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

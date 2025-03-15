@@ -18,7 +18,9 @@ import {
   Mountain,
   Home,
   Sun,
-  PenTool
+  PenTool,
+  // Neues Icon für Grundreinigung
+  Trash2
 } from 'lucide-react'
 
 type ReinigungsartStepProps = {
@@ -31,7 +33,7 @@ type ReinigungsartStepProps = {
 // Icons für die verschiedenen Reinigungsarten
 const icons = {
   unterhaltsreinigung: <Brush className="h-8 w-8" />,
-  grundreinigung: <Sparkle className="h-8 w-8" />,
+  grundreinigung: <Trash2 className="h-8 w-8" />, // Neues Icon für Grundreinigung
   glas_fassade: <Droplet className="h-8 w-8" />,
   industrie: <Factory className="h-8 w-8" />,
   reinraum: <ShieldCheck className="h-8 w-8" />,
@@ -47,7 +49,7 @@ const icons = {
   sonstiges: <PenTool className="h-8 w-8" />
 }
 
-// Beschreibungen für die Reinigungsarten mit optimierten, kurzen Texten
+// Titel für die Reinigungsarten
 const titles = {
   unterhaltsreinigung: "Unterhaltsreinigung",
   grundreinigung: "Grundreinigung",
@@ -64,24 +66,6 @@ const titles = {
   dachreinigung: "Dachreinigung",
   solaranlagen: "Solaranlagenreinigung",
   sonstiges: "Sonstige Reinigung"
-}
-
-const descriptions = {
-  unterhaltsreinigung: "Regelmäßige Reinigung von Büros, Treppenhäusern und Allgemeinbereichen",
-  grundreinigung: "Intensive Reinigung zur Entfernung hartnäckiger Verschmutzungen",
-  glas_fassade: "Streifenfreie Reinigung von Fenstern, Glasfassaden und -dächern",
-  industrie: "Spezialreinigung für Produktionsanlagen und Industriehallen",
-  reinraum: "Hochreine Umgebungen für sensible Bereiche (Pharma, Elektronik)",
-  aussenanlagen: "Pflege von Gehwegen, Grünanlagen und Außenbereichen",
-  sonderreinigung: "Speziallösungen wie PC-Reinigung, Klimaanlagen, Rolltreppen",
-  verkehrsmittel: "Reinigung von Bussen, Bahnen, Flugzeugen und Schiffen",
-  hotel: "Services für Hotels, Zimmer, Lobbys und Wellnessbereiche",
-  veranstaltung: "Sauberkeit vor, während und nach Veranstaltungen",
-  baureinigung: "Baustellen, Bauzwischen- und Bauabschlussreinigung",
-  steinreinigung: "Pflege von Naturstein, Terrassen, Denkmalpflege, Graffiti",
-  dachreinigung: "Professionelle Reinigung von Dächern und Dachrinnen",
-  solaranlagen: "Leistungsoptimierung durch professionelle Reinigung",
-  sonstiges: "Andere Reinigungsleistung, bitte spezifizieren"
 }
 
 export const ReinigungsartStep: React.FC<ReinigungsartStepProps> = ({ 
@@ -180,9 +164,6 @@ export const ReinigungsartStep: React.FC<ReinigungsartStepProps> = ({
               {icons[type]}
             </div>
             <h3 className="font-medium text-gray-800 text-sm text-center mb-1">{titles[type]}</h3>
-            <p className="text-xs text-gray-500 text-center line-clamp-2 h-10">
-              {descriptions[type]}
-            </p>
           </motion.div>
         ))}
       </motion.div>

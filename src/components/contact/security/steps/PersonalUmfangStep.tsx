@@ -243,7 +243,7 @@ export const PersonalUmfangStep: React.FC<PersonalUmfangStepProps> = ({
                     id={key}
                     name={key}
                     type="checkbox"
-                    checked={qualifikationen[key as keyof typeof qualifikationen] || false}
+                    checked={Boolean(qualifikationen[key as keyof typeof qualifikationen])}
                     onChange={(e) => handleQualifikationChange(key as keyof FormData['personalUmfang']['qualifikationen'], e.target.checked)}
                     className="h-4 w-4 mt-0.5 text-accent focus:ring-accent border-gray-300 rounded"
                   />

@@ -13,7 +13,7 @@ type ZeitlicheInfosStepProps = {
 }
 
 // Info zu Dauertypen
-const dauerTypes = {
+const dauerTypes: Record<string, { title: string; description: string; icon: React.ReactNode }> = {
   einmalig: {
     title: "Einmalig",
     description: "Einmaliger Einsatz an einem bestimmten Tag",
@@ -37,7 +37,7 @@ const dauerTypes = {
 }
 
 // Info zu Wiederholungstypen
-const wiederholungTypes = {
+const wiederholungTypes: Record<string, { title: string; description: string }> = {
   keine: {
     title: "Keine",
     description: "Kein wiederkehrender Einsatz"
@@ -268,7 +268,7 @@ export const ZeitlicheInfosStep: React.FC<ZeitlicheInfosStepProps> = ({
               </div>
               
               <p className="mt-2 text-xs text-gray-500">
-                {wiederholungTypes[wiederholung].description}
+                {wiederholung && wiederholungTypes[wiederholung] ? wiederholungTypes[wiederholung].description : ''}
               </p>
             </div>
           )}

@@ -8,6 +8,7 @@ import { AreaSelectionStep } from './steps/AreaSelectionStep'
 import { PackageSelectionStep } from './steps/PackageSelectionStep'
 import { AdditionalOptionsStep } from './steps/AdditionalOptionsStep'
 import { SummaryStep } from './steps/SummaryStep'
+import { GoogleMapsProvider } from './utils/GoogleMapsProvider'
 
 // Optimierte FormData-Struktur
 export type FormData = {
@@ -127,43 +128,43 @@ const WinterdienstWizard: React.FC = () => {
   }
 
   return (
-    <motion.div 
-      className="w-full bg-white rounded-lg shadow-md overflow-hidden border border-gray-100"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-    >
-      {/* Script für Google Maps wird nun in AddressStep geladen */}
-      
-      <div className="py-6 px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.3 }}
-        >
-          <StepIndicator currentStep={currentStep} totalSteps={5} />
-        </motion.div>
-        
-        <div className="mt-8">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={currentStep}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
-              }}
-            >
-              {renderStep()}
-            </motion.div>
-          </AnimatePresence>
+    <GoogleMapsProvider>
+      <motion.div 
+        className="w-full bg-white rounded-lg shadow-md overflow-hidden border border-gray-100"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <div className="py-6 px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
+          >
+            <StepIndicator currentStep={currentStep} totalSteps={5} />
+          </motion.div>
+          
+          <div className="mt-8">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={currentStep}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
+              >
+                {renderStep()}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </GoogleMapsProvider>
   )
 }
 

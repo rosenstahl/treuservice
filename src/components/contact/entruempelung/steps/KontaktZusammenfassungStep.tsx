@@ -9,14 +9,14 @@ type KontaktZusammenfassungStepProps = {
   formData: FormData
   updateFormData: (newData: Partial<FormData>) => void
   goToPreviousStep: () => void
-  isLastStep: boolean
+  // isLastStep wird in den Props behalten, aber mit einem Underscore markiert, um anzuzeigen, dass es nicht verwendet wird
+  _isLastStep?: boolean
 }
 
 export const KontaktZusammenfassungStep: React.FC<KontaktZusammenfassungStepProps> = ({
   formData,
   updateFormData,
-  goToPreviousStep,
-  isLastStep
+  goToPreviousStep
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)

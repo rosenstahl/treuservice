@@ -5,16 +5,16 @@ import { motion } from 'framer-motion'
 import { FormData } from '../SecurityWizard'
 import {
   Building2,
-  BuildingOffice,
+  Building,
   Factory,
   HardHat,
   Ticket,
-  Building,
   Home,
   ShoppingCart,
   Hotel,
   Landmark,
-  PenTool
+  PenTool,
+  Briefcase
 } from 'lucide-react'
 
 type ObjektTypStepProps = {
@@ -25,9 +25,9 @@ type ObjektTypStepProps = {
 }
 
 // Icons für die verschiedenen Objekttypen
-const icons = {
+const icons: Record<string, React.ReactNode> = {
   gewerbe: <Building2 className="h-8 w-8" />,
-  buero: <BuildingOffice className="h-8 w-8" />,
+  buero: <Briefcase className="h-8 w-8" />,
   industrie: <Factory className="h-8 w-8" />,
   baustelle: <HardHat className="h-8 w-8" />,
   veranstaltung: <Ticket className="h-8 w-8" />,
@@ -40,7 +40,7 @@ const icons = {
 }
 
 // Titel für die Objekttypen
-const titles = {
+const titles: Record<string, string> = {
   gewerbe: "Gewerbeobjekt",
   buero: "Bürogebäude",
   industrie: "Industrieanlage",
@@ -55,7 +55,7 @@ const titles = {
 }
 
 // Beschreibungen für die Objekttypen
-const descriptions = {
+const descriptions: Record<string, string> = {
   gewerbe: "Geschäftshäuser, Einkaufszentren, Gewerbeimmobilien",
   buero: "Bürogebäude, Verwaltungszentren, Coworking-Spaces",
   industrie: "Produktionsstätten, Werksanlagen, Logistikzentren",

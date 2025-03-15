@@ -7,12 +7,11 @@ import { SchadensartStep } from './steps/SchadensartStep'
 import { ObjektFlaecheStep } from './steps/ObjektFlaecheStep'
 import { SchadensdetailsStep } from './steps/SchadensdetailsStep'
 import { AdresseZugangStep } from './steps/AdresseZugangStep'
-import { TerminKontaktStep } from './steps/TerminKontaktStep'
-import { ZusammenfassungStep } from './steps/ZusammenfassungStep'
+import { KontaktZusammenfassungStep } from './steps/KontaktZusammenfassungStep'
 
 // FormData-Struktur für den Sanierungs-Wizard
 export type FormData = {
-  schadensart: 'brand' | 'wasser' | 'schimmel' | 'kombi' | 'sonstige' | '';
+  schadensart: 'brand' | 'wasser' | 'schimmel' | 'sonstige' | '';
   schadensartCustom: string; // Für individuelle Eingabe
 
   objekt: {
@@ -126,7 +125,7 @@ const SanierungWizard: React.FC = () => {
 
   // Navigation zwischen Schritten
   const goToNextStep = () => {
-    if (currentStep < 6) {
+    if (currentStep < 5) {
       setDirection('forward')
       setCurrentStep(currentStep + 1)
     }
@@ -181,9 +180,7 @@ const SanierungWizard: React.FC = () => {
       case 4:
         return <AdresseZugangStep {...commonProps} goToNextStep={goToNextStep} />
       case 5:
-        return <TerminKontaktStep {...commonProps} goToNextStep={goToNextStep} />
-      case 6:
-        return <ZusammenfassungStep {...commonProps} isLastStep={true} />
+        return <KontaktZusammenfassungStep {...commonProps} isLastStep={true} />
       default:
         return null
     }
@@ -202,7 +199,7 @@ const SanierungWizard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          <StepIndicator currentStep={currentStep} totalSteps={6} />
+          <StepIndicator currentStep={currentStep} totalSteps={5} />
         </motion.div>
         
         <div className="mt-8">

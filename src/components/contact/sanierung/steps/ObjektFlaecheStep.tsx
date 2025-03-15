@@ -5,8 +5,7 @@ import { motion } from 'framer-motion'
 import { FormData } from '../SanierungWizard'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Home, Building2, Warehouse, DoorOpen, Stethoscope, Wrench, Plus, Minus } from 'lucide-react'
-import { MIN_AREA } from '../utils/priceCalculation'
+import { Home, Building2, Warehouse, DoorOpen, Home as DachbodenIcon, Wrench, Plus, Minus } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 
@@ -115,7 +114,7 @@ export const ObjektFlaecheStep: React.FC<ObjektFlaecheStepProps> = ({
     { id: 'haus', label: 'Haus', icon: <Building2 className="h-6 w-6" /> },
     { id: 'gewerbe', label: 'Gewerbe', icon: <Warehouse className="h-6 w-6" /> },
     { id: 'keller', label: 'Keller', icon: <DoorOpen className="h-6 w-6" /> },
-    { id: 'dachboden', label: 'Dachboden', icon: <Stethoscope className="h-6 w-6" /> },
+    { id: 'dachboden', label: 'Dachboden', icon: <DachbodenIcon className="h-6 w-6" /> },
     { id: 'sonstiges', label: 'Sonstiges', icon: <Wrench className="h-6 w-6" /> }
   ]
 
@@ -195,20 +194,19 @@ export const ObjektFlaecheStep: React.FC<ObjektFlaecheStepProps> = ({
         <h3 className="text-lg font-medium mb-4">Betroffene Bereiche:</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {bereiche.map((bereich) => (
-            <div key={bereich.id} className="flex items-start space-x-2">
+            <label 
+              key={bereich.id} 
+              htmlFor={`bereich-${bereich.id}`}
+              className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded-md"
+            >
               <Checkbox 
                 id={`bereich-${bereich.id}`}
                 checked={selectedBereiche.includes(bereich.id)}
                 onCheckedChange={() => handleBereichToggle(bereich.id)}
-                className="mt-1"
+                className="h-4 w-4 rounded border-gray-300"
               />
-              <Label 
-                htmlFor={`bereich-${bereich.id}`}
-                className="cursor-pointer"
-              >
-                {bereich.label}
-              </Label>
-            </div>
+              <span className="font-medium text-gray-700">{bereich.label}</span>
+            </label>
           ))}
         </div>
       </div>
@@ -241,12 +239,6 @@ export const ObjektFlaecheStep: React.FC<ObjektFlaecheStepProps> = ({
             </button>
           </div>
           <span className="text-gray-700">m²</span>
-          
-          {flaeche > 0 && flaeche < MIN_AREA && (
-            <span className="text-sm text-amber-600">
-              Mindestfläche für die Berechnung: {MIN_AREA} m²
-            </span>
-          )}
         </div>
       </div>
 

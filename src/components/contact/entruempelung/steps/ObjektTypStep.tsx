@@ -44,14 +44,14 @@ const icons = {
   )
 }
 
-// Beschreibungen für die Objekttypen
-const descriptions = {
-  wohnung: "Entrümpelung einer Wohnung mit Zugang über ein Mehrfamilienhaus",
-  haus: "Entrümpelung eines Einfamilienhauses mit direktem Zugang",
-  keller: "Entrümpelung eines Kellerraums oder eines Kellergeschosses",
-  dachboden: "Entrümpelung eines Dachbodens oder Speichers",
-  gewerbe: "Entrümpelung von Gewerbeimmobilien oder Büroflächen",
-  sonstiges: "Anderer Objekttyp, bitte spezifizieren"
+// Titel für die Objekttypen
+const titles = {
+  wohnung: "Wohnung",
+  haus: "Haus",
+  keller: "Keller",
+  dachboden: "Dachboden",
+  gewerbe: "Gewerbe",
+  sonstiges: "Sonstiges"
 }
 
 export const ObjektTypStep: React.FC<ObjektTypStepProps> = ({ 
@@ -135,10 +135,7 @@ export const ObjektTypStep: React.FC<ObjektTypStepProps> = ({
             <div className={`p-3 rounded-full mb-3 ${selectedType === type ? 'text-accent' : 'text-gray-500'}`}>
               {icons[type]}
             </div>
-            <h3 className="font-medium text-gray-800 capitalize mb-1">{type}</h3>
-            <p className="text-xs text-gray-500 text-center">
-              {descriptions[type]}
-            </p>
+            <h3 className="font-medium text-gray-800 capitalize mb-1">{titles[type]}</h3>
           </motion.div>
         ))}
       </motion.div>

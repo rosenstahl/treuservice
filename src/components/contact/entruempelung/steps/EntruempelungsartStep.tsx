@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../EntruempelungWizard'
 import { HiCheck, HiPlusCircle } from 'react-icons/hi'
@@ -55,6 +55,21 @@ export const EntruempelungsartStep: React.FC<EntruempelungsartStepProps> = ({
   goToPreviousStep
 }) => {
   const [sonstigesText, setSonstigesText] = useState(formData.entrumpelungsart.sonstigesText || '')
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      adjustTextareaHeight()
+    }
+  }, [sonstigesText])
+
+  const adjustTextareaHeight = () => {
+    const textarea = textareaRef.current
+    if (textarea) {
+      textarea.style.height = 'auto'
+      textarea.style.height = `${textarea.scrollHeight}px`
+    }
+  }
 
   const handleToggleOption = (option: keyof FormData['entrumpelungsart']) => {
     // Wir müssen sonstigesText als Spezialfall behandeln, da es kein boolean ist
@@ -68,7 +83,7 @@ export const EntruempelungsartStep: React.FC<EntruempelungsartStepProps> = ({
     }
   }
 
-  const handleSonstigesTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSonstigesTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value
     setSonstigesText(value)
     updateFormData({
@@ -272,7 +287,7 @@ export const EntruempelungsartStep: React.FC<EntruempelungsartStepProps> = ({
           </div>
         </div>
         
-        {/* Eingabefeld für sonstige Entrümpelungsarten */}
+        {/* Eingabefeld für sonstige Entrümpelungsarten - jetzt mit auto-erweiterndem Textfeld */}
         {formData.entrumpelungsart.sonstiges && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -283,14 +298,16 @@ export const EntruempelungsartStep: React.FC<EntruempelungsartStepProps> = ({
             <label htmlFor="sonstigesText" className="block text-sm font-medium text-gray-700 mb-1">
               Bitte beschreiben Sie die zu entrümpelnden Gegenstände:
             </label>
-            <input
-              type="text"
+            <textarea
+              ref={textareaRef}
               id="sonstigesText"
               name="sonstigesText"
               value={sonstigesText}
               onChange={handleSonstigesTextChange}
               placeholder="z.B. Gartengeräte, Spielzeug, Dokumente, etc."
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 resize-none overflow-hidden"
+              rows={2}
+              style={{ minHeight: '80px' }}
               autoFocus
             />
             {formData.entrumpelungsart.sonstiges && !sonstigesText.trim() && (

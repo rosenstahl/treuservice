@@ -31,36 +31,59 @@ const serviceTypes = {
   }
 }
 
-// Regelmäßigkeit Informationen
-const frequencyTypes = {
-  einmalig: {
+// Regelmäßigkeit Informationen mit expliziten Typen für jede Option
+interface BaseFrequencyType {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+interface DiscountFrequencyType extends BaseFrequencyType {
+  discount: string;
+}
+
+type FrequencyInfoType = BaseFrequencyType | DiscountFrequencyType;
+
+// Explizit typisiertes Objekt
+const frequencyTypes: Record<FormData['terminService']['regelmassigkeit'], FrequencyType> = {
+  'einmalig': {
     title: "Einmalig",
     description: "Einmalige Reinigung zum gewünschten Termin",
     icon: <Calendar className="h-6 w-6" />
   },
-  taeglich: {
+  'taeglich': {
     title: "Täglich",
     description: "Tägliche Reinigung (Montag bis Freitag)",
     icon: <CalendarDays className="h-6 w-6" />,
     discount: "10% Rabatt"
   },
-  woechentlich: {
+  'woechentlich': {
     title: "Wöchentlich",
     description: "Regelmäßige Reinigung einmal pro Woche",
     icon: <CalendarDays className="h-6 w-6" />,
     discount: "7% Rabatt"
   },
-  monatlich: {
+  'monatlich': {
     title: "Monatlich",
     description: "Regelmäßige Reinigung einmal pro Monat",
     icon: <CalendarDays className="h-6 w-6" />,
     discount: "5% Rabatt"
   },
-  individuell: {
+  'individuell': {
     title: "Individuell",
     description: "Benutzerdefinierter Reinigungsrhythmus",
     icon: <Pencil className="h-6 w-6" />
+  },
+  '': {
+    title: "",
+    description: "",
+    icon: <></> // Leeres Fragment als Platzhalter
   }
+}
+
+// Hilfsfunktionen zur Typprüfung
+function hasDiscount(info: FrequencyType): info is DiscountFrequencyType {
+  return 'discount' in info;
 }
 
 export const TerminServiceStep: React.FC<TerminServiceStepProps> = ({ 
@@ -249,12 +272,14 @@ export const TerminServiceStep: React.FC<TerminServiceStepProps> = ({
           <h3 className="text-lg font-medium text-gray-800 mb-3">2. Regelmäßigkeit festlegen</h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {Object.entries(frequencyTypes).map(([type, info]) => (
+            {(Object.entries(frequencyTypes) as [FormData['terminService']['regelmassigkeit'], FrequencyType][])
+              .filter(([type]) => type !== '') // Leeren String ausschließen
+              .map(([type, info]) => (
               <motion.div
                 key={type}
                 className={`flex flex-col items-center p-3 rounded-lg border transition-all cursor-pointer 
                   ${regelmassigkeit === type ? 'border-accent bg-accent/5 shadow-sm' : 'border-gray-200 hover:border-accent/30'}`}
-                onClick={() => handleRegelmassigkeitSelect(type as FormData['terminService']['regelmassigkeit'])}
+                onClick={() => handleRegelmassigkeitSelect(type)}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
               >
@@ -265,7 +290,7 @@ export const TerminServiceStep: React.FC<TerminServiceStepProps> = ({
                 <p className="text-xs text-gray-500 text-center line-clamp-2 h-8 mt-1">
                   {info.description}
                 </p>
-                {info.discount && (
+                {hasDiscount(info) && (
                   <span className="text-xs text-green-600 mt-1">
                     {info.discount}
                   </span>
@@ -403,4 +428,12 @@ export const TerminServiceStep: React.FC<TerminServiceStepProps> = ({
       </div>
     </motion.div>
   )
+}
+
+// Korrekter Typ für Frequenztypen
+type FrequencyType = {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  discount?: string;
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../PVMontageWizard'
 import { ArrowRight } from 'lucide-react'
@@ -33,20 +33,20 @@ export const RoofInfoStep: React.FC<RoofInfoStepProps> = ({
     'Andere'
   ]
 
-  // Validierung bei Änderungen
-  useEffect(() => {
-    validateForm()
-  }, [roofMaterial, roofArea, roofOrientation])
-
   // Formular-Validierung
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     const valid = 
       roofMaterial !== '' && 
-      roofOrientation !== '' && 
+      Boolean(roofOrientation && roofOrientation !== '' as any) && 
       roofArea > 0
     
     setIsValid(valid)
-  }
+  }, [roofMaterial, roofOrientation, roofArea])
+
+  // Validierung bei Änderungen
+  useEffect(() => {
+    validateForm()
+  }, [roofMaterial, roofArea, roofOrientation, validateForm])
 
   // Formular absenden
   const handleSubmit = () => {

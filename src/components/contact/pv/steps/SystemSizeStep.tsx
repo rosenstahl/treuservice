@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../PVMontageWizard'
 import { ArrowRight, Zap, AreaChart, HelpCircle } from 'lucide-react'
@@ -25,24 +25,25 @@ export const SystemSizeStep: React.FC<SystemSizeStepProps> = ({
   const [estimatedYield, setEstimatedYield] = useState(0)
   const [isValid, setIsValid] = useState(false)
 
+  // Formular-Validierung
+  const validateForm = useCallback(() => {
+    const valid = 
+      systemSize > 0 && 
+      (Boolean(moduleType && moduleType !== '' as any) || noPreferenceSelected) && 
+      (Boolean(installationType && installationType !== '' as any) || noPreferenceSelected)
+    
+    setIsValid(valid)
+  }, [systemSize, moduleType, installationType, noPreferenceSelected])
+
   // Validierung bei Änderungen
   useEffect(() => {
     validateForm()
+    
     // Berechne geschätzten Jahresertrag (kWh) basierend auf der Anlagengröße
     // Dies ist eine grobe Schätzung - 900-1100 kWh pro kWp in Deutschland
     const yieldFactor = moduleType === 'premium' ? 1100 : moduleType === 'bifacial' ? 1050 : 950
     setEstimatedYield(Math.round(systemSize * yieldFactor))
-  }, [systemSize, moduleType, installationType, noPreferenceSelected])
-
-  // Formular-Validierung
-  const validateForm = () => {
-    const valid = 
-      systemSize > 0 && 
-      (moduleType !== '' || noPreferenceSelected) && 
-      (installationType !== '' || noPreferenceSelected)
-    
-    setIsValid(valid)
-  }
+  }, [systemSize, moduleType, installationType, noPreferenceSelected, validateForm])
 
   // Formular absenden
   const handleSubmit = () => {

@@ -42,19 +42,19 @@ const frequencyTypes = {
     title: "Täglich",
     description: "Tägliche Reinigung (Montag bis Freitag)",
     icon: <CalendarDays className="h-6 w-6" />,
-    discount: "20% Rabatt"
+    discount: "10% Rabatt"
   },
   woechentlich: {
     title: "Wöchentlich",
     description: "Regelmäßige Reinigung einmal pro Woche",
     icon: <CalendarDays className="h-6 w-6" />,
-    discount: "15% Rabatt"
+    discount: "7% Rabatt"
   },
   monatlich: {
     title: "Monatlich",
     description: "Regelmäßige Reinigung einmal pro Monat",
     icon: <CalendarDays className="h-6 w-6" />,
-    discount: "8% Rabatt"
+    discount: "5% Rabatt"
   },
   individuell: {
     title: "Individuell",

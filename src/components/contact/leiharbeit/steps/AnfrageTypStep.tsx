@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../LeiharbeitWizard'
-import { Building2, User, Briefcase, UserPlus } from 'lucide-react'
 
 type AnfrageTypStepProps = {
   formData: FormData;
@@ -61,83 +60,117 @@ export const AnfrageTypStep: React.FC<AnfrageTypStepProps> = ({
     goToNextStep()
   }
 
+  // Apple Design-inspirierte Animation für Auswahl
+  const selectedVariants = {
+    selected: {
+      backgroundColor: "rgba(0, 122, 255, 0.05)",
+      borderColor: "rgba(0, 122, 255, 1)",
+      transition: { duration: 0.3 }
+    },
+    notSelected: {
+      backgroundColor: "rgba(255, 255, 255, 1)",
+      borderColor: "rgba(229, 231, 235, 1)",
+      transition: { duration: 0.3 }
+    }
+  };
+
   return (
     <motion.div 
-      className="space-y-6"
-      initial={{ opacity: 0, y: 10 }}
+      className="max-w-3xl mx-auto"
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.4 }}
     >
-      <div className="text-center mb-8">
+      {/* Überschrift im Apple-Stil */}
+      <div className="text-center mb-12">
         <motion.h2 
-          className="text-2xl font-medium text-gray-800 mb-2"
+          className="text-3xl font-semibold text-gray-900 mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.3 }}
         >
-          Wie können wir Ihnen helfen?
+          Was können wir für Sie tun?
         </motion.h2>
         <motion.p 
-          className="text-gray-600 max-w-2xl mx-auto"
+          className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          Bitte wählen Sie aus, ob Sie als Unternehmen Leiharbeiter suchen oder als Person Arbeit suchen.
+          Bitte wählen Sie eine der folgenden Optionen.
         </motion.p>
       </div>
       
+      {/* Apple-inspirierte Auswahloptionen */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
+        className="space-y-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.3 }}
       >
         {/* Unternehmen-Option */}
         <motion.div
-          className={`flex flex-col items-center p-8 rounded-lg border-2 transition-all cursor-pointer ${selectedType === 'unternehmen' ? 'border-accent bg-accent/5 shadow-md' : 'border-gray-200 hover:border-accent/50'}`}
+          className={`p-6 rounded-xl border transition-all cursor-pointer overflow-hidden`}
+          variants={selectedVariants}
+          initial="notSelected"
+          animate={selectedType === 'unternehmen' ? "selected" : "notSelected"}
           onClick={() => handleTypeSelect('unternehmen')}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.99 }}
         >
-          <div className="relative">
-            <div className={`p-4 rounded-full mb-6 ${selectedType === 'unternehmen' ? 'text-accent bg-accent/10' : 'text-gray-600 bg-gray-100'}`}>
-              <Building2 className="h-12 w-12" />
+          <div className="flex items-start">
+            <div className="flex-1">
+              <h3 className="text-xl font-medium text-gray-800 mb-2">Personalsuche für Unternehmen</h3>
+              <p className="text-gray-600 mb-1 leading-relaxed">
+                Wir helfen Ihnen, die passenden Mitarbeiter für Ihr Unternehmen zu finden.
+              </p>
+              <p className="text-gray-500 text-sm">Zeitarbeiter schnell und einfach anfragen</p>
             </div>
-            <div className="absolute -right-2 -bottom-2">
-              <Briefcase className={`h-8 w-8 ${selectedType === 'unternehmen' ? 'text-accent' : 'text-gray-400'}`} />
+            <div className="ml-4 flex items-center">
+              <div className={`w-6 h-6 rounded-full border border-2 flex items-center justify-center ${selectedType === 'unternehmen' ? 'border-accent' : 'border-gray-300'}`}>
+                {selectedType === 'unternehmen' && (
+                  <motion.div 
+                    className="w-3 h-3 rounded-full bg-accent" 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Unternehmen</h3>
-          <p className="text-center text-gray-600 mb-4">
-            Wir suchen qualifizierte Leiharbeiter für unser Unternehmen.
-          </p>
-          <div className={`mt-4 px-4 py-2 rounded ${selectedType === 'unternehmen' ? 'bg-accent text-white' : 'bg-gray-100 text-gray-500'}`}>
-            Personal finden
           </div>
         </motion.div>
 
         {/* Bewerber-Option */}
         <motion.div
-          className={`flex flex-col items-center p-8 rounded-lg border-2 transition-all cursor-pointer ${selectedType === 'bewerber' ? 'border-accent bg-accent/5 shadow-md' : 'border-gray-200 hover:border-accent/50'}`}
+          className={`p-6 rounded-xl border transition-all cursor-pointer overflow-hidden`}
+          variants={selectedVariants}
+          initial="notSelected"
+          animate={selectedType === 'bewerber' ? "selected" : "notSelected"}
           onClick={() => handleTypeSelect('bewerber')}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.99 }}
         >
-          <div className="relative">
-            <div className={`p-4 rounded-full mb-6 ${selectedType === 'bewerber' ? 'text-accent bg-accent/10' : 'text-gray-600 bg-gray-100'}`}>
-              <User className="h-12 w-12" />
+          <div className="flex items-start">
+            <div className="flex-1">
+              <h3 className="text-xl font-medium text-gray-800 mb-2">Arbeit als Bewerber finden</h3>
+              <p className="text-gray-600 mb-1 leading-relaxed">
+                Bewerben Sie sich als Zeitarbeiter und finden Sie neue berufliche Chancen.
+              </p>
+              <p className="text-gray-500 text-sm">Passende Jobs in Ihrer Region entdecken</p>
             </div>
-            <div className="absolute -right-2 -bottom-2">
-              <UserPlus className={`h-8 w-8 ${selectedType === 'bewerber' ? 'text-accent' : 'text-gray-400'}`} />
+            <div className="ml-4 flex items-center">
+              <div className={`w-6 h-6 rounded-full border border-2 flex items-center justify-center ${selectedType === 'bewerber' ? 'border-accent' : 'border-gray-300'}`}>
+                {selectedType === 'bewerber' && (
+                  <motion.div 
+                    className="w-3 h-3 rounded-full bg-accent" 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Bewerber</h3>
-          <p className="text-center text-gray-600 mb-4">
-            Ich suche Arbeit und möchte mich als Leiharbeiter bewerben.
-          </p>
-          <div className={`mt-4 px-4 py-2 rounded ${selectedType === 'bewerber' ? 'bg-accent text-white' : 'bg-gray-100 text-gray-500'}`}>
-            Arbeit finden
           </div>
         </motion.div>
       </motion.div>
@@ -152,17 +185,23 @@ export const AnfrageTypStep: React.FC<AnfrageTypStepProps> = ({
         </motion.p>
       )}
       
+      {/* Apple-Style Button */}
       <motion.div 
-        className="flex justify-center mt-8"
+        className="mt-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.3 }}
       >
         <motion.button
           onClick={handleContinue}
-          className={`py-3 px-8 rounded-md font-medium transition-all duration-200 ${selectedType ? 'bg-accent text-white hover:bg-accent-dark' : 'bg-gray-200 text-gray-500 cursor-not-allowed'}`}
-          whileHover={selectedType ? { scale: 1.03, boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" } : {}}
-          whileTap={selectedType ? { scale: 0.97 } : {}}
+          className={`w-full py-3.5 rounded-lg font-medium transition-all ${
+            selectedType 
+              ? 'bg-accent text-white' 
+              : 'bg-gray-100 text-gray-400'
+          }`}
+          whileHover={selectedType ? { scale: 1.01 } : {}}
+          whileTap={selectedType ? { scale: 0.98 } : {}}
+          disabled={!selectedType}
         >
           Weiter
         </motion.button>

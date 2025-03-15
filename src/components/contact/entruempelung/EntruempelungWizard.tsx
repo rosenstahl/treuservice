@@ -6,9 +6,8 @@ import { StepIndicator } from './StepIndicator'
 import { ObjektTypStep } from './steps/ObjektTypStep'
 import { UmfangGroesseStep } from './steps/UmfangGroesseStep'
 import { EntruempelungsartStep } from './steps/EntruempelungsartStep'
-import { AdresseZugangStep } from './steps/AdresseZugangStep'
-import { TerminKontaktStep } from './steps/TerminKontaktStep'
-import { PreisUebersichtStep } from './steps/PreisUebersichtStep'
+import { ZugangTerminStep } from './steps/ZugangTerminStep'
+import { KontaktZusammenfassungStep } from './steps/KontaktZusammenfassungStep'
 
 // FormData-Struktur für den Entrümpelungs-Wizard
 export type FormData = {
@@ -94,7 +93,7 @@ const EntruempelungWizard: React.FC = () => {
 
   // Navigation zwischen Schritten
   const goToNextStep = () => {
-    if (currentStep < 6) {
+    if (currentStep < 5) {
       setDirection('forward')
       setCurrentStep(currentStep + 1)
     }
@@ -147,11 +146,9 @@ const EntruempelungWizard: React.FC = () => {
       case 3:
         return <EntruempelungsartStep {...commonProps} goToNextStep={goToNextStep} />
       case 4:
-        return <AdresseZugangStep {...commonProps} goToNextStep={goToNextStep} />
+        return <ZugangTerminStep {...commonProps} goToNextStep={goToNextStep} />
       case 5:
-        return <TerminKontaktStep {...commonProps} goToNextStep={goToNextStep} />
-      case 6:
-        return <PreisUebersichtStep {...commonProps} isLastStep={true} />
+        return <KontaktZusammenfassungStep {...commonProps} isLastStep={true} />
       default:
         return null
     }
@@ -170,7 +167,7 @@ const EntruempelungWizard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          <StepIndicator currentStep={currentStep} totalSteps={6} />
+          <StepIndicator currentStep={currentStep} totalSteps={5} />
         </motion.div>
         
         <div className="mt-8">

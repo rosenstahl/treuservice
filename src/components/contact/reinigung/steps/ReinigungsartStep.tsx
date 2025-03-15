@@ -19,8 +19,8 @@ import {
   Home,
   Sun,
   PenTool,
-  // Neues Icon für Grundreinigung
-  Trash2
+  // Neues Icon für Unterhaltsreinigung
+  Repeat
 } from 'lucide-react'
 
 type ReinigungsartStepProps = {
@@ -32,8 +32,8 @@ type ReinigungsartStepProps = {
 
 // Icons für die verschiedenen Reinigungsarten
 const icons = {
-  unterhaltsreinigung: <Brush className="h-8 w-8" />,
-  grundreinigung: <Trash2 className="h-8 w-8" />, // Neues Icon für Grundreinigung
+  unterhaltsreinigung: <Repeat className="h-8 w-8" />, // Neues Icon für Unterhaltsreinigung
+  grundreinigung: <Sparkle className="h-8 w-8" />, // Zurück zu Sparkle für Grundreinigung
   glas_fassade: <Droplet className="h-8 w-8" />,
   industrie: <Factory className="h-8 w-8" />,
   reinraum: <ShieldCheck className="h-8 w-8" />,
@@ -146,7 +146,7 @@ export const ReinigungsartStep: React.FC<ReinigungsartStepProps> = ({
       </div>
       
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
@@ -163,7 +163,7 @@ export const ReinigungsartStep: React.FC<ReinigungsartStepProps> = ({
             <div className={`p-2 rounded-full mb-2 ${selectedType === type ? 'text-accent' : 'text-gray-500'}`}>
               {icons[type]}
             </div>
-            <h3 className="font-medium text-gray-800 text-sm text-center mb-1">{titles[type]}</h3>
+            <h3 className="font-medium text-gray-800 text-xs text-center">{titles[type]}</h3>
           </motion.div>
         ))}
       </motion.div>

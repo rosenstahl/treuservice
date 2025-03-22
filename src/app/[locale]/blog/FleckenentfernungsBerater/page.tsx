@@ -84,10 +84,11 @@ const oberflaechen = [
 
 // Lösungen für verschiedene Flecken-Oberflächen-Kombinationen
 const loesungen = {
+  // Kaffee & Tee Flecken
   "kaffee-teppich": {
-    einfach: "Sofort mit kaltem Wasser und etwas Teppichshampoo behandeln.",
-    fortgeschritten: "Mischen Sie einen Teelöffel Flüssigwaschmittel mit warmem Wasser und etwas weißem Essig. Tragen Sie die Lösung mit einem Schwamm auf, arbeiten Sie von außen nach innen. Nach 10 Minuten mit einem sauberen Tuch abtupfen.",
-    profi: "Ein Dampfreiniger mit Teppichaufsatz kann hartnäckige Kaffeeflecken effektiv entfernen.",
+    einfach: "Sofort mit kaltem Wasser abtupfen (nicht reiben!), dann mit einem Teppichshampoo behandeln.",
+    fortgeschritten: "Mischen Sie einen Teelöffel Flüssigwaschmittel mit warmem Wasser und 2 EL weißem Essig. Tragen Sie die Lösung mit einem Schwamm auf, arbeiten Sie von außen nach innen. Nach 10 Minuten mit einem sauberen Tuch abtupfen.",
+    profi: "Ein Dampfreiniger mit Teppichaufsatz kann hartnäckige Kaffeeflecken effektiv entfernen. Bei eingetrockneten Flecken vorher mit farblösem Glasreiniger behandeln.",
     hinweis: "Bei getrockneten Flecken ist die Behandlung mit enzymbasierten Fleckenentfernern empfehlenswert."
   },
   "kaffee-polster": {
@@ -96,13 +97,162 @@ const loesungen = {
     profi: "Spezielle Polsterreiniger mit Textilschutz verwenden, die nicht nur reinigen, sondern auch vor künftigen Flecken schützen.",
     hinweis: "Immer an einer unauffälligen Stelle testen, besonders bei empfindlichen Stoffen."
   },
+  "kaffee-hartboden": {
+    einfach: "Mit warmem Wasser und einem weichen Tuch abwischen.",
+    fortgeschritten: "Mischen Sie ein mildes Spülmittel mit warmem Wasser und wischen Sie damit den Fleck ab.",
+    profi: "Bei hartnäckigen Flecken einen speziellen Fleckenentferner für Hartböden verwenden. Nach der Reinigung mit klarem Wasser nachwischen und trocken reiben.",
+    hinweis: "Bei Laminat immer sparsam mit Wasser umgehen und niemals stehende Nässe zulassen."
+  },
+  "kaffee-holz": {
+    einfach: "Sofort mit einem weichen Tuch abtupfen, dann mit leicht feuchtem Tuch nachwischen.",
+    fortgeschritten: "Eine Mischung aus Olivenöl und Salz als Paste auftragen, ein paar Minuten einwirken lassen und vorsichtig abwischen.",
+    profi: "Speziellen Holzreiniger verwenden, der die Oberfläche nicht angreift. Anschließend mit geeignetem Holzöl oder -wachs nachbehandeln.",
+    hinweis: "Unbedingt stehende Nässe vermeiden, da Holz aufquellen kann. Nach jeder Reinigung gründlich trocknen."
+  },
+  "kaffee-naturstein": {
+    einfach: "Sofort mit einem sauberen Tuch abtupfen, dann mit klarem Wasser nachwischen.",
+    fortgeschritten: "Milde Steinseife mit Wasser mischen und den Fleck damit behandeln. Keine säurehaltigen Reiniger verwenden!",
+    profi: "Speziellen Natursteinreiniger ohne Säure verwenden und nach Herstellerangaben anwenden.",
+    hinweis: "Niemals Essig, Zitrone oder andere Säuren auf Marmor oder Naturstein anwenden, da diese Materialien anätzen und matte Stellen hinterlassen."
+  },
+  
+  // Rotwein Flecken
   "rotwein-teppich": {
-    einfach: "Sofort mit Papiertüchern abtupfen, dann mit Mineralwasser und Salz behandeln.",
-    fortgeschritten: "Mischen Sie 3 Teile Backpulver mit 1 Teil Wasser zu einer Paste, tragen Sie diese auf und lassen Sie sie trocknen. Anschließend absaugen.",
-    profi: "Spezielle Rotweinflekcenentferner aus dem Fachhandel anwenden, die Tannine neutralisieren.",
+    einfach: "Sofort mit saugfähigen Papiertüchern abtupfen, dann mit kohlensäurehaltigem Mineralwasser und einer Prise Salz behandeln.",
+    fortgeschritten: "3 Teile Backpulver mit 1 Teil Wasser zu einer Paste vermischen, auftragen, trocknen lassen und absaugen.",
+    profi: "Spezielle Rotweinfleckenentferner verwenden, die Tannine neutralisieren können. Bei frischen Flecken hilft auch Weißwein als Neutralisierer.",
     hinweis: "Niemals mit heißem Wasser behandeln, da dies den Fleck fixieren kann."
   },
-  // Viele weitere Kombinationen würden hier folgen
+  "rotwein-polster": {
+    einfach: "Sofort mit saugfähigen Tüchern abtupfen, dann mit Mineralwasser behandeln.",
+    fortgeschritten: "Eine Mischung aus Glycerin (1:1 mit Wasser verdünnt) auftragen, 30 Minuten einwirken lassen, dann mit lauwarmem Wasser nachbehandeln.",
+    profi: "Farblosen Glasreiniger nach Vorbehandlung mit Wasser vorsichtig auftragen. Bei alten Flecken einen professionellen Polsterreiniger verwenden.",
+    hinweis: "Immer von außen nach innen arbeiten, um ein Ausbreiten des Flecks zu verhindern."
+  },
+  
+  // Blut Flecken
+  "blut-teppich": {
+    einfach: "Mit kaltem Wasser und weißem Tuch abtupfen, dann mit Salzwasserlösung behandeln.",
+    fortgeschritten: "Paste aus Maisstärke und kaltem Wasser auftragen, trocknen lassen, absaugen.",
+    profi: "Bei empfindlichen Materialien reinen Alkohol vorsichtig auftupfen, einwirken lassen und mit kaltem Wasser nachbehandeln.",
+    hinweis: "Niemals warmes oder heißes Wasser verwenden, da dies Blutproteine fixiert und den Fleck unlöslich macht."
+  },
+  "blut-kleidung": {
+    einfach: "Sofort unter kaltem fließenden Wasser ausspülen, am besten von der Rückseite des Stoffs.",
+    fortgeschritten: "In Salzwasserlösung (1 EL Salz auf 1 Liter kaltes Wasser) für 1-2 Stunden einweichen.",
+    profi: "Aspirin-Lösung (1 Brausetablette in 1 Liter kaltem Wasser aufgelöst) für waschbare Textilien anwenden.",
+    hinweis: "Vor dem Waschen mit Gallseife, Kernseife oder Fleckenentferner vorbehandeln und niemals heißes Wasser verwenden."
+  },
+
+  // Tinte & Kugelschreiber
+  "tinte-teppich": {
+    einfach: "Mit in Milch getränktem Tuch abtupfen.",
+    fortgeschritten: "Mischung aus Essigessenz und etwas Zitronensaft auftragen, einwirken lassen und abtupfen.",
+    profi: "Speziellen Tintenentferner aus dem Fachhandel verwenden oder mit Isopropylalkohol vorsichtig behandeln.",
+    hinweis: "Bei hellen Stoffen Vorsicht mit Zitrone/Essig, da diese bleichend wirken können."
+  },
+  "tinte-kleidung": {
+    einfach: "Auf den Fleck Haarspray sprühen, trocknen lassen und abbürsten.",
+    fortgeschritten: "Über Nacht in einer Lösung aus Waschmittel und Fleckensalz einweichen.",
+    profi: "90% Alkohol oder Aceton (bei nicht-empfindlichen Stoffen) auf den Fleck auftragen, dann normal waschen.",
+    hinweis: "Bei farbigen Textilien zunächst an unauffälliger Stelle testen, da Alkohol und Aceton Farben lösen können."
+  },
+  
+  // Fett & Öl
+  "fett-teppich": {
+    einfach: "Sofort mit absorbierendem Material (Babypuder, Maisstärke oder Mehl) bestreuen, einwirken lassen und absaugen.",
+    fortgeschritten: "Mischung aus Backpulver und Wasser als Paste auftragen, trocknen lassen und absaugen.",
+    profi: "Für hartnäckige Flecken spezielle Öl-Handreiniger aus dem Autozubehör verwenden.",
+    hinweis: "Niemals reiben, da dies den Fleck tiefer ins Material drückt. Immer tupfen oder aufsaugen."
+  },
+  "fett-kleidung": {
+    einfach: "Sofort mit Kreide, Babypuder oder Maisstärke bestreuen, einige Stunden einwirken lassen und ausbürsten.",
+    fortgeschritten: "Gallseife oder Geschirrspülmittel direkt auf den Fleck geben, einwirken lassen und dann waschen.",
+    profi: "Spezielle Fett- und Ölfleckenentferner verwenden und nach Anweisung waschen.",
+    hinweis: "Bei empfindlichen Stoffen immer das Pflegeetikett beachten und ggf. einen Spezialreiniger verwenden."
+  },
+  
+  // Schimmel
+  "schimmel-teppich": {
+    einfach: "Mit Essig besprühen, trocknen lassen, absaugen.",
+    fortgeschritten: "Mischung aus Alkohol und Wasser (1:1) auf betroffene Stellen sprühen, trocknen lassen.",
+    profi: "Chlorfreie Schimmelsprays für Textilien verwenden, die materialschonend sind.",
+    hinweis: "Gute Durchlüftung während und nach der Behandlung ist wichtig, um erneute Schimmelbildung zu vermeiden."
+  },
+  "schimmel-kleidung": {
+    einfach: "Bei waschbaren Textilien mit 60-90°C waschen, vorher in der Sonne trocknen.",
+    fortgeschritten: "In Essigwasser (1 Teil Essig zu 3 Teilen Wasser) einweichen, dann mit heißem Wasser waschen.",
+    profi: "Chlorbleiche für weiße Textilien oder spezielle Schimmelentferner für bunte Stoffe verwenden.",
+    hinweis: "Nach der Reinigung gründlich trocknen und für gute Belüftung sorgen, um erneute Schimmelbildung zu vermeiden."
+  },
+  
+  // Urin
+  "urin-teppich": {
+    einfach: "Überschüssige Flüssigkeit mit Papiertüchern aufsaugen, dann mit Natron, Backpulver oder Salz bestreuen, einwirken lassen und absaugen.",
+    fortgeschritten: "Mischung aus Essigwasser (1 Teil Essig zu 2 Teilen Wasser) auf die Stelle sprühen, mit sauberem Tuch abtupfen.",
+    profi: "Spezielle Urinfleckenentferner mit Geruchsneutralisator verwenden, besonders wichtig bei Tierurin.",
+    hinweis: "Bei Tierurin ist eine gründliche Geruchsneutralisierung wichtig, damit das Tier nicht an die gleiche Stelle zurückkehrt."
+  },
+  "urin-polster": {
+    einfach: "Überschüssige Flüssigkeit mit Papiertüchern aufsaugen, dann mit Natron oder Backpulver bestreuen, einwirken lassen und absaugen.",
+    fortgeschritten: "Mischung aus Essigwasser (1 Teil Essig zu 2 Teilen Wasser) auf die Stelle sprühen, mit sauberem Tuch abtupfen.",
+    profi: "Rasierschaum oder Glasreiniger auftragen, einwirken lassen und mit sauberem, feuchtem Tuch nachbehandeln.",
+    hinweis: "Nach der Reinigung gut trocknen lassen und für Durchlüftung sorgen, um Geruchsbildung zu vermeiden."
+  },
+  
+  // Schweiß
+  "schweiß-kleidung": {
+    einfach: "Vor dem Waschen mit Gallseife oder Flüssigwaschmittel direkt auf den Fleck vorbehandeln.",
+    fortgeschritten: "Bei gelben Flecken auf weißer Kleidung: Backpulver, Essig, Zitronensäure oder Alkohol auftragen, einwirken lassen und dann waschen.",
+    profi: "Spezieller Schweißfleckenentferner oder Einweichen in einer Lösung aus Waschmittel und Fleckensalz über Nacht.",
+    hinweis: "Schweißflecken sofort behandeln, bevor sie sich festsetzen können. Weiße Kleidung bei möglichst hoher Temperatur gemäß Pflegeetikett waschen."
+  },
+
+  // Gras & Pflanzen
+  "gras-kleidung": {
+    einfach: "Zitronensaft oder Essig auf den Fleck träufeln und vor dem Waschen einwirken lassen.",
+    fortgeschritten: "Eine aufgeschnittene Kartoffel mit der Schnittfläche über den Fleck reiben, besonders effektiv bei Jeans.",
+    profi: "Backpulver mit Wasser zu einer Paste vermischen, auf den Fleck auftragen, 10-15 Minuten einwirken lassen und dann bei höchstmöglicher Temperatur gemäß Pflegeetikett waschen.",
+    hinweis: "Je frischer der Fleck, desto einfacher die Entfernung. Grasflecken immer vorbehandeln, bevor sie in die Waschmaschine kommen."
+  },
+  
+  // Make-up & Kosmetik
+  "kosmetik-kleidung": {
+    einfach: "Überschüssiges Material vorsichtig entfernen, dann mit Spülmittel und Wasser vorbehandeln.",
+    fortgeschritten: "Bei Foundation und Lippenstift: Fleck mit Reinigungsalkohol oder Eukalyptusöl behandeln. Bei Mascara: Fleck erst trocknen lassen, dann vorsichtig entfernen.",
+    profi: "Spezielle Make-up-Entferner oder hochwertiges Waschmittel wie Ariel Flüssig Waschmittel verwenden, das Tenside enthält, die Fettiges aus Textilien entfernen.",
+    hinweis: "Beim Entfernen von Lippenstiftflecken nicht reiben, sondern tupfen, damit die Farbpigmente nicht tiefer in den Stoff gelangen."
+  },
+  
+  // Kaugummi
+  "kaugummi-teppich": {
+    einfach: "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abbrechen.",
+    fortgeschritten: "Essig auf das Kaugummi tropfen, einige Minuten einwirken lassen und dann mit einem weichen Küchentuch entfernen.",
+    profi: "Kaugummi mit dem Bügeleisen erwärmen: Küchenpapier auf den Kaugummi legen und mit dem Bügeleisen vorsichtig darüber bügeln, so dass das Kaugummi am Papier kleben bleibt.",
+    hinweis: "Niemals direkt am Kaugummi reiben oder ziehen, da dies die Fasern beschädigen kann."
+  },
+  "kaugummi-kleidung": {
+    einfach: "Kleidungsstück in einen Plastikbeutel legen und für 2-3 Stunden ins Tiefkühlfach geben. Den gefrorenen Kaugummi dann vorsichtig abbrechen.",
+    fortgeschritten: "Mit Butter oder Erdnussbutter in den Kaugummi einmassieren, dann mit einer alten Zahnbürste vorsichtig entfernen.",
+    profi: "Kaugummi mit dem Bügeleisen erwärmen: Küchenpapier auf den Kaugummi legen und mit dem Bügeleisen vorsichtig darüber bügeln, so dass das Kaugummi am Papier kleben bleibt.",
+    hinweis: "Nach der Entfernung des Kaugummis das Kleidungsstück normal waschen."
+  },
+  
+  // Rost
+  "rost-kleidung": {
+    einfach: "Zitronensaft direkt auf den Fleck träufeln, mit Salz bestreuen und in die Sonne legen.",
+    fortgeschritten: "Weißweinessig oder eine halbierte Zitrone auf den Fleck auftragen, einwirken lassen und mit weißem Handtuch abtupfen.",
+    profi: "Speziellen Rostfleckenentferner für Textilien verwenden und nach Anweisung waschen.",
+    hinweis: "Bei empfindlichen Stoffen immer das Pflegeetikett beachten und ggf. einen Spezialreiniger verwenden."
+  },
+  "rost-metall": {
+    einfach: "Mit warmem Wasser und Spülmittel abwischen.",
+    fortgeschritten: "Eine Paste aus Natron und Wasser auftragen, einwirken lassen und abwischen.",
+    profi: "Essigessenz oder Cola zur Reinigung nutzen oder ein spezielles Rostentfernungsmittel für Metall verwenden.",
+    hinweis: "Nach der Reinigung gründlich trocknen und ggf. mit Rostschutz behandeln."
+  },
+
+  // Standard-Lösung für alle nicht explizit definierten Kombinationen
   "default": {
     einfach: "Entfernen Sie überschüssiges Material vorsichtig mit einem Löffel oder stumpfen Messer. Tupfen Sie dann mit klarem, lauwarmem Wasser und einem sauberen Tuch.",
     fortgeschritten: "Mischen Sie milde Seife mit warmem Wasser und tupfen Sie den Fleck vorsichtig von außen nach innen ab. Spülen Sie mit klarem Wasser nach und trocknen Sie die Stelle mit einem Handtuch.",

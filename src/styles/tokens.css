@@ -1,0 +1,54 @@
+@layer base {
+  :root {
+    /* Farben */
+    --color-primary: #FFFFFF;
+    --color-primary-light: #FFFFFF;
+    --color-primary-dark: #F8FAFC;
+    
+    --color-secondary: #222425;
+    --color-secondary-light: #404244;
+    --color-secondary-dark: #1A1B1C;
+    
+    --color-accent: #009FD8;
+    --color-accent-light: #00B3F4;
+    --color-accent-dark: #0089BC;
+    --color-accent-hover: #007CAB;
+
+    /* Testimonial-spezifische Farben */
+    --testimonial-text: #333333;
+    --testimonial-name: #222425;
+    --testimonial-designation: #666666;
+
+    /* Abstände */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 1rem;
+    --spacing-4: 1.5rem;
+    --spacing-5: 2rem;
+    --spacing-6: 3rem;
+    
+    /* Typografie */
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.25rem;
+    --font-size-h3: 1.5rem;
+    --font-size-body: 1rem;
+    --font-size-small: 0.875rem;
+
+    /* Zeilenabstände */
+    --line-height-h1: 1.2;
+    --line-height-h2: 1.3;
+    --line-height-h3: 1.4;
+    --line-height-body: 1.5;
+    --line-height-small: 1.4;
+
+    /* Buchstabenabstände */
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0em;
+    --letter-spacing-wide: 0.02em;
+
+    /* Schatten */
+    --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.08);
+    --shadow-strong: 0 10px 15px rgba(0, 0, 0, 0.12);
+  }
+}

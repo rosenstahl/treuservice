@@ -1,0 +1,389 @@
+{
+  "hero": {
+    "title": "Entkernung",
+    "subtitle": "Ihr Fundament für eine perfekte Sanierung",
+    "description": "Wir sorgen für die fachgerechte Entkernung Ihres Gebäudes und schaffen eine solide Basis für Ihren Neuanfang. Unsere präzise Arbeitsweise, erfahrenen Teams und maßgeschneiderten Konzepte garantieren ein Ergebnis, das Ihre Erwartungen übertrifft."
+  },
+  "intro": {
+    "title": "Ihr Experte für komplette Entkernung",
+    "description": "Mit über 350 erfolgreich abgeschlossenen Projekten entkernen wir zuverlässig Wohn- und Geschäftsgebäude jeder Größe – von der denkmalgeschützten Villa bis zum modernen Bürokomplex. Unser Team aus zertifizierten Fachkräften arbeitet sorgfältig, umweltbewusst und nach höchsten Sicherheitsstandards. Wir begleiten Sie kompetent vom ersten Beratungsgespräch bis zur fachgerechten Entsorgung des letzten Bauschuttes."
+  },
+  "basisleistungen": {
+    "title": "Unsere Dienstleistungen im Überblick", 
+    "items": [
+      "Kompletter Innenraumrückbau",
+      "Selektiver Rückbau",
+      "Entsorgung und Recycling",
+      "Schadstoffsanierung",
+      "Beratung und Planung"
+    ],
+    "note": "Professionelle Entkernung ist mehr als bloßes Abreißen – sie erfordert durchdachte Planung und präzise Ausführung. Mit unseren umfassenden Entkernungsleistungen bereiten wir Ihr Gebäude optimal auf die Sanierung oder den Umbau vor und legen damit den Grundstein für ein erfolgreiches Bauprojekt."
+  },
+  "leistungen": {
+    "title": "Unsere Entkernungsleistungen",
+    "description": "Von der gezielten Entfernung einzelner Bauelemente bis zur kompletten Entkernung - wir bieten maßgeschneiderte Lösungen für Ihre individuellen Anforderungen.",
+    "services": [
+      {
+        "category": "Entkernungsleistungen",
+        "icon": "HardHat",
+        "items": [
+          "Entfernung von Innenwänden und Zwischendecken",
+          "Rückbau von Böden und Estrichen",
+          "Demontage von Installationen (Elektro, Sanitär, Heizung)",
+          "Ausbau von Fenstern, Türen und Zargen",
+          "Entfernung von Verkleidungen und Dämmmaterialien",
+          "Selektive Entkernung nach Vorgaben"
+        ]
+      },
+      {
+        "category": "Zusatzleistungen",
+        "icon": "Wrench",
+        "items": [
+          "Schadstofferkundung und -sanierung",
+          "Statische Beurteilung und Absicherung",
+          "Sortenreine Trennung und Entsorgung",
+          "Ausstellung von Entsorgungsnachweisen",
+          "Behördliche Abwicklung und Genehmigungen",
+          "Beratung und Projektplanung"
+        ]
+      }
+    ],
+    "highlightCards": [
+      {
+        "title": "Innenwände",
+        "icon": "PanelRight",
+        "description": "Fachgerechte Entfernung von tragenden und nicht-tragenden Wänden"
+      },
+      {
+        "title": "Bodenbeläge",
+        "icon": "PanelBottom",
+        "description": "Entfernung aller Arten von Bodenbelägen und Estrichen"
+      },
+      {
+        "title": "Installationen",
+        "icon": "Plug",
+        "description": "Demontage von Elektro-, Sanitär- und Heizungsinstallationen"
+      }
+    ]
+  },
+  "ablauf": {
+    "title": "So funktioniert unsere Zusammenarbeit",
+    "description": "Von der ersten Anfrage bis zur Übergabe - wir begleiten Sie professionell durch das gesamte Projekt",
+    "steps": [
+      {
+        "title": "Beratung",
+        "description": "Kostenlose Erstberatung mit individueller Konzeptentwicklung innerhalb von 48 Stunden"
+      },
+      {
+        "title": "Besichtigung",
+        "description": "Detaillierte Vor-Ort-Analyse mit digitaler 3D-Bestandsaufnahme und Schadstoffprüfung"
+      },
+      {
+        "title": "Angebot",
+        "description": "Transparentes Festpreisangebot mit garantierter Preisbindung und ohne versteckte Kosten"
+      },
+      {
+        "title": "Planung",
+        "description": "Maßgeschneiderte Projektplanung mit digitaler Bauzeitplanung und Ressourcenoptimierung"
+      },
+      {
+        "title": "Durchführung",
+        "description": "Professionelle Entkernung nach ISO-zertifizierten Prozessen mit täglichen Fortschrittsberichten"
+      },
+      {
+        "title": "Abnahme",
+        "description": "Gemeinsame Endkontrolle mit digitaler Dokumentation und Sichtabnahme aller Leistungen"
+      }
+    ]
+  },
+  "ratgeber": {
+    "title": "Unser 10-Schritte-Prozess für perfekte Entkernungen",
+    "subtitle": "Von der Planung bis zur Fertigstellung - Professionelles Vorgehen mit TREU Service Qualitätsgarantie",
+    "content": "Die Entkernung eines Gebäudes ist kein gewöhnlicher Abriss, sondern ein präzise choreografierter Prozess. Unser erfahrenes Team führt jede Entkernung nach einem bewährten 10-Schritte-System durch, das Qualität, Sicherheit und Effizienz garantiert.",
+    "linkText": "Zum Ratgeber: Entkernung Schritt für Schritt erklärt",
+    "linkUrl": "/blog/EntkernungAblauf",
+    "themesPreview": [
+      {
+        "title": "Vorbereitung",
+        "icon": "Construction",
+        "color": "red",
+        "description": "Planung, Sicherheitskonzept und wichtige Vorarbeiten für eine erfolgreiche Entkernung."
+      },
+      {
+        "title": "Durchführung",
+        "icon": "Hammer",
+        "color": "blue",
+        "description": "Fachgerechte Entfernung von Wänden, Böden und Installationen mit modernster Technik."
+      },
+      {
+        "title": "Abschluss",
+        "icon": "Recycle",
+        "color": "green",
+        "description": "Sortenreine Trennung, umweltgerechte Entsorgung und professionelle Endkontrolle."
+      }
+    ],
+    "items": [
+      {
+        "title": "Projektanalyse und Planung",
+        "description": "Wir beginnen mit einer umfassenden Gebäudeanalyse und detaillierten Planung aller Arbeitsschritte. Die Bauleitung der Wohnbaugesellschaft Düsseldorf bestätigt: 'Die präzise Vorplanung von TREU Service hat bei unserem Großprojekt mit 58 Wohneinheiten 27% der ursprünglich kalkulierten Zeit eingespart.'"
+      },
+      {
+        "title": "Sicherheitskonzept und Absperrung",
+        "description": "Unser zertifiziertes Sicherheitsteam entwickelt ein maßgeschneidertes Sicherheitskonzept und richtet alle erforderlichen Schutzmaßnahmen ein. Durch unser dreistufiges Sicherheitsprotokoll haben wir in den letzten 5 Jahren keinen einzigen meldepflichtigen Arbeitsunfall verzeichnet."
+      },
+      {
+        "title": "Räumung und Bestandssicherung",
+        "description": "Verwertbare Bauteile und Materialien werden sorgfältig ausgebaut und für die Wiederverwendung gesichert. Familie Schmidt aus Köln berichtet: 'TREU Service hat bei der Entkernung unseres Altbaus historische Türen und einen Terrazzoboden gerettet, die wir später wieder einbauen konnten – das hat uns nicht nur 14.600€ gespart, sondern auch den Charakter des Hauses bewahrt.'"
+      },
+      {
+        "title": "Schadstofferkundung und -sanierung",
+        "description": "Vor den Hauptarbeiten führen wir eine gründliche Schadstoffanalyse durch und entfernen gefährliche Materialien fachgerecht. Unsere spezialisierten Teams sind nach TRGS 519 (Asbest), TRGS 521 (KMF) und TRGS 524 (Schimmelpilze) zertifiziert und verfügen über modernste Dekontaminationstechnik."
+      },
+      {
+        "title": "Abklemmen der Versorgungsleitungen",
+        "description": "Alle Versorgungsleitungen werden fachgerecht und sicher abgetrennt oder umgeleitet, um Gefahren und Folgeschäden zu vermeiden. Unsere Dokumentation mit Leitungsplänen sorgt für eine reibungslose spätere Wiederanbindung und hat bei 94% unserer Projekte Komplikationen bei der Neuinstallation verhindert."
+      },
+      {
+        "title": "Entkernung der Nichttragenden Elemente",
+        "description": "Die eigentliche Entkernung beginnt mit der systematischen Entfernung aller nichttragenden Elemente. Durch unsere modulare Vorgehensweise können wir auch bei laufendem Betrieb in angrenzenden Gebäudeteilen arbeiten – ideal für Bürogebäude oder Mietobjekte mit Teilsanierung."
+      },
+      {
+        "title": "Rückbau von Böden und Decken",
+        "description": "Böden, Estriche und abgehängte Decken werden präzise zurückgebaut. Mit unserer speziellen Bodenfräse arbeiten wir bis zu 65% staubärmer als herkömmliche Verfahren, wie Messungen des TÜV Rheinland bestätigen. Benachbarte Bereiche bleiben so nahezu staubfrei."
+      },
+      {
+        "title": "Entfernung der Installationen",
+        "description": "Elektrische Leitungen, Sanitär- und Heizungsinstallationen werden systematisch ausgebaut. Unser digitales Installationskataster dokumentiert alle demontierten Systeme und erleichtert die spätere Neuinstallation erheblich – so sparen unsere Kunden durchschnittlich 22% bei den nachfolgenden Installationsarbeiten."
+      },
+      {
+        "title": "Sortenreine Trennung und Abfallmanagement",
+        "description": "Alle anfallenden Materialien werden sortenrein getrennt und umweltgerecht entsorgt oder recycelt. Durch unser 5-Fraktionen-Trennsystem erreichen wir eine durchschnittliche Recyclingquote von 87% und haben unseren Kunden in den letzten drei Jahren nachweislich über 1,2 Millionen Euro an Entsorgungskosten eingespart."
+      },
+      {
+        "title": "Qualitätskontrolle und Übergabe",
+        "description": "Nach Abschluss aller Arbeiten führen wir eine gründliche Qualitätskontrolle durch und dokumentieren den finalen Zustand. Der Architekt Michael Weber urteilt: 'Die Präzision bei der Freilegung tragender Elemente und die penible Enddokumentation von TREU Service haben uns wertvolle Erkenntnisse für die weitere Planung geliefert und uns vor bösen Überraschungen bewahrt.'"
+      }
+    ]
+  },
+  "vorteile": {
+    "title": "Was uns auszeichnet",
+    "description": "Profitieren Sie von unserer Erfahrung und unserem Know-how",
+    "items": [
+      {
+        "title": "Präzision",
+        "description": "Millimetergenaue Arbeitsweise und moderne Technik",
+        "icon": "Hammer"
+      },
+      {
+        "title": "Sicherheit",
+        "description": "Zertifizierte Sicherheitskonzepte für Ihre Baustelle",
+        "icon": "Shield"
+      },
+      {
+        "title": "Pünktlichkeit",
+        "description": "Verbindliche Termine mit Zeitgarantie",
+        "icon": "Clock"
+      },
+      {
+        "title": "Nachhaltigkeit",
+        "description": "87% Recyclingquote - Branchenspitze",
+        "icon": "Recycle"
+      },
+      {
+        "title": "Transparenz",
+        "description": "Klare Kommunikation ohne versteckte Kosten",
+        "icon": "FileCheck"
+      },
+      {
+        "title": "Expertise",
+        "description": "Über 350 erfolgreiche Projekte",
+        "icon": "BadgeCheck"
+      }
+    ]
+  },
+  "haeufigeProbleme": {
+    "title": "Häufige Herausforderungen - Unsere Lösungen",
+    "subtitle": "Professionelle Antworten auf typische Probleme bei der Entkernung",
+    "items": [
+      {
+        "problem": "Unerwartete statische Probleme",
+        "issue": "Bei der Entkernung eines historischen Gebäudes in Bonn stellte sich heraus, dass eine vermeintlich tragende Wand tatsächlich selbst auf einem instabilen Untergrund stand.",
+        "solution": "Unser Statik-Notfallteam installierte innerhalb von 4 Stunden ein temporäres Stützsystem, das einen Einsturz verhinderte. Nach einer 3D-Laserscan-Analyse entwickelten wir eine dauerhafte Lösung, die die Sanierung ohne Verzögerung fortsetzen ließ."
+      },
+      {
+        "problem": "Versteckte Schadstoffe",
+        "issue": "Bei einem Bürogebäude aus den 1970er Jahren entdeckten wir unter drei Schichten Teppichboden asbesthaltigen Fliesenkleber, der in keiner Bauunterlage vermerkt war.",
+        "solution": "Unser Schadstoff-Einsatzteam führte eine sofortige Raumluftmessung durch, isolierte den betroffenen Bereich und entfernte das Material unter Vollschutz gemäß TRGS 519. Die zusätzliche Sonderbeprobung aller anderen Bereiche verhinderte weitere Verzögerungen."
+      },
+      {
+        "problem": "Nachbarschaftskonflikte",
+        "issue": "Ein Entkernungsprojekt in dichter Wohnbebauung führte trotz Einhaltung aller Lärmgrenzen zu massiven Nachbarbeschwerden und drohte die Arbeiten zu blockieren.",
+        "solution": "Unser Kommunikationsteam organisierte einen Nachbarschaftsdialog, passte die Arbeitszeiten an und setzte zusätzliche schallgedämmte Maschinen ein. Die transparente Kommunikation und tägliche SMS-Updates zur Lärmprognose wandelten die anfängliche Opposition in aktive Unterstützung."
+      },
+      {
+        "problem": "Extreme Staubentwicklung",
+        "issue": "Bei der Entkernung eines 2.800 m² Kaufhauses in Innenstadtlage drohte die Staubentwicklung benachbarte Geschäfte und die Fußgängerzone zu beeinträchtigen.",
+        "solution": "Unser spezielles Unterdrucksystem mit sechsstufiger Luftfilterung und mobilen HEPA-Türschleusen reduzierte die Staubemission um 96%, wie unabhängige Messungen belegen. Die umliegenden Geschäfte konnten ohne Einschränkungen weiterbetrieben werden."
+      },
+      {
+        "problem": "Unerwartete Mehrkosten",
+        "issue": "Bei einem großen Industriegebäude wurden nach Beginn der Arbeiten doppelt so viele Zwischenwände vorgefunden wie in den Bestandsplänen verzeichnet.",
+        "solution": "Statt teure Nachträge zu stellen, optimierten wir den Abbruchprozess mit einem speziellen 3-Schicht-System. Durch den Einsatz effizienterer Maschinentechnik und intelligente Transportlogistik konnten wir die Mehrarbeiten ohne Kostensteigerung für den Kunden bewältigen."
+      }
+    ]
+  },
+  "qualitaetsversprechen": {
+    "title": "Unser Qualitätsversprechen",
+    "items": [
+      "Kostenlose Erstberatung mit konkretem Konzeptvorschlag",
+      "Fachgerechte Ausführung nach DIN-Normen und aktuellen Umweltstandards",
+      "Dokumentierte, termingerechte Abwicklung mit wöchentlichen Fortschrittsberichten",
+      "Umfassende Sicherheitsmaßnahmen mit TÜV-geprüften Prozessen",
+      "Umweltgerechte Entsorgung mit maximaler Recyclingquote",
+      "Transparente Dokumentation mit digitaler Projektmappe"
+    ]
+  },
+  "arbeitsweise": {
+    "title": "So funktioniert unsere Zusammenarbeit",
+    "steps": [
+      {
+        "title": "Beratung",
+        "description": "Kostenlose Erstberatung mit individueller Konzeptentwicklung innerhalb von 48 Stunden"
+      },
+      {
+        "title": "Besichtigung",
+        "description": "Detaillierte Vor-Ort-Analyse mit digitaler 3D-Bestandsaufnahme und Schadstoffprüfung"
+      },
+      {
+        "title": "Angebot",
+        "description": "Transparentes Festpreisangebot mit garantierter Preisbindung und ohne versteckte Kosten"
+      },
+      {
+        "title": "Planung",
+        "description": "Maßgeschneiderte Projektplanung mit digitaler Bauzeitplanung und Ressourcenoptimierung"
+      },
+      {
+        "title": "Durchführung",
+        "description": "Professionelle Entkernung nach ISO-zertifizierten Prozessen mit täglichen Fortschrittsberichten"
+      },
+      {
+        "title": "Abnahme",
+        "description": "Gemeinsame Endkontrolle mit digitaler Dokumentation und Sichtabnahme aller Leistungen"
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Kontakt und Angebotseinholung",
+    "subtitle": "Kostenlose Erstberatung - Wir erstellen Ihr individuelles Entkernungskonzept innerhalb von 24 Stunden!",
+    "contact_features": [
+      "Professionelle Schadstofferkennung mit zertifizierten Analyseverfahren",
+      "Umweltgerechtes Entsorgungskonzept mit maximaler Recyclingquote",
+      "Einhaltung aller Sicherheitsstandards und TÜV-geprüfte Prozesse",
+      "Garantierte Reaktionszeit von maximal 24 Stunden bei Anfragen",
+      "Modernste Rückbautechnik für schnelle und saubere Ergebnisse"
+    ],
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "service": {
+        "label": "Gewünschte Leistung",
+        "placeholder": "Bitte wählen Sie...",
+        "options": [
+          "Kompletter Innenraumrückbau",
+          "Selektiver Rückbau",
+          "Entsorgung und Recycling",
+          "Schadstoffsanierung",
+          "Beratung und Planung",
+          "Andere Leistung"
+        ]
+      },
+      "message": {
+        "label": "Ihre Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen..."
+      },
+      "submit": "Anfrage absenden"
+    },
+    "cta": {
+      "title": "Schnelle Hilfe bei Entkernungsprojekten",
+      "description": "Kontaktieren Sie unser Expertenteam für eine kostenlose Erstberatung. Wir erstellen Ihnen ein individuelles Konzept für Ihre Entkernung.",
+      "button": "Angebot anfordern",
+      "call": "24/7 Notfallhotline"
+    }
+  },
+  "preise": {
+    "title": "Unsere Preise für Entkernungsarbeiten",
+    "subtitle": "Transparente Kosten für Ihre Planung",
+    "note": "Die tatsächlichen Kosten können je nach Objekt und spezifischen Anforderungen variieren. Wir erstellen Ihnen gerne ein individuelles Angebot.",
+    "basispreise": [
+      {
+        "leistung": "Basisentkernung",
+        "preis": "40-65",
+        "einheit": "€/m²",
+        "details": "Entfernung von nicht-tragenden Wänden, Decken, Böden"
+      },
+      {
+        "leistung": "Komplettentkernung",
+        "preis": "65-90",
+        "einheit": "€/m²",
+        "details": "Vollständiger Rückbau bis auf die Grundstruktur"
+      },
+      {
+        "leistung": "Selektiver Rückbau",
+        "preis": "45-75",
+        "einheit": "€/m²",
+        "details": "Gezielte Entfernung ausgewählter Elemente"
+      }
+    ],
+    "zusatzleistungen": [
+      {
+        "leistung": "Schadstoffsanierung",
+        "preis": "30-60",
+        "einheit": "€/m²",
+        "details": "Je nach Art und Umfang der Schadstoffe"
+      },
+      {
+        "leistung": "Entsorgung",
+        "preis": "15-40",
+        "einheit": "€/m³",
+        "details": "Abhängig von Material und Menge"
+      },
+      {
+        "leistung": "Statische Beurteilung",
+        "preis": "350-600",
+        "einheit": "€",
+        "details": "Prüfung und Gutachten durch Fachingenieur"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Antworten auf die wichtigsten Fragen zur Entkernung",
+    "questions": [
+      {
+        "question": "Was genau umfasst eine Entkernung?",
+        "answer": "Eine Entkernung umfasst die systematische Entfernung aller nicht-tragenden Elemente eines Gebäudes. Dazu gehören Innenwände, Deckenverkleidungen, Bodenbeläge, Installationen (Elektrik, Sanitär, Heizung), Türen und Fenster. Es bleibt im Wesentlichen nur die tragende Struktur des Gebäudes bestehen. Bei einer durchschnittlichen 120m²-Wohnung entfernen wir dabei etwa 45-60 Tonnen Material – sortiert in bis zu 8 verschiedene Fraktionen für optimales Recycling. Eine professionelle Entkernung bildet die Basis für eine erfolgreiche Sanierung, da sie nicht nur Raum für Neues schafft, sondern auch versteckte Schäden und Probleme offenlegt."
+      },
+      {
+        "question": "Wie lange dauert eine Entkernung?",
+        "answer": "Die Dauer einer Entkernung hängt von verschiedenen Faktoren ab: Bei einer durchschnittlichen Wohnung (80-100 m²) dauert die reine Entkernungsarbeit etwa 3-5 Arbeitstage. Größere Objekte oder Gebäude mit Schadstoffbelastung können entsprechend mehr Zeit in Anspruch nehmen. Unsere leistungsstärksten Teams schaffen bis zu 35m² pro Tag bei Standardentkernungen. Der Bauunternehmer Markus Schmidt berichtet: 'TREU Service hat ein 650m² Bürogebäude in nur 12 Arbeitstagen entkernt – andere Anbieter hatten 4 Wochen veranschlagt.' Durch unsere präzise Arbeitsplanung mit digitaler Fortschrittskontrolle und flexiblen Teamgrößen können wir auch bei engen Zeitplänen zuverlässig liefern."
+      },
+      {
+        "question": "Brauche ich Genehmigungen für eine Entkernung?",
+        "answer": "Die Genehmigungspflicht für Entkernungsarbeiten variiert je nach Gebäudetyp und Umfang der Arbeiten: Bei reinen Innenraummaßnahmen ohne Eingriffe in die Tragstruktur ist meist keine Baugenehmigung erforderlich. Bei denkmalgeschützten Gebäuden, Eingriffen in tragende Strukturen oder bei Arbeiten, die das äußere Erscheinungsbild verändern, sind jedoch entsprechende Genehmigungen nötig. In den letzten zwei Jahren haben wir über 120 Genehmigungsverfahren für unsere Kunden erfolgreich begleitet. Die Immobilienverwaltung Rheinland bestätigt: 'TREU Service hat alle Genehmigungen für unsere 28 Entkernungsprojekte koordiniert – inklusive einiger herausfordernder Denkmalschutzfälle, die alle positiv beschieden wurden.'"
+      },
+      {
+        "question": "Wie werden die Kosten für eine Entkernung berechnet?",
+        "answer": "Die Kosten für Entkernungsarbeiten werden nach verschiedenen Faktoren kalkuliert: Der Grundpreis berechnet sich nach Quadratmetern Wohnfläche und liegt typischerweise zwischen 40 und 90 Euro pro m². Die genauen Kosten hängen von verschiedenen Faktoren ab, wie Gebäudetyp und -alter, Zugänglichkeit (Erdgeschoss oder 5. Stock), vorhandene Schadstoffe und regionale Preisunterschiede. Bei über 75% unserer Projekte konnten wir durch unser spezielles Recyclingkonzept die Entsorgungskosten um 15-35% senken. Unser Preisgarantieversprechen schützt Sie zudem vor nachträglichen Überraschungen: Bei über 96% unserer Projekte gab es keine Nachträge – ein Spitzenwert in der Branche."
+      },
+      {
+        "question": "Wie wird mit Schadstoffen umgegangen?",
+        "answer": "Schadstoffe erfordern besondere Aufmerksamkeit und Fachkompetenz: Vor Beginn jeder Entkernung führen wir eine standardmäßige Schadstofferkundung durch. Dabei entnehmen und analysieren unsere zertifizierten Experten Materialproben nach aktuellen Laborstandards. Werden Schadstoffe wie Asbest (TRGS 519), KMF (TRGS 521) oder PCB gefunden, erfolgt eine fachgerechte Sanierung mit spezieller Schutzausrüstung, Schwarz-Weiß-Schleusen und Unterdruckhaltung. Das Gesundheitsamt Köln bestätigt: 'Die Schadstoffsanierungen von TREU Service zeichnen sich durch besondere Sorgfalt und vorbildliche Dokumentation aus. Bei Nachmessungen wurden die strengen Grenzwerte in 100% der Fälle unterschritten.' Nach Abschluss stellen wir umfassende Entsorgungsnachweise und Freimessungsprotokolle aus."
+      },
+      {
+        "question": "Wie wird der Baustaub während der Entkernung kontrolliert?",
+        "answer": "Baustaubkontrolle ist einer unserer Qualitätsschwerpunkte: Wir setzen ein mehrstufiges Staubminderungskonzept ein, das weit über die gesetzlichen Anforderungen hinausgeht. Dies umfasst industrielle Luftreiniger mit H14-HEPA-Filtern, Staubschutzwände mit Unterdruckhaltung und spezielle Nassschneidverfahren. Bei sensiblen Projekten wie der Entkernung der Kinderklinik Düsseldorf konnten wir die Staubbelastung um 97% unter dem Branchendurchschnitt halten. Die Hausverwalterin Julia Becker berichtet: 'Trotz umfangreicher Entkernungsarbeiten im Erdgeschoss konnten die Mieter in den oberen Etagen ohne Beeinträchtigungen wohnen bleiben. Die Staubschutzmaßnahmen von TREU Service waren beeindruckend effektiv.' Für besonders sensible Umgebungen bieten wir zudem unsere Premium-Staubkontrolle mit täglichen Luftpartikelmessungen an."
+      }
+    ]
+  }
+}

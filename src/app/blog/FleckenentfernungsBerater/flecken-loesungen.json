@@ -1,0 +1,740 @@
+{
+  "kaffee-teppich": {
+    "einfach": "Sofort mit kaltem Wasser abtupfen (nicht reiben!), dann mit einem Teppichshampoo behandeln.",
+    "fortgeschritten": "Mischen Sie einen Teelöffel Flüssigwaschmittel mit warmem Wasser und 2 EL weißem Essig. Tragen Sie die Lösung mit einem Schwamm auf, arbeiten Sie von außen nach innen. Nach 10 Minuten mit einem sauberen Tuch abtupfen.",
+    "profi": "Ein Dampfreiniger mit Teppichaufsatz kann hartnäckige Kaffeeflecken effektiv entfernen. Bei eingetrockneten Flecken vorher mit farblösem Glasreiniger behandeln.",
+    "hinweis": "Bei getrockneten Flecken ist die Behandlung mit enzymbasierten Fleckenentfernern empfehlenswert."
+  },
+  "kaffee-polster": {
+    "einfach": "Mit kaltem Wasser und etwas Flüssigwaschmittel abtupfen, nicht reiben!",
+    "fortgeschritten": "Lösung aus 2 Teilen Wasser, 1 Teil weißem Essig und einem Spritzer Spülmittel auftragen. Mit einem Mikrofasertuch vorsichtig abtupfen.",
+    "profi": "Spezielle Polsterreiniger mit Textilschutz verwenden, die nicht nur reinigen, sondern auch vor künftigen Flecken schützen.",
+    "hinweis": "Immer an einer unauffälligen Stelle testen, besonders bei empfindlichen Stoffen."
+  },
+  "kaffee-hartboden": {
+    "einfach": "Mit warmem Wasser und einem weichen Tuch abwischen.",
+    "fortgeschritten": "Mischen Sie ein mildes Spülmittel mit warmem Wasser und wischen Sie damit den Fleck ab.",
+    "profi": "Bei hartnäckigen Flecken einen speziellen Fleckenentferner für Hartböden verwenden. Nach der Reinigung mit klarem Wasser nachwischen und trocken reiben.",
+    "hinweis": "Bei Laminat immer sparsam mit Wasser umgehen und niemals stehende Nässe zulassen."
+  },
+  "kaffee-holz": {
+    "einfach": "Sofort mit einem weichen Tuch abtupfen, dann mit leicht feuchtem Tuch nachwischen.",
+    "fortgeschritten": "Eine Mischung aus Olivenöl und Salz als Paste auftragen, ein paar Minuten einwirken lassen und vorsichtig abwischen.",
+    "profi": "Speziellen Holzreiniger verwenden, der die Oberfläche nicht angreift. Anschließend mit geeignetem Holzöl oder -wachs nachbehandeln.",
+    "hinweis": "Unbedingt stehende Nässe vermeiden, da Holz aufquellen kann. Nach jeder Reinigung gründlich trocknen."
+  },
+  "kaffee-naturstein": {
+    "einfach": "Sofort mit einem sauberen Tuch abtupfen, dann mit klarem Wasser nachwischen.",
+    "fortgeschritten": "Milde Steinseife mit Wasser mischen und den Fleck damit behandeln. Keine säurehaltigen Reiniger verwenden!",
+    "profi": "Speziellen Natursteinreiniger ohne Säure verwenden und nach Herstellerangaben anwenden.",
+    "hinweis": "Niemals Essig, Zitrone oder andere Säuren auf Marmor oder Naturstein anwenden, da diese Materialien anätzen und matte Stellen hinterlassen."
+  },
+  "kaffee-glas": {
+    "einfach": "Mit warmem Wasser und einem Mikrofasertuch abwischen.",
+    "fortgeschritten": "Etwas Glasreiniger auf ein Tuch geben und den Fleck damit entfernen. Anschließend mit einem trockenen Tuch polieren.",
+    "profi": "Für hartnäckige Flecken eine Lösung aus Wasser und Spiritus zu gleichen Teilen verwenden.",
+    "hinweis": "Bei Spiegeln keine säurehaltigen Reiniger verwenden, da diese den Spiegelbelag angreifen können."
+  },
+  "kaffee-metall": {
+    "einfach": "Mit warmem Wasser und mildem Spülmittel abwischen.",
+    "fortgeschritten": "Eine Mischung aus Zitronensaft und Spülmittel zu gleichen Teilen auf den Fleck auftragen und mit einem weichen Tuch polieren.",
+    "profi": "Spezielle Edelstahlreiniger oder eine Paste aus Natron und Wasser verwenden und sanft einreiben.",
+    "hinweis": "Vermeiden Sie Scheuermittel bei polierten Oberflächen, da diese Kratzer verursachen können."
+  },
+  "kaffee-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Backpulver mit Wasser zu einer Paste vermischen und auf den Fleck auftragen. Nach 10 Minuten abwaschen.",
+    "profi": "Spezielle Kunststoffreiniger oder Isopropylalkohol auf ein Tuch geben und den Fleck damit behandeln.",
+    "hinweis": "Testen Sie Reinigungsmittel immer an einer unauffälligen Stelle, da manche Kunststoffe empfindlich reagieren können."
+  },
+  "kaffee-leder": {
+    "einfach": "Sofort mit einem leicht feuchten Tuch abtupfen, nicht reiben.",
+    "fortgeschritten": "Bei dunklem Leder mit kaltem Kaffee sanft abtupfen. Bei hellem Leder spezielle Lederreiniger verwenden.",
+    "profi": "Professionellen Lederreiniger und anschließend Lederpflegemittel verwenden, um Austrocknen zu vermeiden.",
+    "hinweis": "Leder niemals durchnässen und nach der Reinigung immer gut trocknen lassen, idealerweise an der Luft."
+  },
+  "kaffee-kleidung": {
+    "einfach": "Sofort unter kaltem fließenden Wasser ausspülen, von der Rückseite des Stoffs.",
+    "fortgeschritten": "Flecken mit Gallseife vorbehandeln und nach kurzer Einwirkzeit normal waschen.",
+    "profi": "Enzymbasierte Fleckenentferner auftragen und nach 30 Minuten Einwirkzeit bei höchstmöglicher Temperatur gemäß Pflegeetikett waschen.",
+    "hinweis": "Bei empfindlichen Stoffen wie Seide oder Wolle immer zuerst das Pflegeetikett beachten und ggf. einen Fleckenentferner für Feinwäsche verwenden."
+  },
+  
+  "rotwein-teppich": {
+    "einfach": "Sofort mit saugfähigen Papiertüchern abtupfen, dann mit kohlensäurehaltigem Mineralwasser und einer Prise Salz behandeln.",
+    "fortgeschritten": "3 Teile Backpulver mit 1 Teil Wasser zu einer Paste vermischen, auftragen, trocknen lassen und absaugen.",
+    "profi": "Spezielle Rotweinfleckenentferner verwenden, die Tannine neutralisieren können. Bei frischen Flecken hilft auch Weißwein als Neutralisierer.",
+    "hinweis": "Niemals mit heißem Wasser behandeln, da dies den Fleck fixieren kann."
+  },
+  "rotwein-polster": {
+    "einfach": "Sofort mit saugfähigen Tüchern abtupfen, dann mit Mineralwasser behandeln.",
+    "fortgeschritten": "Eine Mischung aus Glycerin (1:1 mit Wasser verdünnt) auftragen, 30 Minuten einwirken lassen, dann mit lauwarmem Wasser nachbehandeln.",
+    "profi": "Farblosen Glasreiniger nach Vorbehandlung mit Wasser vorsichtig auftragen. Bei alten Flecken einen professionellen Polsterreiniger verwenden.",
+    "hinweis": "Immer von außen nach innen arbeiten, um ein Ausbreiten des Flecks zu verhindern."
+  },
+  "rotwein-hartboden": {
+    "einfach": "Mit Küchenpapier aufnehmen und dann mit feuchtem Tuch nachwischen.",
+    "fortgeschritten": "Milde Reinigungslösung aus Wasser und etwas Spülmittel verwenden, danach mit klarem Wasser nachwischen.",
+    "profi": "Für hartnäckige Flecken eine Lösung aus Wasserstoffperoxid (3%) und etwas Wasser vorsichtig auf den Fleck auftragen.",
+    "hinweis": "Bei Laminat nur nebelfeucht wischen und sofort trocken nachwischen, um Schäden zu vermeiden."
+  },
+  "rotwein-holz": {
+    "einfach": "Sofort mit saugfähigem Tuch abtupfen, nicht reiben.",
+    "fortgeschritten": "Leicht feuchtes Tuch mit etwas milder Seife verwenden und vorsichtig abtupfen.",
+    "profi": "Bei unbehandeltem Holz kann vorsichtiges Abschleifen und Neuversiegeln notwendig sein. Bei lackiertem Holz einen speziellen Holzreiniger verwenden.",
+    "hinweis": "Nach der Reinigung das Holz immer gut trocknen lassen und ggf. mit Holzöl oder -wachs nachbehandeln."
+  },
+  "rotwein-naturstein": {
+    "einfach": "Sofort mit Küchenpapier abtupfen, dann mit klarem Wasser nachwischen.",
+    "fortgeschritten": "Eine Paste aus Maisstärke und Wasser auf den Fleck auftragen, trocknen lassen und absaugen.",
+    "profi": "Nur spezielle säurefreie Natursteinreiniger verwenden. Niemals Essig oder Zitronensäure verwenden!",
+    "hinweis": "Naturstein, besonders Marmor, ist sehr empfindlich gegenüber Säuren. Rotwein enthält Säuren, die sofort neutralisiert werden müssen."
+  },
+  "rotwein-glas": {
+    "einfach": "Mit warmem Wasser und einem Mikrofasertuch abwischen.",
+    "fortgeschritten": "Glasreiniger verwenden oder eine Lösung aus Spülmittel und Wasser.",
+    "profi": "Bei hartnäckigen Flecken eine Lösung aus Wasser und Spiritus (1:1) verwenden.",
+    "hinweis": "Bei Spiegeln keine aggressiven Reiniger verwenden, sondern pH-neutrale Produkte nutzen."
+  },
+  "rotwein-metall": {
+    "einfach": "Mit warmem Wasser und etwas Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) auftragen und mit einem weichen Tuch polieren.",
+    "profi": "Spezielle Edelstahlreiniger verwenden oder eine Paste aus Natron und Wasser (1:1) auftragen und sanft einreiben.",
+    "hinweis": "Keine Scheuermittel bei polierten Oberflächen verwenden, um Kratzer zu vermeiden."
+  },
+  "rotwein-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Bei verfärbten Kunststoffen eine Lösung aus Backpulver und Wasser als Paste auftragen, einwirken lassen und abwaschen.",
+    "profi": "Isopropylalkohol auf ein Tuch geben und den Fleck damit vorsichtig behandeln.",
+    "hinweis": "Testen Sie Reinigungsmittel immer an einer unauffälligen Stelle, da manche Kunststoffe durch Alkohol angegriffen werden können."
+  },
+  "rotwein-leder": {
+    "einfach": "Sofort mit einem sauberen, feuchten Tuch abtupfen, nicht reiben.",
+    "fortgeschritten": "Bei dunklem Leder einen kühlen schwarzen Kaffee auftragen, bei hellem Leder spezielle Lederreiniger verwenden.",
+    "profi": "Professionellen Lederreiniger und anschließend Lederpflegemittel verwenden.",
+    "hinweis": "Nach der Reinigung das Leder immer mit einem geeigneten Pflegemittel behandeln, um Austrocknen zu vermeiden."
+  },
+  "rotwein-kleidung": {
+    "einfach": "Sofort unter kaltem fließenden Wasser ausspülen, am besten von der Rückseite des Stoffs.",
+    "fortgeschritten": "Den Fleck mit Salz bestreuen, einwirken lassen und dann normal waschen. Bei weißen Textilien ist eine Vorbehandlung mit Zitronensaft oder Gallseife effektiv.",
+    "profi": "Spezielle Rotweinfleckenentferner verwenden und nach kurzer Einwirkzeit bei höchstmöglicher Temperatur gemäß Pflegeetikett waschen.",
+    "hinweis": "Bei Woll- und Seidenstoffen immer das Pflegeetikett beachten und ggf. einen Spezialreiniger für empfindliche Textilien verwenden."
+  },
+  
+  "blut-teppich": {
+    "einfach": "Mit kaltem Wasser und weißem Tuch abtupfen, dann mit Salzwasserlösung behandeln.",
+    "fortgeschritten": "Paste aus Maisstärke und kaltem Wasser auftragen, trocknen lassen, absaugen.",
+    "profi": "Bei empfindlichen Materialien reinen Alkohol vorsichtig auftupfen, einwirken lassen und mit kaltem Wasser nachbehandeln.",
+    "hinweis": "Niemals warmes oder heißes Wasser verwenden, da dies Blutproteine fixiert und den Fleck unlöslich macht."
+  },
+  "blut-polster": {
+    "einfach": "Sofort mit saugfähigem Tuch und kaltem Wasser abtupfen, nicht reiben.",
+    "fortgeschritten": "Eine Lösung aus kaltem Wasser und etwas Salz auftragen und vorsichtig abtupfen.",
+    "profi": "Bei älteren Flecken eine Lösung aus einer aufgelösten Aspirin-Tablette in kaltem Wasser verwenden.",
+    "hinweis": "Niemals warmes Wasser oder Wärme anwenden, da dies die Blutproteine fixiert."
+  },
+  "blut-hartboden": {
+    "einfach": "Mit kaltem Wasser und einem sauberen Tuch abtupfen.",
+    "fortgeschritten": "Eine Lösung aus kaltem Wasser und mildem Spülmittel verwenden.",
+    "profi": "Bei hartnäckigen Flecken eine Lösung aus Wasserstoffperoxid (3%) und Wasser im Verhältnis 1:1 verwenden.",
+    "hinweis": "Keine scheuernden Reinigungsmittel auf empfindlichen Bodenbelägen verwenden."
+  },
+  "blut-holz": {
+    "einfach": "Mit kaltem Wasser und einem weichen Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Eine Paste aus Maisstärke und kaltem Wasser auftragen, trocknen lassen und vorsichtig entfernen.",
+    "profi": "Bei unbehandeltem Holz kann vorsichtiges Abschleifen notwendig sein. Bei lackiertem Holz einen speziellen Holzreiniger verwenden.",
+    "hinweis": "Nach der Reinigung das Holz gut trocknen lassen, um Schäden zu vermeiden."
+  },
+  "blut-naturstein": {
+    "einfach": "Sofort mit kaltem Wasser und einem sauberen Tuch abtupfen.",
+    "fortgeschritten": "Eine Paste aus Maisstärke und kaltem Wasser auftragen, trocknen lassen und entfernen.",
+    "profi": "Speziellen Natursteinreiniger ohne Säure verwenden und nach Anweisung anwenden.",
+    "hinweis": "Niemals Essig, Zitrone oder andere Säuren auf Naturstein verwenden."
+  },
+  "blut-glas": {
+    "einfach": "Mit kaltem Wasser und einem Mikrofasertuch abwischen.",
+    "fortgeschritten": "Eine Lösung aus kaltem Wasser und etwas Spülmittel verwenden.",
+    "profi": "Bei hartnäckigen Flecken einen Glasreiniger verwenden.",
+    "hinweis": "Bei Spiegeln keine säurehaltigen Reiniger verwenden, sondern pH-neutrale Produkte."
+  },
+  "blut-metall": {
+    "einfach": "Mit kaltem Wasser und mildem Spülmittel abwischen.",
+    "fortgeschritten": "Eine Paste aus Natron und kaltem Wasser auftragen, kurz einwirken lassen und abwischen.",
+    "profi": "Wasserstoffperoxid (3%) auf ein Tuch geben und vorsichtig auf den Fleck tupfen.",
+    "hinweis": "Keine Scheuermittel auf polierten Oberflächen verwenden."
+  },
+  "blut-kunststoff": {
+    "einfach": "Mit kaltem Wasser und einem weichen Tuch abwischen.",
+    "fortgeschritten": "Eine Lösung aus kaltem Wasser und mildem Spülmittel verwenden.",
+    "profi": "Bei hartnäckigen Flecken eine Lösung aus Wasserstoffperoxid (3%) und Wasser (1:1) verwenden.",
+    "hinweis": "Reinigungsmittel immer an einer unauffälligen Stelle testen."
+  },
+  "blut-leder": {
+    "einfach": "Sofort mit einem leicht feuchten, kalten Tuch abtupfen.",
+    "fortgeschritten": "Eine Lösung aus kaltem Wasser und mildem Lederreiniger verwenden.",
+    "profi": "Professionellen Lederreiniger verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Leder niemals durchnässen und nach der Reinigung gut trocknen lassen."
+  },
+  "blut-kleidung": {
+    "einfach": "Sofort unter kaltem fließenden Wasser ausspülen, am besten von der Rückseite des Stoffs.",
+    "fortgeschritten": "In Salzwasserlösung (1 EL Salz auf 1 Liter kaltes Wasser) für 1-2 Stunden einweichen.",
+    "profi": "Aspirin-Lösung (1 Brausetablette in 1 Liter kaltem Wasser aufgelöst) für waschbare Textilien anwenden.",
+    "hinweis": "Vor dem Waschen mit Gallseife, Kernseife oder Fleckenentferner vorbehandeln und niemals heißes Wasser verwenden."
+  },
+
+  "tinte-teppich": {
+    "einfach": "Mit in Milch getränktem Tuch abtupfen.",
+    "fortgeschritten": "Mischung aus Essigessenz und etwas Zitronensaft auftragen, einwirken lassen und abtupfen.",
+    "profi": "Speziellen Tintenentferner aus dem Fachhandel verwenden oder mit Isopropylalkohol vorsichtig behandeln.",
+    "hinweis": "Bei hellen Stoffen Vorsicht mit Zitrone/Essig, da diese bleichend wirken können."
+  },
+  "tinte-polster": {
+    "einfach": "Mit in Milch getränktem Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Mischung aus Essigessenz und Wasser (1:1) auftragen und vorsichtig abtupfen.",
+    "profi": "Isopropylalkohol auf ein Tuch geben und vorsichtig abtupfen, dann mit klarem Wasser nachwischen.",
+    "hinweis": "Immer an einer unauffälligen Stelle testen, besonders bei farbigen Stoffen."
+  },
+  "tinte-hartboden": {
+    "einfach": "Mit einem feuchten Tuch und etwas Spülmittel abreiben.",
+    "fortgeschritten": "Eine Lösung aus Essigwasser (1 Teil Essig zu 3 Teilen Wasser) verwenden.",
+    "profi": "Bei hartnäckigen Flecken Isopropylalkohol oder Aceton vorsichtig anwenden.",
+    "hinweis": "Bei Laminatböden sparsam mit Flüssigkeiten umgehen, um Quellschäden zu vermeiden."
+  },
+  "tinte-holz": {
+    "einfach": "Mit einem leicht feuchten Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Mischung aus Zitronensaft und etwas Salz auftragen, einwirken lassen und abwischen.",
+    "profi": "Bei unbehandeltem Holz feines Sandpapier verwenden. Bei behandeltem Holz speziellen Holzreiniger einsetzen.",
+    "hinweis": "Nach der Reinigung das Holz gut trocknen lassen und ggf. neu versiegeln."
+  },
+  "tinte-naturstein": {
+    "einfach": "Sofort mit einem feuchten Tuch abtupfen.",
+    "fortgeschritten": "Speziellen Natursteinreiniger ohne Säure verwenden.",
+    "profi": "Absorbierendes Pulver wie Maisstärke oder spezielle Fleckenpasten für Naturstein auftragen.",
+    "hinweis": "Niemals Essig, Zitrone oder andere Säuren auf Naturstein verwenden."
+  },
+  "tinte-glas": {
+    "einfach": "Mit warmem Wasser und einem Mikrofasertuch abwischen.",
+    "fortgeschritten": "Glasreiniger verwenden oder eine Lösung aus Spülmittel und Wasser.",
+    "profi": "Isopropylalkohol auf ein Tuch geben und den Fleck damit behandeln.",
+    "hinweis": "Bei Spiegeln keine aggressiven Reiniger verwenden, da diese den Spiegelbelag angreifen können."
+  },
+  "tinte-metall": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Zahnpasta auf ein feuchtes Tuch geben und damit den Fleck vorsichtig entfernen.",
+    "profi": "Nagellackentferner oder Isopropylalkohol auf ein Tuch geben und den Fleck damit behandeln.",
+    "hinweis": "Bei verchromten oder beschichteten Oberflächen vorsichtig sein und vorher an einer unauffälligen Stelle testen."
+  },
+  "tinte-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Nagellackentferner auf ein Tuch geben und den Fleck vorsichtig behandeln.",
+    "profi": "Isopropylalkohol oder eine Mischung aus Backpulver und Wasser als Paste auftragen.",
+    "hinweis": "Reinigungsmittel immer an einer unauffälligen Stelle testen, da manche Kunststoffe durch Lösungsmittel angegriffen werden können."
+  },
+  "tinte-leder": {
+    "einfach": "Mit einem leicht feuchten Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Bei dunklem Leder einen mit Milch getränkten Wattepad verwenden und vorsichtig abtupfen.",
+    "profi": "Speziellen Lederreiniger verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Keine aggressiven Lösungsmittel bei Leder verwenden, da diese das Material austrocknen und beschädigen können."
+  },
+  "tinte-kleidung": {
+    "einfach": "Auf den Fleck Haarspray sprühen, trocknen lassen und abbürsten.",
+    "fortgeschritten": "Über Nacht in einer Lösung aus Waschmittel und Fleckensalz einweichen.",
+    "profi": "90% Alkohol oder Aceton (bei nicht-empfindlichen Stoffen) auf den Fleck auftragen, dann normal waschen.",
+    "hinweis": "Bei farbigen Textilien zunächst an unauffälliger Stelle testen, da Alkohol und Aceton Farben lösen können."
+  },
+  
+  "fett-teppich": {
+    "einfach": "Sofort mit absorbierendem Material (Babypuder, Maisstärke oder Mehl) bestreuen, einwirken lassen und absaugen.",
+    "fortgeschritten": "Mischung aus Backpulver und Wasser als Paste auftragen, trocknen lassen und absaugen.",
+    "profi": "Für hartnäckige Flecken spezielle Öl-Handreiniger aus dem Autozubehör verwenden.",
+    "hinweis": "Niemals reiben, da dies den Fleck tiefer ins Material drückt. Immer tupfen oder aufsaugen."
+  },
+  "fett-polster": {
+    "einfach": "Sofort überschüssiges Fett mit Küchenpapier aufsaugen, dann Babypuder oder Maisstärke auftragen, einwirken lassen und absaugen.",
+    "fortgeschritten": "Gallseife auftragen, einwirken lassen und mit einem feuchten Tuch nachwischen.",
+    "profi": "Speziellen Polsterreiniger verwenden, der auf Fettlösung spezialisiert ist.",
+    "hinweis": "Bei empfindlichen Stoffen immer zuerst an einer unauffälligen Stelle testen."
+  },
+  "fett-hartboden": {
+    "einfach": "Überschüssiges Öl mit Küchenpapier aufsaugen, dann mit Spülmittel und wenig Wasser behandeln.",
+    "fortgeschritten": "Backpulver oder Maisstärke auf den Fleck streuen, einwirken lassen und dann absaugen. Anschließend mit Essigwasser nachbehandeln.",
+    "profi": "Speziellen Ölentferner für Hartböden verwenden, der keine Rückstände hinterlässt.",
+    "hinweis": "Bei Laminatböden besonders sparsam mit Wasser umgehen, um Quellschäden zu vermeiden."
+  },
+  "fett-holz": {
+    "einfach": "Überschüssiges Fett vorsichtig mit Küchenpapier aufsaugen.",
+    "fortgeschritten": "Mischung aus Talkumpuder und etwas Zitronensaft auftragen, einwirken lassen und vorsichtig abwischen.",
+    "profi": "Bei unbehandeltem Holz kann vorsichtiges Abschleifen notwendig sein. Bei behandeltem Holz speziellen Holzreiniger verwenden.",
+    "hinweis": "Nach der Reinigung das Holz gut trocknen lassen und ggf. neu versiegeln oder ölen."
+  },
+  "fett-naturstein": {
+    "einfach": "Überschüssiges Fett mit Küchenpapier aufsaugen.",
+    "fortgeschritten": "Paste aus Maisstärke und Wasser auftragen, trocknen lassen und entfernen.",
+    "profi": "Speziellen Ölfleckentferner für Naturstein verwenden, der keine Säuren enthält.",
+    "hinweis": "Niemals säurehaltige Reiniger auf Naturstein, besonders Marmor, verwenden."
+  },
+  "fett-glas": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Glasreiniger verwenden oder eine Lösung aus Essig und Wasser (1:1).",
+    "profi": "Isopropylalkohol auf ein Tuch geben und den Fleck damit behandeln.",
+    "hinweis": "Bei Spiegeln keine aggressiven oder säurehaltigen Reiniger verwenden, stattdessen pH-neutrale Produkte nutzen."
+  },
+  "fett-metall": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Paste aus Natron und Wasser auftragen, einwirken lassen und abwischen.",
+    "profi": "Spülmittel und Essig zu gleichen Teilen mischen und auf den Fleck auftragen, dann mit warmem Wasser abspülen.",
+    "hinweis": "Keine Scheuermittel bei polierten Oberflächen verwenden, um Kratzer zu vermeiden."
+  },
+  "fett-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Spezielle Kunststoffreiniger oder Isopropylalkohol auf ein Tuch geben und den Fleck damit behandeln.",
+    "hinweis": "Reinigungsmittel immer an einer unauffälligen Stelle testen."
+  },
+  "fett-leder": {
+    "einfach": "Sofort mit einem sauberen, trockenen Tuch abtupfen, nicht reiben.",
+    "fortgeschritten": "Maisstärke oder Babypuder auf den Fleck streuen, über Nacht einwirken lassen und abbürsten.",
+    "profi": "Speziellen Lederreiniger für Fettflecken verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Nach der Reinigung das Leder immer mit einem geeigneten Pflegemittel behandeln, um Austrocknen zu vermeiden."
+  },
+  "fett-kleidung": {
+    "einfach": "Sofort mit Kreide, Babypuder oder Maisstärke bestreuen, einige Stunden einwirken lassen und ausbürsten.",
+    "fortgeschritten": "Gallseife oder Geschirrspülmittel direkt auf den Fleck geben, einwirken lassen und dann waschen.",
+    "profi": "Spezielle Fett- und Ölfleckenentferner verwenden und nach Anweisung waschen.",
+    "hinweis": "Bei empfindlichen Stoffen immer das Pflegeetikett beachten und ggf. einen Spezialreiniger verwenden."
+  },
+  
+  "schimmel-teppich": {
+    "einfach": "Mit Essig besprühen, trocknen lassen, absaugen.",
+    "fortgeschritten": "Mischung aus Alkohol und Wasser (1:1) auf betroffene Stellen sprühen, trocknen lassen.",
+    "profi": "Chlorfreie Schimmelsprays für Textilien verwenden, die materialschonend sind.",
+    "hinweis": "Gute Durchlüftung während und nach der Behandlung ist wichtig, um erneute Schimmelbildung zu vermeiden."
+  },
+  "schimmel-polster": {
+    "einfach": "Mit einem Gemisch aus Wasser und Alkohol (1:1) besprühen und trocknen lassen.",
+    "fortgeschritten": "Eine Lösung aus Wasserstoffperoxid (3%) und Wasser (1:1) verwenden und mit einer weichen Bürste sanft einarbeiten.",
+    "profi": "Spezielle chlorfreie Schimmelentferner für Textilien verwenden und nach Anweisung anwenden.",
+    "hinweis": "Nach der Behandlung gründlich trocknen lassen und für gute Belüftung sorgen."
+  },
+  "schimmel-hartboden": {
+    "einfach": "Mit einem Gemisch aus Wasser und Essig (1:1) abwischen.",
+    "fortgeschritten": "Eine Lösung aus Wasserstoffperoxid (3%) und Wasser (1:1) auftragen und einwirken lassen.",
+    "profi": "Speziellen Schimmelentferner für Hartböden verwenden und nach Anweisung anwenden.",
+    "hinweis": "Nach der Reinigung gründlich trocknen und regelmäßig lüften, um neue Schimmelbildung zu vermeiden."
+  },
+  "schimmel-holz": {
+    "einfach": "Mit einem Gemisch aus Alkohol und Wasser (1:1) vorsichtig abwischen.",
+    "fortgeschritten": "Eine Lösung aus Borax und Wasser auf die betroffene Stelle auftragen und mit einer weichen Bürste einarbeiten.",
+    "profi": "Bei starkem Befall kann ein Abschleifen der betroffenen Stelle notwendig sein, gefolgt von einer neuen Versiegelung.",
+    "hinweis": "Nach der Behandlung das Holz gut trocknen lassen und für gute Belüftung sorgen."
+  },
+  "schimmel-naturstein": {
+    "einfach": "Mit einem trockenen Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Eine Lösung aus Alkohol und Wasser (1:1) verwenden und vorsichtig auftragen.",
+    "profi": "Speziellen Schimmelentferner für Naturstein verwenden, der keine Säuren enthält.",
+    "hinweis": "Keine säurehaltigen Reiniger auf Naturstein, besonders Marmor, verwenden."
+  },
+  "schimmel-glas": {
+    "einfach": "Mit warmem Wasser und etwas Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Stellen eine Lösung aus Borax und Wasser verwenden.",
+    "hinweis": "Bei Spiegeln keine säurehaltigen Reiniger im Randbereich verwenden, da diese den Spiegelbelag angreifen können."
+  },
+  "schimmel-metall": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei starkem Befall eine Paste aus Natron und Wasser auftragen, einwirken lassen und abwischen.",
+    "hinweis": "Nach der Reinigung gründlich trocknen, um neue Schimmelbildung zu vermeiden."
+  },
+  "schimmel-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Stellen eine Lösung aus Wasserstoffperoxid (3%) und Wasser (1:1) verwenden.",
+    "hinweis": "Nach der Reinigung gründlich trocknen und für gute Belüftung sorgen."
+  },
+  "schimmel-leder": {
+    "einfach": "Mit einem trockenen Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Eine Lösung aus Alkohol und Wasser (1:1) auf ein Tuch geben und vorsichtig abtupfen.",
+    "profi": "Speziellen Schimmelentferner für Leder verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Nach der Reinigung das Leder gut trocknen lassen und regelmäßig pflegen, um es vor Feuchtigkeit zu schützen."
+  },
+  "schimmel-kleidung": {
+    "einfach": "Bei waschbaren Textilien mit 60-90°C waschen, vorher in der Sonne trocknen.",
+    "fortgeschritten": "In Essigwasser (1 Teil Essig zu 3 Teilen Wasser) einweichen, dann mit heißem Wasser waschen.",
+    "profi": "Chlorbleiche für weiße Textilien oder spezielle Schimmelentferner für bunte Stoffe verwenden.",
+    "hinweis": "Nach der Reinigung gründlich trocknen und für gute Belüftung sorgen, um erneute Schimmelbildung zu vermeiden."
+  },
+  
+  "urin-teppich": {
+    "einfach": "Überschüssige Flüssigkeit mit Papiertüchern aufsaugen, dann mit Natron, Backpulver oder Salz bestreuen, einwirken lassen und absaugen.",
+    "fortgeschritten": "Mischung aus Essigwasser (1 Teil Essig zu 2 Teilen Wasser) auf die Stelle sprühen, mit sauberem Tuch abtupfen.",
+    "profi": "Spezielle Urinfleckenentferner mit Geruchsneutralisator verwenden, besonders wichtig bei Tierurin.",
+    "hinweis": "Bei Tierurin ist eine gründliche Geruchsneutralisierung wichtig, damit das Tier nicht an die gleiche Stelle zurückkehrt."
+  },
+  "urin-polster": {
+    "einfach": "Überschüssige Flüssigkeit mit Papiertüchern aufsaugen, dann mit Natron oder Backpulver bestreuen, einwirken lassen und absaugen.",
+    "fortgeschritten": "Mischung aus Essigwasser (1 Teil Essig zu 2 Teilen Wasser) auf die Stelle sprühen, mit sauberem Tuch abtupfen.",
+    "profi": "Rasierschaum oder Glasreiniger auftragen, einwirken lassen und mit sauberem, feuchtem Tuch nachbehandeln.",
+    "hinweis": "Nach der Reinigung gut trocknen lassen und für Durchlüftung sorgen, um Geruchsbildung zu vermeiden."
+  },
+  "urin-hartboden": {
+    "einfach": "Mit Papiertüchern aufsaugen, dann mit warmem Wasser und Spülmittel reinigen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Spezielle Urinfleckenentferner mit Geruchsneutralisator verwenden.",
+    "hinweis": "Bei Laminatböden immer sparsam mit Flüssigkeiten umgehen und trocken nachwischen."
+  },
+  "urin-holz": {
+    "einfach": "Mit Papiertüchern aufsaugen, dann mit einem leicht feuchten Tuch nachwischen.",
+    "fortgeschritten": "Eine milde Lösung aus warmem Wasser und Neutralseife verwenden.",
+    "profi": "Bei unbehandeltem Holz kann Wasserstoffperoxid (3%) helfen, bei behandeltem Holz einen speziellen Holzreiniger verwenden.",
+    "hinweis": "Nach der Reinigung das Holz gut trocknen lassen, um Schäden zu vermeiden."
+  },
+  "urin-naturstein": {
+    "einfach": "Mit Papiertüchern aufsaugen, dann mit klarem Wasser und einem sauberen Tuch nachwischen.",
+    "fortgeschritten": "Eine Paste aus Maisstärke und Wasser auftragen, trocknen lassen und entfernen.",
+    "profi": "Speziellen Natursteinreiniger ohne Säure verwenden.",
+    "hinweis": "Niemals säurehaltige Reiniger auf Naturstein, besonders Marmor, verwenden."
+  },
+  "urin-glas": {
+    "einfach": "Mit warmem Wasser und einem Mikrofasertuch abwischen.",
+    "fortgeschritten": "Glasreiniger verwenden oder eine Lösung aus Spülmittel und Wasser.",
+    "profi": "Bei hartnäckigen Gerüchen eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "hinweis": "Bei Spiegeln keine aggressiven Reiniger im Randbereich verwenden."
+  },
+  "urin-metall": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Gerüchen eine Paste aus Natron und Wasser auftragen, einwirken lassen und abwischen.",
+    "hinweis": "Nach der Reinigung gründlich trocknen, um Rostbildung zu vermeiden."
+  },
+  "urin-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Gerüchen eine Lösung aus Backofenreiniger oder Wasserstoffperoxid (3%) und Wasser (1:1) verwenden.",
+    "hinweis": "Reinigungsmittel immer an einer unauffälligen Stelle testen."
+  },
+  "urin-leder": {
+    "einfach": "Mit einem leicht feuchten Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Eine Lösung aus milder Seife und Wasser auf ein Tuch geben und vorsichtig abtupfen.",
+    "profi": "Speziellen Lederreiniger verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Nach der Reinigung das Leder gut trocknen lassen und regelmäßig pflegen."
+  },
+  "urin-kleidung": {
+    "einfach": "Sofort unter kaltem fließenden Wasser ausspülen, dann mit Gallseife vorbehandeln.",
+    "fortgeschritten": "In einer Lösung aus Essig und Wasser (1:3) einweichen, dann normal waschen.",
+    "profi": "Spezielle Urinfleckenentferner verwenden und nach Anweisung waschen.",
+    "hinweis": "Bei empfindlichen Stoffen immer das Pflegeetikett beachten und ggf. einen Spezialreiniger verwenden."
+  },
+  
+  "schweiß-teppich": {
+    "einfach": "Mit einer Lösung aus warmem Wasser und mildem Waschmittel abtupfen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:3) verwenden und vorsichtig abtupfen.",
+    "profi": "Spezielle Geruchsneutralisierer für Teppiche verwenden.",
+    "hinweis": "Nach der Reinigung gut trocknen lassen und für Durchlüftung sorgen."
+  },
+  "schweiß-polster": {
+    "einfach": "Mit einer Lösung aus warmem Wasser und mildem Waschmittel abtupfen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:3) verwenden und vorsichtig abtupfen.",
+    "profi": "Spezielle Polsterreiniger mit Geruchsneutralisator verwenden.",
+    "hinweis": "Nach der Reinigung gut trocknen lassen und für Durchlüftung sorgen."
+  },
+  "schweiß-hartboden": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Spezielle Bodenreiniger mit Geruchsneutralisator verwenden.",
+    "hinweis": "Bei Laminatböden immer sparsam mit Flüssigkeiten umgehen und trocken nachwischen."
+  },
+  "schweiß-holz": {
+    "einfach": "Mit einem leicht feuchten Tuch vorsichtig abwischen.",
+    "fortgeschritten": "Eine milde Lösung aus warmem Wasser und Neutralseife verwenden.",
+    "profi": "Speziellen Holzreiniger verwenden und anschließend mit Holzpflegemittel behandeln.",
+    "hinweis": "Nach der Reinigung das Holz gut trocknen lassen, um Schäden zu vermeiden."
+  },
+  "schweiß-naturstein": {
+    "einfach": "Mit warmem Wasser und einem sauberen Tuch abwischen.",
+    "fortgeschritten": "Eine milde Lösung aus warmem Wasser und Neutralseife verwenden.",
+    "profi": "Speziellen Natursteinreiniger ohne Säure verwenden.",
+    "hinweis": "Niemals säurehaltige Reiniger auf Naturstein, besonders Marmor, verwenden."
+  },
+  "schweiß-glas": {
+    "einfach": "Mit warmem Wasser und einem Mikrofasertuch abwischen.",
+    "fortgeschritten": "Glasreiniger verwenden oder eine Lösung aus Spülmittel und Wasser.",
+    "profi": "Bei hartnäckigen Flecken eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "hinweis": "Bei Spiegeln keine aggressiven Reiniger verwenden."
+  },
+  "schweiß-metall": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Flecken eine Paste aus Natron und Wasser auftragen.",
+    "hinweis": "Nach der Reinigung gründlich trocknen, um Rostbildung zu vermeiden."
+  },
+  "schweiß-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Flecken eine Lösung aus Backpulver und Wasser als Paste auftragen.",
+    "hinweis": "Reinigungsmittel immer an einer unauffälligen Stelle testen."
+  },
+  "schweiß-leder": {
+    "einfach": "Mit einem leicht feuchten Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Eine Lösung aus milder Seife und Wasser auf ein Tuch geben und vorsichtig abtupfen.",
+    "profi": "Speziellen Lederreiniger verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Nach der Reinigung das Leder gut trocknen lassen und regelmäßig pflegen."
+  },
+  "schweiß-kleidung": {
+    "einfach": "Vor dem Waschen mit Gallseife oder Flüssigwaschmittel direkt auf den Fleck vorbehandeln.",
+    "fortgeschritten": "Bei gelben Flecken auf weißer Kleidung: Backpulver, Essig, Zitronensäure oder Alkohol auftragen, einwirken lassen und dann waschen.",
+    "profi": "Spezieller Schweißfleckenentferner oder Einweichen in einer Lösung aus Waschmittel und Fleckensalz über Nacht.",
+    "hinweis": "Schweißflecken sofort behandeln, bevor sie sich festsetzen können. Weiße Kleidung bei möglichst hoher Temperatur gemäß Pflegeetikett waschen."
+  },
+
+  "gras-teppich": {
+    "einfach": "Trockenes Material vorsichtig entfernen, dann mit einer Lösung aus Spülmittel und Wasser behandeln.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden und vorsichtig abtupfen.",
+    "profi": "Enzymatischen Fleckentferner verwenden, der speziell für organische Flecken geeignet ist.",
+    "hinweis": "Nicht zu viel Flüssigkeit verwenden, um die Teppichunterlage zu schützen."
+  },
+  "gras-polster": {
+    "einfach": "Trockenes Material vorsichtig entfernen, dann mit einer Lösung aus Spülmittel und Wasser behandeln.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden und vorsichtig abtupfen.",
+    "profi": "Enzymatischen Fleckentferner verwenden, der speziell für organische Flecken geeignet ist.",
+    "hinweis": "Nach der Reinigung gut trocknen lassen und für Durchlüftung sorgen."
+  },
+  "gras-hartboden": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Flecken eine Lösung aus Wasserstoffperoxid (3%) und Wasser (1:1) verwenden.",
+    "hinweis": "Bei Laminatböden immer sparsam mit Flüssigkeiten umgehen und trocken nachwischen."
+  },
+  "gras-holz": {
+    "einfach": "Mit einem leicht feuchten Tuch vorsichtig abwischen.",
+    "fortgeschritten": "Eine milde Lösung aus warmem Wasser und Neutralseife verwenden.",
+    "profi": "Bei unbehandeltem Holz kann vorsichtiges Abschleifen helfen, bei behandeltem Holz einen speziellen Holzreiniger verwenden.",
+    "hinweis": "Nach der Reinigung das Holz gut trocknen lassen, um Schäden zu vermeiden."
+  },
+  "gras-naturstein": {
+    "einfach": "Mit warmem Wasser und einem sauberen Tuch abwischen.",
+    "fortgeschritten": "Eine milde Lösung aus warmem Wasser und Neutralseife verwenden.",
+    "profi": "Speziellen Natursteinreiniger ohne Säure verwenden.",
+    "hinweis": "Niemals säurehaltige Reiniger auf Naturstein, besonders Marmor, verwenden."
+  },
+  "gras-glas": {
+    "einfach": "Mit warmem Wasser und einem Mikrofasertuch abwischen.",
+    "fortgeschritten": "Glasreiniger verwenden oder eine Lösung aus Spülmittel und Wasser.",
+    "profi": "Bei hartnäckigen Flecken eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "hinweis": "Bei Spiegeln keine aggressiven Reiniger verwenden."
+  },
+  "gras-metall": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Flecken eine Paste aus Natron und Wasser auftragen.",
+    "hinweis": "Nach der Reinigung gründlich trocknen, um Rostbildung zu vermeiden."
+  },
+  "gras-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Flecken eine Lösung aus Wasserstoffperoxid (3%) und Wasser (1:1) verwenden.",
+    "hinweis": "Reinigungsmittel immer an einer unauffälligen Stelle testen."
+  },
+  "gras-leder": {
+    "einfach": "Mit einem leicht feuchten Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Eine Lösung aus milder Seife und Wasser auf ein Tuch geben und vorsichtig abtupfen.",
+    "profi": "Speziellen Lederreiniger verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Nach der Reinigung das Leder gut trocknen lassen und regelmäßig pflegen."
+  },
+  "gras-kleidung": {
+    "einfach": "Zitronensaft oder Essig auf den Fleck träufeln und vor dem Waschen einwirken lassen.",
+    "fortgeschritten": "Eine aufgeschnittene Kartoffel mit der Schnittfläche über den Fleck reiben, besonders effektiv bei Jeans.",
+    "profi": "Backpulver mit Wasser zu einer Paste vermischen, auf den Fleck auftragen, 10-15 Minuten einwirken lassen und dann bei höchstmöglicher Temperatur gemäß Pflegeetikett waschen.",
+    "hinweis": "Je frischer der Fleck, desto einfacher die Entfernung. Grasflecken immer vorbehandeln, bevor sie in die Waschmaschine kommen."
+  },
+  
+  "kosmetik-teppich": {
+    "einfach": "Überschüssiges Material vorsichtig entfernen, dann mit einer Lösung aus Spülmittel und Wasser behandeln.",
+    "fortgeschritten": "Bei ölhaltigen Make-up-Produkten Talkumpuder oder Speisestärke auftragen, einwirken lassen und absaugen.",
+    "profi": "Speziellen Teppichreiniger verwenden, der für kosmetische Flecken geeignet ist.",
+    "hinweis": "Immer von außen nach innen arbeiten, um ein Ausbreiten des Flecks zu verhindern."
+  },
+  "kosmetik-polster": {
+    "einfach": "Überschüssiges Material vorsichtig entfernen, dann mit einer Lösung aus Spülmittel und Wasser behandeln.",
+    "fortgeschritten": "Bei ölhaltigen Make-up-Produkten Talkumpuder oder Speisestärke auftragen, einwirken lassen und absaugen.",
+    "profi": "Speziellen Polsterreiniger verwenden, der für kosmetische Flecken geeignet ist.",
+    "hinweis": "Immer von außen nach innen arbeiten, um ein Ausbreiten des Flecks zu verhindern."
+  },
+  "kosmetik-hartboden": {
+    "einfach": "Überschüssiges Material vorsichtig entfernen, dann mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Bei hartnäckigen Flecken eine Lösung aus Alkohol und Wasser (1:1) verwenden.",
+    "profi": "Speziellen Bodenreiniger verwenden, der für kosmetische Flecken geeignet ist.",
+    "hinweis": "Bei Laminatböden immer sparsam mit Flüssigkeiten umgehen und trocken nachwischen."
+  },
+  "kosmetik-holz": {
+    "einfach": "Überschüssiges Material vorsichtig entfernen, dann mit einem leicht feuchten Tuch abwischen.",
+    "fortgeschritten": "Bei ölhaltigen Make-up-Produkten eine Paste aus Talkumpuder und Wasser auftragen, trocknen lassen und entfernen.",
+    "profi": "Speziellen Holzreiniger verwenden und anschließend mit Holzpflegemittel behandeln.",
+    "hinweis": "Nach der Reinigung das Holz gut trocknen lassen, um Schäden zu vermeiden."
+  },
+  "kosmetik-naturstein": {
+    "einfach": "Überschüssiges Material vorsichtig entfernen, dann mit warmem Wasser und einem sauberen Tuch abwischen.",
+    "fortgeschritten": "Bei ölhaltigen Make-up-Produkten eine Paste aus Maisstärke und Wasser auftragen, trocknen lassen und entfernen.",
+    "profi": "Speziellen Natursteinreiniger ohne Säure verwenden.",
+    "hinweis": "Niemals säurehaltige Reiniger auf Naturstein, besonders Marmor, verwenden."
+  },
+  "kosmetik-glas": {
+    "einfach": "Mit warmem Wasser und einem Mikrofasertuch abwischen.",
+    "fortgeschritten": "Glasreiniger verwenden oder eine Lösung aus Spülmittel und Wasser.",
+    "profi": "Bei hartnäckigen Flecken eine Lösung aus Alkohol und Wasser (1:1) verwenden.",
+    "hinweis": "Bei Spiegeln keine aggressiven Reiniger verwenden, sondern pH-neutrale Produkte, besonders für Haarspray-Rückstände."
+  },
+  "kosmetik-metall": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Alkohol und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Flecken Nagellackentferner (ohne Aceton) auf ein Tuch geben und den Fleck damit behandeln.",
+    "hinweis": "Keine Scheuermittel bei polierten Oberflächen verwenden, um Kratzer zu vermeiden."
+  },
+  "kosmetik-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Alkohol und Wasser (1:1) verwenden.",
+    "profi": "Bei hartnäckigen Flecken Nagellackentferner (ohne Aceton) auf ein Tuch geben und den Fleck damit behandeln.",
+    "hinweis": "Reinigungsmittel immer an einer unauffälligen Stelle testen, da manche Kunststoffe durch Lösungsmittel angegriffen werden können."
+  },
+  "kosmetik-leder": {
+    "einfach": "Überschüssiges Material vorsichtig entfernen, dann mit einem leicht feuchten Tuch abtupfen.",
+    "fortgeschritten": "Eine Lösung aus milder Seife und Wasser auf ein Tuch geben und vorsichtig abtupfen.",
+    "profi": "Speziellen Lederreiniger verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Nach der Reinigung das Leder gut trocknen lassen und regelmäßig pflegen."
+  },
+  "kosmetik-kleidung": {
+    "einfach": "Überschüssiges Material vorsichtig entfernen, dann mit Spülmittel und Wasser vorbehandeln.",
+    "fortgeschritten": "Bei Foundation und Lippenstift: Fleck mit Reinigungsalkohol oder Eukalyptusöl behandeln. Bei Mascara: Fleck erst trocknen lassen, dann vorsichtig entfernen.",
+    "profi": "Spezielle Make-up-Entferner oder hochwertiges Waschmittel wie Ariel Flüssig Waschmittel verwenden, das Tenside enthält, die Fettiges aus Textilien entfernen.",
+    "hinweis": "Beim Entfernen von Lippenstiftflecken nicht reiben, sondern tupfen, damit die Farbpigmente nicht tiefer in den Stoff gelangen."
+  },
+  
+  "kaugummi-teppich": {
+    "einfach": "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abbrechen.",
+    "fortgeschritten": "Essig auf das Kaugummi tropfen, einige Minuten einwirken lassen und dann mit einem weichen Küchentuch entfernen.",
+    "profi": "Kaugummi mit dem Bügeleisen erwärmen: Küchenpapier auf den Kaugummi legen und mit dem Bügeleisen vorsichtig darüber bügeln, so dass das Kaugummi am Papier kleben bleibt.",
+    "hinweis": "Niemals direkt am Kaugummi reiben oder ziehen, da dies die Fasern beschädigen kann."
+  },
+  "kaugummi-polster": {
+    "einfach": "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abbrechen.",
+    "fortgeschritten": "Mit Butter in den Kaugummi einmassieren, dann mit einem stumpfen Messer vorsichtig abheben.",
+    "profi": "Kaugummi mit dem Bügeleisen erwärmen: Küchenpapier auf den Kaugummi legen und mit dem Bügeleisen vorsichtig darüber bügeln.",
+    "hinweis": "Nach der Entfernung des Kaugummis die Stelle mit einem geeigneten Polsterreiniger nachbehandeln."
+  },
+  "kaugummi-hartboden": {
+    "einfach": "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abschaben.",
+    "fortgeschritten": "WD-40 oder Pflanzenöl auf den Kaugummi sprühen, einwirken lassen und dann mit einem Spachtel vorsichtig entfernen.",
+    "profi": "Erwärmen Sie den Kaugummi vorsichtig mit einem Föhn und entfernen Sie ihn dann mit einem Spachtel.",
+    "hinweis": "Nach der Entfernung des Kaugummis die Stelle mit einem geeigneten Bodenreiniger nachbehandeln."
+  },
+  "kaugummi-holz": {
+    "einfach": "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abschaben.",
+    "fortgeschritten": "Pflanzenöl auf den Kaugummi geben, einwirken lassen und dann mit einem stumpfen Messer vorsichtig entfernen.",
+    "profi": "Bei unbehandeltem Holz kann vorsichtiges Abschleifen notwendig sein. Bei behandeltem Holz den Kaugummi mit dem Bügeleisen und Küchenpapier erwärmen und entfernen.",
+    "hinweis": "Nach der Entfernung des Kaugummis die Stelle mit einem geeigneten Holzreiniger und -pflegemittel nachbehandeln."
+  },
+  "kaugummi-naturstein": {
+    "einfach": "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abschaben.",
+    "fortgeschritten": "WD-40 oder Pflanzenöl auf den Kaugummi sprühen, einwirken lassen und dann mit einem Spachtel vorsichtig entfernen.",
+    "profi": "Speziellen Kaugummientferner für Naturstein verwenden.",
+    "hinweis": "Nach der Entfernung des Kaugummis die Stelle mit einem geeigneten Natursteinreiniger nachbehandeln."
+  },
+  "kaugummi-glas": {
+    "einfach": "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abschaben.",
+    "fortgeschritten": "WD-40 oder Pflanzenöl auf den Kaugummi sprühen, einwirken lassen und dann mit einem Plastikspachtel vorsichtig entfernen.",
+    "profi": "Erwärmen Sie den Kaugummi vorsichtig mit einem Föhn und entfernen Sie ihn dann mit einem Plastikspachtel.",
+    "hinweis": "Nach der Entfernung des Kaugummis die Stelle mit einem geeigneten Glasreiniger nachbehandeln."
+  },
+  "kaugummi-metall": {
+    "einfach": "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abschaben.",
+    "fortgeschritten": "WD-40 oder Pflanzenöl auf den Kaugummi sprühen, einwirken lassen und dann mit einem Plastikspachtel vorsichtig entfernen.",
+    "profi": "Erwärmen Sie den Kaugummi vorsichtig mit einem Föhn und entfernen Sie ihn dann mit einem Plastikspachtel.",
+    "hinweis": "Nach der Entfernung des Kaugummis die Stelle mit einem geeigneten Metallreiniger nachbehandeln."
+  },
+  "kaugummi-kunststoff": {
+    "einfach": "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abschaben.",
+    "fortgeschritten": "WD-40 oder Pflanzenöl auf den Kaugummi sprühen, einwirken lassen und dann mit einem Plastikspachtel vorsichtig entfernen.",
+    "profi": "Erwärmen Sie den Kaugummi vorsichtig mit einem Föhn und entfernen Sie ihn dann mit einem Plastikspachtel.",
+    "hinweis": "Nach der Entfernung des Kaugummis die Stelle mit einem geeigneten Kunststoffreiniger nachbehandeln."
+  },
+  "kaugummi-leder": {
+    "einfach": "Kaugummi mit Eiswürfeln kühlen, bis er hart wird, dann vorsichtig abbrechen.",
+    "fortgeschritten": "Vaseline oder Pflanzenöl auf den Kaugummi geben, einwirken lassen und dann mit einem stumpfen Messer vorsichtig entfernen.",
+    "profi": "Speziellen Lederreiniger verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Nach der Entfernung des Kaugummis die Stelle mit einem geeigneten Lederpflegemittel nachbehandeln."
+  },
+  "kaugummi-kleidung": {
+    "einfach": "Kleidungsstück in einen Plastikbeutel legen und für 2-3 Stunden ins Tiefkühlfach geben. Den gefrorenen Kaugummi dann vorsichtig abbrechen.",
+    "fortgeschritten": "Mit Butter oder Erdnussbutter in den Kaugummi einmassieren, dann mit einer alten Zahnbürste vorsichtig entfernen.",
+    "profi": "Kaugummi mit dem Bügeleisen erwärmen: Küchenpapier auf den Kaugummi legen und mit dem Bügeleisen vorsichtig darüber bügeln, so dass das Kaugummi am Papier kleben bleibt.",
+    "hinweis": "Nach der Entfernung des Kaugummis das Kleidungsstück normal waschen."
+  },
+  
+  "rost-teppich": {
+    "einfach": "Mit einer Lösung aus warmem Wasser und mildem Waschmittel abtupfen.",
+    "fortgeschritten": "Eine Lösung aus Zitronensaft und Salz auf den Fleck auftragen, einwirken lassen und mit warmem Wasser ausspülen.",
+    "profi": "Speziellen Rostfleckenentferner verwenden, der für Textilien geeignet ist.",
+    "hinweis": "Immer von außen nach innen arbeiten, um ein Ausbreiten des Flecks zu verhindern."
+  },
+  "rost-polster": {
+    "einfach": "Mit einer Lösung aus warmem Wasser und mildem Waschmittel abtupfen.",
+    "fortgeschritten": "Eine Lösung aus Zitronensaft und Salz auf den Fleck auftragen, einwirken lassen und mit warmem Wasser ausspülen.",
+    "profi": "Speziellen Rostfleckenentferner verwenden, der für Textilien geeignet ist.",
+    "hinweis": "Nach der Reinigung gut trocknen lassen und für Durchlüftung sorgen."
+  },
+  "rost-hartboden": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Paste aus Backpulver und Wasser auf den Fleck auftragen, einwirken lassen und abwischen.",
+    "profi": "Speziellen Rostfleckenentferner verwenden, der für Hartböden geeignet ist.",
+    "hinweis": "Nach der Reinigung gründlich trocknen, um neue Rostbildung zu vermeiden."
+  },
+  "rost-holz": {
+    "einfach": "Mit einem leicht feuchten Tuch vorsichtig abwischen.",
+    "fortgeschritten": "Eine Paste aus Oxalsäure und Wasser auf den Fleck auftragen, einwirken lassen und abwischen.",
+    "profi": "Bei unbehandeltem Holz kann vorsichtiges Abschleifen notwendig sein. Bei behandeltem Holz einen speziellen Holzreiniger verwenden.",
+    "hinweis": "Nach der Reinigung das Holz gut trocknen lassen und ggf. neu versiegeln."
+  },
+  "rost-naturstein": {
+    "einfach": "Mit warmem Wasser und einem sauberen Tuch abwischen.",
+    "fortgeschritten": "Eine Paste aus Maisstärke und Wasser auftragen, trocknen lassen und entfernen.",
+    "profi": "Speziellen Rostfleckenentferner für Naturstein verwenden, der keine Säuren enthält.",
+    "hinweis": "Niemals säurehaltige Reiniger auf Naturstein, besonders Marmor, verwenden."
+  },
+  "rost-glas": {
+    "einfach": "Mit warmem Wasser und einem Mikrofasertuch abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Speziellen Glasreiniger für Rostflecken verwenden.",
+    "hinweis": "Bei Spiegeln keine aggressiven Reiniger verwenden."
+  },
+  "rost-metall": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Paste aus Natron und Wasser auftragen, einwirken lassen und abwischen.",
+    "profi": "Essigessenz oder Cola zur Reinigung nutzen oder ein spezielles Rostentfernungsmittel für Metall verwenden.",
+    "hinweis": "Nach der Reinigung gründlich trocknen und ggf. mit Rostschutz behandeln."
+  },
+  "rost-kunststoff": {
+    "einfach": "Mit warmem Wasser und Spülmittel abwischen.",
+    "fortgeschritten": "Eine Lösung aus Essig und Wasser (1:1) verwenden.",
+    "profi": "Speziellen Rostfleckenentferner verwenden, der für Kunststoffe geeignet ist.",
+    "hinweis": "Reinigungsmittel immer an einer unauffälligen Stelle testen."
+  },
+  "rost-leder": {
+    "einfach": "Mit einem leicht feuchten Tuch vorsichtig abtupfen.",
+    "fortgeschritten": "Eine Lösung aus milder Seife und Wasser auf ein Tuch geben und vorsichtig abtupfen.",
+    "profi": "Speziellen Lederreiniger verwenden und anschließend mit Lederpflegemittel behandeln.",
+    "hinweis": "Nach der Reinigung das Leder gut trocknen lassen und regelmäßig pflegen."
+  },
+  "rost-kleidung": {
+    "einfach": "Zitronensaft direkt auf den Fleck träufeln, mit Salz bestreuen und in die Sonne legen.",
+    "fortgeschritten": "Weißweinessig oder eine halbierte Zitrone auf den Fleck auftragen, einwirken lassen und mit weißem Handtuch abtupfen.",
+    "profi": "Speziellen Rostfleckenentferner für Textilien verwenden und nach Anweisung waschen.",
+    "hinweis": "Bei empfindlichen Stoffen immer das Pflegeetikett beachten und ggf. einen Spezialreiniger verwenden."
+  },
+
+  "default": {
+    "einfach": "Entfernen Sie überschüssiges Material vorsichtig mit einem Löffel oder stumpfen Messer. Tupfen Sie dann mit klarem, lauwarmem Wasser und einem sauberen Tuch.",
+    "fortgeschritten": "Mischen Sie milde Seife mit warmem Wasser und tupfen Sie den Fleck vorsichtig von außen nach innen ab. Spülen Sie mit klarem Wasser nach und trocknen Sie die Stelle mit einem Handtuch.",
+    "profi": "Für diese spezifische Kombination empfehlen wir eine professionelle Reinigung. Unsere Experten verfügen über spezielle Mittel und Geräte für optimale Ergebnisse.",
+    "hinweis": "Testen Sie jedes Reinigungsmittel zuerst an einer unauffälligen Stelle, um Verfärbungen zu vermeiden."
+  }
+}

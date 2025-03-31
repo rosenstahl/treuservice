@@ -1,0 +1,218 @@
+{
+  "navigation": {
+    "about": "About",
+    "contact": "Contact",
+    "legal": "Legal",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "footer": {
+    "copyright": "© 2024 TREU Service GmbH. All rights reserved."
+  },
+  "imprint": {
+    "title": "Legal Notice",
+    "subtitle": "Information according to § 5 TMG",
+    "company": {
+      "title": "Company Information",
+      "name": "TREU Service GmbH",
+      "address": "Rheinische Strasse 220",
+      "city": "44147 Dortmund",
+      "register": "Commercial Register: HRB 20627",
+      "court": "Registration Court: Dortmund"
+    },
+    "management": {
+      "title": "Represented by",
+      "name": "Hasan Hüseyin Yilmaz"
+    },
+    "contact": {
+      "title": "Contact Information",
+      "phone": "Phone: +49 231 15044352",
+      "email": "Email: info@treuservice.com"
+    },
+    "vat": {
+      "title": "VAT Registration Number",
+      "content": "VAT ID according to § 27a Value Added Tax Act: DE362838091"
+    },
+    "profession": {
+      "title": "Professional Information",
+      "occupation": "Professional Title: Craftsman",
+      "chamber": "Responsible Chamber: Chamber of Industry and Commerce Dortmund",
+      "address": "Märkische Str. 120, 44141 Dortmund",
+      "awarded": "Title awarded in: Germany"
+    },
+    "supervisory": {
+      "title": "Supervisory Authority",
+      "name": "City of Dortmund",
+      "address": "Olpe 1, 44135 Dortmund"
+    },
+    "dispute": {
+      "title": "Consumer Dispute Resolution",
+      "content": "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "introduction": {
+      "title": "General Information and Mandatory Disclosures",
+      "content": "The protection of your personal data is important to us. This privacy policy explains how we collect, use, process, and protect your personal information."
+    },
+    "responsible": {
+      "title": "Data Controller",
+      "content": "The entity responsible for data processing on this website is:",
+      "company": {
+        "name": "TREU Service GmbH",
+        "manager": "Hasan Yilmaz",
+        "address": "Rheinische Strasse 220, 44147 Dortmund"
+      }
+    },
+    "consent": {
+      "title": "Withdrawal of Consent",
+      "content": "Some data processing operations are only possible with your express consent. You can revoke your previously given consent at any time. An informal email notification is sufficient for the revocation. The legality of the data processing carried out until the revocation remains unaffected by the revocation."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "complaint": {
+        "title": "Right to Complain",
+        "content": "In the event of violations of data protection law, you have the right to file a complaint with the competent supervisory authority."
+      },
+      "dataPortability": {
+        "title": "Right to Data Portability",
+        "content": "You have the right to have data that we process automatically based on your consent or in fulfillment of a contract handed over to you or to third parties."
+      },
+      "access": {
+        "title": "Right to Access, Rectification, and Deletion",
+        "content": "You have the right to free information about your stored personal data, its origin and recipient, and the purpose of data processing, as well as a right to correction, blocking, or deletion of this data at any time."
+      }
+    },
+    "security": {
+      "title": "SSL/TLS Encryption",
+      "content": "For security reasons and to protect the transmission of confidential content that you send to us as the site operator, our website uses SSL or TLS encryption. This means that data you transmit via this website cannot be read by third parties. You can recognize an encrypted connection by the 'https://' address line of your browser and the lock symbol in the browser line."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Our website uses cookies. These are small text files that your web browser stores on your device. Cookies help us make our offering more user-friendly, effective, and secure.",
+      "session": {
+        "title": "Session Cookies",
+        "content": "Some cookies are 'session cookies.' Such cookies are deleted automatically at the end of your browser session. Other cookies remain on your device until you delete them yourself."
+      },
+      "control": {
+        "title": "Cookie Control",
+        "content": "With a modern web browser, you can monitor, restrict, or prevent the setting of cookies. Many web browsers can be configured to automatically delete cookies when the program is closed. Disabling cookies may result in limited functionality of our website."
+      }
+    }
+  },
+  "terms": {
+    "title": "General Terms and Conditions",
+    "lastUpdated": "Last updated: February 2024",
+    "sections": [
+      {
+        "title": "1. Scope",
+        "content": "These General Terms and Conditions (GTC) apply to all business relationships between TREU Service GmbH (hereinafter 'TREU Service') and its customers. Deviating conditions of the customer are not recognized unless TREU Service expressly agrees to their validity in writing."
+      },
+      {
+        "title": "2. Contract Conclusion",
+        "content": "The contract is concluded through written order confirmation or commencement of service provision by TREU Service. Offers from TREU Service are subject to change and non-binding unless explicitly marked as binding."
+      },
+      {
+        "title": "3. Scope of Services",
+        "content": "The scope of services is defined in the written order confirmation or contract. TREU Service is entitled to have the services performed by qualified employees or subcontractors.",
+        "subsections": [
+          {
+            "title": "3.1 Cleaning Services",
+            "content": "Cleaning services are performed according to agreed specifications and quality standards. Special requirements must be agreed upon in writing."
+          },
+          {
+            "title": "3.2 Security Services",
+            "content": "Security services are provided in accordance with applicable legal requirements and industry standards."
+          }
+        ]
+      },
+      {
+        "title": "4. Prices and Payment Terms",
+        "content": "The agreed prices apply. Invoices are payable within 14 days of the invoice date without deduction. In case of late payment, TREU Service is entitled to charge default interest at the statutory rate."
+      },
+      {
+        "title": "5. Customer Obligations",
+        "content": "The customer ensures unhindered access to the areas to be cleaned or secured. They provide water, electricity, and suitable facilities for personnel free of charge."
+      },
+      {
+        "title": "6. Liability",
+        "content": "TREU Service is liable for damages caused by intentional or grossly negligent conduct. In case of slight negligence, TREU Service is only liable for breach of essential contractual obligations and limited to typically foreseeable damage."
+      },
+      {
+        "title": "7. Contract Duration and Termination",
+        "content": "The contract is concluded for the agreed duration. For indefinite contracts, a notice period of 3 months to the end of the month applies unless otherwise agreed."
+      },
+      {
+        "title": "8. Data Protection",
+        "content": "TREU Service processes personal data in compliance with applicable data protection regulations. Further information can be found in the privacy policy."
+      },
+      {
+        "title": "9. Jurisdiction and Applicable Law",
+        "content": "The place of jurisdiction is Dortmund. The law of the Federal Republic of Germany applies, excluding the UN Convention on Contracts for the International Sale of Goods."
+      },
+      {
+        "title": "10. Severability Clause",
+        "content": "Should individual provisions of these GTC be or become invalid, the validity of the remaining provisions shall remain unaffected."
+      }
+    ]
+  },
+  "about": {
+    "title": "About Us",
+    "sections": [
+      {
+        "title": "Our History",
+        "content": [
+          "TREU Service GmbH is a company built on hard work, dedication, and a relentless pursuit of excellence. At the heart of our business are the people who make everything possible. Our team consists of highly qualified professionals who are passionate about providing the best possible service to our customers.",
+          "From our founder Hasan Yilmaz to our dedicated staff, every member of the TREU team is focused on delivering exceptional service. We believe that our success is based on the relationships we build with our customers, and we work tirelessly to ensure that every interaction is positive and productive.",
+          "Our team is diverse and possesses a wide range of skills and expertise. We take pride in our ability to work seamlessly together and leverage each individual's strengths to achieve outstanding results. Whether you need security services, building cleaning, or winter services – you can trust that the TREU Service team will get the job done right.",
+          "We are proud of the team we have built at TREU Service and are confident that you will be impressed too. Our commitment to excellence and our passion for what we do are visible in all our actions. We look forward to working with you and delivering the exceptional service associated with the TREU name."
+        ]
+      },
+      {
+        "title": "The Challenge",
+        "content": [
+          "Germany is currently experiencing a significant shortage of skilled workers across various industries, including the service sector. This presents companies with the challenge of finding suitable employees and maintaining high-quality service delivery.",
+          "Another challenge lies in meeting individual customer needs and expectations to achieve high customer satisfaction. Transparency, human empathy, and tailored services are crucial in this regard.",
+          "Additionally, technological advancement and the use of artificial intelligence bring risks for jobs in the service industry. Automation could replace some jobs in the near future. However, we firmly believe that our industry is essential for society, and we are committed to creating new jobs.",
+          "Furthermore, we invest in research and development to introduce innovations in our industry through the use of artificial intelligence. We strive to utilize modern technologies to improve our services and increase the efficiency of our processes without losing sight of the human component."
+        ]
+      },
+      {
+        "title": "Our Vision",
+        "content": [
+          "Our vision at TREU Service is to be the first choice for our customers in all areas where we operate. We want to be not just a service provider, but a reliable partner when it comes to security, cleanliness, and sustainability.",
+          "We strive to continuously develop and expand our offerings to always provide our customers with the best and latest solutions. We place great emphasis on the environmental impact of our work and focus on sustainable solutions to minimize our ecological footprint while delivering high-quality services.",
+          "In 25 years, we see ourselves as a leading company in our fields of activity, distinguished by innovation and sustainability. The needs of our customers will always remain our top priority.",
+          "Our vision and values align with the needs of our customers and our employees. We are proud to be part of an industry that makes an important contribution to the safety and cleanliness of our communities."
+        ]
+      }
+    ],
+    "testimonials": {
+      "title": "Customer Testimonials",
+      "items": [
+        {
+          "quote": "The TREU Service team is simply outstanding! Always punctual, reliable, and the quality of work is excellent.",
+          "author": "Markus Löwe"
+        },
+        {
+          "quote": "We are very satisfied with the service. The TREU Service staff are always friendly and flexible, regardless of the challenges we face.",
+          "author": "Anna König"
+        },
+        {
+          "quote": "With TREU Service, you can really tell that the team is passionate about their work. They are always committed and bring fresh ideas.",
+          "author": "Thomas Weber"
+        },
+        {
+          "quote": "With TREU Service, we have found a partner who supports us as if we were one team. The collaboration is always uncomplicated and professional.",
+          "author": "Julia Schneider"
+        }
+      ]
+    },
+    "location": {
+      "title": "Location",
+      "content": "Our company is headquartered in Dortmund and provides services throughout North Rhine-Westphalia. Depending on the project scope, we also operate nationwide and are committed to fully meeting our customers' needs. We look forward to working with you and providing you with the best possible service you deserve."
+    }
+  }
+}

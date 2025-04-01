@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import { useSearchParams } from 'next/navigation';
 import { CheckCircle2, ArrowRight, X } from "lucide-react";
 import { H3, Paragraph } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
@@ -39,30 +38,26 @@ const ExpandableSecurityCards = ({
   const [active, setActive] = useState<SecurityService | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
-  const searchParams = useSearchParams();
 
+  // Wenn expandedCard geändert wird, aktualisiere den active state
   useEffect(() => {
-    // Wenn eine URL mit service Parameter aufgerufen wird
-    const serviceParam = searchParams.get('service');
-    if (serviceParam) {
+    if (expandedCard) {
       const serviceToActivate = services.find(
-        service => service.title.toLowerCase().replace(/\s+/g, '-') === serviceParam
+        service => service.title.toLowerCase().replace(/\s+/g, '-') === expandedCard
       );
       if (serviceToActivate) {
         setActive(serviceToActivate);
-        setExpandedCard?.(serviceParam);
       }
+    } else if (expandedCard === null) {
+      setActive(null);
     }
-  }, [searchParams, services, setExpandedCard]);
+  }, [expandedCard, services]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setActive(null);
         setExpandedCard?.(null);
-        // URL Parameter entfernen ohne Neuladen
-        const newUrl = window.location.pathname;
-        window.history.pushState({}, '', newUrl);
       }
     };
 
@@ -75,9 +70,6 @@ const ExpandableSecurityCards = ({
   useOutsideClick(ref, () => {
     setActive(null);
     setExpandedCard?.(null);
-    // URL Parameter entfernen ohne Neuladen
-    const newUrl = window.location.pathname;
-    window.history.pushState({}, '', newUrl);
   });
 
   const getLeistungen = (service: SecurityService) => service.leistungen || [];
@@ -86,10 +78,6 @@ const ExpandableSecurityCards = ({
     const serviceId = service.title.toLowerCase().replace(/\s+/g, '-');
     setActive(service);
     setExpandedCard?.(serviceId);
-    
-    // URL aktualisieren ohne Neuladen
-    const newUrl = `${window.location.pathname}?service=${serviceId}#services`;
-    window.history.pushState({}, '', newUrl);
   };
 
   // Diese Funktion leitet zum Kontaktformular unten auf der Seite weiter
@@ -97,9 +85,6 @@ const ExpandableSecurityCards = ({
     document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
     setActive(null); // Schließe den Dialog
     setExpandedCard?.(null); // Reset expandedCard
-    // URL Parameter entfernen ohne Neuladen
-    const newUrl = window.location.pathname;
-    window.history.pushState({}, '', newUrl);
   };
 
   return (
@@ -130,9 +115,6 @@ const ExpandableSecurityCards = ({
               onClick={() => {
                 setActive(null);
                 setExpandedCard?.(null);
-                // URL Parameter entfernen ohne Neuladen
-                const newUrl = window.location.pathname;
-                window.history.pushState({}, '', newUrl);
               }}
             >
               <X className="w-5 h-5 text-secondary" />

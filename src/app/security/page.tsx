@@ -1,7 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, Suspense } from 'react'
-import { useSearchParams } from 'next/navigation'
+import React, { useState, useEffect } from 'react'
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { H2, Paragraph } from "@/components/ui/typography"
@@ -36,26 +35,6 @@ import {
   BookOpen,
 } from "lucide-react"
 
-// Kleine interne Komponente, um URL-Parameter zu lesen
-function UrlParamHandler({ setExpandedCard }: { setExpandedCard: React.Dispatch<React.SetStateAction<string | null>> }) {
-  const searchParams = useSearchParams();
-  
-  useEffect(() => {
-    const service = searchParams.get('service');
-    if (service) {
-      setTimeout(() => {
-        const card = document.querySelector(`[data-service-name="${service}"]`);
-        if (card) {
-          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          setExpandedCard(service);
-        }
-      }, 500);
-    }
-  }, [searchParams, setExpandedCard]);
-  
-  return null;
-}
-
 export default function SecurityPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -75,11 +54,6 @@ export default function SecurityPage() {
 
   return (
     <div className={`flex-1 transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-      {/* URL-Parameter in Suspense einschließen */}
-      <Suspense fallback={null}>
-        <UrlParamHandler setExpandedCard={setExpandedCard} />
-      </Suspense>
-      
       {/* 1. HERO Section - Mobile-optimiert */}
       <Section 
         id="hero-section"

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { Container } from "@/components/layout/Container"
 import { Section } from "@/components/layout/Section"
 import { H2, Paragraph } from "@/components/ui/typography"
@@ -35,16 +35,8 @@ import {
   BookOpen,
 } from "lucide-react"
 
-export default function SecurityPage() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [expandedCard, setExpandedCard] = useState<string | null>(null);
-  
+function ServiceFinder({ setExpandedCard }: { setExpandedCard: React.Dispatch<React.SetStateAction<string | null>> }) {
   useEffect(() => {
-    // Sanfte Überblendung der Seite für ein Apple-typisches Erlebnis
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
-    
     // Service aus URL Parameter holen
     const service = new URLSearchParams(window.location.search).get('service');
     if (service) {
@@ -56,6 +48,20 @@ export default function SecurityPage() {
         }
       }, 500);
     }
+  }, [setExpandedCard]);
+
+  return null;
+}
+
+export default function SecurityPage() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  
+  useEffect(() => {
+    // Sanfte Überblendung der Seite für ein Apple-typisches Erlebnis
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
     
     return () => clearTimeout(timer);
   }, []);
@@ -66,6 +72,11 @@ export default function SecurityPage() {
 
   return (
     <div className={`flex-1 transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Suspense Boundary für URL-Parameter Zugriff */}
+      <Suspense fallback={null}>
+        <ServiceFinder setExpandedCard={setExpandedCard} />
+      </Suspense>
+      
       {/* 1. HERO Section - Mobile-optimiert */}
       <Section 
         id="hero-section"
@@ -124,6 +135,8 @@ export default function SecurityPage() {
           </svg>
         </div>
       </Section>
+      
+      {/* Rest der Komponente bleibt unverändert... */}
       
       {/* Trennlinie */}
       <Separator className="h-px bg-gray-100" />

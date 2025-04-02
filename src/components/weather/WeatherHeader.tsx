@@ -88,7 +88,7 @@ const WeatherHeader: React.FC<WeatherHeaderProps> = ({ onRequestService }) => {
           onClick={detectLocation} 
           size="sm" 
           variant="outline"
-          className="bg-accent text-white border-transparent hover:bg-accent-hover hover:text-white hover:shadow-[0_0_8px_rgba(255,255,255,0.5)] px-2"
+          className="hidden md:flex bg-accent text-white border-transparent hover:bg-accent-hover hover:text-white hover:shadow-[0_0_8px_rgba(255,255,255,0.5)] px-2"
           title="Standort erkennen"
         >
           <MapPin className="h-4 w-4" />

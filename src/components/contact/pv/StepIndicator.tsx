@@ -52,7 +52,7 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, total
               )}
             </motion.div>
             <div 
-              className={`text-xs mt-2 font-medium text-center px-1
+              className={`hidden md:block text-xs mt-2 font-medium text-center px-1
               ${currentStep === step 
                 ? 'text-[#009FD8]' 
                 : currentStep > step 

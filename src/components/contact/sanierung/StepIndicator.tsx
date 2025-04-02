@@ -11,11 +11,10 @@ interface StepIndicatorProps {
 export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, totalSteps }) => {
   const steps = Array.from({ length: totalSteps }, (_, i) => i + 1)
   
-  // Angepasste Schrittbezeichnungen für das Sanierungs-Formular
   const stepLabels = [
-    'Schadensart',
-    'Objekt & Fläche',
-    'Schadensdetails',
+    'Reinigungsart',
+    'Objekttyp',
+    'Fläche & Info',
     'Einsatzdetails',
     'Zusammenfassung'
   ]
@@ -52,7 +51,7 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, total
               )}
             </motion.div>
             <div 
-              className={`text-xs mt-2 font-medium text-center px-1
+              className={`hidden md:block text-xs mt-2 font-medium text-center px-1
               ${currentStep === step 
                 ? 'text-[#009FD8]' 
                 : currentStep > step 

@@ -39,20 +39,30 @@ const getServiceIcon = (index: number): React.ReactNode => {
   return icons[index % icons.length];
 };
 
-// Balance zwischen Steve Jobs Perfektionismus und TREU's Brand Identity
 export default function HomePage() {
   // Testimonials
   const testimonials: Testimonial[] = [];
+  const maleAuthors = [
+    'Michael S.', 'Ahmed Y.', 'Stefan B.', 'Peter M.', 'Mehmet A.',
+    'Markus W.', 'Johannes R.', 'Klaus H.', 'Markus H.', 'Thomas G.',
+    'Farid N.'
+  ];
+  
   if ('testimonials' in deData && deData.testimonials && 'all' in deData.testimonials) {
     const allTestimonials = deData.testimonials.all;
     if (Array.isArray(allTestimonials)) {
-      // Alle Testimonials laden und nummerierte Bilder zuweisen
-      testimonials.push(...allTestimonials.map((t: Record<string, string>, index) => ({
-        quote: t.quote || "",
-        name: t.author || "",
-        designation: t.designation || "",
-        src: `/images/testimonials/${index + 1}.jpg`  // Nummerierte Bilder: 1.jpg, 2.jpg, usw.
-      })));
+      testimonials.push(...allTestimonials.map((t: Record<string, string>, index) => {
+        const author = t.author || "";
+        const isMale = maleAuthors.includes(author);
+        const imageName = isMale ? '4.jpg' : '12.jpg';
+        return {
+          quote: t.quote || "",
+          name: author,
+          designation: t.designation || "",
+          src: `/images/testimonials/${imageName}`,
+          key: `${imageName}-${index}` // Kombiniert Bildnamen mit Index, um einen eindeutigen Key zu erstellen
+        };
+      }));
     }
   }
   

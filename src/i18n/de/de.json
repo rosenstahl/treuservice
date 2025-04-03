@@ -98,225 +98,111 @@
       ]
     }
   },
-  "testimonials": {
-    "title": "Stimmen unserer zufriedenen Kunden",
-    "all": [
-      {
-        "quote": "Die Reinigungsqualität von TREU Service ist wirklich beeindruckend. Seit wir zusammenarbeiten, erhalten wir regelmäßig positives Feedback von unseren Mitarbeitern zur Sauberkeit der Räume. Das Team ist stets pünktlich und arbeitet sehr gründlich.",
-        "author": "Michael S.",
-        "designation": "Facility Manager"
-      },
-      {
-        "quote": "Endlich haben wir ein Reinigungsunternehmen gefunden, das unsere speziellen Anforderungen versteht. Besonders wichtig für uns ist die Flexibilität bei kurzfristigen Sonderreinigungen vor Aktionen – TREU Service hat uns hier noch nie im Stich gelassen!",
-        "author": "Julia K.",
-        "designation": "Filialleitung"
-      },
-      {
-        "quote": "In der Hotellerie ist Sauberkeit das A und O für Gästezufriedenheit. Das Team von TREU Service versteht genau, worauf es ankommt. Selbst in der Hochsaison bleiben die Standards konstant hoch, was uns sehr beeindruckt.",
-        "author": "Ahmed Y.",
-        "designation": "Hoteldirektor"
-      },
-      {
-        "quote": "Unsere Produktionsflächen stellen besondere Herausforderungen an die Reinigung. TREU Service hat ein maßgeschneidertes Konzept entwickelt, das genau unseren Anforderungen entspricht und sogar unsere strengen Sicherheitsvorschriften berücksichtigt. Absolut zuverlässig!",
-        "author": "Stefan B.",
-        "designation": "Produktionsleiter"
-      },
-      {
-        "quote": "Die Security-Mitarbeiter von TREU Service sind nicht nur hochprofessionell, sondern auch ein freundliches Gesicht für unsere Kunden. Sie haben ein gutes Gespür für Situationen und handeln stets angemessen – genau die richtige Mischung aus Präsenz und Zurückhaltung.",
-        "author": "Peter M.",
-        "designation": "Geschäftsführer"
-      },
-      {
-        "quote": "Bei unserem letzten großen Festival haben die Security-Kräfte von TREU Service maßgeblich zum reibungslosen Ablauf beigetragen. Besonders beeindruckt hat mich die ausgezeichnete Kommunikation und wie deeskalierend das Team auch in hektischen Momenten agiert hat.",
-        "author": "Maria L.",
-        "designation": "Eventmanagerin"
-      },
-      {
-        "quote": "Der Werkschutz von TREU Service hat unsere Erwartungen übertroffen. Das Team ist hervorragend geschult, kennt alle relevanten Prozesse und reagiert schnell auf neue Anforderungen. Die monatlichen Sicherheitsberichte helfen uns zudem, unsere eigenen Maßnahmen zu optimieren.",
-        "author": "Mehmet A.",
-        "designation": "Sicherheitsbeauftragter"
-      },
-      {
-        "quote": "Die moderne Technik, die TREU Service bei der Objektsicherung einsetzt, hat uns wirklich überzeugt. Die Kombination aus persönlichen Kontrollen und technischer Überwachung bietet genau den Schutz, den unsere hochwertigen Objekte benötigen.",
-        "author": "Sarah B.",
-        "designation": "Facility Managerin"
-      },
-      {
-        "quote": "Seit wir mit TREU Service zusammenarbeiten, können wir uns im Winter voll auf saubere und sichere Kundenparkplätze verlassen. Bei Schneefall sind die Teams immer rechtzeitig vor Ort – noch bevor die ersten Kunden eintreffen. Diese Verlässlichkeit ist für uns unbezahlbar.",
-        "author": "Markus W.",
-        "designation": "Centermanager"
-      },
-      {
-        "quote": "Unsere LKW-Flotte muss bei jedem Wetter pünktlich starten können. Das Winterdienst-Team von TREU Service sorgt dafür, dass unsere Betriebsflächen immer frei und sicher befahrbar sind. Die proaktive Kommunikation bei Wetterwarnungen schätzen wir besonders.",
-        "author": "Sabine K.",
-        "designation": "Betriebsleiterin"
-      },
-      {
-        "quote": "Die Mitarbeiter räumen nicht nur zuverlässig und gründlich, sondern haben auch immer ein freundliches Wort für die Bewohner. Bei der letzten Schneefront waren sie sogar mehrmals am Tag da, um die Wege freizuhalten. TREU Service ist für uns einfach unverzichtbar geworden.",
-        "author": "Johannes R.",
-        "designation": "Hausverwalter"
-      },
-      {
-        "quote": "Bei uns muss der Winterdienst besonders zuverlässig sein, da unsere Bewohner und Besucher oft mobil eingeschränkt sind. Das Team von TREU Service arbeitet nicht nur schnell, sondern auch mit viel Rücksicht auf unsere speziellen Bedürfnisse. Echter 5-Sterne-Service!",
-        "author": "Christina W.",
-        "designation": "Einrichtungsleitung"
-      },
-      {
-        "quote": "Dank der PV-Anlage von TREU Service hat sich unsere Stromrechnung halbiert! Die Beratung war kompetent und ehrlich, die Installation verlief schneller als erwartet und das Team hat sogar alles sauber hinterlassen. Die Anlage läuft seit dem ersten Tag einwandfrei.",
-        "author": "Anna S.",
-        "designation": "Hausbesitzerin"
-      },
-      {
-        "quote": "Die komplette Planung und Installation unserer großen Photovoltaikanlage durch TREU Service war ein Musterbeispiel an Professionalität. Vom ersten Gespräch bis zur Inbetriebnahme fühlten wir uns bestens beraten. Die prognostizierten Ertragswerte werden sogar übertroffen.",
-        "author": "Klaus H.",
-        "designation": "Geschäftsführer"
-      },
-      {
-        "quote": "Die Entkernung unseres historischen Gebäudes war eine Herausforderung, die TREU Service mit Bravour gemeistert hat. Das Team hat mit viel Fingerspitzengefühl gearbeitet und alle Originalelemente, die erhalten bleiben sollten, sorgfältig geschützt.",
-        "author": "Markus H.",
-        "designation": "Bauherr"
-      },
-      {
-        "quote": "Bei der Entkernung unserer Büroetage hat TREU Service nicht nur präzise, sondern auch überraschend leise gearbeitet, sodass der Betrieb in den anderen Stockwerken kaum beeinträchtigt wurde. Die transparente Kommunikation und Termintreue haben uns besonders beeindruckt.",
-        "author": "Lena K.",
-        "designation": "Projektleiterin"
-      },
-      {
-        "quote": "Nach unserem Wasserschaden war TREU Service sofort zur Stelle und hat professionell die Sanierung übernommen. Besonders beeindruckt hat mich, wie schnell und gründlich die Trocknung durchgeführt wurde, wodurch größere Folgeschäden verhindert wurden.",
-        "author": "Elena P.",
-        "designation": "Immobilienbesitzerin"
-      },
-      {
-        "quote": "Die Schimmelsanierung durch TREU Service war goldwert! Das Team hat nicht nur den sichtbaren Schimmel beseitigt, sondern auch die Ursache gefunden und behoben. Dank der fachmännischen Beratung konnten wir zudem vorbeugende Maßnahmen ergreifen.",
-        "author": "Thomas G.",
-        "designation": "Wohnungseigentümer"
-      },
-      {
-        "quote": "Die Entrümpelung meines Elternhauses war eine emotionale Herausforderung. Das Team von TREU Service hat nicht nur effizient gearbeitet, sondern auch mit viel Einfühlungsvermögen. Sie haben wertvolle Erinnerungsstücke behutsam aussortiert und für mich aufbewahrt.",
-        "author": "Katja F.",
-        "designation": "Privatkundin"
-      },
-      {
-        "quote": "Als wir kurzfristig unsere Lagerhalle entrümpeln mussten, war TREU Service innerhalb weniger Tage einsatzbereit. Die Arbeiten wurden zügig, gründlich und sehr professionell durchgeführt. Die umweltgerechte Entsorgung war uns besonders wichtig und wurde einwandfrei umgesetzt.",
-        "author": "Farid N.",
-        "designation": "Betriebsleiter"
-      }
-    ],
-    "reinigung": [
-      {
-        "quote": "Die Reinigungsqualität von TREU Service ist wirklich beeindruckend. Seit wir zusammenarbeiten, erhalten wir regelmäßig positives Feedback von unseren Mitarbeitern zur Sauberkeit der Räume. Das Team ist stets pünktlich und arbeitet sehr gründlich.",
-        "author": "Michael S.",
-        "designation": "Facility Manager"
-      },
-      {
-        "quote": "Endlich haben wir ein Reinigungsunternehmen gefunden, das unsere speziellen Anforderungen versteht. Besonders wichtig für uns ist die Flexibilität bei kurzfristigen Sonderreinigungen vor Aktionen – TREU Service hat uns hier noch nie im Stich gelassen!",
-        "author": "Julia K.",
-        "designation": "Filialleitung"
-      },
-      {
-        "quote": "In der Hotellerie ist Sauberkeit das A und O für Gästezufriedenheit. Das Team von TREU Service versteht genau, worauf es ankommt. Selbst in der Hochsaison bleiben die Standards konstant hoch, was uns sehr beeindruckt.",
-        "author": "Ahmed Y.",
-        "designation": "Hoteldirektor"
-      },
-      {
-        "quote": "Unsere Produktionsflächen stellen besondere Herausforderungen an die Reinigung. TREU Service hat ein maßgeschneidertes Konzept entwickelt, das genau unseren Anforderungen entspricht und sogar unsere strengen Sicherheitsvorschriften berücksichtigt. Absolut zuverlässig!",
-        "author": "Stefan B.",
-        "designation": "Produktionsleiter"
-      }
-    ],
-    "security": [
-      {
-        "quote": "Die Security-Mitarbeiter von TREU Service sind nicht nur hochprofessionell, sondern auch ein freundliches Gesicht für unsere Kunden. Sie haben ein gutes Gespür für Situationen und handeln stets angemessen – genau die richtige Mischung aus Präsenz und Zurückhaltung.",
-        "author": "Peter M.",
-        "designation": "Geschäftsführer"
-      },
-      {
-        "quote": "Bei unserem letzten großen Festival haben die Security-Kräfte von TREU Service maßgeblich zum reibungslosen Ablauf beigetragen. Besonders beeindruckt hat mich die ausgezeichnete Kommunikation und wie deeskalierend das Team auch in hektischen Momenten agiert hat.",
-        "author": "Maria L.",
-        "designation": "Eventmanagerin"
-      },
-      {
-        "quote": "Der Werkschutz von TREU Service hat unsere Erwartungen übertroffen. Das Team ist hervorragend geschult, kennt alle relevanten Prozesse und reagiert schnell auf neue Anforderungen. Die monatlichen Sicherheitsberichte helfen uns zudem, unsere eigenen Maßnahmen zu optimieren.",
-        "author": "Mehmet A.",
-        "designation": "Sicherheitsbeauftragter"
-      },
-      {
-        "quote": "Die moderne Technik, die TREU Service bei der Objektsicherung einsetzt, hat uns wirklich überzeugt. Die Kombination aus persönlichen Kontrollen und technischer Überwachung bietet genau den Schutz, den unsere hochwertigen Objekte benötigen.",
-        "author": "Sarah B.",
-        "designation": "Facility Managerin"
-      }
-    ],
-    "winterdienst": [
-      {
-        "quote": "Seit wir mit TREU Service zusammenarbeiten, können wir uns im Winter voll auf saubere und sichere Kundenparkplätze verlassen. Bei Schneefall sind die Teams immer rechtzeitig vor Ort – noch bevor die ersten Kunden eintreffen. Diese Verlässlichkeit ist für uns unbezahlbar.",
-        "author": "Markus W.",
-        "designation": "Centermanager"
-      },
-      {
-        "quote": "Unsere LKW-Flotte muss bei jedem Wetter pünktlich starten können. Das Winterdienst-Team von TREU Service sorgt dafür, dass unsere Betriebsflächen immer frei und sicher befahrbar sind. Die proaktive Kommunikation bei Wetterwarnungen schätzen wir besonders.",
-        "author": "Sabine K.",
-        "designation": "Betriebsleiterin"
-      },
-      {
-        "quote": "Die Mitarbeiter räumen nicht nur zuverlässig und gründlich, sondern haben auch immer ein freundliches Wort für die Bewohner. Bei der letzten Schneefront waren sie sogar mehrmals am Tag da, um die Wege freizuhalten. TREU Service ist für uns einfach unverzichtbar geworden.",
-        "author": "Johannes R.",
-        "designation": "Hausverwalter"
-      },
-      {
-        "quote": "Bei uns muss der Winterdienst besonders zuverlässig sein, da unsere Bewohner und Besucher oft mobil eingeschränkt sind. Das Team von TREU Service arbeitet nicht nur schnell, sondern auch mit viel Rücksicht auf unsere speziellen Bedürfnisse. Echter 5-Sterne-Service!",
-        "author": "Christina W.",
-        "designation": "Einrichtungsleitung"
-      }
-    ],
-    "pv_montage": [
-      {
-        "quote": "Dank der PV-Anlage von TREU Service hat sich unsere Stromrechnung halbiert! Die Beratung war kompetent und ehrlich, die Installation verlief schneller als erwartet und das Team hat sogar alles sauber hinterlassen. Die Anlage läuft seit dem ersten Tag einwandfrei.",
-        "author": "Anna S.",
-        "designation": "Hausbesitzerin"
-      },
-      {
-        "quote": "Die komplette Planung und Installation unserer großen Photovoltaikanlage durch TREU Service war ein Musterbeispiel an Professionalität. Vom ersten Gespräch bis zur Inbetriebnahme fühlten wir uns bestens beraten. Die prognostizierten Ertragswerte werden sogar übertroffen.",
-        "author": "Klaus H.",
-        "designation": "Geschäftsführer"
-      }
-    ],
-    "entkernung": [
-      {
-        "quote": "Die Entkernung unseres historischen Gebäudes war eine Herausforderung, die TREU Service mit Bravour gemeistert hat. Das Team hat mit viel Fingerspitzengefühl gearbeitet und alle Originalelemente, die erhalten bleiben sollten, sorgfältig geschützt.",
-        "author": "Markus H.",
-        "designation": "Bauherr"
-      },
-      {
-        "quote": "Bei der Entkernung unserer Büroetage hat TREU Service nicht nur präzise, sondern auch überraschend leise gearbeitet, sodass der Betrieb in den anderen Stockwerken kaum beeinträchtigt wurde. Die transparente Kommunikation und Termintreue haben uns besonders beeindruckt.",
-        "author": "Lena K.",
-        "designation": "Projektleiterin"
-      }
-    ],
-    "sanierung": [
-      {
-        "quote": "Nach unserem Wasserschaden war TREU Service sofort zur Stelle und hat professionell die Sanierung übernommen. Besonders beeindruckt hat mich, wie schnell und gründlich die Trocknung durchgeführt wurde, wodurch größere Folgeschäden verhindert wurden.",
-        "author": "Elena P.",
-        "designation": "Immobilienbesitzerin"
-      },
-      {
-        "quote": "Die Schimmelsanierung durch TREU Service war goldwert! Das Team hat nicht nur den sichtbaren Schimmel beseitigt, sondern auch die Ursache gefunden und behoben. Dank der fachmännischen Beratung konnten wir zudem vorbeugende Maßnahmen ergreifen.",
-        "author": "Thomas G.",
-        "designation": "Wohnungseigentümer"
-      }
-    ],
-    "entruempelung": [
-      {
-        "quote": "Die Entrümpelung meines Elternhauses war eine emotionale Herausforderung. Das Team von TREU Service hat nicht nur effizient gearbeitet, sondern auch mit viel Einfühlungsvermögen. Sie haben wertvolle Erinnerungsstücke behutsam aussortiert und für mich aufbewahrt.",
-        "author": "Katja F.",
-        "designation": "Privatkundin"
-      },
-      {
-        "quote": "Als wir kurzfristig unsere Lagerhalle entrümpeln mussten, war TREU Service innerhalb weniger Tage einsatzbereit. Die Arbeiten wurden zügig, gründlich und sehr professionell durchgeführt. Die umweltgerechte Entsorgung war uns besonders wichtig und wurde einwandfrei umgesetzt.",
-        "author": "Farid N.",
-        "designation": "Betriebsleiter"
-      }
-    ]
-  },
+"testimonials": {
+  "title": "Stimmen unserer zufriedenen Kunden",
+  "all": [
+    {
+      "quote": "Musste letzten Monat kurzfristig eine Reinigungsfirma finden, nachdem unser alter Anbieter einfach nicht mehr aufgetaucht ist... typisch! TREU hat uns aus der Patsche geholfen. Die Jungs sind nett und wenn was nicht passt, kann man mit denen reden. Das ist mir wichtig.",
+      "author": "Michael S.",
+      "designation": "Facility Manager"
+    },
+    {
+      "quote": "Bin zufällig auf TREU gestoßen. Die kommen zweimal die Woche, machen ihren Job, ohne dass ich ständig hinterher sein muss. Hatte neulich das Problem, dass wir spontan saubermachen mussten wegen Besuch aus der Zentrale. Hab bei TREU angerufen und die waren noch am selben Tag da. Sowas ist Gold wert! Man hat halt seine Ruhe.",
+      "author": "Julia K.",
+      "designation": "Filialleitung"
+    },
+    {
+      "quote": "Als Hoteldirektor kriegt man ja ALLES mit, was die Gäste so schreiben... ihr wisst schon, diese Online-Bewertungen usw. Und jeder zweite Gast meckert über irgendwas mit der Sauberkeit. Seit wir mit TREU zusammenarbeiten, haben wir deutlich weniger von diesen 'das Zimmer war nicht sauber'-Kommentaren.",
+      "author": "Ahmed Y.",
+      "designation": "Hoteldirektor"
+    },
+    {
+      "quote": "Unsere Produktion ist echt ne Herausforderung für jede Reinigungsfirma - Öl, Metallspäne, der ganze Kram halt. Mit TREU läuft's jetzt seit über nem Jahr. Hatte letztens ein gutes Gespräch mit dem Teamleiter, der hat echt zugehört und direkt Lösungen vorgeschlagen. Für mich zählt am Ende, dass die Maschinen sauber sind und das kriegen die hin.",
+      "author": "Stefan B.",
+      "designation": "Produktionsleiter"
+    },
+    {
+      "quote": "Wir hatten letztes Jahr bei unserem Ladengeschäft öfter Probleme mit sagen wir mal 'schwierigen Kunden'. Einer von TREU hat da echt gute Arbeit geleistet. Der hat so'n Typ, der schon total aggressiv war, einfach ruhig zur Seite genommen und die Situation entschärft. Ohne Theater, ohne dass andere Kunden was mitbekommen haben. Das fand ich echt klasse!",
+      "author": "Peter M.",
+      "designation": "Geschäftsführer"
+    },
+    {
+      "quote": "Wir hatten TREU für unser Stadtfest gebucht. Besonders gut fand ich, dass die Security-Leute auch mal gelacht haben und nicht nur grimmig rumstanden wie bei anderen Firmen. Ach ja, und nach dem Festival haben die sogar geholfen, ein paar Sachen wegzuräumen. Sowas merkt man sich halt als Veranstalter!",
+      "author": "Maria L.",
+      "designation": "Eventmanagerin"
+    },
+    {
+      "quote": "Mein Job als Sicherheitsbeauftragter ist es, auf Schwachstellen zu achten und da bin ich echt pingelig. TREU hat sich diesem 'Stresstest' gestellt und macht insgesamt einen ordentlichen Job. Was mir aber echt gut gefällt, sind die monatlichen Berichte super detailliert und hilft mir, meinem Chef zu zeigen, wofür wir das Geld ausgeben.",
+      "author": "Mehmet A.",
+      "designation": "Sicherheitsbeauftragter"
+    },
+    {
+      "quote": "Was mir besonders gefällt, ist die Technik, die die einsetzen. Wir haben jetzt so ein Online-System, wo ich genau sehen kann, wann die Wachrunden gemacht wurden. Das hat mir schon mehrfach den Hintern gerettet, wenn der Chef wieder irgendwelche Beweise sehen wollte.",
+      "author": "Sarah B.",
+      "designation": "Facility Managerin"
+    },
+    {
+      "quote": "Letzten Winter hatten wir Schnee Chaos hoch drei und unsere Kunden standen trotzdem pünktlich vor dem Center. Aber nur, weil TREU schon um 4 Uhr morgens angefangen hat zu räumen. Muss sagen, das hat mich echt beeindruckt. Die haben auch eigenes Equipment, müssen keins ausleihen, wie die Firma davor. Hervorragender Winterdienst.",
+      "author": "Markus W.",
+      "designation": "Centermanager"
+    },
+    {
+      "quote": "Bei uns in der Spedition geht's morgens schon um 5 Uhr los, und wenn da die Zufahrt nicht frei ist, steht alles still. Hab mit TREU einen Winterdienstvertrag gemacht, nachdem der vorherige Anbieter ständig zu spät kam. Hatte am Anfang Bedenken, weil der Chefnoch so ein junger Kerl ist, aber seine Leute machen ihren Job gut.",
+      "author": "Sabine K.",
+      "designation": "Betriebsleiterin"
+    },
+    {
+      "quote": "Die machen das jetzt seit 2 Wintern. Die Jungs sind pünktlich und freundlich. Hab auch schon mitbekommen, wie sie einer älteren Mieterin die Einkaufstaschen hochgetragen haben. Das sind so Kleinigkeiten, die im Preis nicht drinstehen, aber die Atmosphäre im Haus verbessern. Das rechne ich denen hoch an!",
+      "author": "Johannes R.",
+      "designation": "Hausverwalter"
+    },
+    {
+      "quote": "Leite ein Seniorenheim, und für uns ist der Winterdienst echt kritisch - unsere Bewohner und Besucher sind oft nicht mehr so gut zu Fuß, und ein Sturz kann richtig böse enden. Aber muss sagen: Die machen das echt gut. Die Wege sind immer rechtzeitig geräumt, und das Team nimmt Rücksicht auf unsere besonderen Anforderungen.",
+      "author": "Christina W.",
+      "designation": "Einrichtungsleitung"
+    },
+    {
+      "quote": "Die Installation lief recht fix. Jetzt läuft die Anlage seit 4 Monaten und ich kann tatsächlich schon den Unterschied auf der Stromrechnung sehen! Hat sich also gelohnt.",
+      "author": "Mareike S.",
+      "designation": "Hausbesitzerin"
+    },
+    {
+      "quote": "Wollte für unsere Firma schon länger auf erneuerbare Energien setzen nicht nur aus Umweltgründen, sondern auch wegen der steigenden Energiekosten. Nach langem Hin und Her hab ich TREU den Auftrag für ne große PV-Anlage gegeben. Der Installationsprozess war reibungslos.",
+      "author": "Klaus H.",
+      "designation": "Geschäftsführer"
+    },
+    {
+      "quote": "Hatten erst überlegt, ob wir's selber machen, aber zum Glück hab ich dann doch TREU beauftragt. Haben sogar ein paar original Türrahmen gerettet. Sie haben jeden Abend aufgeräumt und sogar die Nachbarn vorgewarnt. Zeitplan haben sie auch eingehalten, was bei Bausachen fast ein Wunder ist.",
+      "author": "Markus H.",
+      "designation": "Bauherr"
+    },
+    {
+      "quote": "Wir mussten unsere Büroetage entkernen, während im Rest des Gebäudes normal gearbeitet wurde - komplizierte Sache! Hab mich für TREU entschieden, weil die in ihrem Angebot explizit auf die Herausforderung eingegangen sind.",
+      "author": "Lena K.",
+      "designation": "Projektleiterin"
+    },
+    {
+      "quote": "Hatte einen Rohrbruch und das ganze Erdgeschoss stand unter Wasser. Meine Versicherung hat TREU für die Sanierung empfohlen. Die waren noch am selben Tag da. Die haben nicht einfach nur den Schaden behoben, sondern auch geguckt, WARUM das passiert ist, und haben mit mir Präventionsmaßnahmen besprochen.",
+      "author": "Elena P.",
+      "designation": "Immobilienbesitzerin"
+    },
+    {
+      "quote": "Hatte Schimmel in der Wohnung entdeckt. Über einen Kumpel hab ich dann TREU empfohlen bekommen. Es hat mich beeindruckt, dass sie mir sogar abgeraten haben die große Sanierung zu machen. Sie haben eine Ursachenanalyse gemacht und festgestellt, dass mein Lüftungsverhalten das Hauptproblem war.",
+      "author": "Thomas G.",
+      "designation": "Wohnungseigentümer"
+    },
+    {
+      "quote": "Die Wohnung meiner Eltern zu entrümpeln war emotional echt hart für mich. 40 Jahre Familiengeschichte, und ich wusste gar nicht, wo ich anfangen sollte. Hätte nicht gedacht, dass man bei sowas auch mit Fingerspitzengefühl arbeiten kann. Top Service!",
+      "author": "Katja F.",
+      "designation": "Privatkundin"
+    },
+    {
+      "quote": "Wir brauchten eine super schnelle Entrümpelung unserer alten Lagerhalle. Die haben in 2 Tagen die komplette Halle leergeräumt. Hab auch eine genaue Auflistung bekommen, welcher Müll wohin ging. Für mich war wichtig, dass da nichts illegal entsorgt wird, und da hab ich mich bei TREU gut aufgehoben gefühlt.",
+      "author": "Farid N.",
+      "designation": "Betriebsleiter"
+    }
+  ]
+},
   "imprint": {
     "title": "Impressum",
     "company": {
@@ -391,41 +277,6 @@
     "location": {
       "title": "Standort",
       "content": "Unser Unternehmen hat seinen Sitz in Dortmund und bietet Dienstleistungen in ganz Nordrhein-Westfalen an. Je nach Projektumfang sind wir auch deutschlandweit tätig und setzen uns dafür ein, die Bedürfnisse unserer Kunden vollständig zu erfüllen. Wir freuen uns darauf, mit Ihnen zusammenzuarbeiten und Ihnen den bestmöglichen Service zu bieten, den Sie verdienen."
-    },
-    "testimonials": {
-      "title": "Stimmen unserer zufriedenen Kunden",
-      "items": [
-        {
-          "quote": "Die Reinigungsqualität von TREU Service ist wirklich beeindruckend. Seit wir zusammenarbeiten, erhalten wir regelmäßig positives Feedback von unseren Mitarbeitern zur Sauberkeit der Räume. Das Team ist stets pünktlich und arbeitet sehr gründlich.",
-          "author": "Michael S.",
-          "designation": "Facility Manager"
-        },
-        {
-          "quote": "Die Security-Mitarbeiter von TREU Service sind nicht nur hochprofessionell, sondern auch ein freundliches Gesicht für unsere Kunden. Sie haben ein gutes Gespür für Situationen und handeln stets angemessen – genau die richtige Mischung aus Präsenz und Zurückhaltung.",
-          "author": "Peter M.",
-          "designation": "Geschäftsführer"
-        },
-        {
-          "quote": "Seit wir mit TREU Service zusammenarbeiten, können wir uns im Winter voll auf saubere und sichere Kundenparkplätze verlassen. Bei Schneefall sind die Teams immer rechtzeitig vor Ort – noch bevor die ersten Kunden eintreffen. Diese Verlässlichkeit ist für uns unbezahlbar.",
-          "author": "Markus W.",
-          "designation": "Centermanager"
-        },
-        {
-          "quote": "Die Entkernung unseres historischen Gebäudes war eine Herausforderung, die TREU Service mit Bravour gemeistert hat. Das Team hat mit viel Fingerspitzengefühl gearbeitet und alle Originalelemente, die erhalten bleiben sollten, sorgfältig geschützt.",
-          "author": "Markus H.",
-          "designation": "Bauherr"
-        },
-        {
-          "quote": "Dank der PV-Anlage von TREU Service hat sich unsere Stromrechnung halbiert! Die Beratung war kompetent und ehrlich, die Installation verlief schneller als erwartet und das Team hat sogar alles sauber hinterlassen. Die Anlage läuft seit dem ersten Tag einwandfrei.",
-          "author": "Anna S.",
-          "designation": "Hausbesitzerin"
-        },
-        {
-          "quote": "In der Hotellerie ist Sauberkeit das A und O für Gästezufriedenheit. Das Team von TREU Service versteht genau, worauf es ankommt. Selbst in der Hochsaison bleiben die Standards konstant hoch, was uns sehr beeindruckt.",
-          "author": "Ahmed Y.",
-          "designation": "Hoteldirektor"
-        }
-      ]
     }
   },
   "terms": {

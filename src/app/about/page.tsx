@@ -100,31 +100,47 @@ export default function AboutPage() {
           </Container>
         </Section>
       ))}
-
-      {/* Testimonials Section */}
-      <Section className="bg-[#f5f5f7] py-20">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <H2 className="text-4xl font-medium text-[#1d1d1f] text-center mb-4">
-              {data.testimonials?.title || "Stimmen unserer Kunden"}
-            </H2>
-            <Paragraph className="text-lg text-[#1d1d1f]/70">
-              Was unsere Kunden über unsere Dienstleistungen sagen.
-            </Paragraph>
-          </div>
-          
-          {translations.testimonials?.all && (
-            <AnimatedTestimonials 
-              testimonials={translations.testimonials.all.map((t, index) => ({
-                quote: t.quote,
-                name: t.author,
-                designation: t.designation || "",
-                src: `/images/testimonials/${index + 1}.jpg`
-              }))}
-            />
-          )}
-        </Container>
-      </Section>
+{/* Testimonials Section */}
+<Section className="bg-[#f5f5f7] py-20">
+  <Container>
+    <div className="text-center max-w-3xl mx-auto mb-12">
+      <H2 className="text-4xl font-medium text-[#1d1d1f] text-center mb-4">
+        {data.testimonials?.title || "Stimmen unserer Kunden"}
+      </H2>
+      <Paragraph className="text-lg text-[#1d1d1f]/70">
+        Was unsere Kunden über unsere Dienstleistungen sagen.
+      </Paragraph>
+    </div>
+    
+    {translations.testimonials?.all && (
+      <AnimatedTestimonials 
+        testimonials={translations.testimonials.all.map((t) => {
+          const maleAuthors = [
+            "Michael S.",
+            "Ahmed Y.",
+            "Stefan B.",
+            "Peter M.",
+            "Mehmet A.",
+            "Markus W.",
+            "Johannes R.",
+            "Klaus H.",
+            "Markus H.",
+            "Thomas G.",
+            "Farid N."
+          ];
+          const isMale = maleAuthors.includes(t.author);
+          const imageName = isMale ? "4.jpg" : "12.jpg";
+          return {
+            quote: t.quote,
+            name: t.author,
+            designation: t.designation || "",
+            src: `/images/testimonials/${imageName}`
+          };
+        })}
+      />
+    )}
+  </Container>
+</Section>
 
       {/* Location Section */}
       <Section className="bg-white py-20">

@@ -77,6 +77,34 @@ interface AddressComponent {
 }
 
 /**
+ * Hilfsfunktion zum Formatieren einer Adresse
+ * Verbessert die Chancen, dass Google die Adresse findet
+ */
+const formatAddress = (address: string): string => {
+  // Bereinigen überflüssiger Leerzeichen
+  let formatted = address.trim().replace(/\s+/g, ' ');
+  
+  // PLZ-Erkennung: Falls nur eine 5-stellige Nummer eingegeben wurde, "Deutschland" anhängen
+  if (/^\d{5}$/.test(formatted)) {
+    formatted += ' Deutschland';
+  }
+  
+  // Prüfen ob "Deutschland" oder "Germany" enthalten ist, falls nicht und die Adresse
+  // wahrscheinlich eine deutsche Adresse ist, "Deutschland" anhängen
+  if (
+    !/(deutschland|germany)/i.test(formatted) && 
+    (
+      /\d{5}/.test(formatted) || // enthält deutsche PLZ
+      /(straße|strasse|weg|platz|allee|gasse)/i.test(formatted) // enthält typisch deutsche Straßennamen
+    )
+  ) {
+    formatted += ', Deutschland';
+  }
+  
+  return formatted;
+};
+
+/**
  * Weather Provider Komponente
  * Stellt alle Wetterdaten und Funktionen für die Anwendung bereit
  */
@@ -193,7 +221,10 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
     locationName: string;
   } | null> => {
     try {
-      const encodedAddress = encodeURIComponent(address.trim());
+      // Adresse formatieren um Erkennungsrate zu verbessern
+      const formattedAddress = formatAddress(address);
+      
+      const encodedAddress = encodeURIComponent(formattedAddress);
       const apiKey = process.env.NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY;
       
       // Prüfen ob der API-Schlüssel vorhanden ist
@@ -202,9 +233,13 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
         return null;
       }
       
+      // Logge API-Schlüssel Format (erste 4 Zeichen) für Debugging
+      console.log("API-Schlüssel Format:", apiKey.substring(0, 4) + "...");
+      
+      // Geocoding-URL mit region=de für deutsche Adressen
       const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}&region=de`;
       
-      console.log("Sende Geocoding-Anfrage für:", address);
+      console.log("Sende Geocoding-Anfrage für:", formattedAddress);
       const geoResponse = await fetch(geocodeUrl);
       
       if (!geoResponse.ok) {
@@ -214,7 +249,10 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       const geoData = await geoResponse.json();
       console.log("Geocoding Antwort:", geoData.status, geoData.results?.length || 0, "Ergebnisse");
       
-      if (geoData.status !== 'OK' || !geoData.results || geoData.results.length === 0) {
+      // Detailliertere Fehlerbehandlung
+      if (geoData.status === 'ZERO_RESULTS') {
+        throw new Error('Adresse konnte nicht gefunden werden. Bitte präzisieren Sie die Eingabe (z.B. mit PLZ oder Ort).');
+      } else if (geoData.status !== 'OK' || !geoData.results || geoData.results.length === 0) {
         throw new Error(`Geocoding-Fehler: ${geoData.status || 'Keine Ergebnisse gefunden'}`);
       }
       
@@ -222,7 +260,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       const location = result.geometry.location;
       
       // Extrahiere einen Ortsnamen (vom Spezifischen zum Allgemeinen)
-      let locationName = address;
+      let locationName = formattedAddress;
       const components: AddressComponent[] = result.address_components;
       
       // Suchprioritäten für Ortsname
@@ -241,6 +279,8 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
         }
       }
       
+      console.log("Gefundener Standort:", locationName, `(${location.lat}, ${location.lng})`);
+      
       return {
         lat: location.lat,
         lon: location.lng,
@@ -248,7 +288,11 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       };
     } catch (error) {
       console.error('Fehler beim Geocoding:', error);
-      return null;
+      if (error instanceof Error) {
+        throw error;
+      } else {
+        throw new Error('Adresse konnte nicht gefunden werden');
+      }
     }
   }, []);
 
@@ -279,7 +323,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       console.error('Fehler beim Abrufen der Wetterdaten:', error);
       
       if (error instanceof Error) {
-        setError(`Fehler: ${error.message}`);
+        setError(`${error.message}`);
       } else {
         setError('Ein unbekannter Fehler ist aufgetreten');
       }
@@ -301,7 +345,8 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
         return "Ihr Standort";
       }
       
-      const reverseGeocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${apiKey}&result_type=locality|sublocality|political`;
+      // Ändere den Ergebnistyp-Filter für bessere Ergebnisse
+      const reverseGeocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${apiKey}&language=de&result_type=locality|sublocality|political|administrative_area_level_3`;
       
       const geoResponse = await fetch(reverseGeocodeUrl);
       
@@ -404,7 +449,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
 
   // Lade gespeicherte Wetterdaten beim Komponenten-Mount
   useEffect(() => {
-    // Verhindere mehrfache Ausführung
+    // Verhindere mehrfache Ausführung (behebt Maximum update depth exceeded)
     if (initialDataLoaded) return;
     
     try {
@@ -449,7 +494,9 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
     } finally {
       setInitialDataLoaded(true);
     }
-  }, [fetchWeather, initialDataLoaded]);
+  // Wichtig: leeres Array als Abhängigkeit, um nur einmal beim Mount auszuführen
+  // fetchWeather als Abhängigkeit würde zu Endlos-Schleifen führen
+  }, []);
 
   /**
    * Formatiert ein Datum mit date-fns

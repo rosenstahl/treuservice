@@ -88,6 +88,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
   const [weather, setWeather] = useState<ProcessedWeatherData | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [coordinates, setCoordinates] = useState<{ lat: number; lon: number } | null>(null);
+  const [initialDataLoaded, setInitialDataLoaded] = useState(false);
 
   const getWeatherDataByCoordinates = useCallback(async (lat: number, lon: number, locationName: string): Promise<void> => {
     console.log(`Starte Wetterdatenabruf für: ${locationName} (${lat}, ${lon})`);
@@ -194,6 +195,13 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
     try {
       const encodedAddress = encodeURIComponent(address.trim());
       const apiKey = process.env.NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY;
+      
+      // Prüfen ob der API-Schlüssel vorhanden ist
+      if (!apiKey) {
+        console.error("Geocoding API-Schlüssel fehlt");
+        return null;
+      }
+      
       const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}&region=de`;
       
       console.log("Sende Geocoding-Anfrage für:", address);
@@ -286,6 +294,13 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
   const reverseGeocode = useCallback(async (lat: number, lon: number): Promise<string> => {
     try {
       const apiKey = process.env.NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY;
+      
+      // Prüfen ob der API-Schlüssel vorhanden ist
+      if (!apiKey) {
+        console.error("Geocoding API-Schlüssel fehlt");
+        return "Ihr Standort";
+      }
+      
       const reverseGeocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${apiKey}&result_type=locality|sublocality|political`;
       
       const geoResponse = await fetch(reverseGeocodeUrl);
@@ -389,6 +404,9 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
 
   // Lade gespeicherte Wetterdaten beim Komponenten-Mount
   useEffect(() => {
+    // Verhindere mehrfache Ausführung
+    if (initialDataLoaded) return;
+    
     try {
       const savedData = localStorage.getItem('weatherData');
       if (savedData) {
@@ -401,6 +419,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
           if (parsed.location) {
             fetchWeather(parsed.location);
           }
+          setInitialDataLoaded(true);
           return;
         }
         
@@ -427,8 +446,10 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       }
     } catch (error) {
       console.warn('Fehler beim Laden der gespeicherten Wetterdaten:', error);
+    } finally {
+      setInitialDataLoaded(true);
     }
-  }, [fetchWeather]);
+  }, [fetchWeather, initialDataLoaded]);
 
   /**
    * Formatiert ein Datum mit date-fns

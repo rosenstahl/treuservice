@@ -1,3 +1,5 @@
+"use client"
+
 import type { Metadata } from 'next'
 import "./globals.css"
 import { inter } from '@/styles/fonts'
@@ -35,9 +37,10 @@ export default function RootLayout({
         <link rel="icon" href="/images/treu-logo.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#ffffff" />
         
-        {/* Google Maps API mit Umgebungsvariable */}
+        {/* Google Maps API mit Umgebungsvariable - ID hinzugefügt, damit keine doppelte Einbindung stattfindet */}
         <Script
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || process.env.GOOGLE_MAPS_API_KEY}&libraries=places,drawing,geometry`}
+          id="google-maps-api"
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places,drawing,geometry`}
           strategy="beforeInteractive"
         />
       </head>

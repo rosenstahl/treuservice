@@ -1,10 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { GoogleMap, useLoadScript, DrawingManager } from '@react-google-maps/api';
+import { GoogleMap, DrawingManager } from '@react-google-maps/api';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Ruler, Info, Plus, Trash2 } from 'lucide-react';
-
-type Libraries = ('drawing' | 'geometry' | 'places')[];
-const libraries: Libraries = ['drawing', 'geometry'];
 
 // Optimierte Kartengröße für bessere Darstellung
 const mapContainerStyle = {
@@ -64,19 +61,33 @@ type Polygon = {
 };
 
 export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: AreaDrawingMapProps) {
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
-    libraries,
-  });
+  // Entfernt: useLoadScript Hook, da die API bereits im Layout geladen wird
 
   const [polygons, setPolygons] = useState<Polygon[]>([]);
   const [totalArea, setTotalArea] = useState<number>(0);
   const [showInstructions, setShowInstructions] = useState(true);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const [mapCenter, setMapCenter] = useState({ lat: 51.1657, lng: 10.4515 });
+  const [mapsLoaded, setMapsLoaded] = useState(false);
   
   const mapRef = useRef<google.maps.Map | null>(null);
   const drawingManagerRef = useRef<google.maps.drawing.DrawingManager | null>(null);
+
+  // Prüfe, ob die Google Maps API geladen ist
+  useEffect(() => {
+    if (window.google && window.google.maps) {
+      setMapsLoaded(true);
+    } else {
+      const checkGoogleMaps = setInterval(() => {
+        if (window.google && window.google.maps) {
+          setMapsLoaded(true);
+          clearInterval(checkGoogleMaps);
+        }
+      }, 100);
+      
+      return () => clearInterval(checkGoogleMaps);
+    }
+  }, []);
 
   // Setze das Kartenzentrum auf Basis der initialCoordinates
   useEffect(() => {
@@ -197,18 +208,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     setShowInstructions(false);
   };
 
-  if (loadError) return (
-    <motion.div 
-      className="p-4 bg-red-50 text-red-700 rounded-md"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-    >
-      Fehler beim Laden der Karte. Bitte laden Sie die Seite neu.
-    </motion.div>
-  );
-  
-  if (!isLoaded) return (
+  if (!mapsLoaded) return (
     <motion.div 
       className="h-60 bg-gray-100 flex items-center justify-center"
       initial={{ opacity: 0 }}

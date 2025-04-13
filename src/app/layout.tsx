@@ -1,5 +1,3 @@
-"use client"
-
 import type { Metadata } from 'next'
 import "./globals.css"
 import { inter } from '@/styles/fonts'
@@ -8,9 +6,7 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { WeatherProvider } from '@/components/weather/features/WeatherContext'
 
-// In Next.js 15 kann metadata nicht mit "use client" zusammen exportiert werden
-// Stattdessen als Metadaten-Konfiguration direkt im Layout verwenden
-const siteMetadata = {
+export const metadata: Metadata = {
   title: 'TREU Service',
   description: 'TREU-Service - Zuverlässige Dienstleistungen für Gewerbekunden und Privatpersonen',
   icons: {
@@ -31,9 +27,6 @@ export default function RootLayout({
   return (
     <html lang="de" className={inter.variable}>
       <head>
-        <title>{siteMetadata.title}</title>
-        <meta name="description" content={siteMetadata.description} />
-        
         {/* Standard Favicons */}
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
@@ -42,10 +35,9 @@ export default function RootLayout({
         <link rel="icon" href="/images/treu-logo.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#ffffff" />
         
-        {/* Google Maps API mit Umgebungsvariable - ID hinzugefügt, damit keine doppelte Einbindung stattfindet */}
+        {/* Google Maps API Key direkt eingebunden */}
         <Script
-          id="google-maps-api"
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places,drawing,geometry`}
+          src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg&libraries=places,drawing,geometry`}
           strategy="beforeInteractive"
         />
       </head>

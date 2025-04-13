@@ -1,6 +1,6 @@
 "use client"
 
-import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode, useRef } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { 
   getCurrentWeather, 
   getWeather, 
@@ -77,34 +77,6 @@ interface AddressComponent {
 }
 
 /**
- * Hilfsfunktion zum Formatieren einer Adresse
- * Verbessert die Chancen, dass Google die Adresse findet
- */
-const formatAddress = (address: string): string => {
-  // Bereinigen überflüssiger Leerzeichen
-  let formatted = address.trim().replace(/\s+/g, ' ');
-  
-  // PLZ-Erkennung: Falls nur eine 5-stellige Nummer eingegeben wurde, "Deutschland" anhängen
-  if (/^\d{5}$/.test(formatted)) {
-    formatted += ' Deutschland';
-  }
-  
-  // Prüfen ob "Deutschland" oder "Germany" enthalten ist, falls nicht und die Adresse
-  // wahrscheinlich eine deutsche Adresse ist, "Deutschland" anhängen
-  if (
-    !/(deutschland|germany)/i.test(formatted) && 
-    (
-      /\d{5}/.test(formatted) || // enthält deutsche PLZ
-      /(straße|strasse|weg|platz|allee|gasse)/i.test(formatted) // enthält typisch deutsche Straßennamen
-    )
-  ) {
-    formatted += ', Deutschland';
-  }
-  
-  return formatted;
-};
-
-/**
  * Weather Provider Komponente
  * Stellt alle Wetterdaten und Funktionen für die Anwendung bereit
  */
@@ -116,8 +88,6 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
   const [weather, setWeather] = useState<ProcessedWeatherData | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [coordinates, setCoordinates] = useState<{ lat: number; lon: number } | null>(null);
-  // Ref statt State für initial loading check
-  const initialLoadRef = useRef(false);
 
   const getWeatherDataByCoordinates = useCallback(async (lat: number, lon: number, locationName: string): Promise<void> => {
     console.log(`Starte Wetterdatenabruf für: ${locationName} (${lat}, ${lon})`);
@@ -222,26 +192,12 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
     locationName: string;
   } | null> => {
     try {
-      // Adresse formatieren um Erkennungsrate zu verbessern
-      const formattedAddress = formatAddress(address);
-      
-      const encodedAddress = encodeURIComponent(formattedAddress);
-      // ÄNDERUNG: Vereinheitlichte Verwendung des Maps API-Schlüssels
-      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-      
-      // Prüfen ob der API-Schlüssel vorhanden ist
-      if (!apiKey) {
-        console.error("Google Maps API-Schlüssel fehlt");
-        return null;
-      }
-      
-      // Logge API-Schlüssel Format (erste 4 Zeichen) für Debugging
-      console.log("API-Schlüssel Format:", apiKey.substring(0, 4) + "...");
-      
-      // Geocoding-URL mit region=de für deutsche Adressen
+      const encodedAddress = encodeURIComponent(address.trim());
+      // API-Schlüssel direkt hardcodiert
+      const apiKey = "AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg";
       const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}&region=de`;
       
-      console.log("Sende Geocoding-Anfrage für:", formattedAddress);
+      console.log("Sende Geocoding-Anfrage für:", address);
       const geoResponse = await fetch(geocodeUrl);
       
       if (!geoResponse.ok) {
@@ -251,10 +207,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       const geoData = await geoResponse.json();
       console.log("Geocoding Antwort:", geoData.status, geoData.results?.length || 0, "Ergebnisse");
       
-      // Detailliertere Fehlerbehandlung
-      if (geoData.status === 'ZERO_RESULTS') {
-        throw new Error('Adresse konnte nicht gefunden werden. Bitte präzisieren Sie die Eingabe (z.B. mit PLZ oder Ort).');
-      } else if (geoData.status !== 'OK' || !geoData.results || geoData.results.length === 0) {
+      if (geoData.status !== 'OK' || !geoData.results || geoData.results.length === 0) {
         throw new Error(`Geocoding-Fehler: ${geoData.status || 'Keine Ergebnisse gefunden'}`);
       }
       
@@ -262,7 +215,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       const location = result.geometry.location;
       
       // Extrahiere einen Ortsnamen (vom Spezifischen zum Allgemeinen)
-      let locationName = formattedAddress;
+      let locationName = address;
       const components: AddressComponent[] = result.address_components;
       
       // Suchprioritäten für Ortsname
@@ -281,8 +234,6 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
         }
       }
       
-      console.log("Gefundener Standort:", locationName, `(${location.lat}, ${location.lng})`);
-      
       return {
         lat: location.lat,
         lon: location.lng,
@@ -290,11 +241,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       };
     } catch (error) {
       console.error('Fehler beim Geocoding:', error);
-      if (error instanceof Error) {
-        throw error;
-      } else {
-        throw new Error('Adresse konnte nicht gefunden werden');
-      }
+      return null;
     }
   }, []);
 
@@ -325,7 +272,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       console.error('Fehler beim Abrufen der Wetterdaten:', error);
       
       if (error instanceof Error) {
-        setError(`${error.message}`);
+        setError(`Fehler: ${error.message}`);
       } else {
         setError('Ein unbekannter Fehler ist aufgetreten');
       }
@@ -339,17 +286,9 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
    */
   const reverseGeocode = useCallback(async (lat: number, lon: number): Promise<string> => {
     try {
-      // ÄNDERUNG: Vereinheitlichte Verwendung des Maps API-Schlüssels
-      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-      
-      // Prüfen ob der API-Schlüssel vorhanden ist
-      if (!apiKey) {
-        console.error("Google Maps API-Schlüssel fehlt");
-        return "Ihr Standort";
-      }
-      
-      // Ändere den Ergebnistyp-Filter für bessere Ergebnisse
-      const reverseGeocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${apiKey}&language=de&result_type=locality|sublocality|political|administrative_area_level_3`;
+      // API-Schlüssel direkt hardcodiert
+      const apiKey = "AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg";
+      const reverseGeocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${apiKey}&result_type=locality|sublocality|political`;
       
       const geoResponse = await fetch(reverseGeocodeUrl);
       
@@ -451,12 +390,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
   }, [reverseGeocode, getWeatherDataByCoordinates]);
 
   // Lade gespeicherte Wetterdaten beim Komponenten-Mount
-  // ÄNDERUNG: Optimierter useEffect mit Ref statt State
   useEffect(() => {
-    // Verhindere mehrfache Ausführung mit Ref
-    if (initialLoadRef.current) return;
-    initialLoadRef.current = true;
-    
     try {
       const savedData = localStorage.getItem('weatherData');
       if (savedData) {
@@ -496,7 +430,6 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
     } catch (error) {
       console.warn('Fehler beim Laden der gespeicherten Wetterdaten:', error);
     }
-  // Wichtig: leeres Array als Abhängigkeit, um nur einmal beim Mount auszuführen
   }, [fetchWeather]);
 
   /**

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode, useRef } from 'react';
 import { 
   getCurrentWeather, 
   getWeather, 
@@ -116,7 +116,8 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
   const [weather, setWeather] = useState<ProcessedWeatherData | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [coordinates, setCoordinates] = useState<{ lat: number; lon: number } | null>(null);
-  const [initialDataLoaded, setInitialDataLoaded] = useState(false);
+  // Ref statt State für initial loading check
+  const initialLoadRef = useRef(false);
 
   const getWeatherDataByCoordinates = useCallback(async (lat: number, lon: number, locationName: string): Promise<void> => {
     console.log(`Starte Wetterdatenabruf für: ${locationName} (${lat}, ${lon})`);
@@ -225,11 +226,12 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       const formattedAddress = formatAddress(address);
       
       const encodedAddress = encodeURIComponent(formattedAddress);
-      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY;
+      // ÄNDERUNG: Vereinheitlichte Verwendung des Maps API-Schlüssels
+      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
       
       // Prüfen ob der API-Schlüssel vorhanden ist
       if (!apiKey) {
-        console.error("Geocoding API-Schlüssel fehlt");
+        console.error("Google Maps API-Schlüssel fehlt");
         return null;
       }
       
@@ -337,11 +339,12 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
    */
   const reverseGeocode = useCallback(async (lat: number, lon: number): Promise<string> => {
     try {
-      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY;
+      // ÄNDERUNG: Vereinheitlichte Verwendung des Maps API-Schlüssels
+      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
       
       // Prüfen ob der API-Schlüssel vorhanden ist
       if (!apiKey) {
-        console.error("Geocoding API-Schlüssel fehlt");
+        console.error("Google Maps API-Schlüssel fehlt");
         return "Ihr Standort";
       }
       
@@ -448,9 +451,11 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
   }, [reverseGeocode, getWeatherDataByCoordinates]);
 
   // Lade gespeicherte Wetterdaten beim Komponenten-Mount
+  // ÄNDERUNG: Optimierter useEffect mit Ref statt State
   useEffect(() => {
-    // Verhindere mehrfache Ausführung (behebt Maximum update depth exceeded)
-    if (initialDataLoaded) return;
+    // Verhindere mehrfache Ausführung mit Ref
+    if (initialLoadRef.current) return;
+    initialLoadRef.current = true;
     
     try {
       const savedData = localStorage.getItem('weatherData');
@@ -464,7 +469,6 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
           if (parsed.location) {
             fetchWeather(parsed.location);
           }
-          setInitialDataLoaded(true);
           return;
         }
         
@@ -491,12 +495,9 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       }
     } catch (error) {
       console.warn('Fehler beim Laden der gespeicherten Wetterdaten:', error);
-    } finally {
-      setInitialDataLoaded(true);
     }
   // Wichtig: leeres Array als Abhängigkeit, um nur einmal beim Mount auszuführen
-  // fetchWeather als Abhängigkeit würde zu Endlos-Schleifen führen
-  }, []);
+  }, [fetchWeather]);
 
   /**
    * Formatiert ein Datum mit date-fns

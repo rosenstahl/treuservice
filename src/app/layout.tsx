@@ -8,7 +8,9 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { WeatherProvider } from '@/components/weather/features/WeatherContext'
 
-export const metadata: Metadata = {
+// In Next.js 15 kann metadata nicht mit "use client" zusammen exportiert werden
+// Stattdessen als Metadaten-Konfiguration direkt im Layout verwenden
+const siteMetadata = {
   title: 'TREU Service',
   description: 'TREU-Service - Zuverlässige Dienstleistungen für Gewerbekunden und Privatpersonen',
   icons: {
@@ -29,6 +31,9 @@ export default function RootLayout({
   return (
     <html lang="de" className={inter.variable}>
       <head>
+        <title>{siteMetadata.title}</title>
+        <meta name="description" content={siteMetadata.description} />
+        
         {/* Standard Favicons */}
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />

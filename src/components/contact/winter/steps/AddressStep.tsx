@@ -4,20 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { FormData } from '../WinterdienstWizard'
 
-// Spezifischere Types für die Google Maps Objekte
-declare global {
-  interface Window {
-    google: {
-      maps: {
-        places: {
-          Autocomplete: new (input: HTMLInputElement, options?: Record<string, unknown>) => google.maps.places.Autocomplete;
-        };
-        Geocoder: new () => google.maps.Geocoder;
-      };
-    };
-  }
-}
-
+// Spezifische Typen ohne globale Deklaration
 interface GooglePlace {
   formatted_address?: string;
   geometry?: {
@@ -64,7 +51,7 @@ export const AddressStep: React.FC<AddressStepProps> = ({
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
-  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
+  const autocompleteRef = useRef<any>(null)
 
   // Prüft, ob eine Adresse vollständig ist (enthält Straße, Hausnummer, PLZ, Stadt)
   const isCompleteAddress = (addressComponents?: Array<{types: string[], long_name: string}>) => {
@@ -176,7 +163,7 @@ export const AddressStep: React.FC<AddressStepProps> = ({
     // Ansonsten die Adresse geocodieren
     try {
       const geocoder = new window.google.maps.Geocoder()
-      geocoder.geocode({ address }, (results: GeocoderResult[] | null, status: google.maps.GeocoderStatus) => {
+      geocoder.geocode({ address }, (results: any, status: string) => {
         setIsLoading(false)
         
         if (status === 'OK' && results && results.length > 0) {

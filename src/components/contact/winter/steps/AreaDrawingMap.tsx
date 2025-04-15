@@ -126,11 +126,21 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     }
   }, [initialCoordinates]);
   
-  // Zeichenmodus umschalten
+  // Zeichenmodus umschalten - VERBESSERT: Reset der Karte und Controls
   const toggleDrawingMode = () => {
     if (drawingManagerRef.current) {
       if (isDrawingMode) {
         drawingManagerRef.current.setDrawingMode(null);
+        
+        // Stellen Sie sicher, dass die Karte wieder interagierbar ist
+        if (mapRef.current) {
+          mapRef.current.setOptions({
+            draggable: true,
+            zoomControl: true,
+            scrollwheel: true,
+            disableDoubleClickZoom: false
+          });
+        }
       } else {
         drawingManagerRef.current.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
       }
@@ -143,6 +153,16 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   };
 
   const onPolygonComplete = (polygon: google.maps.Polygon) => {
+    // VERBESSERT: Sofort Karte für weitere Interaktionen freigeben
+    if (mapRef.current) {
+      mapRef.current.setOptions({
+        draggable: true,
+        zoomControl: true,
+        scrollwheel: true,
+        disableDoubleClickZoom: false
+      });
+    }
+    
     // Berechne Fläche und Koordinaten des neuen Polygons
     const path = polygon.getPath();
     const areaInSqMeters = calculateArea(path);
@@ -160,36 +180,51 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
       coordinates
     }]);
     
-    // Event-Listener für Änderungen am Polygon
-    google.maps.event.addListener(polygon, 'paths_changed', () => {
-      const updatedPath = polygon.getPath();
-      const updatedArea = calculateArea(updatedPath);
-      const updatedCoordinates: Array<[number, number]> = [];
-      
-      for (let i = 0; i < updatedPath.getLength(); i++) {
-        const point = updatedPath.getAt(i);
-        updatedCoordinates.push([point.lat(), point.lng()]);
-      }
-      
-      // Aktualisiere den entsprechenden Eintrag im Polygons-Array
-      setPolygons(prev => prev.map(p => p.polygon === polygon ? {
-        polygon,
-        area: Math.round(updatedArea),
-        coordinates: updatedCoordinates
-      } : p));
+    // VERBESSERT: Verwende eindeutige Listener-Referenzen für spätere Entfernung
+    const pathsChangedListener = google.maps.event.addListener(polygon, 'paths_changed', () => {
+      updatePolygonData(polygon);
     });
+    
+    // Speichern Sie den Listener in einer Eigenschaft des Polygons für die spätere Entfernung
+    (polygon as any)._pathsChangedListener = pathsChangedListener;
     
     setShowInstructions(false);
     setIsDrawingMode(false);
     
+    // VERBESSERT: Setze den Modus korrekt zurück
     if (drawingManagerRef.current) {
       drawingManagerRef.current.setDrawingMode(null);
     }
+  };
+  
+  // NEUE FUNKTION: Aktualisiere Polygondaten
+  const updatePolygonData = (polygon: google.maps.Polygon) => {
+    const updatedPath = polygon.getPath();
+    const updatedArea = calculateArea(updatedPath);
+    const updatedCoordinates: Array<[number, number]> = [];
+    
+    for (let i = 0; i < updatedPath.getLength(); i++) {
+      const point = updatedPath.getAt(i);
+      updatedCoordinates.push([point.lat(), point.lng()]);
+    }
+    
+    // Aktualisiere den entsprechenden Eintrag im Polygons-Array
+    setPolygons(prev => prev.map(p => p.polygon === polygon ? {
+      polygon,
+      area: Math.round(updatedArea),
+      coordinates: updatedCoordinates
+    } : p));
   };
 
   const removeLastPolygon = () => {
     if (polygons.length > 0) {
       const lastPolygon = polygons[polygons.length - 1];
+      
+      // VERBESSERT: Aufräumen der Event-Listener
+      if ((lastPolygon.polygon as any)._pathsChangedListener) {
+        google.maps.event.removeListener((lastPolygon.polygon as any)._pathsChangedListener);
+      }
+      
       lastPolygon.polygon.setMap(null); // Entferne das Polygon von der Karte
       setPolygons(prev => prev.slice(0, -1)); // Entferne das letzte Element aus dem Array
     }
@@ -198,6 +233,19 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const closeInstructions = () => {
     setShowInstructions(false);
   };
+
+  // VERBESSERT: Bereinigen der Event-Listener beim Unmounten der Komponente
+  useEffect(() => {
+    return () => {
+      // Aufräumen beim Unmounten
+      polygons.forEach(polygonData => {
+        if ((polygonData.polygon as any)._pathsChangedListener) {
+          google.maps.event.removeListener((polygonData.polygon as any)._pathsChangedListener);
+        }
+        polygonData.polygon.setMap(null);
+      });
+    };
+  }, [polygons]);
 
   if (loadError) return (
     <motion.div 

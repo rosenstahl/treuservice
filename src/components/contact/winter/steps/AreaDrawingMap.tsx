@@ -33,6 +33,10 @@ const mapOptions = {
   },
   streetViewControl: false,
   rotateControl: false,
+  // Wichtig: Diese Option stellt sicher, dass die Karte navigierbar bleibt
+  draggable: true, 
+  // Stellt sicher, dass Zoom-Kontrollen mit der Maus funktionieren
+  scrollwheel: true
 };
 
 // Zeichnungsoptionen mit TREU-Akzentfarbe
@@ -45,6 +49,9 @@ const drawingOptions = {
     strokeWeight: 2,
     editable: true,
     draggable: true,
+    // Wichtig: Sicherstellen dass das Polygon keine Map-Events blockiert
+    clickable: true,
+    zIndex: 1
   },
 };
 
@@ -79,6 +86,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   
   const mapRef = useRef<google.maps.Map | null>(null);
   const drawingManagerRef = useRef<google.maps.drawing.DrawingManager | null>(null);
+  const mapOptionsRef = useRef(mapOptions);
 
   // Setze das Kartenzentrum auf Basis der initialCoordinates
   useEffect(() => {
@@ -118,6 +126,14 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const onMapLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map;
     
+    // Wichtig: Stelle sicher, dass alle Map-Optionen gesetzt sind
+    Object.keys(mapOptionsRef.current).forEach(key => {
+      if (key in mapOptionsRef.current) {
+        // @ts-ignore
+        map.setOptions({ [key]: mapOptionsRef.current[key] });
+      }
+    });
+    
     if (initialCoordinates && initialCoordinates.length > 0) {
       const [lat, lng] = initialCoordinates[0];
       map.setCenter({ lat, lng });
@@ -142,6 +158,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     drawingManagerRef.current = drawingManager;
   };
 
+  // Bei Polygon-Fertigstellung
   const onPolygonComplete = (polygon: google.maps.Polygon) => {
     // Berechne Fläche und Koordinaten des neuen Polygons
     const path = polygon.getPath();
@@ -161,7 +178,8 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     }]);
     
     // Event-Listener für Änderungen am Polygon
-    google.maps.event.addListener(polygon, 'paths_changed', () => {
+    // Verwende ein einzelnes Event für Polygon-Änderungen
+    const updatePolygonData = () => {
       const updatedPath = polygon.getPath();
       const updatedArea = calculateArea(updatedPath);
       const updatedCoordinates: Array<[number, number]> = [];
@@ -177,8 +195,23 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
         area: Math.round(updatedArea),
         coordinates: updatedCoordinates
       } : p));
-    });
+    };
     
+    // Wichtig: Einen einzigen Event-Listener nutzen und sauber aufräumen
+    google.maps.event.addListener(polygon, 'paths_changed', updatePolygonData);
+    
+    // Versichern, dass Map-Controls nicht beeinflusst werden
+    if (mapRef.current) {
+      const map = mapRef.current;
+      // Stelle die Steuerbarkeit der Karte sicher
+      map.setOptions({ 
+        draggable: true, 
+        zoomControl: true,
+        scrollwheel: true
+      });
+    }
+    
+    // Deaktiviere den Zeichenmodus nach Fertigstellung
     setShowInstructions(false);
     setIsDrawingMode(false);
     
@@ -190,6 +223,8 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const removeLastPolygon = () => {
     if (polygons.length > 0) {
       const lastPolygon = polygons[polygons.length - 1];
+      // Entferne Event-Listener, um Memory-Leaks zu vermeiden
+      google.maps.event.clearInstanceListeners(lastPolygon.polygon);
       lastPolygon.polygon.setMap(null); // Entferne das Polygon von der Karte
       setPolygons(prev => prev.slice(0, -1)); // Entferne das letzte Element aus dem Array
     }

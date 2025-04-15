@@ -193,11 +193,10 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
   } | null> => {
     try {
       const encodedAddress = encodeURIComponent(address.trim());
-      // API-Schlüssel direkt hardcodiert
-      const apiKey = "AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg";
-      const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}&region=de`;
+      // Verwende die eigene Backend-API-Route statt direkter Google API-Anfrage
+      const geocodeUrl = `/api/geocode?address=${encodedAddress}`;
       
-      console.log("Sende Geocoding-Anfrage für:", address);
+      console.log("Sende Geocoding-Anfrage an lokale API für:", address);
       const geoResponse = await fetch(geocodeUrl);
       
       if (!geoResponse.ok) {
@@ -286,9 +285,8 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
    */
   const reverseGeocode = useCallback(async (lat: number, lon: number): Promise<string> => {
     try {
-      // API-Schlüssel direkt hardcodiert
-      const apiKey = "AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg";
-      const reverseGeocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${apiKey}&result_type=locality|sublocality|political`;
+      // Verwende die eigene Backend-API-Route statt direkter Google API-Anfrage
+      const reverseGeocodeUrl = `/api/geocode?latlng=${lat},${lon}&result_type=locality|sublocality|political`;
       
       const geoResponse = await fetch(reverseGeocodeUrl);
       

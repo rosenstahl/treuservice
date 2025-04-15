@@ -11,26 +11,31 @@ export async function GET(request: NextRequest) {
   }
   
   try {
-    const apiKey = process.env.GOOGLE_GEOCODING_API_KEY;
+    const apiKey = "AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg";
     let geocodeUrl = '';
     
     if (address) {
-      // Normales Geocoding (Adresse -> Koordinaten)
       const encodedAddress = encodeURIComponent(address.trim());
       geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}&region=de`;
     } else if (latlng) {
-      // Reverse Geocoding (Koordinaten -> Adresse)
       geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latlng}&key=${apiKey}`;
       if (resultType) {
         geocodeUrl += `&result_type=${resultType}`;
       }
     }
     
-    console.log(`Geocoding-Anfrage: ${geocodeUrl.replace(apiKey || '', '[API_KEY]')}`);
-    
-    const geoResponse = await fetch(geocodeUrl);
+    // LÖSUNG: Füge den Referrer-Header hinzu, um die API-Schlüsseleinschränkungen zu erfüllen
+    const geoResponse = await fetch(geocodeUrl, {
+      headers: {
+        'Referer': 'https://treuservice.com',
+        'Origin': 'https://treuservice.com'
+      }
+    });
     
     if (!geoResponse.ok) {
+      console.error(`Geocoding-Fehler: HTTP ${geoResponse.status}`);
+      const errorText = await geoResponse.text();
+      console.error("Detaillierte Antwort:", errorText);
       throw new Error(`Geocoding-Fehler: HTTP ${geoResponse.status}`);
     }
     

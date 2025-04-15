@@ -161,7 +161,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     }]);
     
     // Event-Listener für Änderungen am Polygon
-    polygon.addListener('paths_changed', function() {
+    google.maps.event.addListener(polygon, 'paths_changed', () => {
       const updatedPath = polygon.getPath();
       const updatedArea = calculateArea(updatedPath);
       const updatedCoordinates: Array<[number, number]> = [];
@@ -185,9 +185,6 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     if (drawingManagerRef.current) {
       drawingManagerRef.current.setDrawingMode(null);
     }
-    
-    // Wichtig: Diese Zeile stellt sicher, dass die Karte nach dem Zeichnen wieder bedienbar ist
-    google.maps.event.trigger(mapRef.current, 'resize');
   };
 
   const removeLastPolygon = () => {

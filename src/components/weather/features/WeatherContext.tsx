@@ -186,38 +186,41 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
     }
   }, []);
 
+  // WICHTIGE ÄNDERUNG: Verwende den browser-basierten Google Maps Geocoder anstatt der API-Route
   const geocodeAddress = useCallback(async (address: string): Promise<{
     lat: number;
     lon: number;
     locationName: string;
   } | null> => {
     try {
-      const encodedAddress = encodeURIComponent(address.trim());
-      // Verwende die eigene Backend-API-Route statt direkter Google API-Anfrage
-      const geocodeUrl = `/api/geocode?address=${encodedAddress}`;
-      
-      console.log("Sende Geocoding-Anfrage an lokale API für:", address);
-      const geoResponse = await fetch(geocodeUrl);
-      
-      if (!geoResponse.ok) {
-        throw new Error(`Geocoding-Fehler: HTTP ${geoResponse.status}`);
+      // Prüfe, ob Google Maps verfügbar ist
+      if (typeof window === 'undefined' || !window.google || !window.google.maps) {
+        throw new Error('Google Maps API ist nicht verfügbar');
       }
+
+      // Verwende den Browser-basierten Geocoder
+      const geocoder = new window.google.maps.Geocoder();
       
-      const geoData = await geoResponse.json();
-      console.log("Geocoding Antwort:", geoData.status, geoData.results?.length || 0, "Ergebnisse");
+      // Geocode-Anfrage als Promise
+      const results = await new Promise<google.maps.GeocoderResult[]>((resolve, reject) => {
+        geocoder.geocode({ address, region: 'de' }, (results, status) => {
+          if (status === 'OK' && results && results.length > 0) {
+            resolve(results);
+          } else {
+            reject(new Error(`Adresse konnte nicht gefunden werden (${status})`));
+          }
+        });
+      });
       
-      if (geoData.status !== 'OK' || !geoData.results || geoData.results.length === 0) {
-        throw new Error(`Geocoding-Fehler: ${geoData.status || 'Keine Ergebnisse gefunden'}`);
-      }
-      
-      const result = geoData.results[0];
+      // Erste Ergebnis verwenden
+      const result = results[0];
       const location = result.geometry.location;
       
-      // Extrahiere einen Ortsnamen (vom Spezifischen zum Allgemeinen)
+      // Extrahiere einen Ortsnamen
       let locationName = address;
-      const components: AddressComponent[] = result.address_components;
+      const components = result.address_components;
       
-      // Suchprioritäten für Ortsname
+      // Suchprioritäten für Ortsnamen
       const searchOrder = [
         'locality', 'sublocality_level_1', 'sublocality', 
         'postal_town', 'administrative_area_level_3',
@@ -233,9 +236,11 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
         }
       }
       
+      console.log(`Geocoding erfolgreich: ${address} -> ${locationName} (${location.lat()}, ${location.lng()})`);
+      
       return {
-        lat: location.lat,
-        lon: location.lng,
+        lat: location.lat(),
+        lon: location.lng(),
         locationName
       };
     } catch (error) {
@@ -285,23 +290,29 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
    */
   const reverseGeocode = useCallback(async (lat: number, lon: number): Promise<string> => {
     try {
-      // Verwende die eigene Backend-API-Route statt direkter Google API-Anfrage
-      const reverseGeocodeUrl = `/api/geocode?latlng=${lat},${lon}&result_type=locality|sublocality|political`;
-      
-      const geoResponse = await fetch(reverseGeocodeUrl);
-      
-      if (!geoResponse.ok) {
+      // WICHTIGE ÄNDERUNG: Verwende auch hier den browser-basierten Geocoder für Konsistenz
+      if (typeof window === 'undefined' || !window.google || !window.google.maps) {
         return "Ihr Standort";
       }
+
+      const geocoder = new window.google.maps.Geocoder();
       
-      const geoData = await geoResponse.json();
+      const results = await new Promise<google.maps.GeocoderResult[]>((resolve, reject) => {
+        geocoder.geocode({ location: { lat, lng: lon } }, (results, status) => {
+          if (status === 'OK' && results && results.length > 0) {
+            resolve(results);
+          } else {
+            reject(new Error(`Reverse Geocoding fehlgeschlagen (${status})`));
+          }
+        });
+      });
       
       // Bestimme Ortsname
       let locationName = "Ihr Standort";
       
-      if (geoData.status === 'OK' && geoData.results && geoData.results.length > 0) {
-        const result = geoData.results[0];
-        const components: AddressComponent[] = result.address_components;
+      if (results && results.length > 0) {
+        const result = results[0];
+        const components = result.address_components;
         
         // Suchprioritäten
         const searchOrder = [
@@ -325,6 +336,7 @@ export function WeatherProvider({ children, initialLocation }: WeatherProviderPr
       return "Ihr Standort";
     }
   }, []);
+
   /**
    * Standorterkennung mit dem Browser
    */

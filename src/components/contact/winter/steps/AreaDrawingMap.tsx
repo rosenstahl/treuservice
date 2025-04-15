@@ -6,12 +6,14 @@ import { Ruler, Info, Plus, Trash2 } from 'lucide-react';
 type Libraries = ('drawing' | 'geometry' | 'places')[];
 const libraries: Libraries = ['drawing', 'geometry'];
 
+// Optimierte Kartengröße für bessere Darstellung
 const mapContainerStyle = {
   width: '100%',
   height: '60vh',
   maxHeight: '600px',
 };
 
+// Moderne Kartenoptionen
 const mapOptions = {
   mapTypeId: 'satellite',
   tilt: 0,
@@ -31,23 +33,18 @@ const mapOptions = {
   },
   streetViewControl: false,
   rotateControl: false,
-  // Wichtig: Explizite Interaktionsmöglichkeiten
-  draggable: true,
-  scrollwheel: true,
-  disableDoubleClickZoom: false,
-  clickableIcons: false
 };
 
+// Zeichnungsoptionen mit TREU-Akzentfarbe
 const drawingOptions = {
   drawingControl: false,
   polygonOptions: {
-    fillColor: '#0284c7',
+    fillColor: '#0284c7', // Anpassung an die Akzentfarbe
     fillOpacity: 0.2,
     strokeColor: '#0284c7',
     strokeWeight: 2,
     editable: true,
     draggable: true,
-    zIndex: 1, // Z-index setzt Polygone unter Steuerelemente
   },
 };
 
@@ -60,20 +57,21 @@ type AreaDrawingMapProps = {
   onAreaChange: (data: { area: number; coordinates: Array<[number, number]> }) => void;
 };
 
-interface PolygonData {
+type Polygon = {
   polygon: google.maps.Polygon;
   area: number;
   coordinates: Array<[number, number]>;
-  listener: google.maps.MapsEventListener | null;
-}
+};
 
 export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: AreaDrawingMapProps) {
+  // API-Key muss beibehalten werden, da es ein erforderlicher Parameter ist
+  // Verwenden Sie diegleiche API key wie in layout.tsx
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg",
     libraries,
   });
 
-  const [polygons, setPolygons] = useState<PolygonData[]>([]);
+  const [polygons, setPolygons] = useState<Polygon[]>([]);
   const [totalArea, setTotalArea] = useState<number>(0);
   const [showInstructions, setShowInstructions] = useState(true);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
@@ -82,19 +80,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const mapRef = useRef<google.maps.Map | null>(null);
   const drawingManagerRef = useRef<google.maps.drawing.DrawingManager | null>(null);
 
-  // Bereinige alle Event-Listener beim Unmount
-  useEffect(() => {
-    return () => {
-      polygons.forEach(polyData => {
-        if (polyData.listener) {
-          google.maps.event.removeListener(polyData.listener);
-        }
-        polyData.polygon.setMap(null);
-      });
-    };
-  }, [polygons]);
-
-  // Setze das Kartenzentrum 
+  // Setze das Kartenzentrum auf Basis der initialCoordinates
   useEffect(() => {
     if (initialCoordinates && initialCoordinates.length > 0) {
       const [lat, lng] = initialCoordinates[0];
@@ -102,11 +88,12 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     }
   }, [initialCoordinates]);
 
-  // Berechne die Gesamtfläche
+  // Berechnung der Gesamtfläche aller Polygone
   useEffect(() => {
     const sum = polygons.reduce((acc, curr) => acc + curr.area, 0);
     setTotalArea(sum);
     
+    // Aktualisiere die übergeordnete Komponente mit allen Polygondaten
     if (onAreaChange) {
       if (polygons.length > 0) {
         const allCoordinates = polygons.flatMap(p => p.coordinates);
@@ -131,17 +118,10 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const onMapLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map;
     
-    // WICHTIG: Explizites Setzen der Interaktionsoptionen beim Laden
-    map.setOptions({
-      draggable: true,
-      scrollwheel: true, 
-      disableDoubleClickZoom: false,
-      clickableIcons: false
-    });
-    
     if (initialCoordinates && initialCoordinates.length > 0) {
       const [lat, lng] = initialCoordinates[0];
       map.setCenter({ lat, lng });
+      // Höherer Zoom für bessere Sichtbarkeit
       map.setZoom(19);
     }
   }, [initialCoordinates]);
@@ -151,16 +131,6 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     if (drawingManagerRef.current) {
       if (isDrawingMode) {
         drawingManagerRef.current.setDrawingMode(null);
-        
-        // WICHTIG: Stelle sicher, dass die Karte interagierbar ist
-        if (mapRef.current) {
-          mapRef.current.setOptions({
-            draggable: true,
-            scrollwheel: true,
-            disableDoubleClickZoom: false,
-            clickableIcons: false
-          });
-        }
       } else {
         drawingManagerRef.current.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
       }
@@ -173,17 +143,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   };
 
   const onPolygonComplete = (polygon: google.maps.Polygon) => {
-    // KRITISCH: Karteninteraktionen sofort wiederherstellen
-    if (mapRef.current) {
-      mapRef.current.setOptions({
-        draggable: true,
-        scrollwheel: true,
-        disableDoubleClickZoom: false,
-        clickableIcons: false
-      });
-    }
-    
-    // Berechne Fläche
+    // Berechne Fläche und Koordinaten des neuen Polygons
     const path = polygon.getPath();
     const areaInSqMeters = calculateArea(path);
     const coordinates: Array<[number, number]> = [];
@@ -193,8 +153,15 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
       coordinates.push([point.lat(), point.lng()]);
     }
     
-    // VERBESSERT: Speichere Event-Listener-Referenz
-    const listener = google.maps.event.addListener(polygon, 'paths_changed', () => {
+    // Füge das neue Polygon zum Array hinzu
+    setPolygons(prev => [...prev, {
+      polygon,
+      area: Math.round(areaInSqMeters),
+      coordinates
+    }]);
+    
+    // Event-Listener für Änderungen am Polygon
+    google.maps.event.addListener(polygon, 'paths_changed', () => {
       const updatedPath = polygon.getPath();
       const updatedArea = calculateArea(updatedPath);
       const updatedCoordinates: Array<[number, number]> = [];
@@ -204,70 +171,27 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
         updatedCoordinates.push([point.lat(), point.lng()]);
       }
       
-      // Aktualisiere Polygon-Daten
+      // Aktualisiere den entsprechenden Eintrag im Polygons-Array
       setPolygons(prev => prev.map(p => p.polygon === polygon ? {
-        ...p,
+        polygon,
         area: Math.round(updatedArea),
         coordinates: updatedCoordinates
       } : p));
     });
     
-    // Füge neues Polygon hinzu und speichere den Listener
-    setPolygons(prev => [...prev, {
-      polygon,
-      area: Math.round(areaInSqMeters),
-      coordinates,
-      listener
-    }]);
-    
-    // Expliziter z-index für Polygone
-    polygon.setOptions({
-      zIndex: 1
-    });
-    
     setShowInstructions(false);
     setIsDrawingMode(false);
     
-    // Zeichenmodus beenden
     if (drawingManagerRef.current) {
       drawingManagerRef.current.setDrawingMode(null);
     }
-    
-    // KRITISCH: Zusätzlicher Timeout zur Sicherstellung der Interaktivität
-    setTimeout(() => {
-      if (mapRef.current) {
-        mapRef.current.setOptions({
-          draggable: true,
-          scrollwheel: true,
-          disableDoubleClickZoom: false,
-          clickableIcons: false
-        });
-      }
-    }, 100);
   };
 
   const removeLastPolygon = () => {
     if (polygons.length > 0) {
       const lastPolygon = polygons[polygons.length - 1];
-      
-      // VERBESSERT: Entferne den Event-Listener sauber
-      if (lastPolygon.listener) {
-        google.maps.event.removeListener(lastPolygon.listener);
-      }
-      
-      // Entferne Polygon
-      lastPolygon.polygon.setMap(null);
-      setPolygons(prev => prev.slice(0, -1));
-      
-      // Stelle sicher, dass die Karte interagierbar bleibt
-      if (mapRef.current) {
-        mapRef.current.setOptions({
-          draggable: true,
-          scrollwheel: true,
-          disableDoubleClickZoom: false,
-          clickableIcons: false
-        });
-      }
+      lastPolygon.polygon.setMap(null); // Entferne das Polygon von der Karte
+      setPolygons(prev => prev.slice(0, -1)); // Entferne das letzte Element aus dem Array
     }
   };
 
@@ -300,6 +224,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     </motion.div>
   );
 
+  // Prüfe, ob Koordinaten vorhanden sind
   if (!initialCoordinates || initialCoordinates.length === 0) {
     return (
       <div className="h-60 bg-gray-100 flex items-center justify-center flex-col p-8">
@@ -309,122 +234,121 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     );
   }
 
+  // Format-Funktion für die Flächenanzeige mit Tausendertrennzeichen
   const formatArea = (area: number) => {
     return new Intl.NumberFormat('de-DE').format(area);
   };
 
   return (
     <div className="space-y-4">
-      <div style={{ position: 'relative', zIndex: 0 }}>
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          zoom={19}
-          center={mapCenter}
-          onLoad={onMapLoad}
-          options={mapOptions}
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        zoom={19}
+        center={mapCenter}
+        onLoad={onMapLoad}
+        options={mapOptions}
+      >
+        <DrawingManager
+          onLoad={onDrawingManagerLoad}
+          options={drawingOptions}
+          onPolygonComplete={onPolygonComplete}
+        />
+        
+        {/* Berechnete Fläche */}
+        <motion.div 
+          className="absolute bottom-4 left-4 z-10 bg-white px-4 py-3 rounded-md shadow-md border border-gray-200 flex items-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.3 }}
         >
-          <DrawingManager
-            onLoad={onDrawingManagerLoad}
-            options={drawingOptions}
-            onPolygonComplete={onPolygonComplete}
-          />
-          
-          {/* Berechnete Fläche */}
-          <motion.div 
-            className="absolute bottom-4 left-4 z-10 bg-white px-4 py-3 rounded-md shadow-md border border-gray-200 flex items-center"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.3 }}
-          >
-            <Ruler className="h-5 w-5 text-accent mr-3" />
-            <div>
-              <p className="text-xs text-gray-500">Berechnete Fläche</p>
-              <motion.p 
-                className="font-medium text-lg"
-                key={totalArea}
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.2 }}
-              >
-                {formatArea(totalArea)} m²
-              </motion.p>
-            </div>
-          </motion.div>
+          <Ruler className="h-5 w-5 text-accent mr-3" />
+          <div>
+            <p className="text-xs text-gray-500">Berechnete Fläche</p>
+            <motion.p 
+              className="font-medium text-lg"
+              key={totalArea}
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.2 }}
+            >
+              {formatArea(totalArea)} m²
+            </motion.p>
+          </div>
+        </motion.div>
 
-          {/* Pop-up mit Anleitung */}
-          <AnimatePresence>
-            {showInstructions && (
-              <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-20 pointer-events-none">
-                <motion.div 
-                  className="bg-white p-6 rounded-lg shadow-md max-w-md m-4 border border-gray-200 pointer-events-auto"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ 
-                    type: "spring",
-                    damping: 25,
-                    stiffness: 300
-                  }}
-                >
-                  <div className="flex justify-between items-center mb-3">
-                    <h3 className="text-lg font-medium text-gray-800">Fläche einzeichnen</h3>
-                    <button 
-                      onClick={closeInstructions}
-                      className="text-gray-400 hover:text-gray-600 transition-colors p-1"
-                    >
-                      ×
-                    </button>
-                  </div>
-                  <div className="space-y-3 text-gray-600 text-sm">
-                    <motion.div 
-                      className="flex items-start"
-                      initial={{ opacity: 0, x: -5 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 }}
-                    >
-                      <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-accent/10 text-accent rounded-full text-xs font-medium">1</span>
-                      <span>Klicken Sie auf &quot;Zeichnen starten&quot; um den Zeichenmodus zu aktivieren.</span>
-                    </motion.div>
-                    <motion.div 
-                      className="flex items-start"
-                      initial={{ opacity: 0, x: -5 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-accent/10 text-accent rounded-full text-xs font-medium">2</span>
-                      <span>Klicken Sie auf die Karte, um Eckpunkte Ihrer zu räumenden Fläche zu setzen.</span>
-                    </motion.div>
-                    <motion.div 
-                      className="flex items-start"
-                      initial={{ opacity: 0, x: -5 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-accent/10 text-accent rounded-full text-xs font-medium">3</span>
-                      <span>Schließen Sie das Polygon, indem Sie wieder auf den ersten Punkt klicken.</span>
-                    </motion.div>
-                    <motion.div 
-                      className="flex items-start"
-                      initial={{ opacity: 0, x: -5 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.4 }}
-                    >
-                      <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-accent/10 text-accent rounded-full text-xs font-medium">4</span>
-                      <span>Sie können mehrere Flächen zeichnen und bereits gezeichnete Flächen bearbeiten.</span>
-                    </motion.div>
-                  </div>
+        {/* Pop-up mit Anleitung direkt auf der Karte */}
+        <AnimatePresence>
+          {showInstructions && (
+            <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-20">
+              <motion.div 
+                className="bg-white p-6 rounded-lg shadow-md max-w-md m-4 border border-gray-200"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ 
+                  type: "spring",
+                  damping: 25,
+                  stiffness: 300
+                }}
+              >
+                <div className="flex justify-between items-center mb-3">
+                  <h3 className="text-lg font-medium text-gray-800">Fläche einzeichnen</h3>
                   <button 
                     onClick={closeInstructions}
-                    className="mt-5 w-full py-2 bg-accent text-white rounded-md hover:bg-accent-dark transition-all duration-200 text-sm font-medium"
+                    className="text-gray-400 hover:text-gray-600 transition-colors p-1"
                   >
-                    Verstanden
+                    ×
                   </button>
-                </motion.div>
-              </div>
-            )}
-          </AnimatePresence>
-        </GoogleMap>
-      </div>
+                </div>
+                <div className="space-y-3 text-gray-600 text-sm">
+                  <motion.div 
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -5 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-accent/10 text-accent rounded-full text-xs font-medium">1</span>
+                    <span>Klicken Sie auf &quot;Zeichnen starten&quot; um den Zeichenmodus zu aktivieren.</span>
+                  </motion.div>
+                  <motion.div 
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -5 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-accent/10 text-accent rounded-full text-xs font-medium">2</span>
+                    <span>Klicken Sie auf die Karte, um Eckpunkte Ihrer zu räumenden Fläche zu setzen.</span>
+                  </motion.div>
+                  <motion.div 
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -5 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-accent/10 text-accent rounded-full text-xs font-medium">3</span>
+                    <span>Schließen Sie das Polygon, indem Sie wieder auf den ersten Punkt klicken.</span>
+                  </motion.div>
+                  <motion.div 
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -5 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-accent/10 text-accent rounded-full text-xs font-medium">4</span>
+                    <span>Sie können mehrere Flächen zeichnen und bereits gezeichnete Flächen bearbeiten.</span>
+                  </motion.div>
+                </div>
+                <button 
+                  onClick={closeInstructions}
+                  className="mt-5 w-full py-2 bg-accent text-white rounded-md hover:bg-accent-dark transition-all duration-200 text-sm font-medium"
+                >
+                  Verstanden
+                </button>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+      </GoogleMap>
       
       <div className="flex flex-wrap justify-between items-center gap-3">
         {/* Linke Seite - Info-Button */}

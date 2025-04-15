@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
       }
     }
     
-    // LÖSUNG: Füge den Referrer-Header hinzu, um die API-Schlüsseleinschränkungen zu erfüllen
+    // Wichtige Korrektur: Füge den Referer-Header hinzu, um die API-Schlüsseleinschränkungen zu erfüllen
     const geoResponse = await fetch(geocodeUrl, {
       headers: {
         'Referer': 'https://treuservice.com',

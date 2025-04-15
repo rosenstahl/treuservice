@@ -64,8 +64,9 @@ type Polygon = {
 };
 
 export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: AreaDrawingMapProps) {
+  // API-Key muss beibehalten werden, da es ein erforderlicher Parameter ist
+  // Verwenden Sie diegleiche API key wie in layout.tsx
   const { isLoaded, loadError } = useLoadScript({
-    // Google Maps API-Key direkt eingebunden
     googleMapsApiKey: "AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg",
     libraries,
   });

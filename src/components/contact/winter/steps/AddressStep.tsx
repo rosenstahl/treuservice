@@ -20,21 +20,6 @@ interface GooglePlace {
   }>;
 }
 
-interface GeocoderResult {
-  formatted_address?: string;
-  geometry: {
-    location: {
-      lat: () => number;
-      lng: () => number;
-    };
-  };
-  address_components?: Array<{
-    types: string[];
-    long_name: string;
-    short_name: string;
-  }>;
-}
-
 type AddressStepProps = {
   formData: FormData;
   updateFormData: (data: Partial<FormData>) => void;
@@ -119,7 +104,7 @@ export const AddressStep: React.FC<AddressStepProps> = ({
 
   useEffect(() => {
     // Initialisiere Google Autocomplete wenn das Input-Element existiert
-    if (inputRef.current && window.google && window.google.maps && window.google.maps.places) {
+    if (inputRef.current && typeof window !== 'undefined' && window.google && window.google.maps && window.google.maps.places) {
       autocompleteRef.current = new window.google.maps.places.Autocomplete(inputRef.current, {
         types: ['address'],
         componentRestrictions: { country: 'de' }
@@ -131,8 +116,8 @@ export const AddressStep: React.FC<AddressStepProps> = ({
 
     return () => {
       // Cleanup der Event-Listener wenn verfügbar
-      if (autocompleteRef.current && window.google && window.google.maps) {
-        google.maps.event.clearInstanceListeners(autocompleteRef.current);
+      if (autocompleteRef.current && typeof window !== 'undefined' && window.google && window.google.maps) {
+        window.google.maps.event.clearInstanceListeners(autocompleteRef.current);
       }
     }
   }, [handlePlaceChanged]);
@@ -162,35 +147,40 @@ export const AddressStep: React.FC<AddressStepProps> = ({
     
     // Ansonsten die Adresse geocodieren
     try {
-      const geocoder = new window.google.maps.Geocoder()
-      geocoder.geocode({ address }, (results: any, status: string) => {
-        setIsLoading(false)
-        
-        if (status === 'OK' && results && results.length > 0) {
-          // Prüfen, ob die zurückgegebene Adresse vollständig ist
-          if (!isCompleteAddress(results[0].address_components)) {
-            setError('Die Adresse ist nicht vollständig. Bitte geben Sie eine vollständige Adresse mit Straße, Hausnummer, PLZ und Ort ein.');
-            return;
-          }
+      if (typeof window !== 'undefined' && window.google && window.google.maps) {
+        const geocoder = new window.google.maps.Geocoder()
+        geocoder.geocode({ address }, (results: any, status: string) => {
+          setIsLoading(false)
           
-          const location = results[0].geometry.location
-          const lat = location.lat()
-          const lng = location.lng()
-          
-          // Adresse und Koordinaten speichern
-          updateFormData({
-            address: results[0].formatted_address || address,
-            area: {
-              ...formData.area,
-              coordinates: [[lat, lng]]
+          if (status === 'OK' && results && results.length > 0) {
+            // Prüfen, ob die zurückgegebene Adresse vollständig ist
+            if (!isCompleteAddress(results[0].address_components)) {
+              setError('Die Adresse ist nicht vollständig. Bitte geben Sie eine vollständige Adresse mit Straße, Hausnummer, PLZ und Ort ein.');
+              return;
             }
-          })
-          
-          goToNextStep()
-        } else {
-          setError('Die Adresse konnte nicht gefunden werden. Bitte prüfen Sie Ihre Eingabe.')
-        }
-      })
+            
+            const location = results[0].geometry.location
+            const lat = location.lat()
+            const lng = location.lng()
+            
+            // Adresse und Koordinaten speichern
+            updateFormData({
+              address: results[0].formatted_address || address,
+              area: {
+                ...formData.area,
+                coordinates: [[lat, lng]]
+              }
+            })
+            
+            goToNextStep()
+          } else {
+            setError('Die Adresse konnte nicht gefunden werden. Bitte prüfen Sie Ihre Eingabe.')
+          }
+        })
+      } else {
+        setIsLoading(false)
+        setError('Google Maps konnte nicht geladen werden. Bitte laden Sie die Seite neu.')
+      }
     } catch (geocodeError) {
       setIsLoading(false)
       setError('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.')

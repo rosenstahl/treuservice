@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { GoogleMap, useLoadScript, DrawingManager } from '@react-google-maps/api';
+import { GoogleMap, DrawingManager } from '@react-google-maps/api';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Ruler, Info, Plus, Trash2 } from 'lucide-react';
 
@@ -64,12 +64,9 @@ type Polygon = {
 };
 
 export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: AreaDrawingMapProps) {
-  // API-Key muss beibehalten werden, da es ein erforderlicher Parameter ist
-  // Verwenden Sie diegleiche API key wie in layout.tsx
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg",
-    libraries,
-  });
+  // Da die Google Maps API bereits in layout.tsx geladen wird, verwenden wir hier einen lokalen Zustand
+  const [isGoogleMapsReady, setIsGoogleMapsReady] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   const [polygons, setPolygons] = useState<Polygon[]>([]);
   const [totalArea, setTotalArea] = useState<number>(0);
@@ -79,6 +76,39 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   
   const mapRef = useRef<google.maps.Map | null>(null);
   const drawingManagerRef = useRef<google.maps.drawing.DrawingManager | null>(null);
+  
+  // Wichtige Änderung: onAreaChange Ref um unendliche Renders zu verhindern
+  const onAreaChangeRef = useRef(onAreaChange);
+
+  // Überprüfen, ob Google Maps bereits geladen wurde
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.google && window.google.maps) {
+      setIsGoogleMapsReady(true);
+    } else {
+      // Intervall, um zu überprüfen, ob Google Maps geladen wurde
+      const checkGoogleMapsInterval = setInterval(() => {
+        if (typeof window !== 'undefined' && window.google && window.google.maps) {
+          setIsGoogleMapsReady(true);
+          clearInterval(checkGoogleMapsInterval);
+        }
+      }, 100);
+      
+      // Nach 10 Sekunden abbrechen, falls Google Maps nicht geladen wurde
+      setTimeout(() => {
+        if (!isGoogleMapsReady) {
+          setLoadError('Google Maps konnte nicht geladen werden.');
+          clearInterval(checkGoogleMapsInterval);
+        }
+      }, 10000);
+      
+      return () => clearInterval(checkGoogleMapsInterval);
+    }
+  }, [isGoogleMapsReady]);
+
+  // Aktualisieren des Refs wenn sich die Prop ändert
+  useEffect(() => {
+    onAreaChangeRef.current = onAreaChange;
+  }, [onAreaChange]);
 
   // Setze das Kartenzentrum auf Basis der initialCoordinates
   useEffect(() => {
@@ -88,21 +118,13 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     }
   }, [initialCoordinates]);
 
-// 1. Füge diesen Ref am Anfang der Komponente hinzu (direkt nach deinen useState-Hooks)
-const onAreaChangeRef = useRef(onAreaChange);
-
-// 2. Füge diesen useEffect hinzu, um den Ref zu aktualisieren
-useEffect(() => {
-  onAreaChangeRef.current = onAreaChange;
-}, [onAreaChange]);
-
-// 3. Ersetze dann deinen bestehenden useEffect
-useEffect(() => {
-  const sum = polygons.reduce((acc, curr) => acc + curr.area, 0);
-  setTotalArea(sum);
-  
-  // Aktualisiere die übergeordnete Komponente mit allen Polygondaten
-  if (onAreaChangeRef.current) {
+  // Aktualisiere die Gebietsgröße und benachrichtige die übergeordnete Komponente
+  // Kritische Änderung: Verwende den Ref statt der Prop direkt
+  useEffect(() => {
+    const sum = polygons.reduce((acc, curr) => acc + curr.area, 0);
+    setTotalArea(sum);
+    
+    // Aktualisiere die übergeordnete Komponente mit allen Polygondaten
     if (polygons.length > 0) {
       const allCoordinates = polygons.flatMap(p => p.coordinates);
       onAreaChangeRef.current({
@@ -120,8 +142,7 @@ useEffect(() => {
         coordinates: [[mapCenter.lat, mapCenter.lng]]
       });
     }
-  }
-}, [polygons, initialCoordinates, mapCenter]); // onAreaChange entfernt
+  }, [polygons, initialCoordinates, mapCenter]); // onAreaChange entfernt von Dependencies
 
   const onMapLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map;
@@ -214,11 +235,11 @@ useEffect(() => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      Fehler beim Laden der Karte. Bitte laden Sie die Seite neu.
+      Fehler beim Laden der Karte: {loadError}. Bitte laden Sie die Seite neu.
     </motion.div>
   );
   
-  if (!isLoaded) return (
+  if (!isGoogleMapsReady) return (
     <motion.div 
       className="h-60 bg-gray-100 flex items-center justify-center"
       initial={{ opacity: 0 }}

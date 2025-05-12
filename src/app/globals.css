@@ -108,21 +108,11 @@ html {
   transform-style: preserve-3d;
 }
 
-/* Responsives Kartendesign:
-   - Auf Mobilgeräten begrenzte Höhe
-   - Auf Desktop-Geräten keine Höhenbegrenzung für bessere Nutzererfahrung
-*/
-.map-container {
-  width: 100%;
-  height: 60vh;
-  max-height: 600px; /* Standard für Mobilgeräte */
-}
-
-/* Ab einer Breite von 1024px (lg in Tailwind) heben wir die Höhenbegrenzung auf */
+/* Spezielle Klasse für den Kontaktbereich mit der Karte im Winterdienst */
 @media (min-width: 1024px) {
-  .map-container {
-    max-height: none; /* Keine Höhenbegrenzung auf Desktop */
-    height: 80vh; /* Höhere Basishöhe für Desktop-Ansicht */
+  .winterdienst-map-container {
+    max-width: 100% !important;
+    width: 100% !important;
   }
 }
 

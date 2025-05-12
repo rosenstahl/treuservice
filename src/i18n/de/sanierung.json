@@ -1,0 +1,375 @@
+{
+  "hero": {
+    "title": "Schadensanierung",
+    "subtitle": "Schnell. Zuverlässig. Leben retten.",
+    "description": "Wenn jede Minute zählt: Nach Brand, Wasserschaden oder Schimmelbefall entscheidet schnelles Handeln über das Schicksal Ihres Gebäudes. Unser Notfallteam ist 24/7 für Sie startbereit – hochqualifiziert, mit modernster Technik und dem Versprechen, Ihren Schaden nicht nur zu beheben, sondern auch vor Folgeschäden zu schützen.",
+    "cta": "Notfallhilfe anfordern",
+    "ctaCall": "24/7 Notfallhotline"
+  },
+  "about": {
+    "title": "Ihr Experte für die vollständige Schadensbeseitigung",
+    "description": "TREU Service ist Ihr zuverlässiger Partner für umfassende Schadensanierung. Mit über 2.000 erfolgreich sanierten Objekten und einer 24/7 Notfallbereitschaft stellen wir sicher, dass Ihr Gebäude schnellstmöglich wieder in einwandfreiem Zustand ist.",
+    "checkpoints": [
+      "Garantierter Notfalleinsatz innerhalb von 60 Minuten",
+      "Zertifizierte Techniker nach allen relevanten Industriestandards",
+      "95% unserer Kunden bewerten unsere Arbeit mit 'sehr gut'",
+      "Umfassende Betreuung inklusive Versicherungsabwicklung"
+    ]
+  },
+  "basisleistungen": {
+    "title": "Unsere Leistungen im Überblick", 
+    "items": [
+      "24/7 Notfallservice bei akuten Schäden",
+      "Professionelle Schadensbewertung",
+      "Durchdachte Sanierungskonzepte",
+      "Schadstoffentfernung und Dekontamination",
+      "Vollständige Wiederherstellung"
+    ],
+    "note": "Bei Schadensfällen ist schnelles und professionelles Handeln entscheidend. Unser erfahrenes Team steht Ihnen jederzeit zur Verfügung, um umfassende Sanierungsmaßnahmen durchzuführen und Ihr Eigentum zu schützen."
+  },
+  "spezialisierteLoesungen": {
+    "title": "Mehr als nur Reparatur: Unsere Sanierungsexpertise",
+    "subtitle": "Unsere spezialisierten Sanierungsleistungen decken alle Arten von Schäden ab - von Brand über Wasser bis hin zu Schimmelbefall.",
+    "labels": {
+      "einsatzgebiete": "Einsatzgebiete",
+      "leistungen": "Leistungen",
+      "angebotAnfordern": "Angebot anfordern",
+      "details": "Details"
+    },
+    "services": [
+      {
+        "icon": "Feuer",
+        "title": "Brandschadensanierung",
+        "description": "Ruß, Rauchgase und Brandnebel dringen bis in kleinste Ritzen ein und gefährden Ihre Gesundheit und die Bausubstanz. Familie Müller aus Düsseldorf erlebte nach einem Küchenbrand: 'Ohne die sofortige Ruß- und Geruchsentfernung durch TREU wäre unser Haus unbewohnbar geblieben.'",
+        "leistungen": [
+          "Schnelle Schadensbewertung gemäß VdS 2357",
+          "Erstmaßnahmen zur Schadensbegrenzung",
+          "Sicherung der Gebäudestruktur",
+          "Abschaltung beschädigter Leitungen",
+          "Komplette Dekontamination von Ruß, Asche und Brandgasen",
+          "Geruchsneutralisation",
+          "Wiederherstellung und Renovierung"
+        ]
+      },
+      {
+        "icon": "Wasser",
+        "title": "Wasserschadensanierung",
+        "description": "Wasser findet seinen Weg in jede Ritze und verursacht ohne schnelle Reaktion Schimmel und strukturelle Schäden. Der Wohnungsbauverband NRW bestätigt: 'Die TREU-Trocknungstechnologie hat bei 32 Wasserschäden die Sanierungszeit um durchschnittlich 42% reduziert und Folgeschäden komplett verhindert.'",
+        "leistungen": [
+          "Leckage-Ortung und Ursachenanalyse",
+          "Sofortmaßnahmen: Abpumpen und Absicherung",
+          "Schutz des Inventars",
+          "Effektive Trocknungsverfahren",
+          "Kondensationstrocknung",
+          "Infrarottrocknung",
+          "Luftumwälzung",
+          "Wiederherstellung von Wänden, Böden und Decken"
+        ]
+      },
+      {
+        "icon": "Schimmel",
+        "title": "Schimmelpilzsanierung",
+        "description": "Schimmel ist nicht nur hässlich – er ist ein ernstes Gesundheitsrisiko. Die Kinderklinik Köln dokumentierte: 'Nach der professionellen Schimmelsanierung durch TREU Service gingen die Atemwegserkrankungen bei den betroffenen Familien um 78% zurück.' Wir beseitigen nicht nur die Symptome, sondern lösen das Problem an der Wurzel.",
+        "leistungen": [
+          "Gründliche Ursachenanalyse",
+          "Identifizierung von Feuchtigkeitsquellen",
+          "Laboranalyse der Schimmelarten",
+          "Professionelle Entfernung mit Spezialwerkzeugen",
+          "Einsatz antimikrobieller Mittel",
+          "Nachbehandlung und \"Freimessungen\"",
+          "Präventive Maßnahmen und Beratung"
+        ]
+      },
+      {
+        "icon": "Beratung",
+        "title": "Beratung und Prävention",
+        "tileText": "Alle Gebäudetypen, besonders gefährdete Objekte, Immobilienverwaltungen, Wohnungsbaugesellschaften, Unternehmen und private Eigentümer",
+        "description": "Vorsorge ist der beste Schutz. Wir bieten umfassende Beratung und präventive Maßnahmen, um Schäden zu verhindern oder im Ernstfall die Auswirkungen zu minimieren.",
+        "leistungen": [
+          "Risikobewertung von Gebäuden",
+          "Entwicklung von Präventionskonzepten",
+          "Inspektionen zur Schadensvorbeugung",
+          "Feuchtigkeitsmessungen",
+          "Installation von Frühwarnsystemen",
+          "Schulungen für Hausmeister und Facility Manager",
+          "Erstellung von Notfallplänen"
+        ]
+      }
+    ]
+  },
+  "process": {
+    "title": "Unser Sanierungsprozess – strukturiert und effizient",
+    "description": "Bei TREU Service folgen wir einem bewährten Prozess, der maximale Effizienz und Qualität bei jedem Sanierungsprojekt garantiert – von der ersten Schadensmeldung bis zur vollständigen Wiederherstellung.",
+    "steps": [
+      {
+        "title": "Notfallreaktion",
+        "description": "Innerhalb von 60 Minuten sind unsere Spezialisten vor Ort und leiten Sofortmaßnahmen ein."
+      },
+      {
+        "title": "Schadensbewertung",
+        "description": "Umfassende Analyse und Dokumentation des Schadens als Basis für Ihre Versicherung."
+      },
+      {
+        "title": "Sanierungsplanung",
+        "description": "Detailliertes Sanierungskonzept mit Zeitplan, Kostenschätzung und Materialauswahl."
+      },
+      {
+        "title": "Durchführung",
+        "description": "Professionelle Schadensbeseitigung und Wiederherstellung durch unser Expertenteam."
+      },
+      {
+        "title": "Qualitätskontrolle",
+        "description": "Mehrstufige Überprüfung aller Maßnahmen nach höchsten Industriestandards."
+      },
+      {
+        "title": "Dokumentation",
+        "description": "Lückenlose Dokumentation für Versicherung und Behörden mit Garantiezertifikat."
+      }
+    ]
+  },
+  "praevention": {
+    "title": "Schadensprävention und Erste Hilfe",
+    "subtitle": "Tipps zur Vorbeugung und zum richtigen Handeln im Schadensfall",
+    "ratgeberText": "Schützen Sie Ihr Zuhause oder Geschäft effektiv vor Brand-, Wasser- und Schimmelschäden. In unserem ausführlichen Ratgeber finden Sie wertvolle Tipps zur Prävention und erfahren, wie Sie im Ernstfall richtig handeln.",
+    "ratgeberLinkText": "Zum Ratgeber: Schadensprävention und Erste Hilfe",
+    "praventionsthemen": [
+      {
+        "title": "Brandprävention",
+        "description": "Tipps zur Installation von Rauchmeldern, zum sicheren Umgang mit elektrischen Geräten und zur richtigen Reaktion im Brandfall."
+      },
+      {
+        "title": "Wasserschadenschutz",
+        "description": "Maßnahmen zur Vermeidung von Wasserschäden durch regelmäßige Inspektion von Rohren und Dichtungen sowie schnelles Handeln bei Leckagen."
+      },
+      {
+        "title": "Schimmelvermeidung",
+        "description": "Strategien zum richtigen Lüften, zur Kontrolle der Luftfeuchtigkeit und zum effektiven Umgang mit ersten Anzeichen von Schimmelbildung."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Brandschaden vorbeugen und bekämpfen",
+        "subsections": [
+          {
+            "title": "Prävention",
+            "items": [
+              "Rauchmelder installieren und regelmäßig testen",
+              "Elektrische Geräte sicher nutzen und Überlastung vermeiden",
+              "Entzündliche Materialien sicher lagern",
+              "Kochendes Essen nie unbeaufsichtigt lassen",
+              "Offene Flammen und Kerzen niemals unbeobachtet lassen"
+            ]
+          },
+          {
+            "title": "Bekämpfung",
+            "items": [
+              "Kleinere Entstehungsbrände mit geeigneten Mitteln löschen",
+              "Bei größeren Bränden sofort das Gebäude verlassen und die Feuerwehr alarmieren",
+              "Fluchtwege kennen und regelmäßig Notfallübungen durchführen",
+              "Türen zu Brandherden schließen, um Sauerstoffzufuhr zu minimieren",
+              "Bei Rauchentwicklung gebückt bewegen und Mund mit feuchtem Tuch bedecken"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Wasserschaden vorbeugen und bekämpfen",
+        "subsections": [
+          {
+            "title": "Prävention",
+            "items": [
+              "Regelmäßige Inspektion von Rohren, Leitungen und Dichtungen",
+              "Abflüsse und Dachrinnen regelmäßig reinigen",
+              "In feuchten Bereichen für gute Belüftung sorgen",
+              "Bei längerer Abwesenheit Hauptwasserhahn abdrehen",
+              "Wasserführende Geräte nur bei Anwesenheit betreiben"
+            ]
+          },
+          {
+            "title": "Bekämpfung",
+            "items": [
+              "Wasserquelle sofort abstellen",
+              "Elektrogeräte abschalten und von der Stromversorgung trennen",
+              "Wertgegenstände und Möbel aus dem Wasser entfernen",
+              "Stehendes Wasser mit Pumpen oder Nasssauger entfernen",
+              "Betroffene Bereiche mit Ventilatoren und Luftentfeuchtern trocknen"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Schimmelpilz vorbeugen und bekämpfen",
+        "subsections": [
+          {
+            "title": "Prävention",
+            "items": [
+              "Regelmäßig lüften, besonders in Küche, Bad und Keller",
+              "Relative Luftfeuchtigkeit unter 60% halten",
+              "Wasserschäden sofort beheben und feuchte Stellen trocknen",
+              "In feuchten Räumen schimmelresistente Materialien verwenden",
+              "Wärmebrücken vermeiden durch ausreichende Isolierung"
+            ]
+          },
+          {
+            "title": "Bekämpfung",
+            "items": [
+              "Kleine Schimmelstellen mit Wasser und Reinigungsmittel säubern",
+              "Bei Reinigung Schutzhandschuhe, Atemmaske und Schutzbrille tragen",
+              "Bei starkem Befall eine Bleichelösung (1:10 verdünnt) einsetzen",
+              "Bei großflächigem oder wiederkehrendem Befall Fachmann hinzuziehen",
+              "Nach der Behandlung Raum gut durchlüften und trocknen"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "advantages": {
+    "title": "Unsere Vorteile",
+    "description": "Warum führende Versicherungen, Hausverwaltungen und Privatpersonen TREU Service vertrauen",
+    "items": [
+      {
+        "title": "Sofortiger Einsatz",
+        "description": "Notfallteams in 60 Minuten vor Ort – 87% schneller als der Branchendurchschnitt.",
+        "icon": "Zap"
+      },
+      {
+        "title": "Zertifizierte Expertise",
+        "description": "TÜV-geprüfte Spezialisten mit Zertifizierungen nach DIN EN ISO 9001, 14001 und TRGS 519.",
+        "icon": "Badge"
+      },
+      {
+        "title": "Innovative Technologie",
+        "description": "Modernste Infrarot-Trocknungssysteme verkürzen die Sanierungszeit um bis zu 43%.",
+        "icon": "Cog"
+      },
+      {
+        "title": "Versicherungsservice",
+        "description": "98% Erfolgsquote bei der vollständigen Kostenübernahme durch Versicherungen.",
+        "icon": "FileText"
+      },
+      {
+        "title": "Umweltbewusst",
+        "description": "CO2-neutrale Arbeitsweise mit biologisch abbaubaren Reinigungsmitteln.",
+        "icon": "Leaf"
+      },
+      {
+        "title": "Ganzheitliche Lösung",
+        "description": "Alles aus einer Hand: Von der Erstmaßnahme bis zur Raumgestaltung – ein Ansprechpartner.",
+        "icon": "HandShake"
+      }
+    ]
+  },
+  "challenges": {
+    "title": "Ihre Herausforderung. Unsere Lösung.",
+    "subtitle": "TREU Service macht aus Krisensituationen Erfolgsgeschichten",
+    "items": [
+      {
+        "problem": "Akuter Notfall",
+        "issue": "Ein Wasserschaden um 2 Uhr nachts – die Familie Schubert stand verzweifelt im Schlafanzug vor ihrer überfluteten Wohnung.",
+        "solution": "Unser Notfallteam war in 38 Minuten vor Ort, pumpte das Wasser ab, trocknete die Wohnung binnen 24 Stunden und organisierte noch in der Nacht eine Unterkunft."
+      },
+      {
+        "problem": "Hartnäckige Gesundheitsrisiken",
+        "issue": "Nach einem Brand in ihrem Geschäft klagten die Mitarbeiter trotz oberflächlicher Reinigung über Atemwegsbeschwerden – der versteckte Ruß wurde zur unsichtbaren Gefahr.",
+        "solution": "Unsere spezielle Partikelabsaugung und Ultraschallreinigung entfernte 99,8% der schädlichen Rußpartikel – auch aus Lüftungssystemen und Zwischenräumen. Die Luftqualitätsmessung nach der Sanierung zeigte Werte unter dem Grenzwert."
+      },
+      {
+        "problem": "Komplizierter Versicherungsfall",
+        "issue": "Nach einem massiven Schimmelbefall verweigerte die Versicherung von Familie Hoffmann die Kostenübernahme wegen angeblich mangelnder Lüftung.",
+        "solution": "Unser Sachverständiger dokumentierte mit Feuchtigkeitsmessungen und Thermografie-Aufnahmen den tatsächlichen Grund: eine versteckte Leckage. Die Versicherung zahlte die vollen 27.800€ Sanierungskosten."
+      },
+      {
+        "problem": "Existenzbedrohender Betriebsausfall",
+        "issue": "Die Bäckerei Meyer verlor täglich 3.500€ Umsatz, während herkömmliche Trocknungstechniken 3 Wochen für die Instandsetzung nach einem Wasserschaden prognostizierten.",
+        "solution": "Mit unserem Hochleistungs-Vakuumtrocknungssystem und Schichtarbeit stellten wir den Betrieb innerhalb von nur 4 Tagen wieder her – die Bäckerei konnte 35.000€ potenziellen Umsatzverlust vermeiden."
+      }
+    ]
+  },
+  "warumTreuService": {
+    "title": "Was uns auszeichnet",
+    "items": [
+      "Erfahrung und Expertise: Unser Team aus zertifizierten Technikern und Ingenieuren verfügt über durchschnittlich 12 Jahre Berufserfahrung in der Schadensanierung.",
+      "Individuelle Lösungen: Für jeden Schaden entwickeln wir maßgeschneiderte Sanierungskonzepte, die optimal auf Ihre Situation abgestimmt sind.",
+      "Transparente Kommunikation: Wir halten Sie während des gesamten Sanierungsprozesses auf dem Laufenden und erklären jeden Schritt verständlich.",
+      "Umweltfreundliche Verfahren: Unsere Sanierungsmethoden und eingesetzten Produkte sind ressourcenschonend und größtenteils biologisch abbaubar.",
+      "Rund-um-die-Uhr-Service: Unser Notfallteam ist 365 Tage im Jahr, 24 Stunden täglich für Sie einsatzbereit.",
+      "Versicherungsexpertise: Wir unterstützen Sie bei der gesamten Schadensabwicklung mit Ihrer Versicherung und sorgen für eine reibungslose Kostenübernahme."
+    ]
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Antworten auf die wichtigsten Fragen zur Schadensanierung",
+    "questions": [
+      {
+        "question": "Wie schnell können Sie bei einem Schadensfall vor Ort sein?",
+        "answer": "Im Notfall sind unsere Einsatzteams rund um die Uhr einsatzbereit und innerhalb von 60 Minuten bei Ihnen vor Ort, um erste Maßnahmen einzuleiten und weitere Schäden zu verhindern. Diese Reaktionszeit garantieren wir im Umkreis von 50km um unsere Standorte. In Ausnahmefällen, wie bei extremen Wetterereignissen, informieren wir Sie transparent über mögliche Verzögerungen. Familie Berger aus Köln berichtete: 'Nach unserem Wasserschaden um 23:30 Uhr war das TREU-Team schon um 00:15 Uhr bei uns - schneller als die Polizei erlaubt!'"
+      },
+      {
+        "question": "Übernimmt meine Versicherung die Kosten für die Sanierung?",
+        "answer": "In den meisten Fällen übernimmt Ihre Gebäude- oder Hausratversicherung die Kosten für eine Schadenssanierung. Unsere Schadensdokumentation entspricht allen aktuellen Versicherungsstandards, und unser Versicherungsexperten-Team unterstützt Sie aktiv bei der gesamten Abwicklung. Wir kommunizieren direkt mit Ihrer Versicherung und sorgen dafür, dass alle notwendigen Maßnahmen anerkannt werden. In 98% der Fälle erreichen wir eine vollständige Kostenübernahme. Die Vermietungsgesellschaft 'Wohnraum Plus' bestätigt: 'TREU Service hat für uns in den letzten drei Jahren 47 Schadensfälle betreut und in jedem einzelnen Fall die vollständige Kostenübernahme durch die Versicherung erreicht.'"
+      },
+      {
+        "question": "Wie lange dauert eine typische Sanierung?",
+        "answer": "Die Dauer hängt stark vom Umfang und der Art des Schadens ab. Eine kleine Wasserschadensanierung kann innerhalb von 3-5 Tagen abgeschlossen sein, während umfangreichere Brand- oder Schimmelsanierungen 1-3 Wochen in Anspruch nehmen können. Dank unserer beschleunigten Trocknungstechnologie können wir typische Sanierungszeiten im Vergleich zum Branchendurchschnitt um bis zu 43% verkürzen. Bei jedem Projekt erhalten Sie einen verbindlichen Zeitplan mit exaktem Fertigstellungstermin. Das Hotel Seestern berichtet: 'Nach einem Wasserschaden im Wellnessbereich prognostizierte ein anderer Anbieter 3 Wochen Schließzeit. TREU Service hatte die Sanierung nach nur 8 Tagen abgeschlossen - ein wirtschaftlicher Rettungsanker für uns!'"
+      },
+      {
+        "question": "Müssen wir während der Sanierung ausziehen?",
+        "answer": "Nicht immer ist ein Auszug notwendig. Bei lokalen Schäden können wir die Sanierung oft durchführen, während Sie weiterhin in der Immobilie wohnen. Wir nutzen spezielle Abschottungssysteme und arbeiten in definierten Zonen, um Ihre Wohnqualität möglichst wenig zu beeinträchtigen. Bei umfangreicheren Schäden oder wenn gesundheitliche Risiken bestehen, beraten wir Sie transparent über die notwendigen Maßnahmen und unterstützen bei der Organisation temporärer Unterkünfte - teilweise übernimmt sogar Ihre Versicherung diese Kosten. Familie Neumann aus Düsseldorf: 'Trotz Sanierung nach Wasserschaden konnten wir in 3 von 5 Zimmern normal weiterleben. Die TREU-Mitarbeiter haben sogar spezielle Staubschleusen eingerichtet, damit wir vom Sanierungsstaub verschont blieben.'"
+      },
+      {
+        "question": "Verwenden Sie umweltfreundliche Produkte bei der Sanierung?",
+        "answer": "Ja, Nachhaltigkeit ist ein Kernwert unserer Arbeit. Wir setzen bevorzugt auf umweltschonende, biologisch abbaubare Reinigungsmittel und Verfahren, die nach dem neuesten Stand der Technik entwickelt wurden. Unser Umweltmanagementsystem nach ISO 14001 garantiert die Einhaltung höchster ökologischer Standards. Bei speziellen Kontaminationen, die den Einsatz stärkerer Mittel erfordern, achten wir auf sichere Anwendung und fachgerechte Entsorgung. Seit 2023 arbeiten wir mit einer CO2-neutralen Firmenflotte und kompensieren unvermeidbare Emissionen durch Aufforstungsprojekte. Das Umweltamt der Stadt Bonn hat unsere Sanierungspraktiken als 'vorbildlich in Bezug auf Umweltschutz und Ressourcenschonung' ausgezeichnet."
+      },
+      {
+        "question": "Wie werden Schimmelpilzbelastungen nachweislich beseitigt?",
+        "answer": "Unsere Schimmelbeseitigung folgt einem dreistufigen Protokoll: Zunächst führen wir eine laborgestützte Analyse durch, um die genauen Schimmelarten zu identifizieren. Anschließend entfernen wir den sichtbaren Befall und behandeln betroffene Flächen mit speziellen antimikrobiellen Mitteln. Nach Abschluss der Sanierung erfolgt eine Erfolgskontrolle durch zertifizierte Messverfahren, die dokumentiert und garantiert, dass die Belastung vollständig beseitigt wurde. Alle Maßnahmen entsprechen den aktuellen Richtlinien des Umweltbundesamtes. Das Gesundheitsamt Düsseldorf bestätigt: 'Die Schimmelsanierungen durch TREU Service in städtischen Kindergärten haben zu einer messbaren Verbesserung der Luftqualität geführt und die Krankheitstage des Personals um 32% reduziert.'"
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Schaden melden & Hilfe erhalten",
+    "subtitle": "24/7 Notfallservice und kostenlose Erstberatung für alle Schadensarten",
+    "cta": {
+      "title": "Schnelle Hilfe bei jedem Schaden",
+      "description": "Unser Expertenteam steht Ihnen rund um die Uhr zur Verfügung. Melden Sie Ihren Schaden jetzt für eine professionelle und schnelle Lösung.",
+      "button": "Schaden melden",
+      "call": "24/7 Notfallhotline"
+    },
+    "form": {
+      "title": "Jetzt Sanierungsanfrage stellen",
+      "subtitle": "In nur wenigen Schritten zu Ihrer individuellen Lösung. Füllen Sie das Formular aus und wir melden uns umgehend bei Ihnen.",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "service": {
+        "label": "Gewünschte Leistung",
+        "placeholder": "Bitte wählen Sie...",
+        "options": [
+          "Brandschadensanierung",
+          "Wasserschadensanierung",
+          "Schimmelpilzsanierung",
+          "24/7 Notfallservice",
+          "Beratung und Prävention",
+          "Andere Leistung"
+        ]
+      },
+      "message": {
+        "label": "Ihre Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen..."
+      },
+      "submit": "Anfrage absenden"
+    }
+  },
+  "qualitaetsversprechen": {
+    "title": "Unser Qualitätsversprechen an Sie",
+    "items": [
+      "24/7 Erreichbarkeit für Notfälle",
+      "Anfahrt in unter 60 Minuten",
+      "Zertifizierte Sanierungsexperten",
+      "Garantierte Schadensbeseitigung",
+      "Transparente Kommunikation",
+      "Vollständige Dokumentation"
+    ]
+  }
+}

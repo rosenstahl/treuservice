@@ -1,0 +1,224 @@
+{
+  "hero": {
+    "title": "Leiharbeit",
+    "subtitle": "Die richtige Fachkraft. In 24 Stunden. Ohne Risiko.",
+    "description": "Qualifizierte Mitarbeiter genau dann, wenn Sie sie brauchen – ohne langfristige Bindung, ohne versteckte Kosten. Bei TREU Service sorgen wir dafür, dass Ihre Abläufe selbst bei kurzfristigen Personalengpässen reibungslos weiterlaufen."
+  },
+  "about": {
+    "title": "Wir lösen Ihr Personalproblem – sofort",
+    "description": "TREU Service ist Ihr zuverlässiger Partner für flexible Personalbereitstellung. Mit über 15 Jahren Erfahrung in der Arbeitnehmerüberlassung und mehr als 2.500 erfolgreich vermittelten Fachkräften bieten wir Ihnen genau die Mitarbeiter, die Sie für Ihre aktuellen Herausforderungen benötigen.",
+    "checkpoints": [
+      "Alle Kandidaten persönlich geprüft und qualifiziert",
+      "Über 92% unserer Kunden kommen bei Bedarf immer wieder auf uns zurück",
+      "Durchschnittliche Reaktionszeit unter 6 Stunden",
+      "Zufriedenheitsgarantie und kostenloser Personalwechsel"
+    ]
+  },
+  "service": {
+    "title": "Unsere Fachkräfte. Für Ihren Erfolg.",
+    "description": "Wir bieten Ihnen qualifizierte Fachkräfte in den Bereichen, in denen Sie flexible Unterstützung benötigen. Unsere Mitarbeiter sind sofort einsatzbereit und übernehmen nahtlos die anstehenden Aufgaben.",
+    "categories": [
+      {
+        "title": "Produktion & Logistik",
+        "description": "Sofort einsatzbereite Fachkräfte für Ihre Produktions- und Logistikprozesse.",
+        "benefits": "Unterstützen Sie Ihre Mannschaft und bewältigen Sie Auftragsspitzen ohne Überlastung Ihres Stammpersonals.",
+        "details": [
+          "Produktionshelfer mit technischem Verständnis",
+          "Erfahrene Staplerfahrer mit gültigem Schein",
+          "Zuverlässige Kommissionierer",
+          "Qualitätssicherungspersonal mit Prüferfahrung",
+          "Lageristen mit SAP-Kenntnissen"
+        ],
+        "case_study": "Ein mittelständischer Automobilzulieferer konnte dank unserer flexiblen Personalunterstützung einen Großauftrag termingerecht abwickeln und dadurch einen Folgeauftrag im sechsstelligen Bereich sichern."
+      },
+      {
+        "title": "Büro & Verwaltung",
+        "description": "Kompetente Bürokräfte für reibungslose administrative Abläufe.",
+        "benefits": "Behalten Sie auch bei krankheitsbedingten Ausfällen oder saisonalen Spitzen den Überblick in Ihrer Administration.",
+        "details": [
+          "Erfahrene Bürokaufleute",
+          "Professionelles Empfangspersonal",
+          "Sachbearbeiter für Buchhaltung",
+          "Projektassistenzen mit MS-Office-Expertise",
+          "Vertriebsunterstützung mit CRM-Erfahrung"
+        ],
+        "case_study": "Eine Versicherungsagentur konnte durch unsere temporäre Bürokraft die Umstellung auf ein neues CRM-System ohne Kundenserviceeinbußen bewältigen."
+      },
+      {
+        "title": "Facility Management",
+        "description": "Fachpersonal für die professionelle Betreuung Ihrer Gebäude und Anlagen.",
+        "benefits": "Sichern Sie den Werterhalt Ihrer Immobilien durch zuverlässiges Fachpersonal ohne Festanstellung.",
+        "details": [
+          "Qualifizierte Hausmeister",
+          "Reinigungskräfte für Spezialaufgaben",
+          "Techniker für Gebäudetechnik",
+          "Grünanlagenpfleger mit Fachwissen",
+          "Sicherheitspersonal nach §34a"
+        ],
+        "case_study": "Ein Bürokomplex mit 30.000 m² Fläche konnte durch unsere Facility-Fachkräfte einen reibungslosen Übergang beim Wechsel des Dienstleisters sicherstellen."
+      },
+      {
+        "title": "Handwerk",
+        "description": "Schnelle Unterstützung durch qualifizierte Handwerker für Ihre Projekte.",
+        "benefits": "Bewältigen Sie handwerkliche Aufgaben und Projekte termingerecht ohne langfristige Personalkosten.",
+        "details": [
+          "Elektrofachkräfte mit Prüfberechtigung",
+          "SHK-Techniker für Sanitär und Heizung",
+          "Maler und Lackierer für Innen- und Außenarbeiten",
+          "Schlosser und Metallbauer für anspruchsvolle Projekte",
+          "Tischler mit CNC-Erfahrung"
+        ],
+        "case_study": "Ein Hotelbetrieb konnte dank unserer Handwerker die Renovierung von 40 Zimmern in der umsatzschwachen Periode abschließen – zwei Wochen vor Zeitplan."
+      }
+    ]
+  },
+  "process": {
+    "title": "So läuft es ab – einfach, schnell, unkompliziert",
+    "description": "Bei TREU Service haben wir den Prozess der Personalbereitstellung auf das Wesentliche reduziert. Sie bekommen Ihre Mitarbeiter schnell, ohne unnötige Bürokratie und genau dann, wenn Sie sie brauchen.",
+    "steps": [
+      {
+        "title": "Kontakt",
+        "description": "Sie teilen uns Ihren Personalbedarf mit – telefonisch, per E-Mail oder über unser Formular."
+      },
+      {
+        "title": "Bedarfsanalyse",
+        "description": "Wir ermitteln genau, welche Qualifikationen und Erfahrungen Ihr Wunschkandidat haben sollte."
+      },
+      {
+        "title": "Personalvorschlag",
+        "description": "Innerhalb von 24 Stunden erhalten Sie einen passenden Kandidatenvorschlag."
+      },
+      {
+        "title": "Einsatzbeginn",
+        "description": "Nach Ihrer Zustimmung kann der Mitarbeiter sofort bei Ihnen starten – ohne weitere Formalitäten."
+      },
+      {
+        "title": "Betreuung",
+        "description": "Während des gesamten Einsatzes bleibt Ihr persönlicher Ansprechpartner für Sie erreichbar."
+      }
+    ]
+  },
+  "advantages": {
+    "title": "Unsere Vorteile",
+    "description": "Flexibilität ohne Einbußen bei Qualität und Zuverlässigkeit – TREU Service macht den Unterschied in der Leiharbeit.",
+    "items": [
+      {
+        "title": "Schnelligkeit",
+        "description": "Von Ihrer Anfrage bis zum Arbeitsbeginn vergehen max. 24 Stunden – garantiert.",
+        "icon": "Zap"
+      },
+      {
+        "title": "Qualität",
+        "description": "Jeder Mitarbeiter durchläuft unseren 5-stufigen Qualifizierungsprozess vor der Vermittlung.",
+        "icon": "Badge"
+      },
+      {
+        "title": "Flexibilität",
+        "description": "Tageweise Abrechnung ohne Mindestlaufzeiten – zahlen Sie nur für tatsächlich geleistete Arbeit.",
+        "icon": "Calendar"
+      },
+      {
+        "title": "Transparenz",
+        "description": "Feste Stundenverrechnungssätze ohne versteckte Gebühren oder Nachberechnungen.",
+        "icon": "FileText"
+      },
+      {
+        "title": "Sicherheit",
+        "description": "Rechtskonforme Verträge nach aktuellem Tarifrecht – kein Risiko für Sie als Entleiher.",
+        "icon": "Shield"
+      },
+      {
+        "title": "Entlastung",
+        "description": "Wir übernehmen alle administrativen Aufgaben von der Personalsuche bis zur Lohnabrechnung.",
+        "icon": "CheckSquare"
+      }
+    ]
+  },
+  "challenges": {
+    "title": "Ihre Herausforderung. Unsere Lösung.",
+    "subtitle": "TREU Service macht aus Personalproblemen schnelle Erfolge",
+    "items": [
+      {
+        "problem": "Kurzfristige Auftragsspitzen",
+        "issue": "Ein unerwarteter Großauftrag überfordert Ihre vorhandenen Kapazitäten. Ihre Mitarbeiter arbeiten bereits am Limit.",
+        "solution": "Innerhalb von 24 Stunden stellen wir Ihnen qualifizierte Verstärkung zur Verfügung – exakt skalierbar nach Ihrem Bedarf. Nach Projektabschluss endet der Einsatz ohne Folgekosten."
+      },
+      {
+        "problem": "Krankheitsausfälle",
+        "issue": "Mehrere Mitarbeiter fallen gleichzeitig aus. Wichtige Abläufe sind gefährdet, Termine wackeln.",
+        "solution": "Unser Bereitschaftssystem ermöglicht Ersatz am selben Tag. Unsere Mitarbeiter werden vorab in Ihre Prozesse eingearbeitet und können sofort produktiv einspringen."
+      },
+      {
+        "problem": "Kostendruck in Saisongeschäften",
+        "issue": "Ihr Unternehmen hat starke saisonale Schwankungen. Feste Mitarbeiter für Spitzenzeiten wären unwirtschaftlich.",
+        "solution": "Flexible Personallösungen genau für Ihre Hochphasen. Kein Personalrisiko in der Nebensaison, keine Leerkosten, keine Abfindungen oder Ausgleichszahlungen."
+      },
+      {
+        "problem": "Fachkräftemangel",
+        "issue": "Trotz intensiver Suche bleiben Positionen unbesetzt. Projekte verzögern sich, bestehende Mitarbeiter werden überlastet.",
+        "solution": "Sofortzugriff auf unseren qualifizierten Mitarbeiterpool. Überbrückung bis zur Festanstellung mit Option zur späteren Übernahme bei Eignung."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Wir beantworten Ihre wichtigsten Fragen zur Leiharbeit mit TREU Service",
+    "questions": [
+      {
+        "question": "Wie schnell kann ein Mitarbeiter bei uns anfangen?",
+        "answer": "Im Normalfall können wir innerhalb von 24 Stunden nach Ihrer Anfrage eine passende Fachkraft bereitstellen. Bei speziellen Qualifikationsanforderungen kann es bis zu 48 Stunden dauern. In dringenden Fällen haben wir auch schon innerhalb von 4 Stunden Personal bereitgestellt – sprechen Sie uns an."
+      },
+      {
+        "question": "Welche Mindestlaufzeit gilt bei Arbeitnehmerüberlassung?",
+        "answer": "Bei TREU Service gibt es keine Mindestlaufzeit. Sie können unsere Mitarbeiter tageweise oder sogar stundenweise buchen. Die Abrechnung erfolgt exakt nach den tatsächlich geleisteten Arbeitsstunden. Dadurch haben Sie maximale Flexibilität bei schwankendem Personalbedarf."
+      },
+      {
+        "question": "Was kostet die Überlassung einer Fachkraft?",
+        "answer": "Die Kosten variieren je nach Qualifikation und Einsatzbereich. Für Helfer in Produktion oder Logistik beginnen die Stundensätze bei 24,50€, für qualifizierte Fachkräfte im Handwerk bei 29,80€ und für spezialisierte Bürokräfte bei 26,90€. Im Vergleich zu den Gesamtkosten einer Festanstellung (inkl. Lohnnebenkosten, Urlaub, Krankheit) sparen Sie bis zu 30%."
+      },
+      {
+        "question": "Kann ich einen Leiharbeitnehmer später fest übernehmen?",
+        "answer": "Ja, das ist jederzeit möglich und sogar gängige Praxis. Nach einer Überlassungsdauer von 3 Monaten fällt keine Vermittlungsgebühr an. Viele unserer Kunden nutzen die Leiharbeit als verlängerte Probezeit, um die Eignung der Mitarbeiter im täglichen Einsatz zu testen, bevor sie eine Festanstellung anbieten."
+      },
+      {
+        "question": "Wie sind die Leiharbeitnehmer qualifiziert?",
+        "answer": "Jeder unserer Mitarbeiter durchläuft einen mehrstufigen Auswahlprozess, der Qualifikationsprüfung, persönliche Interviews und Referenzchecks umfasst. Für spezielle Positionen führen wir zudem praktische Eignungstests durch. Dank unseres firmeneigenen Schulungszentrums können wir auch gezielt für spezifische Aufgaben qualifizieren."
+      },
+      {
+        "question": "Was passiert, wenn ein Mitarbeiter nicht zu uns passt?",
+        "answer": "In diesem Fall greift unsere Zufriedenheitsgarantie: Sollte ein überlassener Mitarbeiter nicht Ihren Erwartungen entsprechen, tauschen wir ihn innerhalb von 24 Stunden kostenlos aus. Sie zahlen nur für zufriedenstellende Leistung. Unsere Ersatzquote liegt branchenweit unter dem Durchschnitt bei nur 3,8%."
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Personal benötigt? Ein Anruf genügt.",
+    "subtitle": "Erhalten Sie innerhalb von 24 Stunden die Mitarbeiter, die Sie jetzt brauchen.",
+    "cta": {
+      "title": "Personalengpass? Wir lösen Ihr Problem – garantiert.",
+      "description": "Mit über 15 Jahren Erfahrung und mehr als 2.500 erfolgreich vermittelten Fachkräften sind wir der richtige Partner für Ihre Personalherausforderungen.",
+      "button": "Jetzt anfragen",
+      "call": "24/7 Personalhotline"
+    },
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "service": {
+        "label": "Bereich",
+        "placeholder": "Bitte wählen",
+        "options": [
+          "Produktion & Logistik",
+          "Büro & Verwaltung",
+          "Facility Management",
+          "Handwerk",
+          "Sonstiges"
+        ]
+      },
+      "message": {
+        "label": "Ihre Anfrage",
+        "placeholder": "Beschreiben Sie Ihren Personalbedarf (Qualifikation, Anzahl, Einsatzzeitraum)"
+      },
+      "submit": "Personalanfrage senden"
+    }
+  }
+}

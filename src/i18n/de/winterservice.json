@@ -1,0 +1,213 @@
+{
+  "hero": {
+    "title": "Winterdienst",
+    "subtitle": "Effizienter Winterdienst für Sicherheit und Mobilität.",
+    "description": "Unser Winterdienst umfasst alle wesentlichen Leistungen, um Ihre Wege und Flächen sicher und begehbar zu halten. Ob an Privathaushalte, Unternehmen und öffentliche Einrichtungen, wir bieten umfassende Dienstleistungen rund um die Räum- und Streupflicht, damit Sie sich keine Sorgen mehr um Schnee und Eis machen müssen."
+  },
+  "about": {
+    "title": "Ihr Partner für zuverlässigen Winterdienst",
+    "description": "TREU Service ist Ihr zuverlässiger Partner für umfassenden Winterdienst. Mit modernster Technik und erfahrenen Mitarbeitern sorgen wir dafür, dass Ihre Flächen auch bei widrigsten Wetterbedingungen sicher und begehbar bleiben.",
+    "checkpoints": [
+      "Garantierter Einsatz auch bei Extremwetterereignissen",
+      "Regelmäßige Schulungen unserer Mitarbeiter für optimalen Service",
+      "Modernste Geräte für effiziente und gründliche Schneeräumung",
+      "Umweltfreundliche Streumittel, die Ihre Oberflächen schonen"
+    ]
+  },
+  "basisleistungen": {
+    "title": "Unsere Winterdienstleistungen im Überblick",
+    "subtitle": "Umfassender Service für Ihre Sicherheit",
+    "items": [
+      "Schneeräumung und professionelles Streuen",
+      "Eisbeseitigung und Schwarzräumung",
+      "Umweltgerechte Streugutentfernung",
+      "Schneeabtransport und Verlagerung",
+      "Dokumentation der Einsätze für Ihre Rechtssicherheit"
+    ],
+    "note": "Unsere Winterdienstleistungen sorgen dafür, dass Sie auch bei extremen Witterungsbedingungen Ihre Verkehrssicherungspflicht erfüllen und Ihre Besucher, Kunden und Mitarbeiter sicher ans Ziel kommen."
+  },
+  "additionalServices": {
+    "title": "Weitere Dienstleistungen für den Winterdienst",
+    "services": [
+      {
+        "title": "Streumittelbehälter",
+        "description": "Wir liefern, befüllen und reinigen Ihre Streustoffboxen, sodass Sie stets ausreichend Materialien zur Hand haben."
+      },
+      {
+        "title": "Beratung zur Streumittelauswahl",
+        "description": "Wir helfen Ihnen bei der Auswahl der richtigen Streumittel, um die Rutschgefahr effektiv zu bannen und Ihre Flächen sicher zu machen."
+      }
+    ]
+  },
+  "process": {
+    "title": "Unser Winterdienst-Prozess",
+    "description": "So funktioniert unser professioneller Winterdienst - von der Wettervorhersage bis zur Dokumentation.",
+    "steps": [
+      {
+        "title": "Wetterüberwachung",
+        "description": "Rund um die Uhr beobachten wir Wettervorhersagen, um proaktiv auf Winterwetter reagieren zu können."
+      },
+      {
+        "title": "Einsatzplanung",
+        "description": "Bei Schnee- oder Eisprognosen bereiten wir unsere Teams und Ausrüstung vor und planen effiziente Routen."
+      },
+      {
+        "title": "Durchführung",
+        "description": "Unsere Teams führen die Schneeräumung und das Streuen gemäß den vereinbarten Prioritäten und Zeitfenstern durch."
+      },
+      {
+        "title": "Kontrolle",
+        "description": "Nach jedem Einsatz überprüfen wir die Qualität der Arbeiten und stellen sicher, dass alle Flächen sicher sind."
+      },
+      {
+        "title": "Dokumentation",
+        "description": "Jeder Einsatz wird sorgfältig dokumentiert - für Ihre Rechtssicherheit und transparente Abrechnung."
+      },
+      {
+        "title": "Nachbereitung",
+        "description": "Nach der Wintersaison führen wir eine gründliche Reinigung durch und entfernen alle Streumittelreste umweltgerecht."
+      }
+    ]
+  },
+  "challenges": {
+    "title": "Ihre Herausforderung. Unsere Lösung.",
+    "subtitle": "Die häufigsten Probleme im Winter - und wie wir sie für Sie lösen",
+    "items": [
+      {
+        "problem": "Unzuverlässige Dienstleister",
+        "issue": "Oft sind Winterdienste überbucht und schaffen es nicht rechtzeitig zu Ihnen, was Unfallrisiken und Haftungsprobleme verursacht.",
+        "solution": "Wir nehmen nur so viele Aufträge an, wie wir zuverlässig bedienen können, und garantieren Pünktlichkeit durch strategisch verteilte Teams in Ihrer Region."
+      },
+      {
+        "problem": "Verspätete Einsätze",
+        "issue": "Manche Anbieter sitzen zu weit entfernt und brauchen zu lange, um bei Schneefall zu reagieren - mit gefährlichen Wartezeiten für Sie.",
+        "solution": "Mit unserem 24/7-Überwachungssystem und lokalen Einsatzteams sind wir bereits vor Ort, wenn andere noch planen. Unsere Reaktionszeit beträgt maximal 30 Minuten nach Einsetzen des Schneefalls."
+      },
+      {
+        "problem": "Überforderung bei Extremwetter",
+        "issue": "Viele Winterdienste haben bei starkem Schneefall Probleme und brechen unter der Last zusammen, wenn Sie sie am dringendsten brauchen.",
+        "solution": "Unsere gestaffelte Ressourcenplanung mit zusätzlichen Bereitschaftsteams und Spezialgeräten für Extremwetter sorgt für Zuverlässigkeit auch bei heftigsten Schneefällen."
+      },
+      {
+        "problem": "Beschädigte Oberflächen",
+        "issue": "Aggressive Streumittel und unsachgemäße Räumung können teure Schäden an Ihren Pflasterflächen, Einfahrten und Grünanlagen verursachen.",
+        "solution": "Wir verwenden ausschließlich oberflächenschonende Geräte und umweltfreundliche Streumittel, die speziell für Ihre Bodenbeläge ausgewählt werden, und schulen unsere Mitarbeiter in schonenden Räumtechniken."
+      }
+    ]
+  },
+  "advantages": {
+    "title": "Unser Service – Zuverlässig und flexibel",
+    "description": "Was uns zum idealen Partner für Ihren Winterdienst macht",
+    "items": [
+      {
+        "title": "Erfahrenes Team",
+        "description": "Unsere Mitarbeiter sind hochqualifiziert und speziell für Winterdienstarbeiten zertifiziert, mit jahrelanger Erfahrung auch bei extremen Wetterlagen.",
+        "icon": "Star"
+      },
+      {
+        "title": "Schnelle Reaktionszeiten",
+        "description": "Mit strategisch verteilten Teams in Ihrer Nähe garantieren wir Einsatzzeiten unter 30 Minuten nach Einsetzen des Schneefalls.",
+        "icon": "Zap"
+      },
+      {
+        "title": "24/7-Service",
+        "description": "Der Winter kennt keine Öffnungszeiten, und das tun wir auch nicht. Tag und Nacht, auch an Feiertagen, kümmern wir uns um Ihre Flächen.",
+        "icon": "Clock"
+      },
+      {
+        "title": "Einhaltung gesetzlicher Vorschriften",
+        "description": "Wir sorgen dafür, dass Sie Ihren gesetzlichen Pflichten zur Schneeräumung und Verkehrssicherung nachkommen und schützen Sie vor Haftungsansprüchen.",
+        "icon": "FileText"
+      },
+      {
+        "title": "Maßgeschneiderte Räum- und Streupläne",
+        "description": "Nach einer detaillierten Analyse Ihrer Flächen erstellen wir gemeinsam mit Ihnen ein passgenaues Konzept, das genau auf Ihre Anforderungen zugeschnitten ist.",
+        "icon": "Cog"
+      },
+      {
+        "title": "Notfallplan für extreme Winterbedingungen",
+        "description": "Wir entwickeln maßgeschneiderte Notfallpläne mit zusätzlichen Ressourcen, um Ihre Flächen auch bei extremem Winterwetter sicher und einsatzbereit zu halten.",
+        "icon": "Shield"
+      },
+      {
+        "title": "Umweltfreundliche Methoden",
+        "description": "Wir setzen auf umweltschonende Streumittel, die effektiv sind und gleichzeitig Pflanzen und Gewässer schützen.",
+        "icon": "Leaf"
+      },
+      {
+        "title": "Transparente Dokumentation",
+        "description": "Alle unsere Einsätze werden digital dokumentiert, mit Zeitstempeln und Bildnachweisen, für maximale Transparenz und Rechtssicherheit.",
+        "icon": "ClipboardList"
+      },
+      {
+        "title": "Flexible Vertragsmodelle",
+        "description": "Von der Saisonpauschale bis zur einsatzbasierten Abrechnung - wir bieten individuelle Vertragsmodelle für jedes Budget und jeden Bedarf.",
+        "icon": "FileText"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Antworten auf die wichtigsten Fragen rund um unseren Winterdienst",
+    "questions": [
+      {
+        "question": "Ab wann sollte ich einen Winterdienst beauftragen?",
+        "answer": "Die ideale Zeit für die Beauftragung eines Winterdienstes ist der Spätsommer bis Frühherbst (August bis Oktober). In diesem Zeitraum können wir die optimale Planung für Ihre Flächen vornehmen und sicherstellen, dass alle Ressourcen rechtzeitig vor dem ersten Schneefall bereitstehen. Sie können uns jedoch auch während der Wintersaison kontaktieren - wir bemühen uns, auch kurzfristige Anfragen zu bedienen, sofern unsere Kapazitäten dies zulassen."
+      },
+      {
+        "question": "Was kostet ein professioneller Winterdienst?",
+        "answer": "Die Kosten für unseren Winterdienst richten sich nach verschiedenen Faktoren: Größe und Art der zu betreuenden Flächen, gewünschte Servicezeiten, Lage Ihrer Immobilie und die vereinbarte Leistungsfrequenz. Wir bieten sowohl Saisonpauschalen als auch einsatzbasierte Abrechnungsmodelle an. Nach einer kostenfreien Besichtigung Ihrer Flächen erstellen wir Ihnen ein transparentes Angebot ohne versteckte Kosten. Für eine erste Orientierung: Einfache Winterdienstleistungen für kleine Privatgrundstücke beginnen bei etwa 80-120€ monatlich während der Wintersaison."
+      },
+      {
+        "question": "Wie oft wird der Winterdienst durchgeführt?",
+        "answer": "Die Häufigkeit unserer Einsätze richtet sich nach den tatsächlichen Wetterbedingungen und Ihren individuellen Anforderungen. In der Regel erfolgt eine Schneeräumung, sobald eine Schneehöhe von 2-3 cm erreicht ist. Bei anhaltendem Schneefall führen wir mehrere Einsätze täglich durch. Bei Glätte und Eisbildung streuen wir proaktiv, um Unfälle zu vermeiden. Wir bieten auch verschiedene Servicepakete an - von der einmaligen Betreuung bei Bedarf bis zum Premium-Service mit kontinuierlicher Überwachung und sofortiger Reaktion bei kritischen Wetterbedingungen."
+      },
+      {
+        "question": "Welche Streumittel verwenden Sie?",
+        "answer": "Wir setzen hauptsächlich auf umweltfreundliche Streumittel wie Splitt, Granulat und speziellen Sand, die sowohl effektiv gegen Rutschgefahr wirken als auch Ihre Oberflächen und die Umwelt schonen. In besonderen Situationen, etwa bei Blitzeis oder extremen Minustemperaturen, verwenden wir umweltverträgliche Tausalz-Alternativen, die biologisch abbaubar sind und den örtlichen Umweltvorschriften entsprechen. Die genaue Auswahl der Streumittel passen wir individuell an Ihre spezifischen Anforderungen und die Art Ihrer Bodenbeläge an."
+      },
+      {
+        "question": "Was passiert bei extremen Schneefällen?",
+        "answer": "Für extreme Wetterereignisse haben wir spezielle Notfallpläne entwickelt. Bei Ankündigung von Extremschneefall erhöhen wir präventiv unsere Einsatzbereitschaft und aktivieren zusätzliche Ressourcen. Unsere Spezialfahrzeuge und Winterdienstteams arbeiten dann in Schichtsystemen rund um die Uhr, um die Begehbarkeit Ihrer Flächen zu gewährleisten. Bei Bedarf organisieren wir auch den Abtransport größerer Schneemassen, um Platz für neue Räumarbeiten zu schaffen. Für Prioritätskunden bieten wir zudem eine Schneefall-Garantie: Sollten Ihre Hauptwege nicht innerhalb von 2 Stunden nach Einsetzen des Schneefalls geräumt sein, erhalten Sie den Einsatz kostenfrei."
+      },
+      {
+        "question": "Bin ich zur Beauftragung eines Winterdienstes verpflichtet?",
+        "answer": "Grundsätzlich sind Grundstückseigentümer und in vielen Fällen auch Mieter (je nach Mietvertrag) gesetzlich zur Räumung und Streuung von Gehwegen entlang ihrer Grundstücke verpflichtet. Diese Verkehrssicherungspflicht gilt in der Regel werktags von 7:00 bis 20:00 Uhr, sonn- und feiertags von 8:00 oder 9:00 bis 20:00 Uhr (je nach lokaler Satzung). Bei Nichteinhaltung drohen sowohl Bußgelder als auch Haftungsansprüche bei Unfällen. Die Beauftragung eines professionellen Winterdienstes ist eine sichere Möglichkeit, diese Pflichten zu erfüllen und das Haftungsrisiko zu minimieren."
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Winterdienst anfragen",
+    "subtitle": "Lassen Sie die Experten ran - für Ihre Sicherheit im Winter",
+    "cta": {
+      "title": "Sorgenfreier Winter mit TREU Service",
+      "description": "Wir erstellen für Sie ein maßgeschneidertes Angebot! Teilen Sie uns einfach die Größe Ihrer zu betreuenden Flächen mit – Skizzen, Raumpläne oder Flächenmaße sind hilfreich. Gemeinsam entwickeln wir ein individuelles Konzept, übernehmen die Haftung und dokumentieren alles transparent und rechtssicher.",
+      "button": "Jetzt Angebot anfordern",
+      "call": "24/7 Erreichbar"
+    },
+    "form": {
+      "title": "Jetzt Winterdienst anfragen",
+      "subtitle": "Füllen Sie das Formular aus und wir melden uns umgehend bei Ihnen.",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "service": {
+        "label": "Gewünschte Leistung",
+        "placeholder": "Bitte wählen Sie...",
+        "options": [
+          "Winterdienst für Privatgrundstück",
+          "Winterdienst für Gewerbeimmobilie",
+          "Winterdienst für Mehrfamilienhaus",
+          "Winterdienst für öffentliche Einrichtung",
+          "Spezial-Winterdienst (Parkplätze, Großflächen)",
+          "Beratungsgespräch"
+        ]
+      },
+      "message": {
+        "label": "Ihre Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen..."
+      },
+      "submit": "Anfrage absenden"
+    }
+  }
+}

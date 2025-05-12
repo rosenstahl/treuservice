@@ -1,0 +1,325 @@
+{
+  "winterservice": {
+    "meta": {
+      "title": "Winter Service",
+      "subtitle": "Efficient Winter Service for Safety and Mobility"
+    },
+    "hero": {
+      "title": "Efficient Winter Service for Safety and Mobility",
+      "description": "Our winter service covers all essential tasks to keep your pathways and areas safe and passable. Whether for private households, companies, or public institutions, we provide comprehensive services for snow clearing and de-icing so you never have to worry about snow and ice again."
+    },
+    "mainServices": {
+      "title": "Overview of Our Winter Services",
+      "services": [
+        {
+          "title": "Snow Clearing and Spreading",
+          "description": "We clear snow and spread grit, granulate, and sand to protect your surfaces from slipping hazards."
+        },
+        {
+          "title": "Ice Removal and Black Clearing",
+          "description": "Using appropriate de-icing agents, we completely remove ice and snow, leaving only the black asphalt visible."
+        },
+        {
+          "title": "De-icing Material Removal",
+          "description": "After the winter sets in, we ensure the proper disposal of de-icing materials to protect the environment."
+        },
+        {
+          "title": "Snow Transportation and Relocation",
+          "description": "We transport excess snow away or relocate it to designated areas to free up space on your property."
+        }
+      ]
+    },
+    "serviceFeatures": {
+      "title": "Our Service – Reliable and Flexible",
+      "features": [
+        {
+          "title": "24/7 Service",
+          "description": "We work around the clock to keep your areas safe and passable at all times."
+        },
+        {
+          "title": "Compliance with Legal Regulations",
+          "description": "We ensure that you fulfill your legal obligations for snow clearing and traffic safety."
+        },
+        {
+          "title": "Tailored Snow Clearing and Spreading Plans",
+          "description": "After a detailed analysis of your premises, we develop a customized plan together with you."
+        },
+        {
+          "title": "Emergency Plan for Extreme Winter Conditions",
+          "description": "We create tailored emergency plans to keep your areas safe and operational even during extreme weather conditions."
+        }
+      ]
+    },
+    "additionalServices": {
+      "title": "Additional Winter Services",
+      "services": [
+        {
+          "title": "De-icing Material Containers",
+          "description": "We deliver, fill, and clean your de-icing material containers so you always have enough supplies on hand."
+        },
+        {
+          "title": "Consultation on De-icing Agent Selection",
+          "description": "We assist you in choosing the right de-icing agents to effectively eliminate slip hazards and keep your areas safe."
+        }
+      ]
+    },
+    "commonProblems": {
+      "title": "Common Problems – Our Solutions",
+      "intro": "Many customers are familiar with these challenges when it comes to winter services. At TREU Service GmbH, we have focused on providing the exact solutions you need:",
+      "problems": [
+        {
+          "question": "Why does no one arrive on time?",
+          "problem": "Often, winter services are overbooked and fail to arrive on time.",
+          "solution": "We only accept as many jobs as we can handle, ensuring punctual service no matter the weather."
+        },
+        {
+          "question": "When will it finally be cleared?",
+          "problem": "Some providers are located too far away and take too long to start.",
+          "solution": "We are always nearby, so we can react immediately as soon as snow or ice appears."
+        },
+        {
+          "question": "What if it snows extremely hard?",
+          "problem": "Many winter services struggle under heavy snowfall and collapse under the load.",
+          "solution": "With our emergency plans, your pathways and areas remain safe and passable even during extreme winter weather."
+        },
+        {
+          "question": "Why am I experiencing damage to my surfaces?",
+          "problem": "Aggressive de-icing agents can damage surfaces and cause long-term harm.",
+          "solution": "We use only gentle and environmentally friendly de-icing agents that protect your surfaces while remaining effective."
+        },
+        {
+          "question": "What are the actual costs?",
+          "problem": "Unclear billing or hidden costs are often a source of frustration.",
+          "solution": "With us, there are no surprises. We offer transparent billing with a clear flat rate that covers everything."
+        }
+      ]
+    },
+    "advantages": {
+      "title": "Why TREU Service?",
+      "items": [
+        {
+          "title": "Experienced Team",
+          "description": "Our staff is highly qualified and knows how to handle even the most challenging weather conditions."
+        },
+        {
+          "title": "Quick Response Times",
+          "description": "Being nearby allows us to respond quickly to any weather situation."
+        },
+        {
+          "title": "24/7 Availability",
+          "description": "Winter doesn’t have a curfew, and neither do we. We take care of your areas day and night—even on holidays."
+        },
+        {
+          "title": "Customized Solutions",
+          "description": "Tailored plans for large commercial spaces or high-traffic customer areas."
+        },
+        {
+          "title": "Environmentally Friendly Methods",
+          "description": "We rely on eco-friendly de-icing agents."
+        },
+        {
+          "title": "Transparency and Legal Compliance",
+          "description": "All our services are documented transparently and in compliance with legal standards."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Customer References and Testimonials",
+      "items": [
+        {
+          "text": "Since we started using TREU Service for our winter needs, our customer parking lots have always been safe and passable. A reliable partner we simply cannot do without.",
+          "author": "Max M.",
+          "position": "Business Customer"
+        },
+        {
+          "text": "The team at TREU Service is always punctual and clears our company parking lots quickly and efficiently. We are very satisfied with the collaboration.",
+          "author": "Sabine K.",
+          "position": "Operations Manager"
+        }
+      ]
+    },
+    "streuMittelVergleich": {
+      "title": "De-icing Agent Comparison",
+      "subtitle": "Comparison of de-icing agents for winter service: Pros and Cons",
+      "intro": "In winter service, various de-icing agents are available to combat ice and snow on roads and sidewalks. Each agent has specific advantages and disadvantages that should be considered based on the area of application.",
+      "mittel": {
+        "natriumchlorid": {
+          "name": "Sodium Chloride (Rock Salt)",
+          "wirkung": "Melts ice down to approximately -8°C",
+          "vorteile": [
+            "Cost-effective",
+            "Effective on ice"
+          ],
+          "nachteile": [
+            "Can harm the environment",
+            "Leads to rust formation"
+          ]
+        },
+        "feuchtsalz": {
+          "name": "Calcium Chloride (Sole FS30)",
+          "wirkung": "Melts ice down to approximately -6°C",
+          "vorteile": [
+            "Good adhesion on roads",
+            "High efficiency",
+            "Fast acting"
+          ],
+          "nachteile": [
+            "Also impacts the environment",
+            "Promotes corrosion"
+          ]
+        },
+        "calciumchlorid": {
+          "name": "Calcium Chloride/Magnesium Chloride",
+          "wirkung": "Melts ice down to approximately -30°C",
+          "vorteile": [
+            "Very effective at extremely low temperatures",
+            "Reacts well with humidity"
+          ],
+          "nachteile": [
+            "High cost",
+            "Environmental impact due to chlorides",
+            "Promotes corrosion"
+          ]
+        },
+        "technischerHarnstoff": {
+          "name": "Technical Urea",
+          "wirkung": "Melts ice down to approximately -8°C",
+          "vorteile": [
+            "Alternative to rock salt"
+          ],
+          "nachteile": [
+            "Expensive",
+            "Can contaminate groundwater"
+          ]
+        },
+        "lavagranulat": {
+          "name": "Lava Granulate, Expanded Clay, Other Granulates",
+          "wirkung": "Abrasive (does not melt ice)",
+          "vorteile": [
+            "Natural minerals",
+            "Can retain water"
+          ],
+          "nachteile": [
+            "Generates fine dust",
+            "Requires disposal"
+          ]
+        },
+        "splitt": {
+          "name": "Grit",
+          "wirkung": "Abrasive (does not melt ice)",
+          "vorteile": [
+            "Very effective anti-slip properties",
+            "Natural material"
+          ],
+          "nachteile": [
+            "Can scratch surfaces such as tiles and parquet"
+          ]
+        }
+      },
+      "conclusion": "The choice of the right de-icing agent depends on various factors such as ambient temperature, environmental impact, and cost. For extremely cold conditions, calcium or magnesium chloride is very effective, although more expensive and less eco-friendly. Natural de-icing agents like lava granulate or grit are more environmentally friendly but do not have melting properties and must be removed after winter."
+    },
+    "diyTips": {
+      "steps": [
+        {
+          "title": "Tools",
+          "intro": "The right tools are crucial for effective winter service:",
+          "items": [
+            {
+              "title": "Shovel",
+              "description": "A robust metal snow shovel. For nighttime use, a sturdy wooden shovel without a metal edge helps reduce noise."
+            },
+            {
+              "title": "Snow Pusher",
+              "description": "Sturdy and efficient, especially for clearing large amounts of snow on sidewalks and driveways. Metal versions are ideal for harder snow."
+            },
+            {
+              "title": "Snow Scoop",
+              "description": "A specially designed snow scoop for narrow sidewalks that quickly and precisely clears tight spaces."
+            },
+            {
+              "title": "Spreader",
+              "description": "A spreader helps distribute salt and de-icing material evenly, which is particularly important on larger areas such as parking lots."
+            },
+            {
+              "title": "Snow Sweeper",
+              "description": "Gas-powered models are ideal for long, hard-to-reach areas. They tend to be more durable than battery-operated machines, which can quickly lose power."
+            },
+            {
+              "title": "Broom",
+              "description": "Perfect for sweeping up leftover grit after winter, leaving surfaces clean."
+            },
+            {
+              "title": "Vehicle for Winter Service",
+              "description": "If you use a car for winter service, you can equip it with a snow plow at the front and a spreader at the back. Ensure the vehicle and attachments are safe and designed for winter operations."
+            }
+          ]
+        },
+        {
+          "title": "Selection of De-icing Materials",
+          "intro": "The choice of de-icing material depends on local conditions and weather:",
+          "items": [
+            {
+              "title": "Salt",
+              "description": "Ideal for fast and effective ice removal. However, note that salt can damage plants and vehicles and also impacts the environment."
+            },
+            {
+              "title": "Sand and Grit",
+              "description": "These materials are more environmentally friendly and provide good traction on icy surfaces. They are a great alternative if you wish to avoid salt or if you live in areas with strict environmental regulations."
+            },
+            {
+              "title": "Combinations",
+              "description": "Often, combining different de-icing materials can yield the best results."
+            }
+          ]
+        },
+        {
+          "title": "Snow Clearing and Spreading",
+          "intro": "Effective snow clearing and spreading requires a systematic approach:",
+          "items": [
+            {
+              "title": "Pre-emptive Spreading",
+              "description": "Monitor the weather closely and spread de-icing material just before snowfall begins. This allows the snow to melt immediately rather than settling. At 0°C or below, snow tends to stick, so early action is crucial."
+            },
+            {
+              "title": "Clearing Snow",
+              "description": "Always start by removing the largest accumulations of snow. Push the snow aside, ensuring it doesn’t end up on roads or sidewalks."
+            },
+            {
+              "title": "Spreading",
+              "description": "After clearing, spread the de-icing material evenly to prevent slip hazards. Use a spreader for large areas or a bucket and shovel for smaller spaces."
+            },
+            {
+              "title": "Monitoring",
+              "description": "Regularly check the cleared and treated areas, especially during prolonged snowfall or heavy frost. Ensure there is enough de-icing material available and reapply if necessary."
+            }
+          ]
+        },
+        {
+          "title": "Post-Winter Service – Cleaning and Maintenance",
+          "intro": "Once the snow has been cleared and areas treated, you should clean and maintain the tools and materials:",
+          "items": [
+            {
+              "title": "Cleaning Tools",
+              "description": "Remove any residual de-icing material from your tools to prevent rust. Shovels and clearing equipment should be stored clean and dry."
+            },
+            {
+              "title": "Removing De-icing Material",
+              "description": "After winter, remove any excess de-icing material to protect the environment and prevent damage to plants and animals in spring."
+            }
+          ]
+        }
+      ]
+    },
+    "conclusion": {
+      "title": "In Conclusion",
+      "text": "With proper planning and the right tools, you can efficiently and safely handle your winter service at home. If you need support or have any questions, TREU Service GmbH is always here to help.",
+      "motto": "Stay safe and enjoy the winter!"
+    }
+  },
+  "contact": {
+    "title": "Contact Us for Your Winter Service",
+    "subtitle": "Would you like to leave it to the professionals?",
+    "description": "We will create a tailored offer for you! Simply share the size of the areas you need serviced – sketches, floor plans, or measurements are very helpful. Together, we develop an individualized concept, assume liability, and document everything transparently and in accordance with legal requirements.",
+    "cta": "Call us or use our contact form – we look forward to your inquiry!"
+  }
+}

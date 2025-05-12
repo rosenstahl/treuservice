@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "title": "Clearance Services",
+    "subtitle": "Professional Clearance with Heart and Understanding",
+    "description": "When spaces need new perspectives, we are your reliable partner for professional clearance services. With years of experience and a well-coordinated team, we transform cluttered spaces into new possibilities - efficiently, discreetly, and sustainably.",
+    "cta": "Request Quote Now"
+  },
+  "intro": {
+    "title": "Your Trust Drives Us",
+    "description": "A clearance often means more than just removing items. We understand the emotional component and guide you sensitively through this process. Whether it's household dissolution, estate settlement, or commercial clearance - we are the partner at your side who combines professionalism with a sensitive touch."
+  },
+  "versprechen": {
+    "title": "Our Promise to You",
+    "items": [
+      {
+        "title": "Free On-Site Initial Consultation",
+        "description": "Transparent pricing without hidden costs"
+      },
+      {
+        "title": "Tailored Solutions",
+        "description": "From single rooms to complete commercial properties"
+      },
+      {
+        "title": "Sustainable Concept",
+        "description": "Professional sorting and environmentally conscious disposal"
+      },
+      {
+        "title": "Time Savings",
+        "description": "Fast and efficient execution thanks to experienced team"
+      },
+      {
+        "title": "All-Round Service",
+        "description": "From initial consultation to broom-clean handover"
+      }
+    ]
+  },
+  "leistungen": {
+    "title": "Our Range of Services in Detail",
+    "description": "From classic clearance to specialized tasks - we offer you the complete spectrum of professional clearance services.",
+    "services": [
+      {
+        "category": "Professional Clearance",
+        "items": [
+          "Complete household dissolutions",
+          "Commercial clearances",
+          "Basement clearances",
+          "Attic clearances",
+          "Garage clearances",
+          "Property clearances"
+        ]
+      },
+      {
+        "category": "Additional Services",
+        "items": [
+          "Professional dismantling of furniture and fixtures",
+          "Certified document destruction",
+          "Valuation of antiques and valuable items",
+          "Container provision of all sizes",
+          "Professional final cleaning",
+          "Painting work and renovation"
+        ]
+      }
+    ]
+  },
+  "arbeitsweise": {
+    "title": "Our Working Method",
+    "steps": [
+      {
+        "title": "Personal Consultation",
+        "description": "Free initial inspection and detailed inventory"
+      },
+      {
+        "title": "Individual Concept",
+        "description": "Tailored clearance plan according to your needs"
+      },
+      {
+        "title": "Professional Execution",
+        "description": "Quick and thorough implementation by trained personnel"
+      },
+      {
+        "title": "Sustainable Disposal",
+        "description": "Environmentally friendly recycling and disposal of all materials"
+      },
+      {
+        "title": "Quality Assurance",
+        "description": "Broom-clean handover and acceptance protocol"
+      }
+    ]
+  },
+  "vorteile": {
+    "title": "Why You Can Trust Us",
+    "items": [
+      "Over 15 years of industry experience",
+      "Trained and trustworthy personnel",
+      "State-of-the-art equipment and transport vehicles",
+      "All required insurance and certifications",
+      "Guaranteed punctuality and fixed prices",
+      "Continuous contact persons"
+    ]
+  },
+  "kontakt": {
+    "title": "Contact",
+    "description": "Trust our expertise for your clearance needs.",
+    "cta": "Contact us today for a non-binding consultation."
+  }
+}

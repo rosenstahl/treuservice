@@ -1,0 +1,135 @@
+{
+  "hero": {
+    "title": "Temporary Staffing",
+    "subtitle": "The right person. Right now. No detours.",
+    "description": "Need qualified staff at short notice? We deliver exactly the professionals you need now – without administrative effort and long-term commitments."
+  },
+  "basisleistungen": {
+    "title": "Staffing Made Simple",
+    "subtitle": "No complexity. No risk.",
+    "note": "We handle everything for you – from personnel selection to payroll processing.",
+    "items": [
+      "Qualified professionals within 24 hours",
+      "Flexible: No minimum terms, no risk",
+      "Full cost control without hidden fees",
+      "We handle all administrative tasks",
+      "100% legally compliant with current collective agreements"
+    ]
+  },
+  "spezialisierteLoesungen": {
+    "title": "Our Professionals. Your Success.",
+    "services": [
+      {
+        "title": "Production & Logistics",
+        "description": "Immediately deployable workers for warehouse, production, and order picking.",
+        "details": [
+          "Production workers with technical understanding",
+          "Experienced forklift operators with license",
+          "Reliable order pickers",
+          "Quality assurance personnel"
+        ]
+      },
+      {
+        "title": "Office & Administration",
+        "description": "Competent office staff for smooth operations during temporary bottlenecks.",
+        "details": [
+          "Experienced office clerks",
+          "Professional reception staff",
+          "Accounting administrators",
+          "Project assistants"
+        ]
+      },
+      {
+        "title": "Facility Management",
+        "description": "Specialized personnel for the maintenance of your buildings and facilities.",
+        "details": [
+          "Qualified facility managers",
+          "Cleaning staff for special tasks",
+          "Technicians for building services",
+          "Green space maintenance workers"
+        ]
+      },
+      {
+        "title": "Skilled Trades",
+        "description": "Quick support from experienced craftsmen for your projects.",
+        "details": [
+          "Electrical specialists",
+          "Plumbing and HVAC technicians",
+          "Painters and varnishers",
+          "Locksmiths and metal workers"
+        ]
+      }
+    ]
+  },
+  "warumTreuService": {
+    "title": "Why TREU Service",
+    "items": [
+      "Speed: 24 hours from call to deployment.",
+      "Quality: Carefully selected and vetted employees.",
+      "Flexibility: You determine duration and scope – we deliver.",
+      "Transparency: Clear costs. No hidden fees.",
+      "Security: Legally compliant contracts. No risk for you."
+    ]
+  },
+  "haeufigeProbleme": {
+    "title": "Your Challenge. Our Solution.",
+    "subtitle": "Typical staffing situations we can solve immediately",
+    "items": [
+      {
+        "problem": "Sudden Peak Workloads",
+        "issue": "Unexpected orders overwhelm your permanent staff.",
+        "solution": "Immediately available professionals. No overloading your employees."
+      },
+      {
+        "problem": "Illness-Related Absences",
+        "issue": "Sudden staff shortages jeopardize your deadlines.",
+        "solution": "Short-term, qualified replacements. Your schedules remain secure."
+      },
+      {
+        "problem": "Cost Pressure",
+        "issue": "Permanent staff for temporary tasks is uneconomical.",
+        "solution": "Flexible staffing without fixed costs. Only pay when you need us."
+      },
+      {
+        "problem": "Skilled Worker Shortage",
+        "issue": "Positions remain unfilled. Projects get delayed.",
+        "solution": "Immediate coverage. Later permanent hiring possible if needed."
+      }
+    ]
+  },
+  "qualitaetsversprechen": {
+    "items": [
+      "One contact person for everything",
+      "Personal on-site support",
+      "Precisely matched personnel selection",
+      "Ready for deployment within 24h",
+      "Transparent billing",
+      "Fair compensation for all employees"
+    ]
+  },
+  "kontakt": {
+    "title": "Need staff? One call is all it takes.",
+    "subtitle": "No-obligation conversation. Quick solution.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "service": {
+        "label": "Area",
+        "placeholder": "Please select",
+        "options": [
+          "Production & Logistics",
+          "Office & Administration",
+          "Facility Management",
+          "Skilled Trades",
+          "Other"
+        ]
+      },
+      "message": {
+        "label": "Your Request",
+        "placeholder": "How can we help you? (Area, qualification, time period)"
+      },
+      "submit": "Send Request"
+    }
+  }
+}

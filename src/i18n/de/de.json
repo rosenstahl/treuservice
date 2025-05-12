@@ -1,0 +1,369 @@
+{
+  "navigation": {
+    "services": {
+      "reinigung": {
+        "title": "Reinigung",
+        "href": "/reinigung",
+        "items": [
+          "Unterhaltsreinigung",
+          "Grundreinigung",
+          "Glas- und Fassadenreinigung",
+          "Industriereinigung",
+          "Außenanlagenpflege",
+          "Sonderreinigung",
+          "Reinraumreinigung",
+          "Verkehrsmittelreinigung",
+          "Hotelreinigung",
+          "Veranstaltungsreinigung",
+          "Baureinigung",
+          "Steinreinigung",
+          "Dachreinigung",
+          "Solarreinigung"
+        ]
+      },
+      "security": {
+        "title": "Security",
+        "href": "/security",
+        "items": [
+          "Objektschutz",
+          "Werkschutz",
+          "Baustellenbewachung",
+          "Sicherheit für Asylunterkünfte",
+          "City-Streife",
+          "Revier- und Streifendienst",
+          "Doorman",
+          "Laden- und Kaufhausdetektiv",
+          "Empfangs- und Pfortendienst",
+          "Night-Audit",
+          "Empfang und Sicherheit für Hotels",
+          "Event- und Veranstaltungsschutz",
+          "Standwache Messeschutz",
+          "Ordnerdienst",
+          "Parkraummanagement"
+        ]
+      },
+      "winterdienst": {
+        "title": "Winterdienst",
+        "href": "/winterdienst"
+      }
+    },
+    "weitere_leistungen": [
+      {
+        "title": "Entrümpelung",
+        "href": "/entruempelung",
+        "description": "Professionelle Entrümpelung mit Herz und Verstand"
+      },
+      {
+        "title": "PV-Montage",
+        "href": "/pv-montage",
+        "description": "Professionelle Installation von Photovoltaikanlagen"
+      },
+      {
+        "title": "Entkernung",
+        "href": "/entkernung",
+        "description": "Professioneller Rückbau für Ihren Neubeginn"
+      },
+      {
+        "title": "Schadensanierung",
+        "href": "/sanierung",
+        "description": "Brand-, Wasser- und Schimmelpilzsanierung"
+      }
+    ],
+    "menu": {
+      "about": "Über uns",
+      "contact": "Kontakt",
+      "blog": "Blog",
+      "legal": "Rechtliches",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "terms": "AGB"
+    }
+  },
+"blog": {
+"winterdienst": {
+  "categories": [
+    { "title": "Winterdienst selbst gemacht", "slug": "diy" },
+    { "title": "Streumittel-Vergleich", "slug": "streumittel" }
+    ]
+  },
+  "reinigung": {
+    "categories": [
+      { "title": "Reinigung: Probleme & Lösungen", "slug": "probleme" }
+    ]
+  },
+  "security": {
+    "categories": [
+      { "title": "Notfallpläne", "slug": "notfallplaene"
+        }
+      ]
+    }
+  },
+"testimonials": {
+  "title": "Stimmen unserer zufriedenen Kunden",
+  "all": [
+    {
+      "quote": "Musste letzten Monat kurzfristig eine Reinigungsfirma finden, nachdem unser alter Anbieter einfach nicht mehr aufgetaucht ist... typisch! TREU hat uns aus der Patsche geholfen. Die Jungs sind nett und wenn was nicht passt, kann man mit denen reden. Das ist mir wichtig.",
+      "author": "Michael S.",
+      "designation": "Facility Manager"
+    },
+    {
+      "quote": "Die kommen zweimal die Woche, machen ihren Job, ohne dass ich ständig hinterher sein muss. Hatte neulich das Problem, dass wir spontan saubermachen mussten wegen Besuch aus der Zentrale. Hab bei TREU angerufen und die waren noch am selben Tag da. Sowas ist Gold wert! Man hat halt seine Ruhe.",
+      "author": "Julia K.",
+      "designation": "Filialleitung"
+    },
+    {
+      "quote": "Als Hoteldirektor kriegt man ja ALLES mit, was die Gäste so schreiben... ihr wisst schon, diese Online-Bewertungen usw. Und jeder zweite Gast meckert über irgendwas mit der Sauberkeit. Seit wir mit TREU zusammenarbeiten, haben wir deutlich weniger von diesen 'das Zimmer war nicht sauber'-Kommentaren.",
+      "author": "Ahmed Y.",
+      "designation": "Hoteldirektor"
+    },
+    {
+      "quote": "Unsere Produktion ist echt ne Herausforderung für jede Reinigungsfirma. Mit TREU läuft's jetzt seit über nem Jahr. Hatte letztens ein gutes Gespräch mit dem Teamleiter, der hat echt zugehört und direkt Lösungen vorgeschlagen. Für mich zählt am Ende, dass die Maschinen sauber sind und das kriegen die hin.",
+      "author": "Stefan B.",
+      "designation": "Produktionsleiter"
+    },
+    {
+      "quote": "Wir hatten letztes Jahr bei unserem Ladengeschäft öfter Probleme mit sagen wir mal 'schwierigen Kunden'. Einer von TREU hat da echt gute Arbeit geleistet. Der hat jemanden der schon total aggressiv war, einfach ruhig zur Seite genommen und die Situation entschärft. Ohne dass andere Kunden was mitbekommen haben. Klasse!",
+      "author": "Peter M.",
+      "designation": "Geschäftsführer"
+    },
+    {
+      "quote": "Wir hatten TREU für unser Stadtfest gebucht. Besonders gut fand ich, dass die Security-Leute auch mal gelacht haben und nicht nur grimmig rumstanden wie bei anderen Firmen. Ach ja, und nach dem Festival haben die sogar geholfen, ein paar Sachen wegzuräumen. Sowas merkt man sich halt als Veranstalter!",
+      "author": "Maria L.",
+      "designation": "Eventmanagerin"
+    },
+    {
+      "quote": "Mein Job als Sicherheitsbeauftragter ist es, auf Schwachstellen zu achten und da bin ich echt pingelig. TREU hat sich diesem 'Stresstest' gestellt und macht insgesamt einen ordentlichen Job. Was mir aber echt gut gefällt, sind die monatlichen Berichte super detailliert und hilft mir, meinem Chef zu zeigen, wofür wir das Geld ausgeben.",
+      "author": "Mehmet A.",
+      "designation": "Sicherheitsbeauftragter"
+    },
+    {
+      "quote": "Was mir besonders gefällt, ist die Technik, die die einsetzen. Wir haben jetzt so ein Online-System, wo ich genau sehen kann, wann die Wachrunden gemacht wurden. Das hat mir schon mehrfach den Hintern gerettet, wenn der Chef wieder irgendwelche Beweise sehen wollte.",
+      "author": "Sarah B.",
+      "designation": "Facility Managerin"
+    },
+    {
+      "quote": "Wir Schnee Chaos hoch drei und unsere Kunden standen trotzdem pünktlich vor dem Center. Aber nur, weil TREU schon um 4 Uhr morgens angefangen hat zu räumen. Muss sagen, das hat mich echt beeindruckt. Die haben auch eigenes Equipment, müssen keins ausleihen, wie die Firma davor. Hervorragend.",
+      "author": "Markus W.",
+      "designation": "Centermanager"
+    },
+    {
+      "quote": "Bei uns in der Spedition geht's morgens schon um 5 Uhr los, und wenn da die Zufahrt nicht frei ist, steht alles still. Hab mit TREU einen Winterdienstvertrag gemacht, nachdem der vorherige Anbieter ständig zu spät kam. Hatte am Anfang Bedenken, weil der Chef jung ist, aber seine Leute machen ihren Job gut.",
+      "author": "Sabine K.",
+      "designation": "Betriebsleiterin"
+    },
+    {
+      "quote": "Die machen das jetzt seit 2 Wintern. Die Jungs sind pünktlich und freundlich. Hab auch schon mitbekommen, wie sie einer älteren Mieterin die Einkaufstaschen hochgetragen haben. Das sind so Kleinigkeiten, die im Preis nicht drinstehen, aber die Atmosphäre im Haus verbessern. Das rechne ich denen hoch an!",
+      "author": "Johannes R.",
+      "designation": "Hausverwalter"
+    },
+    {
+      "quote": "Für uns im Seniorennheim ist der Winterdienst echt kritisch. Unsere Bewohner und Besucher sind oft nicht mehr so gut zu Fuß, und ein Sturz kann richtig böse enden. Aber muss sagen die machen das echt gut. Die Wege sind immer rechtzeitig geräumt, und das Team achtet auf besondere Anforderungen.",
+      "author": "Christina W.",
+      "designation": "Einrichtungsleitung"
+    },
+    {
+      "quote": "Die Installation lief recht fix. Jetzt läuft die Anlage seit 4 Monaten und ich kann tatsächlich schon den Unterschied auf der Stromrechnung sehen! Hat sich also gelohnt.",
+      "author": "Mareike S.",
+      "designation": "Hausbesitzerin"
+    },
+    {
+      "quote": "Wollte für unsere Firma schon länger auf erneuerbare Energien setzen nicht nur aus Umweltgründen, sondern auch wegen der steigenden Energiekosten. Nach langem Hin und Her hab ich TREU den Auftrag für ne große PV-Anlage gegeben. Der Installationsprozess war reibungslos.",
+      "author": "Klaus H.",
+      "designation": "Geschäftsführer"
+    },
+    {
+      "quote": "Hatten erst überlegt, ob wir's selber machen, aber zum Glück hab ich dann doch TREU beauftragt. Haben sogar ein paar original Türrahmen gerettet. Sie haben jeden Abend aufgeräumt und sogar die Nachbarn vorgewarnt. Zeitplan haben sie auch eingehalten, was bei Bausachen fast ein Wunder ist.",
+      "author": "Markus H.",
+      "designation": "Bauherr"
+    },
+    {
+      "quote": "Wir mussten unsere Büroetage entkernen, während im Rest des Gebäudes normal gearbeitet wurde - komplizierte Sache! Hab mich für TREU entschieden, weil die in ihrem Angebot explizit auf die Herausforderung eingegangen sind.",
+      "author": "Lena K.",
+      "designation": "Projektleiterin"
+    },
+    {
+      "quote": "Hatte einen Rohrbruch und das ganze Erdgeschoss stand unter Wasser. Meine Versicherung hat TREU für die Sanierung empfohlen. Die waren noch am selben Tag da. Die haben nicht einfach nur den Schaden behoben, sondern auch geguckt, WARUM das passiert ist, und haben mit mir Präventionsmaßnahmen besprochen.",
+      "author": "Elena P.",
+      "designation": "Immobilienbesitzerin"
+    },
+    {
+      "quote": "Hatte Schimmel in der Wohnung entdeckt. Über einen Kumpel hab ich dann TREU empfohlen bekommen. Es hat mich beeindruckt, dass sie mir sogar abgeraten haben die große Sanierung zu machen. Sie haben eine Ursachenanalyse gemacht und festgestellt, dass mein Lüftungsverhalten das Hauptproblem war.",
+      "author": "Thomas G.",
+      "designation": "Wohnungseigentümer"
+    },
+    {
+      "quote": "Die Wohnung meiner Eltern zu entrümpeln war emotional echt hart für mich. 40 Jahre Familiengeschichte, und ich wusste gar nicht, wo ich anfangen sollte. Hätte nicht gedacht, dass man bei sowas auch mit Fingerspitzengefühl arbeiten kann. Top Service!",
+      "author": "Katja F.",
+      "designation": "Privatkundin"
+    },
+    {
+      "quote": "Wir brauchten eine super schnelle Entrümpelung unserer alten Lagerhalle. Die haben in 2 Tagen die komplette Halle leergeräumt. Hab auch ne genaue Auflistung bekommen, welcher Müll wohin ging. Für mich war wichtig, dass da nichts illegal entsorgt wird, und da hab ich mich bei TREU gut aufgehoben gefühlt.",
+      "author": "Farid N.",
+      "designation": "Betriebsleiter"
+    }
+  ]
+},
+  "imprint": {
+    "title": "Impressum",
+    "company": {
+      "title": "Unternehmensinformationen",
+      "name": "TREU Service GmbH",
+      "address": "Rheinische Straße 220",
+      "city": "44147 Dortmund",
+      "register": "Handelsregister: HRB 20627",
+      "court": "Registergericht: Dortmund"
+    },
+    "management": {
+      "title": "Vertreten durch",
+      "name": "Hasan Hüseyin Yilmaz"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "phone": "Telefon: 0231 15044352",
+      "email": "E-Mail: info@treuservice.com"
+    },
+    "tax": {
+      "title": "Umsatzsteuer-ID",
+      "content": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE362838091"
+    },
+    "qualifications": {
+      "title": "Berufsbezeichnung und berufsrechtliche Regelungen",
+      "profession": "Berufsbezeichnung: Handwerker",
+      "chamber": "Zuständige Kammer: Industrie-und Handelskammer zu Dortmund",
+      "chamberAddress": "Märkische Str. 120, 44141 Dortmund",
+      "country": "Verliehen in: Deutschland"
+    },
+    "authority": {
+      "title": "Aufsichtsbehörde",
+      "name": "Stadt Dortmund",
+      "address": "Olpe 1, 44135 Dortmund"
+    },
+    "dispute": {
+      "title": "Verbraucherstreitbeilegung/Universalschlichtungsstelle",
+      "content": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+    }
+  },
+  "about": {
+    "title": "Über uns",
+    "sections": [
+      {
+        "title": "Unsere Geschichte",
+        "content": [
+          "TREU Service GmbH ist ein Unternehmen, das auf harter Arbeit, Hingabe und einem unermüdlichen Streben nach Exzellenz aufgebaut wurde. Im Zentrum unseres Geschäfts stehen die Menschen, die alles möglich machen. Unser Team besteht aus hochqualifizierten Fachleuten, die leidenschaftlich daran arbeiten, unseren Kunden den bestmöglichen Service zu bieten.",
+          "Von unserem Gründer Hasan Yilmaz bis zu unserem engagierten Personal ist jedes Mitglied des TREU-Teams darauf ausgerichtet, außergewöhnlichen Service zu liefern. Wir sind davon überzeugt, dass unser Erfolg auf den Beziehungen basiert, die wir zu unseren Kunden aufbauen, und wir arbeiten unermüdlich daran, sicherzustellen, dass jede Interaktion positiv und produktiv ist.",
+          "Unser Team ist vielfältig und verfügt über ein breites Spektrum an Fähigkeiten und Fachwissen. Wir sind stolz auf unsere Fähigkeit, nahtlos zusammenzuarbeiten und die Stärken jedes Einzelnen zu nutzen, um herausragende Ergebnisse zu erzielen. Ob Sie Sicherheitsdienstleistungen, Gebäudereinigung oder Winterdienst benötigen – Sie können sich darauf verlassen, dass das TREU Service-Team die Arbeit richtig macht.",
+          "Wir sind stolz auf das Team, das wir bei TREU Service aufgebaut haben, und sind überzeugt, dass auch Sie davon begeistert sein werden. Unser Engagement für Exzellenz und unsere Leidenschaft für das, was wir tun, sind in all unseren Handlungen sichtbar. Wir freuen uns darauf, mit Ihnen zusammenzuarbeiten und den außergewöhnlichen Service zu liefern, der mit dem Namen TREU verbunden ist."
+        ]
+      },
+      {
+        "title": "Die Herausforderung",
+        "content": [
+          "In Deutschland herrscht derzeit ein erheblicher Mangel an Fachkräften in verschiedenen Branchen, einschließlich der Dienstleistungsbranche. Dies stellt Unternehmen vor die Herausforderung, geeignete Mitarbeiter zu finden und ihre Dienstleistungen auf einem hohen Niveau zu erbringen.",
+          "Eine weitere Herausforderung besteht darin, die individuellen Bedürfnisse und Erwartungen der Kunden zu erfüllen, um eine hohe Kundenzufriedenheit zu erreichen. Transparenz, menschliche Empathie und maßgeschneiderte Dienstleistungen sind hierbei von entscheidender Bedeutung.",
+          "Zudem bringt die technologische Weiterentwicklung und der Einsatz künstlicher Intelligenz Risiken für Arbeitsplätze in der Dienstleistungsbranche mit sich. Automatisierung könnte in naher Zukunft einige Arbeitsplätze ersetzen. Wir sind jedoch fest davon überzeugt, dass unsere Branche essenziell für die Gesellschaft ist, und setzen uns dafür ein, neue Arbeitsplätze zu schaffen.",
+          "Darüber hinaus investieren wir in Forschung und Entwicklung, um durch den Einsatz von künstlicher Intelligenz Innovationen in unserer Branche einzuführen. Wir sind bestrebt, moderne Technologien zu nutzen, um unsere Dienstleistungen zu verbessern und die Effizienz unserer Prozesse zu steigern, ohne die menschliche Komponente aus den Augen zu verlieren."
+        ]
+      },
+      {
+        "title": "Unsere Vision",
+        "content": [
+          "Unsere Vision bei TREU Service ist es, die erste Wahl für unsere Kunden in allen Bereichen zu sein, in denen wir tätig sind. Wir wollen nicht nur ein Dienstleistungsunternehmen sein, sondern auch ein zuverlässiger Partner, wenn es um Sicherheit, Sauberkeit und Nachhaltigkeit geht.",
+          "Wir streben danach, uns kontinuierlich weiterzuentwickeln und unser Angebot zu erweitern, um unseren Kunden stets die besten und neuesten Lösungen zu bieten. Dabei legen wir großen Wert auf die Auswirkungen unserer Arbeit auf die Umwelt und setzen auf nachhaltige Lösungen, um unseren ökologischen Fußabdruck zu minimieren, während wir gleichzeitig qualitativ hochwertige Dienstleistungen anbieten.",
+          "In 25 Jahren sehen wir uns als führendes Unternehmen in unseren Tätigkeitsbereichen, das sich durch Innovation und Nachhaltigkeit auszeichnet. Die Bedürfnisse unserer Kunden werden dabei immer an oberster Stelle stehen.",
+          "Unsere Vision und unsere Werte stehen im Einklang mit den Bedürfnissen unserer Kunden und unserer Mitarbeiter. Wir sind stolz darauf, Teil einer Branche zu sein, die einen wichtigen Beitrag zur Sicherheit und Sauberkeit unserer Gemeinschaften leistet."
+        ]
+      }
+    ],
+    "location": {
+      "title": "Standort",
+      "content": "Unser Unternehmen hat seinen Sitz in Dortmund und bietet Dienstleistungen in ganz Nordrhein-Westfalen an. Je nach Projektumfang sind wir auch deutschlandweit tätig und setzen uns dafür ein, die Bedürfnisse unserer Kunden vollständig zu erfüllen. Wir freuen uns darauf, mit Ihnen zusammenzuarbeiten und Ihnen den bestmöglichen Service zu bieten, den Sie verdienen."
+    }
+  },
+  "terms": {
+    "title": "Allgemeine Geschäftsbedingungen",
+    "lastUpdated": "Stand: Februar 2024",
+    "sections": [
+      {
+        "title": "1. Geltungsbereich",
+        "content": "Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Geschäftsbeziehungen zwischen der TREU Service GmbH (nachfolgend 'TREU Service') und ihren Kunden. Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, TREU Service stimmt ihrer Geltung ausdrücklich schriftlich zu."
+      },
+      {
+        "title": "2. Vertragsschluss",
+        "content": "Der Vertrag kommt durch schriftliche Auftragsbestätigung oder Beginn der Leistungserbringung durch TREU Service zustande. Angebote von TREU Service sind freibleibend und unverbindlich, sofern sie nicht ausdrücklich als verbindlich gekennzeichnet sind."
+      },
+      {
+        "title": "3. Leistungsumfang",
+        "content": "Der Umfang der Leistungen ergibt sich aus der schriftlichen Auftragsbestätigung oder dem Vertrag. TREU Service ist berechtigt, die Leistungen durch qualifizierte Mitarbeiter oder Subunternehmer erbringen zu lassen."
+      },
+      {
+        "title": "4. Preise und Zahlungsbedingungen",
+        "content": "Es gelten die vereinbarten Preise. Rechnungen sind innerhalb von 14 Tagen nach Rechnungsdatum ohne Abzug zahlbar. Bei Zahlungsverzug ist TREU Service berechtigt, Verzugszinsen in gesetzlicher Höhe zu berechnen."
+      },
+      {
+        "title": "5. Pflichten des Kunden",
+        "content": "Der Kunde gewährleistet den ungehinderten Zugang zu den zu reinigenden bzw. zu sichernden Bereichen. Er stellt kostenlos Wasser, Strom und geeignete Räumlichkeiten für das Personal zur Verfügung."
+      },
+      {
+        "title": "6. Haftung",
+        "content": "TREU Service haftet für Schäden, die durch vorsätzliches oder grob fahrlässiges Verhalten verursacht wurden. Bei leichter Fahrlässigkeit haftet TREU Service nur bei Verletzung wesentlicher Vertragspflichten und beschränkt auf den typischerweise vorhersehbaren Schaden."
+      },
+        {
+          "title": "7. Vertragsdauer und Kündigung",
+          "content": "Der Vertrag wird für die vereinbarte Dauer geschlossen. Bei unbefristeten Verträgen gilt eine Kündigungsfrist von 3 Monaten zum Monatsende, sofern nicht anders vereinbart."
+        },
+        {
+          "title": "8. Datenschutz",
+          "content": "TREU Service verarbeitet personenbezogene Daten unter Beachtung der geltenden Datenschutzbestimmungen. Nähere Informationen sind der Datenschutzerklärung zu entnehmen."
+        },
+        {
+          "title": "9. Gerichtsstand und anwendbares Recht",
+          "content": "Gerichtsstand ist Dortmund. Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts."
+        },
+        {
+          "title": "10. Salvatorische Klausel",
+          "content": "Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "responsible": {
+        "title": "Verantwortliche Stelle",
+        "content": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
+        "info": [
+          "TREU Service GmbH",
+          "Hasan Yilmaz",
+          "Rheinische Straße 220, 44147 Dortmund"
+        ]
+      },
+      "consent": {
+        "title": "Widerruf der Einwilligung",
+        "content": "Nur mit Ihrer ausdrücklichen Einwilligung sind einige Vorgänge der Datenverarbeitung möglich. Ein Widerruf Ihrer bereits erteilten Einwilligung ist jederzeit möglich. Für den Widerruf genügt eine formlose Mitteilung per E-Mail. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt."
+      },
+      "rights": {
+        "title": "Ihre Rechte",
+        "items": [
+          {
+            "title": "Recht auf Beschwerde",
+            "content": "Als Betroffener steht Ihnen im Falle eines datenschutzrechtlichen Verstoßes ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu."
+          },
+          {
+            "title": "Recht auf Datenübertragbarkeit",
+            "content": "Ihnen steht das Recht zu, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an Dritte aushändigen zu lassen."
+          },
+          {
+            "title": "Recht auf Auskunft, Berichtigung, Sperrung, Löschung",
+            "content": "Sie haben jederzeit im Rahmen der geltenden gesetzlichen Bestimmungen das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, Herkunft der Daten, deren Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten."
+          }
+        ]
+      },
+      "security": {
+        "title": "SSL- bzw. TLS-Verschlüsselung",
+        "content": "Aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte nutzt unsere Website eine SSL-bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von http:// auf https:// wechselt und an dem Schloss-Symbol in Ihrer Browserzeile."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Webbrowser auf Ihrem Endgerät speichert. Cookies helfen uns dabei, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen."
+      }
+    }
+  }

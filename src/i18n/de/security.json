@@ -1,0 +1,486 @@
+{
+  "hero": {
+    "title": "Security",
+    "subtitle": "Wir halten Ihnen den Rücken frei, damit Sie sich aufs Wesentliche konzentrieren können",
+    "description": "Willkommen bei TREU Security – Ihrem vertrauenswürdigen Partner für umfassende Sicherheitslösungen. Ihre Sicherheit ist unser Auftrag, damit Sie sich voll und ganz auf Ihre Aufgaben konzentrieren können. Unser erfahrenes Team steht Ihnen rund um die Uhr, verlässlich und diskret, zur Seite.",
+    "cta": "Beratung anfordern",
+    "ctaCall": "24/7 Hotline"
+  },
+  "about": {
+    "title": "Professionelle Sicherheit mit TREU Service",
+    "description": "TREU Service ist Ihr zuverlässiger Partner für maßgeschneiderte Sicherheitslösungen. Mit über 15 Jahren Erfahrung und mehr als 500 Sicherheitsfachkräften bundesweit sorgen wir für lückenlosen Schutz Ihrer Werte und Immobilien – rund um die Uhr, an 365 Tagen im Jahr.",
+    "checkpoints": [
+      "Alle Sicherheitskräfte nach §34a GewO zertifiziert",
+      "Bundesweites Sicherheitsnetz mit Reaktionszeit unter 15 Minuten",
+      "Modernste Überwachungstechnik und digitale Kontrollsysteme",
+      "Individuelle Sicherheitskonzepte für jede Anforderung"
+    ]
+  },
+  "basisleistungen": {
+    "title": "Unsere Basisleistungen",
+    "items": [
+      "Risikoanalyse & Konzepterstellung",
+      "Kontrollgänge & Überwachung",
+      "Zutrittskontrollen",
+      "Erste-Hilfe & Notfallmaßnahmen",
+      "Alarmierung & Intervention",
+      "Dokumentation & Berichtswesen"
+    ],
+    "note": "Diese Grundleistungen bilden das Herzstück all unserer Sicherheitsdienste. Jeder Einsatz beginnt mit einer professionellen Risikoanalyse und einem maßgeschneiderten Sicherheitskonzept, das genau auf Ihre Anforderungen zugeschnitten ist."
+  },
+  "specializedLoesungen": {
+    "title": "Entdecken Sie unsere spezialisierten Sicherheitslösungen:",
+    "labels": {
+      "einsatzgebiete": "Einsatzgebiete",
+      "leistungen": "Leistungen",
+      "angebotAnfordern": "Angebot anfordern",
+      "details": "Details"
+    },
+    "services": [
+      {
+        "icon": "Gebäude",
+        "title": "Objektschutz",
+        "tileText": "Industrieunternehmen, Produktionsstätten, Logistikzentren, Speditionen, Einkaufszentren, Supermärkte, Einzelhandelsketten, Banken, Behörden, staatliche Verwaltungen, Krankenhäuser, Seniorenheime, Pflegeheime, Museen, Kunstgalerien, Großveranstaltungen, Flughäfen, Bahnhöfe, Bürogebäude und Wohnanlagen",
+        "description": "Ihr Gebäude, unsere Verantwortung. Tägliche Einbrüche und Vandalismus verursachen Millionenschäden – mit modernster Technik und Elite-Personal sichern wir Ihre Immobilien rund um die Uhr, damit Sie sich voll auf Ihr Kerngeschäft konzentrieren können.",
+        "leistungen": [
+          "Rundum-Überwachung von Gebäuden und Außenanlagen",
+          "Überprüfung von Personen und Fahrzeugen",
+          "Zutrittskontrollen zur Verhinderung unbefugten Zugangs",
+          "Prävention von Diebstählen, Überfällen und Sachbeschädigungen",
+          "Regelmäßige Kontrollgänge",
+          "Sabotage- und Spionageschutz",
+          "Pforten- und Empfangsdienste",
+          "Öffnungs- und Schließdienste",
+          "Erste Hilfe und Brandwache",
+          "Alarminterventionsdienst und Sicherheitsanlagenkontrolle",
+          "Video-Monitoring"
+        ]
+      },
+      {
+        "icon": "Fabrik",
+        "title": "Werkschutz",
+        "tileText": "Industrieunternehmen, Produktionsstätten, Gewerbegebiete, Logistikzentren, Forschungseinrichtungen, Atomkraftwerke, Chemiewerke, Energieversorgungsbetriebe, Verwaltungsgebäude, Lagerhallen und Distributionseinrichtungen",
+        "description": "Sicherheit für Ihre Wertschöpfung. Der Diebstahl von Maschinen und Betriebsgeheimnissen kann jahrelange Arbeit in Stunden zunichtemachen. Unser spezialisierter Werkschutz sichert Ihre Produktionsabläufe durch hochqualifiziertes Personal und modernste Technik.",
+        "leistungen": [
+          "Überprüfung von Personen und Fahrzeugen",
+          "Zutrittskontrollen",
+          "Prävention von Diebstählen, Überfällen und Sachbeschädigungen",
+          "Schutz von Maschinen, Geräten und Materialien",
+          "Regelmäßige Kontrollgänge",
+          "Koordination des Lieferverkehrs",
+          "Bereitstellung und Kontrolle der Sicherheitsausrüstung",
+          "Erstellung von Zutrittsdokumenten",
+          "Absicherung feuergefährlicher Arbeiten",
+          "Video-Monitoring",
+          "Alarminterventionsdienst und Sicherheitsanlagenkontrolle",
+          "Erste Hilfe und Brandwache"
+        ]
+      },
+      {
+        "icon": "Bauhelm",
+        "title": "Baustellenbewachung",
+        "tileText": "Großbaustellen, Infrastrukturprojekte, Wohn- und Gewerbebau, Neubauten und Renovierungsprojekte, öffentliche Baustellen in Städten",
+        "description": "Damit Ihr Projekt sicher wächst. Bereits eine Nacht ohne Bewachung kann durch Diebstahl und Vandalismus zu massiven Verzögerungen führen. Unser hochmobiles Team schützt Ihre wertvollen Maschinen und Materialien rund um die Uhr.",
+        "leistungen": [
+          "Überprüfung von Personen und Fahrzeugen",
+          "Zutrittskontrollen",
+          "Prävention von Diebstählen, Überfällen und Sachbeschädigungen",
+          "Schutz von Maschinen und Materialien",
+          "Regelmäßige Kontrollgänge",
+          "Koordination des Lieferverkehrs",
+          "Erstellung von Baustellenausweisen",
+          "Absicherung feuergefährlicher Arbeiten",
+          "Video-Monitoring",
+          "Alarminterventionsdienst und Sicherheitsanlagenkontrolle",
+          "Erste Hilfe und Brandwache"
+        ]
+      },
+      {
+        "icon": "Haus",
+        "title": "Sicherheit für Asylunterkünfte",
+        "tileText": "Flüchtlingsheime, Gemeinschaftsunterkünfte, Sozialeinrichtungen, Sozialwohnanlagen, Betreuungseinrichtungen, Wohngruppen",
+        "description": "Sicherheit durch interkulturelle Kompetenz. Unser mehrsprachiges und interkulturell geschultes Team garantiert ein sicheres Umfeld durch Expertise und Sensibilität im Umgang mit Bewohnern.",
+        "leistungen": [
+          "Überprüfung von Personen und Fahrzeugen",
+          "Zutrittskontrollen",
+          "Alarminterventionsdienst und Sicherheitsanlagenkontrolle",
+          "Prävention von Diebstählen, Überfällen und Sachbeschädigungen",
+          "Durchsetzung des Hausrechts",
+          "Sicherung von Flucht- und Rettungswegen",
+          "Erste Hilfe und Brandwache",
+          "Regelmäßige Kontrollgänge",
+          "Nachtwache",
+          "Crowd Management",
+          "Unterstützung bei Bargeldauszahlungen",
+          "Sicherheitsbegleitung"
+        ]
+      },
+      {
+        "icon": "Stadt",
+        "title": "City-Streife",
+        "tileText": "Stadtzentren, Einkaufsstraßen, Parks, öffentliche Plätze, Bahnhöfe",
+        "description": "Ihr Garant für sichere Innenstädte. Unsere permanenten Streifen schaffen durch unmittelbare Intervention sichere öffentliche Räume.",
+        "leistungen": [
+          "Prävention von Diebstählen, Überfällen und Sachbeschädigungen",
+          "Regelmäßige Kontrollgänge",
+          "Überwachung verdächtiger Aktivitäten",
+          "Einhalten von Ruhezeiten",
+          "Deeskalation und Konfliktmanagement",
+          "Durchsetzung von Jugendschutz- und Umweltschutzvorschriften",
+          "Unterstützung von Kommunen",
+          "Sicherheitsbegleitung bei Großveranstaltungen"
+        ]
+      },
+      {
+        "icon": "Fußabdruck",
+        "title": "Revier- und Streifendienst",
+        "tileText": "Wohnanlagen, Industriegebiete, Parkhäuser, Einkaufszentren",
+        "description": "Mobile Sicherheit rund um die Uhr. Durch GPS-gestützte, unregelmäßige Kontrollen bieten wir maximale Sicherheit für weitläufige Objekte bei optimaler Kosteneffizienz.",
+        "leistungen": [
+          "Prävention von Vandalismus und Sachbeschädigung",
+          "Überwachung verdächtiger Personen",
+          "Regelmäßige Kontrollgänge",
+          "Verschlusskontrollen von Fenstern, Türen und Toren",
+          "Brandwache und Alarmintervention",
+          "Kooperation mit Polizei und Ordnungsbehörden",
+          "Veranstaltungsschutz mit mobiler Zugangskontrolle"
+        ]
+      },
+      {
+        "icon": "Tür",
+        "title": "Doorman",
+        "tileText": "Luxushotels, Banken, Einkaufszentren, Juweliergeschäfte, Apartmentanlagen, Luxusläden",
+        "description": "Ihr erster Eindruck in besten Händen. Unsere Elite-Doormen vereinen höchste Sicherheitsstandards mit exzellentem Service und repräsentieren Ihr Unternehmen auf Premiumlevel.",
+        "leistungen": [
+          "Freundlicher Empfang und Verabschiedung von Gästen",
+          "Einlass- und Taschenkontrollen",
+          "Ausweis- und Ticketkontrolle",
+          "Selektion der Gäste nach Vorgaben",
+          "Überprüfung der Gästeliste",
+          "Durchsetzung des Hausrechts",
+          "Überwachung verdächtiger Personen",
+          "Deeskalation und Konfliktmanagement",
+          "Prävention von Diebstählen, Überfällen und Sachbeschädigungen",
+          "Rechtskonforme vorläufige Festnahme und Weiterleitung an die Polizei",
+          "Crowd Management"
+        ]
+      },
+      {
+        "icon": "Detektiv",
+        "title": "Laden- & Kaufhausdetektiv",
+        "tileText": "Einkaufszentren, Supermärkte, Einzelhandelsketten, Apotheken, Luxusgeschäfte, Fachmärkte, Juwelierläden",
+        "description": "Professioneller Schutz gegen Inventurverluste. Unsere Spezialdetektive reduzieren Verluste durch modernste Präventionstechniken und rechtssichere Täterüberführung.",
+        "leistungen": [
+          "Überprüfung von Personen und Fahrzeugen",
+          "Zutrittskontrollen",
+          "Überwachung verdächtiger Personen",
+          "Durchsetzung des Hausrechts",
+          "Kooperation mit Polizei und Ordnungsbehörden",
+          "Rechtskonforme vorläufige Festnahme",
+          "Video-Monitoring",
+          "Deeskalation und Konfliktmanagement",
+          "Diskrete Observation im Zivildienst",
+          "Testkäufe und Testdiebstähle",
+          "Sicherstellung des Gebäudeschutzes nach Ladenschluss"
+        ]
+      },
+      {
+        "icon": "Rezeption",
+        "title": "Empfangs- & Pfortendienst",
+        "tileText": "Bürogebäude, Finanzinstitute, Banken, Krankenhäuser, Universitäten, öffentliche und staatliche Einrichtungen",
+        "description": "Sicherheit beginnt am Eingang. Unser qualifiziertes Empfangspersonal kombiniert lückenlose Zugangskontrolle mit erstklassigem Besucherservice.",
+        "leistungen": [
+          "Begrüßung und Registrierung von Besuchern und Mitarbeitern",
+          "Kontrolle von Personen-, Fahrzeug-, Waren- und Lieferverkehr",
+          "Öffnungs- und Schließdienste",
+          "Regelmäßige Kontrollgänge",
+          "Erstellung und Verwaltung von Besucherausweisen",
+          "Annahme und Weiterleitung von Post und Paketen",
+          "Verwaltung von Konferenzräumen und Fahrzeugpools",
+          "Schlüsselverwaltung",
+          "Telefonzentrale und Anrufweiterleitung",
+          "Überwachung sicherheitstechnischer Einrichtungen",
+          "Auskunfts- und Informationsdienste"
+        ]
+      },
+      {
+        "icon": "Hotel",
+        "title": "Night-Audit, Empfang & Sicherheit für Hotels",
+        "tileText": "Hotels, Resorts, Ferienanlagen, Seniorenresidenzen, Flughafenlounges",
+        "description": "Ihre Hotelsicherheit in der Nacht. Unser spezialisiertes Team vereint Sicherheits- und Empfangsdienste, um auch in den kritischsten Stunden optimalen Schutz und Service zu gewährleisten.",
+        "leistungen": [
+          "Check-In und Check-Out (auch bei Late Arrivals)",
+          "Erstellung des Tagesabschlusses und Übergabe an die Frühschicht",
+          "Bearbeitung von Reservierungen und Telefonanfragen",
+          "Regelmäßige Kontrollgänge",
+          "Überwachung sicherheitsrelevanter Bereiche",
+          "Vorbereitung der Rezeption für den nächsten Tag",
+          "Erstellung von Statistiken und Reports",
+          "Unterstützung im Barbereich oder Frühstücksaufbau",
+          "Schlüsselverwaltung und Zutrittskontrolle",
+          "Überwachung der Hotelanlage (Brandwache, Alarmsysteme)",
+          "Erste Hilfe und Notfallmaßnahmen"
+        ]
+      },
+      {
+        "icon": "Lautsprecher",
+        "title": "Event- & Veranstaltungsschutz",
+        "tileText": "Großveranstaltungen, Messen, Konzerte, Stadien, Sportevents, Festivals, Freiluftbühnen, Gemeindefeste, Marktplätze",
+        "description": "Damit Ihre Veranstaltung in Erinnerung bleibt. Unser Expertenteam sorgt mit modernster Crowd-Control-Technologie und deeskalierender Kommunikation für perfekte Sicherheit Ihrer Events.",
+        "leistungen": [
+          "Überprüfung von Personen und Fahrzeugen",
+          "Zutrittskontrollen",
+          "Durchsetzung des Hausrechts",
+          "Crowd Management",
+          "Deeskalation und Konfliktmanagement",
+          "Sicherung von Flucht- und Rettungswegen",
+          "Absicherung von Bühnen- und Backstagebereichen",
+          "Bereitstellung von Funkgeräten und Sicherheitszäunen",
+          "Einsatz von Metalldetektoren",
+          "Garderobenbetreuung",
+          "VIP-Begleitschutz"
+        ]
+      },
+      {
+        "icon": "Messehalle",
+        "title": "Standwache Messeschutz",
+        "tileText": "Messen, Ausstellungshallen, Fachmessen, Autohäuser, Showrooms, Verkaufsstände, Hotels bei Businessevents, Kreativ- und Kunstmessen",
+        "description": "Ihr Messeerfolg in sicheren Händen. Unsere spezialisierten Standwachen schützen Ihre wertvollen Exponate und sensiblen Informationen durch permanente Präsenz und modernste Überwachungstechnik.",
+        "leistungen": [
+          "Zugangskontrollen am Stand",
+          "Verhinderung unerlaubten Zutritts",
+          "Absperr- und Sicherungsdienste",
+          "Bewachung von Exponaten und Materialien",
+          "Regelmäßige Kontrollgänge",
+          "Nachtwache",
+          "Garderobendienste",
+          "Ordnungsdienste",
+          "Brandschutzkontrollen",
+          "Erste Hilfe",
+          "VIP-Betreuung",
+          "Schnittstelle zu Polizei und Feuerwehr"
+        ]
+      },
+      {
+        "icon": "Kontrollarmband",
+        "title": "Ordnerdienst",
+        "tileText": "Großveranstaltungen, Festivals, Stadien, Open-Air-Kinos, Konzerte, Club-Events, Gemeindeveranstaltungen, Stadtfeste, Freizeitparks",
+        "description": "Professionelles Crowd-Management. Unser hochqualifiziertes Ordnungspersonal garantiert durch Expertise und Deeskalationskompetenz den sicheren Ablauf jeder Großveranstaltung.",
+        "leistungen": [
+          "Überprüfung von Personen und Fahrzeugen",
+          "Zutrittskontrollen",
+          "Durchsetzung des Hausrechts",
+          "Crowd Management und Besucherüberwachung",
+          "Deeskalation und Konfliktmanagement",
+          "Regelmäßige Kontrollgänge",
+          "Sicherung von Flucht- und Rettungswegen",
+          "Absicherung von Bühnen- und Backstagebereichen",
+          "Platzeinweisung und Informationsdienste",
+          "Erste Hilfe",
+          "Streckenposten und VIP-Betreuung",
+          "Gebühreneinzug"
+        ]
+      },
+      {
+        "icon": "Parkplatz",
+        "title": "Parkraummanagement",
+        "tileText": "Parkhäuser, Tiefgaragen, Einkaufszentren, Veranstaltungsorte, Festivals, Stadien, Flughäfen, Hotels, Krankenhäuser, Bürogebäude",
+        "description": "Optimierte Sicherheit für Ihre Parkflächen. Unser digitalisiertes Konzept maximiert Ihre Erträge durch intelligente Steuerung und professionelle Kontrolle.",
+        "leistungen": [
+          "Parkplatzeinweisung und Verkehrsmanagement",
+          "Pförtnerdienst in Parkhäusern",
+          "Überwachung und Dokumentation von Falschparkern",
+          "Video-Monitoring",
+          "Regelmäßige Kontrollgänge",
+          "Prävention von Vandalismus",
+          "Schneeräumung und Reinigung von Parkflächen",
+          "Wartung von Schranken und Automaten",
+          "Kontrolle spezieller Parkplätze",
+          "Erhebung von Parkgebühren",
+          "Besucherservice vor Ort"
+        ]
+      },
+      {
+        "icon": "Lenkrad",
+        "title": "Fahr- & Chauffeurservice",
+        "tileText": "VIP-Transfers, Flughafentransfers, Shuttle-Services, diplomatische Einrichtungen, Botschaften",
+        "description": "Sicherer Transfer auf höchstem Niveau. Unsere Sicherheitsfahrer, alle mit Personenschutz-Qualifikation, garantieren maximale Sicherheit und höchste Diskretion.",
+        "leistungen": [
+          "Personenbeförderung",
+          "Bereitstellung von Sicherheitsfahrern und -begleitung",
+          "Limousinen- und Shuttleservice",
+          "Empfangsservice und Veranstaltungsbetreuung",
+          "Fahrzeugverfolgung",
+          "Bereitstellung von Wunschfahrzeugen (inkl. Sonderschutzfahrzeuge)",
+          "Boten- und Kurierdienst",
+          "Prävention von Diebstählen und Überfällen",
+          "Deeskalation und Konfliktmanagement",
+          "Alarmierung der Polizei und Anforderung von Verstärkung"
+        ]
+      }
+    ]
+  },
+  "process": {
+    "title": "Unser Sicherheitsprozess – zuverlässig und effizient",
+    "description": "Bei TREU Service folgen wir einem bewährten Prozess, der maximale Sicherheit und Effizienz bei jedem Einsatz garantiert – von der ersten Kontaktaufnahme bis zur kontinuierlichen Betreuung.",
+    "steps": [
+      {
+        "title": "Erstberatung",
+        "description": "Detaillierte Analyse Ihrer Sicherheitsanforderungen durch unsere Experten vor Ort."
+      },
+      {
+        "title": "Risikoanalyse",
+        "description": "Umfassende Bewertung potenzieller Gefahrenquellen und Sicherheitslücken."
+      },
+      {
+        "title": "Konzepterstellung",
+        "description": "Entwicklung eines maßgeschneiderten Sicherheitskonzepts mit detailliertem Einsatzplan."
+      },
+      {
+        "title": "Personalauswahl",
+        "description": "Einsatz speziell geschulter Sicherheitskräfte, angepasst an Ihre Anforderungen."
+      },
+      {
+        "title": "Implementierung",
+        "description": "Nahtlose Integration unserer Sicherheitsmaßnahmen in Ihre bestehenden Abläufe."
+      },
+      {
+        "title": "Kontinuierliche Betreuung",
+        "description": "Regelmäßige Anpassung und Optimierung des Sicherheitskonzepts nach Ihren Bedürfnissen."
+      }
+    ]
+  },
+  "commonIssues": {
+    "title": "Häufige Probleme - Unsere Lösungen",
+    "subtitle": "Sicherheit duldet keine Kompromisse – Unsere Lösungen für Ihre Herausforderungen",
+    "items": [
+      {
+        "problem": "Zuverlässigkeit?",
+        "issue": "Viele Dienstleister sind überlastet",
+        "solution": "Wir begrenzen unsere Aufträge für garantierte Verfügbarkeit"
+      },
+      {
+        "problem": "Reaktionszeit?",
+        "issue": "Zu lange Anfahrtswege bei Vorfällen",
+        "solution": "Immer in Ihrer Nähe für sofortige Intervention"
+      },
+      {
+        "problem": "Krisenmanagement?",
+        "issue": "Unsicherheit bei außergewöhnlichen Situationen",
+        "solution": "Maßgeschneiderte Notfallpläne für jeden Fall"
+      },
+      {
+        "problem": "Kostentransparenz?",
+        "issue": "Versteckte Gebühren und unklare Abrechnungen",
+        "solution": "Transparente Preise ohne Überraschungen"
+      },
+      {
+        "problem": "Qualitätsstandards?",
+        "issue": "Unzureichend qualifiziertes Personal und veraltete Technik",
+        "solution": "Regelmäßig geschulte Fachkräfte und modernste Technik"
+      },
+      {
+        "problem": "Personalfluktuation?",
+        "issue": "Ständig wechselnde Sicherheitskräfte ohne Objektkenntnisse",
+        "solution": "Feste Teams mit umfassender Einarbeitung und geringer Wechselquote"
+      }
+    ]
+  },
+  "qualitaetsversprechen": {
+    "title": "Unser Qualitätsversprechen:",
+    "items": [
+      "Zertifizierte Sicherheitskräfte nach § 34a GewO",
+      "24/7 Erreichbarkeit garantiert",
+      "Schnellste Reaktionszeit",
+      "Bundesweites Servicenetz",
+      "Modernste Sicherheitstechnik"
+    ]
+  },
+  "advantages": {
+    "title": "Unsere Vorteile",
+    "description": "Warum führende Unternehmen und öffentliche Einrichtungen auf TREU Security vertrauen",
+    "items": [
+      {
+        "title": "Schnelle Einsatzbereitschaft",
+        "description": "Innerhalb von 60 Minuten sind unsere Sicherheitskräfte einsatzbereit – an jedem Ort, zu jeder Zeit.",
+        "icon": "Zap"
+      },
+      {
+        "title": "Zertifizierte Sicherheitskräfte",
+        "description": "Alle Mitarbeiter mit §34a GewO-Zertifizierung und regelmäßigen Fortbildungen für höchste Kompetenz.",
+        "icon": "Badge"
+      },
+      {
+        "title": "Digitale Einsatzüberwachung",
+        "description": "GPS-basierte Kontrollsysteme für lückenlose Dokumentation und maximale Transparenz für Sie.",
+        "icon": "Network"
+      },
+      {
+        "title": "Maßgeschneiderte Konzepte",
+        "description": "Individuell angepasste Sicherheitslösungen statt Standardpakete – perfekt für Ihre spezifischen Anforderungen.",
+        "icon": "Settings"
+      },
+      {
+        "title": "Rund-um-die-Uhr Service",
+        "description": "24/7 Verfügbarkeit mit permanenter Erreichbarkeit unserer Einsatzzentrale für sofortige Reaktion.",
+        "icon": "Clock"
+      },
+      {
+        "title": "Modernste Sicherheitstechnologie",
+        "description": "Intelligente Überwachungssysteme und digitale Kontrollmechanismen für maximale Sicherheit.",
+        "icon": "Bell"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Antworten auf die wichtigsten Fragen zu unseren Sicherheitsdienstleistungen",
+    "questions": [
+      {
+        "question": "Wie schnell können Sie einen Sicherheitsdienst bereitstellen?",
+        "answer": "In Standardsituationen können wir innerhalb von 24 Stunden einsatzbereite Sicherheitskräfte vor Ort haben. Bei Notfällen sind wir sogar in der Lage, innerhalb von 60-90 Minuten zu reagieren, abhängig vom Standort. Für langfristige Aufträge empfehlen wir eine Vorlaufzeit von 3-5 Tagen, um das optimale Sicherheitspersonal und -konzept für Ihre speziellen Anforderungen zusammenzustellen."
+      },
+      {
+        "question": "Sind Ihre Sicherheitskräfte zertifiziert und geschult?",
+        "answer": "Ja, alle unsere Sicherheitsmitarbeiter verfügen über die gesetzlich vorgeschriebene Zertifizierung nach §34a der Gewerbeordnung und haben die IHK-Sachkundeprüfung erfolgreich absolviert. Zusätzlich durchlaufen sie unser internes Schulungsprogramm mit regelmäßigen Auffrischungskursen in Bereichen wie Deeskalationstechniken, Erste Hilfe, Brandschutz und objektspezifischen Sicherheitsprotokollen. Spezialisten für besondere Einsatzbereiche wie Personenschutz oder Veranstaltungssicherheit verfügen über zusätzliche Qualifikationen."
+      },
+      {
+        "question": "Wie berechnen sich die Kosten für Sicherheitsdienstleistungen?",
+        "answer": "Die Kosten für unsere Sicherheitsdienstleistungen basieren auf verschiedenen Faktoren: Art der benötigten Sicherheitsleistung, Qualifikationsniveau der erforderlichen Sicherheitskräfte, Dauer und Regelmäßigkeit des Einsatzes, Einsatzzeiten (Tagdienst/Nachtdienst/Wochenende/Feiertage) sowie spezielle Anforderungen wie Bewaffnung oder Fremdsprachenkenntnisse. Wir erstellen für Sie ein transparentes und detailliertes Angebot ohne versteckte Kosten, mit dem Sie genau kalkulieren können. Bei langfristigen Verträgen bieten wir attraktive Rabattmodelle an."
+      },
+      {
+        "question": "Kann ich kurzfristig zusätzliche Sicherheitskräfte anfordern?",
+        "answer": "Ja, das ist möglich. Unsere 24/7-Einsatzzentrale nimmt Ihre Anfragen jederzeit entgegen und koordiniert die benötigten Ressourcen. Wir halten einen Pool an qualifizierten Sicherheitskräften in Bereitschaft, um auf kurzfristige Anforderungen reagieren zu können. Bei Großveranstaltungen oder besonderen Sicherheitslagen empfehlen wir dennoch eine frühzeitige Planung, um die optimale Personalstärke und -qualifikation sicherstellen zu können."
+      },
+      {
+        "question": "Wie unterscheiden sich stationäre und mobile Sicherheitsdienste?",
+        "answer": "Stationäre Sicherheitsdienste umfassen die permanente Besetzung bestimmter Positionen wie Empfang, Eingang oder Wachdienst an einem festen Standort. Diese eignen sich besonders für kontinuierliche Zugangskontrolle und konstante Präsenz. Mobile Sicherheitsdienste wie unser Streifendienst decken hingegen größere Flächen oder mehrere Objekte ab und führen in unregelmäßigen Abständen Kontrollgänge durch. Diese Option ist besonders kosteneffizient für weitläufige Areale oder wenn mehrere Standorte überwacht werden müssen. Wir beraten Sie gerne, welche Kombination für Ihre Anforderungen optimal ist."
+      },
+      {
+        "question": "Wie wird die Qualität der Sicherheitsdienstleistungen sichergestellt?",
+        "answer": "Wir setzen auf ein mehrstufiges Qualitätssicherungssystem: Jeder Einsatz wird digital dokumentiert und in Echtzeit überwacht. Unsere Aufsichtspersonen führen regelmäßige und unangekündigte Kontrollen durch. Wir stellen Ihnen detaillierte Einsatzberichte zur Verfügung und führen regelmäßige Kundengespräche, um kontinuierliche Verbesserungen sicherzustellen. Jeder Kunde erhält einen persönlichen Ansprechpartner, der rund um die Uhr erreichbar ist. Unsere Qualitätsstandards werden regelmäßig durch externe Prüfstellen nach DIN EN ISO 9001 zertifiziert."
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Kontakt und Angebotseinholung",
+    "subtitle": "Kostenlose Erstberatung – Wir erstellen Ihr individuelles Sicherheitskonzept innerhalb von 24 Stunden!",
+    "description": "Kostenlose Erstberatung – Wir erstellen Ihr individuelles Sicherheitskonzept innerhalb von 24 Stunden!",
+    "callToAction": "Kontaktieren Sie uns noch heute für ein maßgeschneidertes Angebot zu Ihren Sicherheitsbedürfnissen. Unser Team steht Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten und die optimale Lösung für Sie zu finden.",
+    "cta": {
+      "title": "Sicherheitsberatung anfordern",
+      "description": "Unser Expertenteam steht Ihnen rund um die Uhr zur Verfügung. Kontaktieren Sie uns jetzt für ein maßgeschneidertes Sicherheitskonzept.",
+      "button": "Anfrage senden",
+      "call": "24/7 Sicherheitshotline"
+    }
+  },
+  "form": {
+    "message": "Nachricht",
+    "serviceSelect": "Bitte wählen Sie eine Leistung",
+    "desiredService": "Gewünschte Leistung",
+    "phone": "Telefon",
+    "email": "Email",
+    "name": "Name",
+    "requestOffer": "Jetzt Angebot anfordern"
+  }
+}

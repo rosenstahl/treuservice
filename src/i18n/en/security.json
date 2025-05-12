@@ -1,0 +1,448 @@
+{
+  "hero": {
+    "title": "Security",
+    "subtitle": "We’ve got your back so you can focus on what matters",
+    "description": "Welcome to TREU Security – your trusted partner for comprehensive security solutions. Your safety is our mission, enabling you to concentrate fully on your core tasks. Our experienced team is by your side 24/7, reliable and discreet."
+  },
+  "coreServices": {
+    "title": "Our Core Services",
+    "items": [
+      "Risk Analysis & Concept Development",
+      "Patrols & Monitoring",
+      "Access Control",
+      "First Aid & Emergency Measures",
+      "Alarm & Intervention",
+      "Documentation & Reporting"
+    ],
+    "note": "These core services form the heart of all our security offerings."
+  },
+  "specializedSolutions": {
+    "title": "Discover Our Specialized Security Solutions:",
+    "services": [
+      {
+        "icon": "Building",
+        "title": "Property Protection",
+        "tileText": "Areas: industrial companies, production facilities, logistics centers, freight companies, shopping centers, supermarkets, retail chains, banks, government agencies, public administrations, hospitals, senior homes, care facilities, museums, art galleries, large events, airports, train stations, office buildings, and residential complexes",
+        "linkText": "[View Service >]",
+        "description": "Property Protection: Your building, our responsibility. Daily break-ins and vandalism cause millions in damages – with state-of-the-art technology and elite personnel, we secure your properties around the clock so you can focus on your core business.",
+        "servicesOffered": [
+          "Comprehensive surveillance of buildings and outdoor areas",
+          "Screening of persons and vehicles",
+          "Access control to prevent unauthorized entry",
+          "Prevention of theft, robberies, and property damage",
+          "Regular patrols",
+          "Prevention of sabotage and industrial espionage",
+          "Reception and concierge services",
+          "Opening and closing services",
+          "First aid and fire watch",
+          "Alarm intervention and security system monitoring",
+          "Video monitoring"
+        ]
+      },
+      {
+        "icon": "Factory",
+        "title": "Industrial Protection",
+        "tileText": "Areas: industrial companies, production facilities, commercial areas, logistics centers, research facilities, nuclear power plants, chemical plants, energy suppliers, administrative buildings, warehouses, and distribution centers",
+        "linkText": "[View Service >]",
+        "description": "Industrial Protection: Security for your value chain. The theft of machinery and trade secrets can undo years of work in hours. Our specialized industrial protection ensures seamless production processes through highly qualified personnel and modern technology.",
+        "servicesOffered": [
+          "Screening of persons and vehicles",
+          "Access control",
+          "Prevention of theft, robberies, and property damage",
+          "Protection of machinery, equipment, and materials",
+          "Regular patrols",
+          "Coordination of delivery traffic",
+          "Provision and monitoring of security equipment",
+          "Creation of access documents",
+          "Securing fire-prone operations",
+          "Video monitoring",
+          "Alarm intervention and security system checks",
+          "First aid and fire watch"
+        ]
+      },
+      {
+        "icon": "Hard Hat",
+        "title": "Construction Site Surveillance",
+        "tileText": "Areas: large construction sites, infrastructure projects (roads, bridges, tunnels), residential and commercial construction projects, new builds and renovations, public construction areas in cities",
+        "linkText": "[View Service >]",
+        "description": "Construction Site Surveillance: Keeping your project secure as it grows. Even one night without protection can lead to massive delays due to theft and vandalism. Our highly mobile team protects your valuable machinery and materials around the clock.",
+        "servicesOffered": [
+          "Screening of persons and vehicles",
+          "Access control",
+          "Prevention of theft, robberies, and property damage",
+          "Protection of machinery and materials",
+          "Regular patrols",
+          "Coordination of delivery traffic",
+          "Issuance of site passes",
+          "Securing fire-prone operations",
+          "Video monitoring",
+          "Alarm intervention and security system checks",
+          "First aid and fire watch"
+        ]
+      },
+      {
+        "icon": "House",
+        "title": "Security for Asylum Accommodations",
+        "tileText": "Areas: refugee shelters, communal accommodations, social facilities, public housing, care centers, and group homes",
+        "linkText": "[View Service >]",
+        "description": "Security for Asylum Accommodations: Safety through intercultural competence. Our multilingual and culturally trained team guarantees a secure environment through expertise and sensitivity in dealing with residents.",
+        "servicesOffered": [
+          "Screening of persons and vehicles",
+          "Access control",
+          "Alarm intervention and security system monitoring",
+          "Prevention of theft, robberies, and property damage",
+          "Enforcement of house rules",
+          "Securing escape and emergency routes",
+          "First aid and fire watch",
+          "Regular patrols",
+          "Night watch",
+          "Crowd management",
+          "Support during cash disbursements",
+          "Security escort"
+        ]
+      },
+      {
+        "icon": "City",
+        "title": "City Patrol",
+        "tileText": "Areas: city centers, shopping streets, parks, public squares, train stations",
+        "linkText": "[View Service >]",
+        "description": "City Patrol: Your guarantee for safe urban areas. Our constant patrols and immediate interventions create secure public spaces for all citizens.",
+        "servicesOffered": [
+          "Prevention of theft, robberies, and property damage",
+          "Regular patrols",
+          "Monitoring of suspicious activities",
+          "Adherence to quiet hours",
+          "De-escalation and conflict management",
+          "Enforcement of youth protection and environmental regulations",
+          "Support for municipalities",
+          "Security escort during major events"
+        ]
+      },
+      {
+        "icon": "Footprint",
+        "title": "Mobile Patrol & Rundown Service",
+        "tileText": "Areas: residential complexes, industrial areas, parking garages, shopping centers",
+        "linkText": "[View Service >]",
+        "description": "Mobile Patrol & Rundown Service: Mobile security around the clock. Using GPS-supported, irregular checks, we offer maximum security for large properties with optimal cost efficiency.",
+        "servicesOffered": [
+          "Prevention of vandalism and property damage",
+          "Monitoring of suspicious persons",
+          "Regular patrols",
+          "Checking locks on windows, doors, and gates",
+          "Fire watch and alarm intervention",
+          "Cooperation with police and regulatory authorities",
+          "Event security with mobile access control"
+        ]
+      },
+      {
+        "icon": "Door",
+        "title": "Doorman",
+        "tileText": "Areas: luxury hotels, banks, shopping centers, jewelry stores, apartment complexes, high-end retail",
+        "linkText": "[View Service >]",
+        "description": "Doorman: Your first impression is in the best hands. Our elite doormen combine the highest security standards with excellent service, representing your company at a premium level.",
+        "servicesOffered": [
+          "Friendly greeting and farewell of guests",
+          "Entry and bag checks",
+          "ID and ticket control",
+          "Screening guests according to guidelines",
+          "Checking guest lists",
+          "Enforcement of house rules",
+          "Monitoring of suspicious persons",
+          "De-escalation and conflict management",
+          "Prevention of theft, robberies, and property damage",
+          "Legally compliant temporary detainment and handover to police",
+          "Crowd management"
+        ]
+      },
+      {
+        "icon": "Detective",
+        "title": "Retail & Department Store Detective",
+        "tileText": "Areas: shopping centers, supermarkets, retail chains, pharmacies, luxury stores, specialty markets, jewelry stores",
+        "linkText": "[View Service >]",
+        "description": "Retail Detective: Professional protection against inventory losses. Our specialist detectives reduce your losses with state-of-the-art prevention techniques and legally secure apprehension of perpetrators.",
+        "servicesOffered": [
+          "Screening of persons and vehicles",
+          "Access control",
+          "Monitoring of suspicious persons",
+          "Enforcement of house rules",
+          "Cooperation with police and regulatory authorities",
+          "Legally compliant temporary detainment",
+          "Video monitoring",
+          "De-escalation and conflict management",
+          "Discreet observation in plain clothes",
+          "Test purchases and simulated thefts",
+          "Ensuring building security after closing"
+        ]
+      },
+      {
+        "icon": "Reception",
+        "title": "Reception & Concierge Services",
+        "tileText": "Areas: office buildings, financial institutions, banks, hospitals, universities, public and governmental buildings",
+        "linkText": "[View Service >]",
+        "description": "Reception & Concierge: Security starts at the entrance. Our qualified reception staff combine seamless access control with top-notch visitor service.",
+        "servicesOffered": [
+          "Greeting and registering visitors and employees",
+          "Controlling the flow of people, vehicles, goods, and deliveries",
+          "Opening and closing services",
+          "Regular patrols",
+          "Issuing and managing visitor passes",
+          "Handling incoming mail and packages",
+          "Managing conference rooms and vehicle pools",
+          "Key management",
+          "Operating the switchboard and call forwarding",
+          "Monitoring security systems",
+          "Providing information and customer service"
+        ]
+      },
+      {
+        "icon": "Hotel",
+        "title": "Night Audit, Reception & Hotel Security",
+        "tileText": "Areas: hotels, resorts, vacation facilities, senior residences, airport lounges",
+        "linkText": "[View Service >]",
+        "description": "Night Audit: Your hotel’s security during the night. Our specialized team combines security and reception services to ensure optimal protection and service during the most critical hours.",
+        "servicesOffered": [
+          "Guest check-in and check-out (including late arrivals)",
+          "Daily closing procedures and handover to the morning shift",
+          "Handling reservations and telephone inquiries",
+          "Regular patrols",
+          "Monitoring security-relevant areas",
+          "Preparing the reception for the next day",
+          "Creating statistics and reports",
+          "Supporting bar or breakfast setup if needed",
+          "Key management and access control",
+          "Monitoring hotel premises (fire watch, alarm systems)",
+          "First aid and emergency measures"
+        ]
+      },
+      {
+        "icon": "Megaphone",
+        "title": "Event & Venue Security",
+        "tileText": "Areas: large events, trade shows, concerts, stadiums, sports events, festivals, open-air venues, community events, marketplaces",
+        "linkText": "[View Service >]",
+        "description": "Event Security: Making sure your event is remembered for all the right reasons. Our expert team ensures perfect security at your events with cutting-edge crowd-control technology and de-escalating communication.",
+        "servicesOffered": [
+          "Screening of persons and vehicles",
+          "Access control",
+          "Enforcement of house rules",
+          "Crowd management",
+          "De-escalation and conflict resolution",
+          "Securing emergency exits",
+          "Protection of stage and backstage areas",
+          "Provision of walkie-talkies and security barriers",
+          "Use of metal detectors",
+          "Coat check services",
+          "VIP escort services"
+        ]
+      },
+      {
+        "icon": "Exhibition Hall",
+        "title": "Booth & Trade Fair Security",
+        "tileText": "Areas: trade fairs, exhibition halls, specialty fairs, car dealerships during special events, showrooms, vendor stands, hotels during business events, creative and art fairs",
+        "linkText": "[View Service >]",
+        "description": "Trade Fair Security: Your trade show success is in safe hands. Our specialized booth guards protect your valuable exhibits and sensitive information through constant presence and state-of-the-art monitoring.",
+        "servicesOffered": [
+          "Access control at booths",
+          "Prevention of unauthorized entry to sensitive areas",
+          "Barrier and security services",
+          "Guarding exhibits, equipment, and materials",
+          "Regular patrols",
+          "Night watch",
+          "Coat check services",
+          "Order enforcement",
+          "Fire safety checks",
+          "First aid",
+          "VIP support",
+          "Liaison with police and fire services"
+        ]
+      },
+      {
+        "icon": "Wristband",
+        "title": "Crowd Control Service",
+        "tileText": "Areas: large events, festivals, stadiums, open-air cinemas, concerts, club events, community events, city festivals, leisure parks",
+        "linkText": "[View Service >]",
+        "description": "Crowd Control: Professional crowd management. Our highly qualified orderlies guarantee the safe conduct of every large-scale event with expertise and de-escalation skills.",
+        "servicesOffered": [
+          "Screening of persons and vehicles",
+          "Access control to prevent unauthorized entry",
+          "Enforcement of house rules",
+          "Crowd management and visitor monitoring",
+          "De-escalation and conflict resolution",
+          "Regular patrols",
+          "Securing emergency exits",
+          "Protection of stage and backstage areas",
+          "Guiding and information services",
+          "First aid",
+          "Stationary posts and VIP support",
+          "Fee collection"
+        ]
+      },
+      {
+        "icon": "Parking",
+        "title": "Parking Management",
+        "tileText": "Areas: parking garages, underground parking, shopping centers, event venues, festivals, stadiums, airports, hotels, hospitals, office buildings",
+        "linkText": "[View Service >]",
+        "description": "Parking Management: Optimized security for your parking areas. Our digital parking concept maximizes your revenue through intelligent control and professional monitoring.",
+        "servicesOffered": [
+          "Guiding vehicles and traffic management",
+          "Concierge services in parking garages",
+          "Monitoring and documentation of illegal parking",
+          "Video monitoring",
+          "Regular patrols",
+          "Prevention of vandalism and property damage",
+          "Snow removal and cleaning of parking areas",
+          "Maintenance of barriers and machines",
+          "Monitoring of special parking areas",
+          "Collection of parking fees",
+          "On-site visitor assistance"
+        ]
+      },
+      {
+        "icon": "Steering Wheel",
+        "title": "Driver & Chauffeur Service",
+        "tileText": "Areas: VIP transfers for events, airport transfers for hotels, shuttle services at trade shows, diplomatic facilities, embassies",
+        "linkText": "[View Service >]",
+        "description": "Chauffeur Service: Secure transfers at the highest level. Our security drivers, all qualified in personal protection, guarantee maximum safety with utmost discretion.",
+        "servicesOffered": [
+          "Passenger transportation",
+          "Provision of security drivers and escorts",
+          "Limousine and shuttle services",
+          "Reception and event support",
+          "Vehicle tracking",
+          "Provision of vehicles on request (including special security vehicles)",
+          "Messenger and courier services",
+          "Prevention of theft and robberies",
+          "De-escalation and conflict management",
+          "Alerting the police and requesting backup"
+        ]
+      }
+    ]
+  },
+  "commonIssues": {
+    "title": "Common Issues - Our Solutions",
+    "subtitle": "Security accepts no compromises – Our solutions for your challenges",
+    "items": [
+      {
+        "problem": "Many service providers are overloaded",
+        "solution": "We limit our contracts to ensure guaranteed availability"
+      },
+      {
+        "problem": "Response Time?",
+        "issue": "Long travel times in case of incidents",
+        "solution": "Always nearby for immediate intervention"
+      },
+      {
+        "problem": "Crisis Management?",
+        "issue": "Uncertainty in extraordinary situations",
+        "solution": "Tailor-made emergency plans for every case"
+      },
+      {
+        "problem": "Cost Transparency?",
+        "issue": "Hidden fees and unclear billing",
+        "solution": "Transparent pricing with no surprises"
+      },
+      {
+        "problem": "Quality Standards?",
+        "issue": "Insufficiently qualified personnel and outdated technology",
+        "solution": "Regularly trained experts and state-of-the-art equipment"
+      }
+    ]
+  },
+  "qualityPromise": {
+    "title": "Our Quality Promise:",
+    "items": [
+      "Certified security personnel according to § 34a GewO",
+      "24/7 guaranteed availability",
+      "Fastest response times",
+      "Nationwide service network",
+      "State-of-the-art security technology"
+    ]
+  },
+  "whyTreuService": {
+    "title": "Why TREU Service?",
+    "items": [
+      "Expertise: Comprehensive know-how in all security sectors",
+      "Consultation: Detailed risk analyses for preventive protection",
+      "Flexibility: Adaptable security concepts",
+      "Tailor-made: Individual solutions for your requirements",
+      "All-around Protection: 24/7 availability and rapid response",
+      "Qualified: Personnel trained under § 34a GewO",
+      "Innovative: Latest security technology",
+      "Discreet: Absolute reliability for your core business",
+      "Customer-focused: Competent and friendly service"
+    ]
+  },
+  "customerTestimonials": {
+    "title": "What Our Customers Say:",
+    "testimonials": [
+      {
+        "sector": "Retail",
+        "quote": "Thanks to TREU Service, we feel safe and secure in our premises. The security staff are professional and always on call.",
+        "author": "Peter M., Retail"
+      },
+      {
+        "sector": "Event",
+        "quote": "TREU Service’s event security made our event a huge success. The team was competent and friendly.",
+        "author": "Maria L., Event Manager"
+      },
+      {
+        "sector": "Industry",
+        "quote": "Reliable industrial protection around the clock. TREU Service is a partner you can count on.",
+        "author": "Thomas K., Production Manager"
+      },
+      {
+        "sector": "Real Estate",
+        "quote": "Professional property security with state-of-the-art technology – exactly what we were looking for.",
+        "author": "Sarah B., Facility Management"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact and Request a Quote",
+    "description": "Free initial consultation – We create your individual security concept within 24 hours!",
+    "callToAction": "Contact us today for a tailor-made offer for your security needs. Our team is available at all times to answer your questions and provide the optimal solution."
+  },
+  "issuesAndSolutions": {
+    "tabs": {
+      "title": "Problems & Solutions",
+      "note": "Let’s talk about your challenges",
+      "problems": [
+        {
+          "problem": "Reliability",
+          "details": {
+            "issue": "❌ Many service providers are overloaded",
+            "solution": "✅ We limit our contracts to ensure guaranteed availability"
+          }
+        },
+        {
+          "problem": "Response Time",
+          "details": {
+            "issue": "❌ Long travel times in case of incidents",
+            "solution": "✅ Always nearby for immediate intervention"
+          }
+        },
+        {
+          "problem": "Crisis Management",
+          "details": {
+            "issue": "❌ Uncertainty in extraordinary situations",
+            "solution": "✅ Tailor-made emergency plans for every case"
+          }
+        },
+        {
+          "problem": "Cost Transparency",
+          "details": {
+            "issue": "❌ Hidden fees and unclear billing",
+            "solution": "✅ Transparent pricing with no surprises"
+          }
+        },
+        {
+          "problem": "Quality Standards",
+          "details": {
+            "issue": "❌ Insufficiently qualified personnel and outdated technology",
+            "solution": "✅ Regularly trained experts and state-of-the-art equipment"
+          }
+        }
+      ],
+      "cta": "Let’s talk about your challenges"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "hero": {
+    "title": "Entrümpelung",
+    "subtitle": "Mehr Raum. Mehr Freiheit. Mehr Lebensqualität.",
+    "description": "Befreien Sie sich vom unnötigen Ballast in Ihrem Leben. Unser spezialisiertes Team entrümpelt Ihre Räume nicht nur effizient und diskret, sondern sorgt auch für eine fachgerechte Wertstofftrennung und umweltbewusste Entsorgung – mit Festpreisgarantie und ohne versteckte Kosten.",
+    "cta": "Kostenlos anfragen"
+  },
+  "about": {
+    "title": "Ihr zuverlässiger Partner für jede Entrümpelungsaufgabe",
+    "description": "TREU Service ist Ihr Experte für professionelle Entrümpelungen jeder Größenordnung. Mit über 15 Jahren Erfahrung und mehr als 3.800 erfolgreich durchgeführten Projekten schaffen wir für Sie schnell, diskret und umweltbewusst neuen Raum zum Leben und Arbeiten.",
+    "checkpoints": [
+      "Fest kalkulierbare Preise ohne Überraschungen",
+      "Sorgfältige Wertstofftrennung mit 92% Recyclingquote",
+      "Persönliche Betreuung durch unsere Entrümpelungsexperten",
+      "Flexible Terminplanung – auf Wunsch auch Express-Service"
+    ]
+  },
+  "leistungen": {
+    "title": "Maßgeschneiderte Entrümpelungslösungen",
+    "description": "Von der einfachen Kellerentrümpelung bis zur kompletten Haushaltsauflösung – wir bieten individuell angepasste Lösungen für jede Situation und jeden Bedarf.",
+    "services": [
+      {
+        "category": "Entrümpelung & Haushaltsauflösung",
+        "description": "Ob Wohnung, Haus oder Gewerbe: Wir schaffen Ordnung und Platz. Die Hausverwaltung Weber aus Frankfurt berichtet: 'TREU Service hat in nur 2 Tagen 14 Wohnungen komplett entrümpelt – pünktlich vor dem Verkaufstermin.'",
+        "items": [
+          "Wohnungsentrümpelung mit Wertgegenständen-Sicherung",
+          "Komplette Haushaltsauflösung inkl. Endreinigung",
+          "Kellerentrümpelung mit effektiver Schimmelprävention",
+          "Dachbodenentrümpelung mit besonderer Statik-Sicherheit",
+          "Geschäfts- und Gewerbeentrümpelung nach Betriebsaufgabe",
+          "Garagenentrümpelung mit Sonderabfall-Management"
+        ]
+      },
+      {
+        "category": "Zusatzleistungen",
+        "description": "Umfassender Service aus einer Hand: Die Familie Schmidt aus München: 'TREU Service hat nach dem Hausverkauf nicht nur entrümpelt, sondern auch die komplette Endreinigung übernommen – absolut beeindruckend.'",
+        "items": [
+          "Sperrmüllentsorgung mit vollständiger Dokumentation",
+          "Fachgerechte Möbeldemontage und -entsorgung",
+          "Elektrogeräteentsorgung nach aktuellen Umweltstandards",
+          "Zertifizierte Entsorgung von Problemstoffen",
+          "Professionelle Endreinigung mit Tiefenreinigungssystem",
+          "Lückenlose Entsorgungsnachweise für Behörden und Versicherungen"
+        ]
+      }
+    ]
+  },
+  "arbeitsweise": {
+    "title": "So einfach funktioniert Ihre Entrümpelung mit TREU Service",
+    "description": "Wir machen den gesamten Prozess für Sie so unkompliziert wie möglich – von der ersten Anfrage bis zur finalen Übergabe der entrümpelten Räume.",
+    "steps": [
+      {
+        "title": "Unverbindliche Anfrage",
+        "description": "Kontaktieren Sie uns mit Ihrem Anliegen – telefonisch, per E-Mail oder Kontaktformular."
+      },
+      {
+        "title": "Kostenlose Besichtigung",
+        "description": "Ein Entrümpelungsexperte begutachtet die Situation vor Ort und berät Sie persönlich."
+      },
+      {
+        "title": "Transparentes Festpreisangebot",
+        "description": "Sie erhalten ein detailliertes Angebot ohne versteckte Kosten oder Nachberechnungen."
+      },
+      {
+        "title": "Professionelle Durchführung",
+        "description": "Unser erfahrenes Team entrümpelt schnell, gründlich und nach vereinbartem Zeitplan."
+      },
+      {
+        "title": "Dokumentierte Übergabe",
+        "description": "Saubere Übergabe mit vollständigen Entsorgungsnachweisen und Abnahmeprotokoll."
+      }
+    ]
+  },
+  "advantages": {
+    "title": "Unsere Vorteile",
+    "description": "Was uns von anderen Entrümpelungsdiensten unterscheidet",
+    "items": [
+      {
+        "title": "Festpreisgarantie",
+        "description": "Keine versteckten Kosten oder Nachberechnungen – wir garantieren den im Angebot genannten Preis, selbst wenn der Aufwand höher ist als kalkuliert.",
+        "icon": "Shield"
+      },
+      {
+        "title": "Wertanrechnung",
+        "description": "Verwertbare Gegenstände können wir ankaufen oder mit den Entrümpelungskosten verrechnen – in manchen Fällen ist sogar eine kostenlose Entrümpelung möglich.",
+        "icon": "CreditCard"
+      },
+      {
+        "title": "Umweltzertifizierung",
+        "description": "Als zertifizierter Entsorgungsfachbetrieb nach §56 KrWG garantieren wir die fachgerechte und umweltschonende Verwertung aller Materialien.",
+        "icon": "Leaf"
+      },
+      {
+        "title": "Express-Service",
+        "description": "Bei dringenden Anfragen bieten wir einen 24-Stunden-Express-Service an – ideal für Immobilienmakler, Hausverwaltungen oder Nachlasssituationen.",
+        "icon": "Zap"
+      },
+      {
+        "title": "Dokumentierte Entsorgung",
+        "description": "Lückenlose Nachweise über die ordnungsgemäße Entsorgung – wichtig für Behörden, Nachlassgerichte oder Wohnungsübergaben.",
+        "icon": "FileText"
+      },
+      {
+        "title": "Sensibler Umgang",
+        "description": "Besonders einfühlsame Betreuung in emotionalen Situationen wie Nachlassauflösungen oder altersbedingten Umzügen – mit Respekt und Empathie.",
+        "icon": "Heart"
+      }
+    ]
+  },
+  "challenges": {
+    "title": "Ihre Herausforderung. Unsere Lösung.",
+    "subtitle": "TREU Service macht aus Entrümpelungsproblemen Erfolgsgeschichten",
+    "items": [
+      {
+        "problem": "Zeitdruck bei Immobilienverkauf",
+        "issue": "Die Wohnung muss in drei Tagen leergeräumt und besenrein an den neuen Besitzer übergeben werden – normale Entrümpelungsdienste benötigen zwei Wochen Vorlaufzeit.",
+        "solution": "Mit unserem Express-Entrümpelungsservice haben wir für Familie Becker aus München eine 120m²-Wohnung in nur 36 Stunden komplett entrümpelt und besenrein übergeben – inklusive Sperrmüll und Elektrogeräteentsorgung."
+      },
+      {
+        "problem": "Emotionale Haushaltsauflösung",
+        "issue": "Nach dem Tod eines Angehörigen muss der Haushalt aufgelöst werden. Die Situation ist emotional belastend, und wichtige Erinnerungsstücke dürfen nicht verloren gehen.",
+        "solution": "Für die Familie Schulz haben wir eine einfühlsame Haushaltsauflösung durchgeführt. Unser speziell geschultes Team hat persönliche Gegenstände behutsam aussortiert, dokumentiert und sicher verwahrt – während der Rest fachgerecht entrümpelt wurde."
+      },
+      {
+        "problem": "Vermüllte Wohnung nach Mieter-Auszug",
+        "issue": "Ein problematischer Mieter hat die Wohnung in katastrophalem Zustand hinterlassen. Müllberge, Hygieneproblem und Geruchsbelästigung erschweren die Neuvermietung.",
+        "solution": "Die Hausverwaltung Neumann GmbH beauftragte uns mit der Komplett-Sanierung einer vermüllten 70m²-Wohnung. Innerhalb von 5 Tagen haben wir entrümpelt, desinfiziert, grundgereinigt und die Wohnung wieder in einen vermietbaren Zustand versetzt."
+      },
+      {
+        "problem": "Schwer zugängliche Räumlichkeiten",
+        "issue": "Der zu entrümpelnde Dachboden ist nur über eine schmale Treppe erreichbar. Normale Möbelpacker geben auf oder verlangen horrende Aufpreise.",
+        "solution": "Mit spezialisierten Seilzugtechniken und modularen Transportsystemen haben wir für das Architekturbüro Hendricks einen historischen Dachboden erfolgreich entrümpelt – ohne Schäden am historischen Treppenhaus und 40% günstiger als der nächstgünstige Anbieter."
+      }
+    ]
+  },
+  "kontakt": {
+    "title": "Schaden melden & Hilfe erhalten",
+    "subtitle": "Kostenlose Erstberatung und unverbindliches Angebot für alle Entrümpelungen",
+    "formTitle": "Jetzt kostenlose Entrümpelungsberatung anfordern",
+    "formSubtitle": "In nur wenigen Schritten zu Ihrem individuellen Entrümpelungsangebot. Füllen Sie das Formular aus, und wir melden uns innerhalb von 4 Stunden bei Ihnen.",
+    "cta": {
+      "title": "Schnelle Hilfe bei jeder Entrümpelung",
+      "description": "Unser Expertenteam steht Ihnen zur Verfügung. Kontaktieren Sie uns jetzt für eine professionelle und kosteneffiziente Lösung.",
+      "button": "Kostenlos anfragen",
+      "call": "Jetzt Angebot einholen"
+    }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Antworten auf die wichtigsten Fragen rund um das Thema Entrümpelung",
+    "questions": [
+      {
+        "question": "Wie viel kostet eine Entrümpelung?",
+        "answer": "Die Kosten für eine Entrümpelung hängen von verschiedenen Faktoren ab: Größe und Lage des Objekts, Menge und Art der zu entsorgenden Gegenstände sowie Zugänglichkeit der Räume. Im Durchschnitt liegen unsere Preise zwischen 20-38€ pro m², wobei wir einen Festpreis garantieren, der auch dann gilt, wenn der Aufwand höher ist als kalkuliert. Unsere Bestandskunden berichten von durchschnittlich 15-30% Kostenersparnis im Vergleich zu Wettbewerbsangeboten. Bei wertvollen Gegenständen im Entrümpelungsgut ist in besonderen Fällen sogar eine kostenlose Entrümpelung möglich."
+      },
+      {
+        "question": "Wie schnell können Sie einen Termin anbieten?",
+        "answer": "Für eine kostenlose Besichtigung können wir in der Regel innerhalb von 24-48 Stunden einen Termin anbieten. Die eigentliche Entrümpelung planen wir dann nach Ihren Wünschen – bei unserem Standard-Service innerhalb von 5-7 Tagen, bei akuten Fällen bieten wir unseren Express-Service an, der eine Entrümpelung innerhalb von 24 Stunden ermöglicht. Die Immobilienverwaltung Schmidt aus Frankfurt bestätigt: 'TREU Service hat für uns schon mehrfach innerhalb von 24 Stunden entrümpelt – ein unschätzbarer Vorteil bei dringenden Übergabeterminen.'"
+      },
+      {
+        "question": "Können Sie auch bei Messie-Wohnungen helfen?",
+        "answer": "Ja, wir sind auf die Entrümpelung von stark vermüllten Wohnungen und Messie-Problematiken spezialisiert. Unser Team ist dafür besonders geschult und arbeitet mit Schutzausrüstung sowie speziellen Reinigungsmitteln. Im letzten Jahr haben wir über 40 solcher Extremfälle erfolgreich bearbeitet. Hierbei ist nicht nur die Entrümpelung wichtig, sondern auch die anschließende Grundreinigung und Desinfektion, die wir im Komplettpaket anbieten. Ein städtisches Wohnungsunternehmen berichtet: 'Nach 15 Jahren Vermüllung haben wir die Wohnung abgeschrieben – TREU Service hat sie in 7 Tagen in einen vermietbaren Zustand zurückversetzt.'"
+      },
+      {
+        "question": "Was passiert mit noch brauchbaren Gegenständen?",
+        "answer": "Wir trennen verwertbare von nicht verwertbaren Gegenständen. Unsere Mitarbeiter sind geschult, Wertsachen zu erkennen. Je nach Vereinbarung können brauchbare Möbel, Elektrogeräte oder andere Wertsachen verkauft, gespendet oder wiederverwertet werden. Der Erlös wird transparent mit den Entrümpelungskosten verrechnet. Besonders wertvoll ist unsere Kooperation mit 12 karitativen Einrichtungen, die brauchbare Gegenstände für bedürftige Menschen weiterverwenden. Familie Müller berichtet: 'TREU Service hat die Antiquitäten meiner Großmutter fachgerecht bewertet und für 2.800€ verkauft – das hat fast die gesamte Entrümpelung refinanziert.'"
+      },
+      {
+        "question": "Bieten Sie auch eine Entrümpelung zum Nulltarif an?",
+        "answer": "In bestimmten Fällen ist eine kostenlose Entrümpelung möglich – insbesondere wenn sich hochwertige Antiquitäten, Sammlerstücke, funktionsfähige Markengeräte oder andere gut verwertbare Gegenstände im Bestand befinden. In den letzten 12 Monaten konnten wir etwa 8% unserer Entrümpelungen kostenfrei durchführen. Nach einer kostenlosen Begutachtung können wir Ihnen sagen, ob Ihr Fall dafür in Frage kommt. Wichtig ist jedoch: Selbst wenn wir keine komplette Nulltarif-Entrümpelung anbieten können, verrechnen wir den Wert brauchbarer Gegenstände immer mit dem Gesamtpreis, um Ihre Kosten zu reduzieren."
+      },
+      {
+        "question": "Wie gehen Sie mit persönlichen oder vertraulichen Dokumenten um?",
+        "answer": "Der Schutz persönlicher Daten hat für uns höchste Priorität. Alle gefundenen persönlichen Dokumente wie Ausweise, Verträge, Briefe oder Fotos werden separiert und dem Auftraggeber übergeben. Auf Wunsch bieten wir auch einen zertifizierten Aktenvernichtungsservice an, der eine datenschutzkonforme Entsorgung nach DSGVO gewährleistet. Unser Team unterzeichnet Vertraulichkeitsvereinbarungen und ist speziell im Umgang mit sensiblen Materialien geschult. Die Rechtsanwaltskanzlei Berger & Partner bestätigt: 'Die diskrete Entrümpelung eines aufgelösten Notarbüros durch TREU Service erfolgte mit höchster Datenschutz-Sorgfalt – absolut empfehlenswert.'"
+      }
+    ]
+  }
+}

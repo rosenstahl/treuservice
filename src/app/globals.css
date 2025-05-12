@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 222.2 47.4% 11.2%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 199 100% 42%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+
+  /* Basisfarben */
+  --color-primary: #FFFFFF;
+  --color-primary-light: #FFFFFF;
+  --color-primary-dark: #F8FAFC;
+  
+  --color-secondary: #222425;
+  --color-secondary-light: #404244;
+  --color-secondary-dark: #1A1B1C;
+  
+  --color-accent: #009FD8;
+  --color-accent-light: #00B3F4;
+  --color-accent-dark: #0089BC;
+  --color-accent-hover: #007CAB;
+
+  /* Testimonial-spezifische Farben */
+  --testimonial-text: #333333;
+  --testimonial-name: #222425;
+  --testimonial-designation: #666666;
+
+  /* Abstände */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 1rem;
+  --spacing-4: 1.5rem;
+  --spacing-5: 2rem;
+  --spacing-6: 3rem;
+  
+  /* Typografie */
+  --font-h1-size: 3rem;
+  --font-h1-line-height: 3.5rem;
+  --font-h1-weight: 700;
+  
+  --font-h2-size: 2.25rem;
+  --font-h2-line-height: 2.75rem;
+  --font-h2-weight: 600;
+  
+  --font-h3-size: 1.5rem;
+  --font-h3-line-height: 2rem;
+  --font-h3-weight: 500;
+  
+  --font-body-size: 1rem;
+  --font-body-line-height: 1.5rem;
+  --font-body-weight: 400;
+  
+  --font-small-size: 0.875rem;
+  --font-small-line-height: 1.25rem;
+  --font-small-weight: 400;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.02em;
+
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 10px 15px rgba(0, 0, 0, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}

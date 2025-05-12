@@ -6,12 +6,23 @@ import { Ruler, Info, Plus, Trash2 } from 'lucide-react';
 type Libraries = ('drawing' | 'geometry' | 'places')[];
 const libraries: Libraries = ['drawing', 'geometry'];
 
-// Optimierte Kartengröße für bessere Darstellung
+// Optimierte Kartengröße mit Media Query-Logik
+// Für Mobile wird eine begrenzte Höhe gesetzt
+// Für Desktop wird keine maximale Höhe begrenzt
 const mapContainerStyle = {
   width: '100%',
   height: '60vh',
-  maxHeight: '600px',
+  '@media (max-width: 768px)': {
+    maxHeight: '600px',
+  }
 };
+
+// Alternative dynamische Variante mit useEffect und window.innerWidth
+const getMapContainerStyle = (isMobile: boolean) => ({
+  width: '100%',
+  height: '60vh',
+  maxHeight: isMobile ? '600px' : 'none',
+});
 
 // Moderne Kartenoptionen
 const mapOptions = {
@@ -74,6 +85,9 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const [mapCenter, setMapCenter] = useState({ lat: 51.1657, lng: 10.4515 });
   
+  // Responsive Design: Prüfen, ob es sich um ein mobiles Gerät handelt
+  const [isMobile, setIsMobile] = useState(false);
+  
   // Wichtige Änderung: Tracking der letzten Polygon-Aktualisierung, um Endlosloops zu vermeiden
   const lastUpdateRef = useRef<number>(0);
   
@@ -109,6 +123,24 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
       return () => clearInterval(checkGoogleMapsInterval);
     }
   }, [isGoogleMapsReady]);
+
+  // Responsive Design: Überprüfe Gerätetyp beim Laden und bei Größenänderungen
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Initialer Check
+    checkIfMobile();
+    
+    // Event-Listener für Resize-Events
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
 
   // Aktualisieren des Refs wenn sich die Prop ändert
   useEffect(() => {
@@ -324,7 +356,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   return (
     <div className="space-y-4">
       <GoogleMap
-        mapContainerStyle={mapContainerStyle}
+        mapContainerStyle={getMapContainerStyle(isMobile)}
         zoom={19}
         center={mapCenter}
         onLoad={onMapLoad}

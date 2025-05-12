@@ -6,11 +6,11 @@ import { Ruler, Info, Plus, Trash2 } from 'lucide-react';
 type Libraries = ('drawing' | 'geometry' | 'places')[];
 const libraries: Libraries = ['drawing', 'geometry'];
 
-// Optimierte Kartengröße für bessere Darstellung
+// Optimierte Kartengröße - höhere Darstellung für bessere Benutzererfahrung
 const mapContainerStyle = {
   width: '100%',
-  height: '60vh',
-  maxHeight: '600px',
+  height: '70vh', // Erhöht von 60vh auf 70vh
+  maxHeight: '700px', // Erhöht von 600px auf 700px
 };
 
 // Moderne Kartenoptionen
@@ -73,6 +73,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const [showInstructions, setShowInstructions] = useState(true);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const [mapCenter, setMapCenter] = useState({ lat: 51.1657, lng: 10.4515 });
+  const [currentZoom, setCurrentZoom] = useState(19); // Aktuellen Zoom-Level speichern
   
   // Wichtige Änderung: Tracking der letzten Polygon-Aktualisierung, um Endlosloops zu vermeiden
   const lastUpdateRef = useRef<number>(0);
@@ -84,6 +85,8 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const onAreaChangeRef = useRef(onAreaChange);
   // Speichere alle Polygon-Instanzen, um später Listener entfernen zu können
   const polygonInstancesRef = useRef<google.maps.Polygon[]>([]);
+  // Speichere ursprünglichen Mittelpunkt und Zoom, um sie wiederherzustellen
+  const originalViewRef = useRef<{center: {lat: number, lng: number}, zoom: number} | null>(null);
 
   // Überprüfen, ob Google Maps bereits geladen wurde
   useEffect(() => {
@@ -119,7 +122,14 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   useEffect(() => {
     if (initialCoordinates && initialCoordinates.length > 0) {
       const [lat, lng] = initialCoordinates[0];
-      setMapCenter({ lat, lng });
+      const newCenter = { lat, lng };
+      setMapCenter(newCenter);
+      
+      // Speichere den ursprünglichen View-Zustand
+      originalViewRef.current = {
+        center: newCenter,
+        zoom: 19
+      };
     }
   }, [initialCoordinates]);
 
@@ -180,7 +190,20 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
       map.setCenter({ lat, lng });
       // Höherer Zoom für bessere Sichtbarkeit
       map.setZoom(19);
+      
+      // Speichere den ursprünglichen View-Zustand
+      originalViewRef.current = {
+        center: { lat, lng },
+        zoom: 19
+      };
     }
+    
+    // Zoom-Änderungen überwachen
+    map.addListener('zoom_changed', () => {
+      if (map.getZoom()) {
+        setCurrentZoom(map.getZoom()!);
+      }
+    });
   }, [initialCoordinates]);
   
   // Zeichenmodus umschalten
@@ -209,7 +232,34 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     return coordinates;
   };
 
+  // Wichtig: Zurück zur ursprünglichen Ansicht nach dem Zeichnen
+  const restoreOriginalView = () => {
+    if (originalViewRef.current && mapRef.current) {
+      // Map zurück zur ursprünglichen Position und Zoom setzen
+      // Mit einem kleinen Timeout, damit die Karte nicht sofort zurückspringt
+      setTimeout(() => {
+        if (mapRef.current && originalViewRef.current) {
+          mapRef.current.setCenter(originalViewRef.current.center);
+          // Optional: Zoom wiederherstellen, wenn gewünscht
+          // mapRef.current.setZoom(originalViewRef.current.zoom);
+        }
+      }, 100);
+    }
+  };
+
   const onPolygonComplete = (polygon: google.maps.Polygon) => {
+    // Aktuellen Zustand der Karte speichern, bevor das Polygon fertiggestellt wird
+    if (mapRef.current) {
+      const center = mapRef.current.getCenter();
+      const zoom = mapRef.current.getZoom();
+      if (center && zoom) {
+        originalViewRef.current = {
+          center: { lat: center.lat(), lng: center.lng() },
+          zoom: zoom
+        };
+      }
+    }
+    
     // Polygon zur Referenzliste hinzufügen für späteren Cleanup
     polygonInstancesRef.current.push(polygon);
     
@@ -225,6 +275,9 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
         area: Math.round(areaInSqMeters),
         coordinates
       }]);
+      
+      // Wichtig: Ursprüngliche Ansicht wiederherstellen
+      restoreOriginalView();
     }, 0);
     
     // Füge einen Event-Listener für Änderungen am Polygon hinzu, mit Debounce
@@ -325,7 +378,7 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     <div className="space-y-4">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={19}
+        zoom={currentZoom}
         center={mapCenter}
         onLoad={onMapLoad}
         options={mapOptions}

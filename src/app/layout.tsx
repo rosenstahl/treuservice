@@ -35,8 +35,9 @@ export default function RootLayout({
         <link rel="icon" href="/images/treu-logo.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#ffffff" />
         
-        {/* Google Maps API Key direkt eingebunden */}
+        {/* Google Maps API Key - async loading mit eindeutiger ID hinzugefügt */}
         <Script
+          id="google-maps-api"
           src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCbAjl459xe6fTtqZ8rS3OjyVIKypc0Bfg&libraries=places,drawing,geometry`}
           strategy="beforeInteractive"
         />

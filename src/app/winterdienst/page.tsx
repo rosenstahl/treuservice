@@ -87,6 +87,7 @@ export default function WinterservicePage() {
                 ))}
               </div>
             </div>
+            {/* position:relative hinzugefügt */}
             <div className="relative h-64 md:h-[400px] rounded-xl md:rounded-2xl overflow-hidden mt-6 md:mt-0">
               <Image
                 src="/images/winterdienst/winter-service-5.jpg"
@@ -208,6 +209,7 @@ export default function WinterservicePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
               {/* Räumpflicht-Guide - Mobile-optimierte Version */}
               <div className="flex flex-col h-full bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                {/* position:relative hinzugefügt */}
                 <div className="relative w-full h-48 md:h-auto md:aspect-video overflow-hidden">
                   <Image 
                     src="/images/blog/raeumpflicht.jpg"
@@ -234,6 +236,7 @@ export default function WinterservicePage() {
               
               {/* DIY vs. Professionell - Mobile-optimierte Version */}
               <div className="flex flex-col h-full bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+                {/* position:relative hinzugefügt */}
                 <div className="relative w-full h-48 md:h-auto md:aspect-video overflow-hidden">
                   <Image 
                     src="/images/blog/winteer.jpg"

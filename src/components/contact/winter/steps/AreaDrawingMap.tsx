@@ -74,11 +74,16 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const [mapCenter, setMapCenter] = useState({ lat: 51.1657, lng: 10.4515 });
   
+  // Wichtige Änderung: Tracking der letzten Polygon-Aktualisierung, um Endlosloops zu vermeiden
+  const lastUpdateRef = useRef<number>(0);
+  
   const mapRef = useRef<google.maps.Map | null>(null);
   const drawingManagerRef = useRef<google.maps.drawing.DrawingManager | null>(null);
   
   // Wichtige Änderung: onAreaChange Ref um unendliche Renders zu verhindern
   const onAreaChangeRef = useRef(onAreaChange);
+  // Speichere alle Polygon-Instanzen, um später Listener entfernen zu können
+  const polygonInstancesRef = useRef<google.maps.Polygon[]>([]);
 
   // Überprüfen, ob Google Maps bereits geladen wurde
   useEffect(() => {
@@ -119,12 +124,20 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   }, [initialCoordinates]);
 
   // Aktualisiere die Gebietsgröße und benachrichtige die übergeordnete Komponente
-  // Kritische Änderung: Verwende den Ref statt der Prop direkt
+  // Kritische Änderung: Debouncing und Überprüfung vor dem Update
   useEffect(() => {
+    // Überprüfe, ob das Update zu schnell nach dem letzten erfolgt
+    const now = Date.now();
+    if (now - lastUpdateRef.current < 100) {
+      return; // Zu schnell, ignoriere das Update
+    }
+    
+    // Berechne die Gesamtfläche
     const sum = polygons.reduce((acc, curr) => acc + curr.area, 0);
     setTotalArea(sum);
     
     // Aktualisiere die übergeordnete Komponente mit allen Polygondaten
+    // Nur ein Mal pro Änderung
     if (polygons.length > 0) {
       const allCoordinates = polygons.flatMap(p => p.coordinates);
       onAreaChangeRef.current({
@@ -142,7 +155,22 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
         coordinates: [[mapCenter.lat, mapCenter.lng]]
       });
     }
+    
+    // Aktualisiere den Zeitstempel der letzten Aktualisierung
+    lastUpdateRef.current = now;
   }, [polygons, initialCoordinates, mapCenter]); // onAreaChange entfernt von Dependencies
+
+  // Cleanup-Funktion für alle Polygon-Event-Listener
+  useEffect(() => {
+    return () => {
+      // Beim Unmounten der Komponente alle Event-Listener entfernen
+      polygonInstancesRef.current.forEach(polygon => {
+        if (polygon && window.google && window.google.maps) {
+          window.google.maps.event.clearInstanceListeners(polygon);
+        }
+      });
+    };
+  }, []);
 
   const onMapLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map;
@@ -171,41 +199,55 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
     drawingManagerRef.current = drawingManager;
   };
 
-  const onPolygonComplete = (polygon: google.maps.Polygon) => {
-    // Berechne Fläche und Koordinaten des neuen Polygons
-    const path = polygon.getPath();
-    const areaInSqMeters = calculateArea(path);
+  // Hilfsfunktion zum Extrahieren der Koordinaten aus einem Polygon-Pfad
+  const extractCoordinates = (path: google.maps.MVCArray<google.maps.LatLng>): Array<[number, number]> => {
     const coordinates: Array<[number, number]> = [];
-    
     for (let i = 0; i < path.getLength(); i++) {
       const point = path.getAt(i);
       coordinates.push([point.lat(), point.lng()]);
     }
+    return coordinates;
+  };
+
+  const onPolygonComplete = (polygon: google.maps.Polygon) => {
+    // Polygon zur Referenzliste hinzufügen für späteren Cleanup
+    polygonInstancesRef.current.push(polygon);
     
-    // Füge das neue Polygon zum Array hinzu
-    setPolygons(prev => [...prev, {
-      polygon,
-      area: Math.round(areaInSqMeters),
-      coordinates
-    }]);
+    // Berechne Fläche und Koordinaten des neuen Polygons
+    const path = polygon.getPath();
+    const areaInSqMeters = calculateArea(path);
+    const coordinates = extractCoordinates(path);
     
-    // Event-Listener für Änderungen am Polygon
+    // Füge das neue Polygon zum Array hinzu mit einem Debounce
+    setTimeout(() => {
+      setPolygons(prev => [...prev, {
+        polygon,
+        area: Math.round(areaInSqMeters),
+        coordinates
+      }]);
+    }, 0);
+    
+    // Füge einen Event-Listener für Änderungen am Polygon hinzu, mit Debounce
+    let updateTimeout: NodeJS.Timeout | null = null;
+    
     google.maps.event.addListener(polygon, 'paths_changed', () => {
-      const updatedPath = polygon.getPath();
-      const updatedArea = calculateArea(updatedPath);
-      const updatedCoordinates: Array<[number, number]> = [];
-      
-      for (let i = 0; i < updatedPath.getLength(); i++) {
-        const point = updatedPath.getAt(i);
-        updatedCoordinates.push([point.lat(), point.lng()]);
+      // Debounce: Warte, bis die Änderungen abgeschlossen sind
+      if (updateTimeout) {
+        clearTimeout(updateTimeout);
       }
       
-      // Aktualisiere den entsprechenden Eintrag im Polygons-Array
-      setPolygons(prev => prev.map(p => p.polygon === polygon ? {
-        polygon,
-        area: Math.round(updatedArea),
-        coordinates: updatedCoordinates
-      } : p));
+      updateTimeout = setTimeout(() => {
+        const updatedPath = polygon.getPath();
+        const updatedArea = calculateArea(updatedPath);
+        const updatedCoordinates = extractCoordinates(updatedPath);
+        
+        // Aktualisiere den entsprechenden Eintrag im Polygons-Array
+        setPolygons(prev => prev.map(p => p.polygon === polygon ? {
+          polygon,
+          area: Math.round(updatedArea),
+          coordinates: updatedCoordinates
+        } : p));
+      }, 100); // Warte 100ms nach der letzten Änderung
     });
     
     setShowInstructions(false);
@@ -219,8 +261,19 @@ export default function AreaDrawingMap({ initialCoordinates, onAreaChange }: Are
   const removeLastPolygon = () => {
     if (polygons.length > 0) {
       const lastPolygon = polygons[polygons.length - 1];
+      
+      // Entferne Event-Listener vom Polygon
+      if (lastPolygon.polygon && window.google && window.google.maps) {
+        window.google.maps.event.clearInstanceListeners(lastPolygon.polygon);
+      }
+      
       lastPolygon.polygon.setMap(null); // Entferne das Polygon von der Karte
-      setPolygons(prev => prev.slice(0, -1)); // Entferne das letzte Element aus dem Array
+      
+      // Aktualisiere die Liste der Polygon-Instanzen
+      polygonInstancesRef.current = polygonInstancesRef.current.filter(p => p !== lastPolygon.polygon);
+      
+      // Entferne das Polygon aus dem State
+      setPolygons(prev => prev.slice(0, -1));
     }
   };
 

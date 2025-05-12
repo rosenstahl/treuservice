@@ -108,12 +108,14 @@ export const AreaSelectionStep: React.FC<AreaSelectionStepProps> = ({
         </motion.p>
       </div>
 
-      {/* Google Maps Drawing Integration - direkt ohne Card-Container */}
+      {/* Google Maps Drawing Integration - mit einem größeren Container */}
       {!isManualMode && (
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.3 }}
+          // Neuer größerer Container mit mehr Platz für die Karte
+          className="w-full -mx-4 sm:mx-0 sm:w-[calc(100%+6rem)] sm:-ml-12 md:w-[calc(100%+10rem)] md:-ml-20 lg:w-[calc(100%+16rem)] lg:-ml-32"
         >
           <AreaDrawingMap 
             initialCoordinates={formData.area.coordinates}
